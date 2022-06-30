@@ -19,6 +19,12 @@ function print_process_argv() {
 // 3: 2
 
 // ./node_modules/.bin/electron electron-main --screen 2 --restart_time 18:09:00
+// --restart_period
+// --u
+// --s
+// --debug
+// --full
+// --screen
 
 let opt = {};
 
