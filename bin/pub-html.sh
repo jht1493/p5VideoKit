@@ -4,7 +4,7 @@ cd ${0%/*}
 # Publish html app to jht1493.net
 
 excludes="--exclude .DS_Store --exclude .git --exclude node_modules --exclude external/media"
-# delete=--delete
+delete=--delete
 test=
 test=--dry-run
 verbose=
@@ -14,8 +14,6 @@ start_time=`date +%s`
 
 host=bitnami@34.236.53.81
 siteroot=/home/bitnami/htdocs
-homepage=a0/skt
-homepage=a1/skt
 homepage=p5VideoKit/demo
 rpath="${siteroot}/${homepage}"
 rdest=$host:${rpath}
@@ -33,11 +31,11 @@ echo "rsync from $source"
 echo "        to $rdest"
 # rsync -razO$verbose $excludes $delete $test "$source/" "$rdest/"
 
-# scp "$source/../index.html" "$rdest/../../index.html"
+# Symbolic link external/media to large media files folder
+ssh $host ln -s /home/bitnami/htdocs/a1/skt/assets $rpath/external/media
 
 echo
 echo Lapse $(expr `date +%s` - $start_time) 
 echo "open https://jht1493.net/${homepage}"
-echo "open https://jht1493.net/d/dice_faces"
 
 
