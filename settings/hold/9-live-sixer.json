@@ -1,0 +1,126 @@
+{
+  "setting": "",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "4x4",
+  "canvas_size": "1920x1080",
+  "capture_size": "320x240",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 2,
+        "effect": "diff",
+        "pad": {
+          "x0": 0,
+          "y0": 60,
+          "width": 1280,
+          "height": 960
+        }
+      },
+      "eff": {
+        "threshold": 16,
+        "period": 0,
+        "back_color": "rgb(0,0,0)",
+        "smooth": 0,
+        "hold": 0
+      }
+    },
+    {
+      "isrc": {
+        "imedia": 2,
+        "effect": "show",
+        "ipatch": 1,
+        "pad": {
+          "x0": 1280,
+          "y0": 60,
+          "width": 640,
+          "height": 480
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    },
+    {
+      "isrc": {
+        "imedia": 2,
+        "effect": "show",
+        "ipatch": 2,
+        "pad": {
+          "x0": 1280,
+          "y0": 540,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    },
+    {
+      "isrc": {
+        "imedia": 2,
+        "effect": "show",
+        "ipatch": 3,
+        "pad": {
+          "x0": 1600,
+          "y0": 540,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    },
+    {
+      "isrc": {
+        "imedia": 2,
+        "effect": "show",
+        "ipatch": 4,
+        "pad": {
+          "x0": 1280,
+          "y0": 780,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    },
+    {
+      "isrc": {
+        "imedia": 2,
+        "effect": "show",
+        "ipatch": 5,
+        "pad": {
+          "x0": 1600,
+          "y0": 780,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    }
+  ],
+  "pads_lock": 1,
+  "pads_count": 6,
+  "canvas_resize_ref": ""
+}

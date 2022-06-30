@@ -1,0 +1,87 @@
+{
+  "setting": "0-skin-tone-left",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "Single",
+  "canvas_size": "1920x1080",
+  "capture_size": "",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 1,
+        "effect": "face_mesh",
+        "pad": {
+          "width": 1920,
+          "height": 1080,
+          "x0": 0,
+          "y0": 0
+        },
+        "ihide": 1,
+        "ipipe": 0
+      },
+      "eff": {
+        "alpha": 255,
+        "align": "center",
+        "back_color": 1,
+        "period": 0,
+        "reveal": 0,
+        "reveal_full": 1,
+        "from": 0,
+        "to": 1,
+        "show": 0,
+        "src_patch": 1,
+        "type": "triangle",
+        "bbox": 0,
+        "mar_h": 5,
+        "hi_rez": 1,
+        "sticky": 1,
+        "box_outter": 0,
+        "box_rect": 0,
+        "draw": "mesh",
+        "slen": 2,
+        "mask_index": 0,
+        "avg_index": 1440,
+        "rend": 0,
+        "pixd_n": 8
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 1,
+        "imedia": 0,
+        "effect": "tile_clock",
+        "pad": {
+          "width": 1920,
+          "height": 1080,
+          "x0": 0,
+          "y0": 0
+        },
+        "ipipe": 1,
+        "ihide": 0
+      },
+      "eff": {
+        "period": 5,
+        "pixd_n": 16,
+        "gray_back": 0,
+        "freeze_patch": 1,
+        "center_draw": "mesh",
+        "center_only": 1,
+        "freeze_damp": 2
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": false
+    }
+  ],
+  "pads_lock": 0,
+  "pads_count": 2,
+  "canvas_resize_ref": ""
+}

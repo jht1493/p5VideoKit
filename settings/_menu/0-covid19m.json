@@ -1,0 +1,56 @@
+{
+  "setting": "",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "Single",
+  "canvas_size": "1920x1080",
+  "capture_size": "320x240",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 1,
+        "effect": "image",
+        "pad": {
+          "width": 1920,
+          "height": 1080,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff": {
+        "group": "covid19m",
+        "labeled": 0,
+        "label_align": "center",
+        "image_align": "none",
+        "loop": 1,
+        "period": 20,
+        "shuffle": 0,
+        "face": "none",
+        "align": "center",
+        "alpha": 255,
+        "color": "black",
+        "ncell": 32,
+        "shape": "circle",
+        "zoomed": 0,
+        "peg_width": 1,
+        "pan_ease": 0,
+        "export_on": 0,
+        "iimage": 3
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": false
+    }
+  ],
+  "pads_lock": 0,
+  "pads_count": 1,
+  "canvas_resize_ref": ""
+}

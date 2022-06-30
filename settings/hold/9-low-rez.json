@@ -1,0 +1,38 @@
+{
+  "setting": "2-low-rez",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "Single",
+  "canvas_size": "1920x1080",
+  "capture_size": "20x15",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 1,
+        "pad": {
+          "width": 1920,
+          "height": 1080,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff": {
+        "step_patch": 1
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": false
+    }
+  ],
+  "pads_lock": 0,
+  "pads_count": 1,
+  "canvas_resize_ref": ""
+}

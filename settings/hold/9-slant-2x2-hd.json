@@ -1,0 +1,107 @@
+{
+  "setting": "2-slant-2x2-hd",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "2x2",
+  "canvas_size": "1920x1080",
+  "capture_size": "960x540",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 1,
+        "effect": "slant_scan",
+        "pad": {
+          "x0": 0,
+          "y0": 0,
+          "width": 960,
+          "height": 540
+        }
+      },
+      "eff": {
+        "ncell": 960,
+        "step": 1,
+        "start": 135,
+        "end": 180,
+        "delta": 5,
+        "dir_up": 1
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 1,
+        "imedia": 1,
+        "effect": "slant_scan",
+        "pad": {
+          "x0": 960,
+          "y0": 0,
+          "width": 960,
+          "height": 540
+        }
+      },
+      "eff": {
+        "ncell": 960,
+        "step": 1,
+        "start": 45,
+        "end": 90,
+        "delta": 5,
+        "dir_up": 1
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 2,
+        "imedia": 1,
+        "effect": "slant_scan",
+        "pad": {
+          "x0": 0,
+          "y0": 540,
+          "width": 960,
+          "height": 540
+        }
+      },
+      "eff": {
+        "ncell": 960,
+        "step": 1,
+        "start": 225,
+        "end": 270,
+        "delta": 5,
+        "dir_up": 0
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 3,
+        "imedia": 1,
+        "effect": "slant_scan",
+        "pad": {
+          "x0": 960,
+          "y0": 540,
+          "width": 960,
+          "height": 540
+        }
+      },
+      "eff": {
+        "ncell": 960,
+        "step": 1,
+        "start": 315,
+        "end": 360,
+        "delta": 5,
+        "dir_up": 0
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": 0
+    }
+  ],
+  "pads_lock": 0,
+  "pads_count": 4,
+  "canvas_resize_ref": ""
+}

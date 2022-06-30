@@ -1,5 +1,4 @@
 .DS_Store
 node_modules
 .env
-/assets/webdb
-/assets/mov
+/external/media

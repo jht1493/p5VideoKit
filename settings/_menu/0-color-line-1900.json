@@ -1,0 +1,168 @@
+{
+  "setting": "0-color-line-1900",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "2x1",
+  "canvas_size": "1920x1080",
+  "capture_size": "",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "isrc": {
+        "ipatch": 0,
+        "imedia": 1,
+        "effect": "none",
+        "pad": {
+          "x0": 0,
+          "y0": 0,
+          "width": 1280,
+          "height": 1080
+        }
+      },
+      "eff": {
+        "back_color_patch": 5
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 1,
+        "imedia": 1,
+        "effect": "none",
+        "pad": {
+          "x0": 1280,
+          "y0": 0,
+          "width": 960,
+          "height": 1080
+        }
+      },
+      "eff": {
+        "back_color_patch": 6
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 2,
+        "imedia": 1,
+        "effect": "none",
+        "pad": {
+          "x0": 0,
+          "y0": 60,
+          "width": 1280,
+          "height": 960
+        }
+      },
+      "eff": {
+        "back_color_patch": 0
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 3,
+        "imedia": 1,
+        "effect": "image",
+        "pad": {
+          "x0": 640,
+          "y0": 60,
+          "width": 1280,
+          "height": 960
+        }
+      },
+      "eff": {
+        "face": "mesh",
+        "align": "right",
+        "alpha": 255,
+        "color": "black",
+        "ncell": 32,
+        "shape": "circle",
+        "image_name": "test/fac.png",
+        "group": "fmfm",
+        "show": 1,
+        "loop": 1,
+        "period": 20,
+        "load_msg": 1,
+        "export": 0,
+        "reveal": 0,
+        "bbox": 0,
+        "wt": 0,
+        "zoomed": 0,
+        "pan_ease": 0,
+        "labeled": 1,
+        "flush": "left",
+        "shuffle": 1,
+        "peg_width": 1,
+        "export_on": 0,
+        "label_align": "center",
+        "image_align": "none"
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 4,
+        "imedia": 1,
+        "effect": "face_mesh",
+        "pad": {
+          "x0": 1280,
+          "y0": 60,
+          "width": 1280,
+          "height": 960
+        }
+      },
+      "eff": {
+        "alpha": 255,
+        "align": "left",
+        "back_color": 0,
+        "period": 0.5,
+        "reveal": 0,
+        "reveal_full": 1,
+        "from": 0,
+        "to": 1,
+        "sticky": 1,
+        "box_outter": 0,
+        "box_rect": 0,
+        "draw": "mesh",
+        "mar_h": 0,
+        "slen": 5,
+        "hi_rez": 1,
+        "mask_index": 0,
+        "avg_index": 1440,
+        "pixd_n": 8
+      }
+    },
+    {
+      "isrc": {
+        "ipatch": 5,
+        "imedia": 1,
+        "effect": "image_mesh",
+        "pad": {
+          "x0": 0,
+          "y0": 60,
+          "width": 1280,
+          "height": 960
+        }
+      },
+      "eff": {
+        "image_patch": 4,
+        "align": "left",
+        "alpha": 255,
+        "mar_h": 0,
+        "draw": "mesh",
+        "slen": 5
+      }
+    }
+  ],
+  "medias": [
+    null,
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    }
+  ],
+  "pads_lock": 1,
+  "pads_count": 4,
+  "canvas_resize_ref": ""
+}
