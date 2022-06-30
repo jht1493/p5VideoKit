@@ -5,7 +5,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-const root_index_path = 'src/index.html';
+const root_index_path = './index.html';
 
 function print_process_argv() {
   process.argv.forEach((val, index) => {
@@ -22,7 +22,7 @@ function print_process_argv() {
 // --restart_period
 // --u
 // --s
-// --debug
+// --edebug
 // --full
 // --screen
 
@@ -50,7 +50,7 @@ function parse_argv(argv) {
         opt.s = argv[index + 1];
         index++;
         break;
-      case '--debug':
+      case '--edebug':
         opt.debug = true;
         break;
       case '--full':
