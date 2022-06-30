@@ -298,7 +298,7 @@ class eff_image_show {
       }
       image_name = this.group + '/' + this.images[this.iimage];
     }
-    let ipath = '../assets/webdb/' + image_name;
+    let ipath = './external/media/webdb/' + image_name;
     loadImage(ipath, (img) => {
       console.log('eff_image_show img.width', img.width, 'height', img.height);
       console.log('eff_image_show output width', this.output.width, 'height', this.output.height);
@@ -319,7 +319,7 @@ class eff_image_show {
     this.image_name = image_name;
     if (this.face === 'none') return;
     let jname = this.replace_ext(this.image_name, '.json');
-    let jpath = '../assets/webdb/' + jname;
+    let jpath = './external/media/webdb/' + jname;
     console.log('eff_image_show jpath', jpath);
     // console.log('eff_image_show export_on', this.export_on);
     if (this.export_on) {

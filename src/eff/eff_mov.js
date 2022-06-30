@@ -54,7 +54,7 @@ class eff_mov_show {
       }
       file_name = this.group + '/' + this.files[this.ifile];
     }
-    let ipath = '../assets/webdb/' + file_name;
+    let ipath = './external/media/webdb/' + file_name;
     console.log('eff_mov_show ipath=' + ipath);
     // console.log('eff_mov_show vid', this.vid);
     this.vid = createVideo(ipath, () => {
