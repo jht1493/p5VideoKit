@@ -11,10 +11,10 @@ curl https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js -
 
 curl https://p5livemedia.itp.io/simplepeer.min.js -o $dest/simplepeer.min.js
 curl https://p5livemedia.itp.io/socket.io.js -o $dest/socket.io.js
-# Skip map
+# Skip map socket.io.js.map
 # curl https://p5livemedia.itp.io/socket.io.js.map -o $dest/socket.io.js.map
 
-# Most recent p5livemedia.js
+# Use most recent p5livemedia.js
 # curl https://p5livemedia.itp.io/p5livemedia.js -o $dest/p5livemedia.js
 curl https://raw.githubusercontent.com/vanevery/p5LiveMedia/master/public/p5livemedia.js  -o $dest/p5livemedia.js
 

@@ -1,5 +1,7 @@
 electron-install-notes.txt
 
+/Users/jht2/Documents/projects/dice_face_aa/p5VideoKit/src
+
 jht2@jht2-mbp-m1 src % npm install
 
 added 91 packages, and audited 92 packages in 2s
@@ -13,5 +15,4 @@ To address all issues (including breaking changes), run:
   npm audit fix --force
 
 Run `npm audit` for details.
-jht2@jht2-mbp-m1 src % pwd
-/Users/jht2/Documents/projects/dice_face_aa/p5VideoKit/src
+
