@@ -76,9 +76,9 @@ function ui_patch_buttons() {
     let newPatch = { isrc: { ipatch: 0, imedia: 1, effect: 'show' } };
     patch_add(newPatch);
   });
-  createButton('Remove Patch').mousePressed(function () {
-    patch_remove_last();
-  });
+  // createButton('Remove Patch').mousePressed(function () {
+  //   patch_remove_last();
+  // });
   createElement('br');
 }
 
@@ -128,6 +128,11 @@ function pad_layout_update() {
     let uiPatch = a_ui.patches[ipatch];
     if (uiPatch) {
       let isrc = uiPatch.isrc;
+      if (isrc.ipatch != ipatch) {
+        // ipatch change due to deletes
+        console.log('!!@ isrc.ipatch', isrc.ipatch, 'ipatch', ipatch);
+        isrc.ipatch = ipatch;
+      }
       if (layout) {
         pad = layout.next();
       } else if (isrc.pad_ref) {

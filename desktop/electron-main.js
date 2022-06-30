@@ -5,7 +5,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-const root_index_path = './index.html';
+const root_index_path = '../src/index.html';
 
 function print_process_argv() {
   process.argv.forEach((val, index) => {

@@ -18,7 +18,16 @@ function ui_patch_eff_panes() {
 
     create_checkbox('hide', 'ihide');
 
+    create_remove_patch();
+
     create_settings();
+
+    function create_remove_patch() {
+      let btn = createButton('Remove').mousePressed(function () {
+        patch_remove_ipatch(ipatch);
+      });
+      div.child(btn);
+    }
 
     function create_checkbox(label, prop) {
       let chk = createCheckbox(label, aPatch.isrc[prop]);
@@ -165,18 +174,28 @@ function patch_add(aPatch) {
   pad_layout_update();
 }
 
-// Remove the last patch
-function patch_remove_last() {
-  let ipatch = a_ui.patches.length - 1;
+function patch_remove_ipatch(ipatch) {
+  patch_remove_at(ipatch);
+}
+
+// Remove patch by index
+function patch_remove_at(ipatch) {
   // Don't delete first patch
-  if (ipatch === 0) {
-    return;
-  }
+  // if (ipatch === 0) {
+  //   return;
+  // }
   a_ui.patches.splice(ipatch, 1);
+  a_patch_instances.splice(ipatch, 1);
   ui_div_empty('patch_' + ipatch);
   ui_patch_update();
   ui_refresh();
   pad_layout_update();
+}
+
+// Remove the last patch
+function patch_remove_last() {
+  let ipatch = a_ui.patches.length - 1;
+  patch_remove_at(ipatch);
 }
 
 function patch_update_ieff(aPatch, ieff) {

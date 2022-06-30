@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ${0%/*}
 
-dest=../src/
+dest=../desktop/
 cd $dest
 
 rm -rf node_modules/
