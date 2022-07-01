@@ -8,7 +8,7 @@ function ui_patch_eff_panes() {
     let div = ui_div_empty('patch_' + ipatch);
     droot.child(div);
     let aPatch = a_ui.patches[ipatch];
-    // a_ui.patches: [{ imedia: 1, ieff: 0, ipatch: 0 }],
+    // a_ui.patches: [{ imedia: 1, ifactory: 0, ipatch: 0 }],
 
     create_patch_selection();
 
@@ -76,7 +76,7 @@ function ui_patch_eff_panes() {
     function create_settings() {
       // console.log('create_settings aPatch', aPatch);
       let aeff = effectFind(aPatch.eff_src.eff_label);
-      create_selections_for_dict(aeff.eff.meta_props);
+      create_selections_for_dict(aeff.factory.meta_props);
       div.child(createElement('br'));
       div.child(createElement('br'));
     }
@@ -202,7 +202,7 @@ function patch_update_ieff(aPatch, ieff) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
   eff_src.eff_label = a_effects[ieff].label;
-  a_ui.patches[ipatch] = { eff_src, eff: {} };
+  a_ui.patches[ipatch] = { eff_src, factory: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();
 }

@@ -63,7 +63,7 @@ function draw_patch(ipatch, prior) {
     let input = media.capture;
     let init = { eff_src, input, media };
     init = Object.assign(init, uiPatch.eff_inits);
-    inst = new aeff.eff(init);
+    inst = new aeff.factory(init);
     a_patch_instances[ipatch] = inst;
     mouse_event_check(inst);
   } else if (media) {

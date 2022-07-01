@@ -178,12 +178,12 @@ class eff_loop {
     // console.log('next_eff aeff', aeff);
     if (aeff) {
       console.log('next_eff aeff', aeff.label);
-      let iprops = this.eff_inits(aeff.eff.meta_props);
+      let iprops = this.eff_inits(aeff.factory.meta_props);
       // Set input on iprops for eff_inst.init
       this.prepare_input(iprops);
       let eff_inst = this.eff_inst_arr[this.index];
       if (!eff_inst) {
-        eff_inst = new aeff.eff(iprops);
+        eff_inst = new aeff.factory(iprops);
         this.eff_inst_arr[this.index] = eff_inst;
       } else {
         // console.log('next_eff init eff_inst', eff_inst);
