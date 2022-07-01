@@ -120,7 +120,7 @@ class Circle {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.delta = 0.5;
+    this.delta = 0.2;
   }
   // Check stuck to an edge
   edges() {
@@ -135,7 +135,7 @@ class Circle {
   }
   // Shrink
   shrink() {
-    this.r -= this.delta;
+    this.r -= this.delta / 5;
     if (this.r < 0) {
       this.r = 0;
     }

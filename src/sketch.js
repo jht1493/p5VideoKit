@@ -17,6 +17,8 @@ function setup() {
 
     media_enum();
   });
+
+  moduleTest();
 }
 
 function draw() {
@@ -38,7 +40,7 @@ function draw_patch(ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let isrc = uiPatch.isrc;
   let { effect, imedia } = isrc;
-  let aeff = effect_label(effect);
+  let aeff = effectFind(effect);
   let media = a_media_panes[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);

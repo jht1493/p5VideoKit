@@ -1,4 +1,4 @@
-let a_app_ver = 'Present?v=20 ';
+let a_app_ver = 'Present?v=25 ';
 let a_store_ver = '192';
 let a_store_name = 'Store-A';
 let a_store_prefix = '';
@@ -31,7 +31,7 @@ let a_chat_name; // chat name from url param c
 
 let a_effects_dict;
 
-function effect_label(label) {
+function effectFind(label) {
   if (!a_effects_dict) {
     a_effects_dict = {};
     let index = 0;
@@ -46,7 +46,7 @@ function effect_label(label) {
   }
   let eff = a_effects_dict[label];
   if (!eff) {
-    console.log('effect_label !!@ eff', label);
+    console.log('effectFind label not found', label);
     eff = a_effects[0];
   }
   return eff;

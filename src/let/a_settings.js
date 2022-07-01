@@ -3,6 +3,106 @@ let a_settings = [
     "setting": ""
   },
   {
+    "setting": "-2x2",
+    "back_color": 200,
+    "room_name": "Dice-Play-1",
+    "patch_layout": "2x2",
+    "canvas_size": "960x540",
+    "capture_size": "480x270",
+    "chat_name": "jht",
+    "chat_chk": 0,
+    "live_index": 0,
+    "live_chk": 0,
+    "patches": [
+      {
+        "isrc": {
+          "ipatch": 0,
+          "imedia": 1,
+          "effect": "circle",
+          "pad": {
+            "x0": 0,
+            "y0": 0,
+            "width": 480,
+            "height": 270
+          }
+        },
+        "eff": {
+          "per_frame": 5,
+          "ntry": 50,
+          "period": 10
+        }
+      },
+      {
+        "isrc": {
+          "ipatch": 1,
+          "imedia": 1,
+          "effect": "maze",
+          "pad": {
+            "x0": 480,
+            "y0": 0,
+            "width": 480,
+            "height": 270
+          }
+        },
+        "eff": {
+          "ncell": 32,
+          "weight": 0.5,
+          "rate": "frame",
+          "period": 10
+        }
+      },
+      {
+        "isrc": {
+          "ipatch": 2,
+          "imedia": 1,
+          "effect": "bright",
+          "pad": {
+            "x0": 0,
+            "y0": 270,
+            "width": 480,
+            "height": 270
+          }
+        },
+        "eff": {
+          "scale": 16,
+          "back_color": 0,
+          "src_color": 255,
+          "fill": 1,
+          "invert": 1,
+          "shape": "rect"
+        }
+      },
+      {
+        "isrc": {
+          "ipatch": 3,
+          "imedia": 1,
+          "effect": "grid",
+          "pad": {
+            "x0": 480,
+            "y0": 270,
+            "width": 480,
+            "height": 270
+          }
+        },
+        "eff": {
+          "ncell": 32,
+          "margin": 1,
+          "rate": "frame"
+        }
+      }
+    ],
+    "medias": [
+      null,
+      {
+        "vis": false
+      }
+    ],
+    "pads_lock": 0,
+    "pads_count": 4,
+    "canvas_resize_ref": "",
+    "canvas_data_chk": 0
+  },
+  {
     "setting": "0-club",
     "back_color": 200,
     "room_name": "Dice-Play-1",
