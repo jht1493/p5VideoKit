@@ -15,10 +15,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "circle",
+          "eff_label": "circle",
           "pad": {
             "x0": 0,
             "y0": 0,
@@ -26,17 +26,17 @@ let a_settings = [
             "height": 270
           }
         },
-        "eff": {
+        "eff_inits": {
           "per_frame": 5,
           "ntry": 50,
           "period": 10
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "maze",
+          "eff_label": "maze",
           "pad": {
             "x0": 480,
             "y0": 0,
@@ -44,7 +44,7 @@ let a_settings = [
             "height": 270
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 32,
           "weight": 0.5,
           "rate": "frame",
@@ -52,10 +52,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "bright",
+          "eff_label": "bright",
           "pad": {
             "x0": 0,
             "y0": 270,
@@ -63,7 +63,7 @@ let a_settings = [
             "height": 270
           }
         },
-        "eff": {
+        "eff_inits": {
           "scale": 16,
           "back_color": 0,
           "src_color": 255,
@@ -73,10 +73,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 3,
           "imedia": 1,
-          "effect": "grid",
+          "eff_label": "grid",
           "pad": {
             "x0": 480,
             "y0": 270,
@@ -84,7 +84,7 @@ let a_settings = [
             "height": 270
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 32,
           "margin": 1,
           "rate": "frame"
@@ -115,10 +115,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 0,
-          "effect": "image",
+          "eff_label": "image",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -126,7 +126,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "group": "screens",
           "labeled": 0,
           "label_align": "center",
@@ -148,10 +148,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 0,
-          "effect": "loop",
+          "eff_label": "loop",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -159,7 +159,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "period": 10,
           "step_patch": 0,
           "freeze_patch": 0,
@@ -167,10 +167,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 0,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -178,7 +178,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 20,
           "mirror": 0
         }
@@ -207,10 +207,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "none",
+          "eff_label": "none",
           "pad": {
             "x0": 0,
             "y0": 0,
@@ -218,15 +218,15 @@ let a_settings = [
             "height": 1080
           }
         },
-        "eff": {
+        "eff_inits": {
           "back_color_patch": 5
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "none",
+          "eff_label": "none",
           "pad": {
             "x0": 1280,
             "y0": 0,
@@ -234,15 +234,15 @@ let a_settings = [
             "height": 1080
           }
         },
-        "eff": {
+        "eff_inits": {
           "back_color_patch": 6
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "none",
+          "eff_label": "none",
           "pad": {
             "x0": 0,
             "y0": 60,
@@ -250,15 +250,15 @@ let a_settings = [
             "height": 960
           }
         },
-        "eff": {
+        "eff_inits": {
           "back_color_patch": 0
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 3,
           "imedia": 1,
-          "effect": "image",
+          "eff_label": "image",
           "pad": {
             "x0": 640,
             "y0": 60,
@@ -266,7 +266,7 @@ let a_settings = [
             "height": 960
           }
         },
-        "eff": {
+        "eff_inits": {
           "face": "mesh",
           "align": "right",
           "alpha": 255,
@@ -295,10 +295,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 4,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "x0": 1280,
             "y0": 60,
@@ -306,7 +306,7 @@ let a_settings = [
             "height": 960
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "left",
           "back_color": 0,
@@ -328,10 +328,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 5,
           "imedia": 1,
-          "effect": "image_mesh",
+          "eff_label": "image_mesh",
           "pad": {
             "x0": 0,
             "y0": 60,
@@ -339,7 +339,7 @@ let a_settings = [
             "height": 960
           }
         },
-        "eff": {
+        "eff_inits": {
           "image_patch": 4,
           "align": "left",
           "alpha": 255,
@@ -375,10 +375,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "image",
+          "eff_label": "image",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -386,7 +386,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "group": "covid19m",
           "labeled": 0,
           "label_align": "center",
@@ -431,10 +431,10 @@ let a_settings = [
     "live_chk": 1,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 640,
             "height": 480,
@@ -442,7 +442,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 1,
@@ -464,10 +464,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 0,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 640,
             "height": 480,
@@ -475,7 +475,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 10,
           "mirror": 0
         }
@@ -507,10 +507,10 @@ let a_settings = [
     "live_chk": 1,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 2,
-          "effect": "tile",
+          "eff_label": "tile",
           "pad": {
             "width": 960,
             "height": 540,
@@ -518,7 +518,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 1,
           "period": 3,
           "freeze_patch": 0,
@@ -561,10 +561,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -573,7 +573,7 @@ let a_settings = [
           },
           "ihide": 1
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 1,
@@ -601,10 +601,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 0,
-          "effect": "loop",
+          "eff_label": "loop",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -614,7 +614,7 @@ let a_settings = [
           "ipipe": 1,
           "ihide": 1
         },
-        "eff": {
+        "eff_inits": {
           "period": 10,
           "snap": 0,
           "snap_screen": 0,
@@ -625,10 +625,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "tile_clock",
+          "eff_label": "tile_clock",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -637,7 +637,7 @@ let a_settings = [
           },
           "ipipe": 1
         },
-        "eff": {
+        "eff_inits": {
           "period": 1,
           "pixd_n": 16,
           "freeze_patch": 1,
@@ -674,10 +674,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -687,7 +687,7 @@ let a_settings = [
           "ihide": 1,
           "ipipe": 0
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 1,
@@ -714,10 +714,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 0,
-          "effect": "tile_clock",
+          "eff_label": "tile_clock",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -727,7 +727,7 @@ let a_settings = [
           "ipipe": 1,
           "ihide": 0
         },
-        "eff": {
+        "eff_inits": {
           "period": 5,
           "pixd_n": 16,
           "gray_back": 0,
@@ -761,10 +761,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -773,7 +773,7 @@ let a_settings = [
           },
           "ihide": 1
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 1,
@@ -800,10 +800,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 0,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -812,7 +812,7 @@ let a_settings = [
           },
           "ipipe": 1
         },
-        "eff": {
+        "eff_inits": {
           "factor": 10,
           "mirror": 0,
           "src_patch": 1,
@@ -843,10 +843,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -854,16 +854,16 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 200,
           "mirror": 0
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -871,7 +871,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -885,10 +885,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -896,7 +896,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -941,10 +941,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "slit_scan",
+          "eff_label": "slit_scan",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -952,7 +952,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "xdir": 0,
           "step": 1,
           "auto_flip": 1,
@@ -960,10 +960,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -971,7 +971,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 0,
@@ -993,10 +993,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1004,7 +1004,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1018,10 +1018,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 3,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1029,7 +1029,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1074,10 +1074,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "bright",
+          "eff_label": "bright",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1085,7 +1085,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "scale": 16,
           "back_color": 0,
           "src_color": 255,
@@ -1094,10 +1094,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1105,7 +1105,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1119,10 +1119,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1130,7 +1130,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1175,10 +1175,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1186,7 +1186,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1208,10 +1208,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1219,7 +1219,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 2,
           "points": 0,
@@ -1259,10 +1259,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "grid",
+          "eff_label": "grid",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1270,17 +1270,17 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 32,
           "margin": 2,
           "rate": "ncell"
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1288,7 +1288,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1302,10 +1302,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1313,7 +1313,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1358,10 +1358,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "slant_scan",
+          "eff_label": "slant_scan",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1369,7 +1369,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 512,
           "step": 1,
           "start": 225,
@@ -1379,10 +1379,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1390,7 +1390,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1406,10 +1406,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1417,7 +1417,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "center",
           "back_color": 0,
@@ -1439,10 +1439,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 3,
           "imedia": 0,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1450,7 +1450,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 10,
           "mirror": 0
         }
@@ -1480,10 +1480,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "slant_scan",
+          "eff_label": "slant_scan",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1491,7 +1491,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "ncell": 512,
           "step": 1,
           "start": 225,
@@ -1501,10 +1501,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1512,7 +1512,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1528,10 +1528,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1539,7 +1539,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1561,10 +1561,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 3,
           "imedia": 0,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 960,
             "height": 540,
@@ -1572,7 +1572,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 10,
           "mirror": 0
         }
@@ -1602,10 +1602,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "slit_scan",
+          "eff_label": "slit_scan",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1613,7 +1613,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "xdir": 1,
           "step": 1,
           "auto_flip": 1,
@@ -1621,10 +1621,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "pose_net",
+          "eff_label": "pose_net",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1632,7 +1632,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "ndetect": 4,
           "points": 0,
@@ -1646,10 +1646,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 2,
           "imedia": 1,
-          "effect": "face_mesh",
+          "eff_label": "face_mesh",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1657,7 +1657,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "alpha": 255,
           "align": "none",
           "back_color": 0,
@@ -1702,10 +1702,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "bestill",
+          "eff_label": "bestill",
           "pad": {
             "width": 1920,
             "height": 1080,
@@ -1713,7 +1713,7 @@ let a_settings = [
             "y0": 0
           }
         },
-        "eff": {
+        "eff_inits": {
           "factor": 200,
           "mirror": 0
         }
@@ -1742,10 +1742,10 @@ let a_settings = [
     "live_chk": 0,
     "patches": [
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 0,
           "imedia": 1,
-          "effect": "image",
+          "eff_label": "image",
           "pad": {
             "x0": 0,
             "y0": 0,
@@ -1754,7 +1754,7 @@ let a_settings = [
           },
           "ihide": 0
         },
-        "eff": {
+        "eff_inits": {
           "zoomed": 0,
           "pan_ease": 0,
           "group": "graph",
@@ -1777,10 +1777,10 @@ let a_settings = [
         }
       },
       {
-        "isrc": {
+        "eff_src": {
           "ipatch": 1,
           "imedia": 1,
-          "effect": "image",
+          "eff_label": "image",
           "pad": {
             "x0": 912,
             "y0": 0,
@@ -1789,7 +1789,7 @@ let a_settings = [
           },
           "ihide": 0
         },
-        "eff": {
+        "eff_inits": {
           "zoomed": 0,
           "pan_ease": 0,
           "group": "group",

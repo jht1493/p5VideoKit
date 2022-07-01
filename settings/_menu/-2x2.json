@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "circle",
+        "eff_label": "circle",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -22,17 +22,17 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "per_frame": 5,
         "ntry": 50,
         "period": 10
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "maze",
+        "eff_label": "maze",
         "pad": {
           "x0": 480,
           "y0": 0,
@@ -40,7 +40,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 32,
         "weight": 0.5,
         "rate": "frame",
@@ -48,10 +48,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 2,
         "imedia": 1,
-        "effect": "bright",
+        "eff_label": "bright",
         "pad": {
           "x0": 0,
           "y0": 270,
@@ -59,7 +59,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "scale": 16,
         "back_color": 0,
         "src_color": 255,
@@ -69,10 +69,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 3,
         "imedia": 1,
-        "effect": "grid",
+        "eff_label": "grid",
         "pad": {
           "x0": 480,
           "y0": 270,
@@ -80,7 +80,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 32,
         "margin": 1,
         "rate": "frame"

@@ -11,10 +11,10 @@
   "live_chk": 1,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 2,
-        "effect": "tile",
+        "eff_label": "tile",
         "pad": {
           "width": 960,
           "height": 540,
@@ -22,7 +22,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 1,
         "period": 3,
         "freeze_patch": 0,

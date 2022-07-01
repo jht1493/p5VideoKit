@@ -73,7 +73,7 @@ function ui_patch_layout() {
 
 function ui_patch_buttons() {
   createButton('Add Patch').mousePressed(function () {
-    let newPatch = { isrc: { ipatch: 0, imedia: 1, effect: 'show' } };
+    let newPatch = { eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } };
     patch_add(newPatch);
   });
   // createButton('Remove Patch').mousePressed(function () {
@@ -100,7 +100,7 @@ function ui_patch_update(aPatch) {
   // console.log('ui_patch_update');
   a_ui_set('patches', a_ui.patches);
   if (!aPatch) return;
-  let ipatch = aPatch.isrc.ipatch;
+  let ipatch = aPatch.eff_src.ipatch;
   // console.log('ui_patch_update ipatch', ipatch);
   let inst = a_patch_instances[ipatch];
   // console.log('ui_patch_update inst', inst);
@@ -127,23 +127,23 @@ function pad_layout_update() {
   for (let ipatch = 0; ipatch < a_ui.patches.length; ipatch++) {
     let uiPatch = a_ui.patches[ipatch];
     if (uiPatch) {
-      let isrc = uiPatch.isrc;
-      if (isrc.ipatch != ipatch) {
+      let eff_src = uiPatch.eff_src;
+      if (eff_src.ipatch != ipatch) {
         // ipatch change due to deletes
-        console.log('!!@ isrc.ipatch', isrc.ipatch, 'ipatch', ipatch);
-        isrc.ipatch = ipatch;
+        console.log('!!@ eff_src.ipatch', eff_src.ipatch, 'ipatch', ipatch);
+        eff_src.ipatch = ipatch;
       }
       if (layout) {
         pad = layout.next();
-      } else if (isrc.pad_ref) {
-        pad = Object.assign({}, isrc.pad_ref);
+      } else if (eff_src.pad_ref) {
+        pad = Object.assign({}, eff_src.pad_ref);
         console.log('pad_layout_ assign pad', JSON.stringify(pad));
         pads_resize_pad(pad);
       } else {
         // !!@ Error no pad_ref
         console.log('!!@ pad_layout_update pad_ref missing ipatch', ipatch, 'uiPatch', JSON.stringify(uiPatch));
       }
-      isrc.pad = pad;
+      eff_src.pad = pad;
       pads_count++;
     }
     // console.log('pad_layout_update uiPatch', JSON.stringify(uiPatch));

@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "loop",
+        "eff_label": "loop",
         "pad": {
           "width": 1920,
           "height": 1080,
@@ -22,7 +22,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "period": 20,
         "step_patch": 0,
         "freeze_patch": 0,

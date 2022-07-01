@@ -1,4 +1,4 @@
-let a_app_ver = 'Present?v=25 ';
+let a_app_ver = 'Present?v=26 ';
 let a_store_ver = '192';
 let a_store_name = 'Store-A';
 let a_store_prefix = '';
@@ -15,7 +15,7 @@ let a_ui = {
   chat_chk: 0,
   live_index: 0,
   live_chk: 0,
-  patches: [{ isrc: { ipatch: 0, imedia: 1, effect: 'show' } }],
+  patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
   medias: [],
   pads_lock: 0,
   pads_count: 0,

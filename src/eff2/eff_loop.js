@@ -133,7 +133,7 @@ class eff_loop {
     }
   }
   draw_freeze() {
-    image_scaled_pad(this.img_freeze, this.isrc.pad);
+    image_scaled_pad(this.img_freeze, this.eff_src.pad);
   }
   advance_check() {
     if (this.freeze_patch) {

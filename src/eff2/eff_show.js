@@ -17,10 +17,10 @@ class eff_show_pad {
   }
   render() {
     this.trigger_check();
-    if (!this.isrc.ihide) {
+    if (!this.eff_src.ihide) {
       if (this.input) {
         let img = this.input.get();
-        image_scaled_pad(img, this.isrc.pad);
+        image_scaled_pad(img, this.eff_src.pad);
       }
     } else {
       this.output = this.input;
@@ -55,7 +55,7 @@ class eff_show_none {
       if (src && src.avg_color) {
         noStroke();
         fill(src.avg_color);
-        let pad = this.isrc.pad;
+        let pad = this.eff_src.pad;
         rect(pad.x0, pad.y0, pad.width, pad.height);
       }
     }

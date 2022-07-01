@@ -30,12 +30,12 @@ function ui_patch_eff_panes() {
     }
 
     function create_checkbox(label, prop) {
-      let chk = createCheckbox(label, aPatch.isrc[prop]);
+      let chk = createCheckbox(label, aPatch.eff_src[prop]);
       div.child(chk);
       chk.style('display:inline');
       chk.changed(function () {
         let state = this.checked() ? 1 : 0;
-        aPatch.isrc[prop] = state;
+        aPatch.eff_src[prop] = state;
         ui_patch_update(aPatch);
       });
     }
@@ -48,7 +48,7 @@ function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_effects.length; ii++) {
         aSel.option(a_effects[ii].label, ii);
       }
-      let ieff = effectFind(aPatch.isrc.effect).index;
+      let ieff = effectFind(aPatch.eff_src.eff_label).index;
       aSel.selected(ieff);
       aSel.changed(function () {
         let ieff = parseFloat(this.value());
@@ -65,17 +65,17 @@ function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_media_panes.length; ii++) {
         aSel.option(a_media_panes[ii].label, ii);
       }
-      aSel.selected(aPatch.isrc.imedia);
+      aSel.selected(aPatch.eff_src.imedia);
       aSel.changed(function () {
         let ii = this.value();
-        aPatch.isrc.imedia = parseFloat(ii);
+        aPatch.eff_src.imedia = parseFloat(ii);
         ui_patch_update(aPatch);
       });
     }
 
     function create_settings() {
       // console.log('create_settings aPatch', aPatch);
-      let aeff = effectFind(aPatch.isrc.effect);
+      let aeff = effectFind(aPatch.eff_src.eff_label);
       create_selections_for_dict(aeff.eff.meta_props);
       div.child(createElement('br'));
       div.child(createElement('br'));
@@ -125,7 +125,7 @@ function ui_patch_eff_panes() {
     }
 
     function button_action(item, aPatch) {
-      let inst = a_patch_instances[aPatch.isrc.ipatch];
+      let inst = a_patch_instances[aPatch.eff_src.ipatch];
       item(inst, aPatch);
     }
 
@@ -145,13 +145,13 @@ function ui_patch_eff_panes() {
         aSel.option(arr[ii]);
       }
       // Get prop value or use first in arr as default if missing
-      if (!aPatch.eff) {
-        aPatch.eff = {};
+      if (!aPatch.eff_inits) {
+        aPatch.eff_inits = {};
       }
-      let aVal = aPatch.eff[prop];
+      let aVal = aPatch.eff_inits[prop];
       if (aVal === undefined) {
         aVal = arr[0];
-        aPatch.eff[prop] = aVal;
+        aPatch.eff_inits[prop] = aVal;
       }
       let isNum = typeof aVal === 'number';
       // console.log('create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
@@ -159,7 +159,7 @@ function ui_patch_eff_panes() {
       aSel.changed(function () {
         let aVal = this.value();
         if (isNum) aVal = parseFloat(aVal);
-        aPatch.eff[prop] = aVal;
+        aPatch.eff_inits[prop] = aVal;
         ui_patch_update(aPatch);
       });
     }
@@ -167,7 +167,7 @@ function ui_patch_eff_panes() {
 }
 
 function patch_add(aPatch) {
-  aPatch.isrc.ipatch = a_ui.patches.length;
+  aPatch.eff_src.ipatch = a_ui.patches.length;
   a_ui.patches.push(aPatch);
   ui_patch_update(aPatch);
   ui_refresh();
@@ -199,10 +199,10 @@ function patch_remove_last() {
 }
 
 function patch_update_ieff(aPatch, ieff) {
-  let isrc = aPatch.isrc;
-  let ipatch = isrc.ipatch;
-  isrc.effect = a_effects[ieff].label;
-  a_ui.patches[ipatch] = { isrc, eff: {} };
+  let eff_src = aPatch.eff_src;
+  let ipatch = eff_src.ipatch;
+  eff_src.eff_label = a_effects[ieff].label;
+  a_ui.patches[ipatch] = { eff_src, eff: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();
 }

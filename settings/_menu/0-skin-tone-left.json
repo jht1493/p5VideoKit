@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "face_mesh",
+        "eff_label": "face_mesh",
         "pad": {
           "width": 1920,
           "height": 1080,
@@ -24,7 +24,7 @@
         "ihide": 1,
         "ipipe": 0
       },
-      "eff": {
+      "eff_inits": {
         "alpha": 255,
         "align": "center",
         "back_color": 1,
@@ -51,10 +51,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 0,
-        "effect": "tile_clock",
+        "eff_label": "tile_clock",
         "pad": {
           "width": 1920,
           "height": 1080,
@@ -64,7 +64,7 @@
         "ipipe": 1,
         "ihide": 0
       },
-      "eff": {
+      "eff_inits": {
         "period": 5,
         "pixd_n": 16,
         "gray_back": 0,

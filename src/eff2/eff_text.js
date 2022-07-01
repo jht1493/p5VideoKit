@@ -3,17 +3,7 @@ class eff_text {
     size: [16, 30, 40, 45, 60, 90],
     alpha: [255, 0, 10, 50, 100, 200, 255],
     back_color: ['clear', 'black', 'white', 'gray', 'red', 'green', 'yellow'],
-    fore_color: [
-      'black',
-      'white',
-      'gray',
-      'red',
-      'green',
-      'yellow',
-      'rgb(255,255,0)',
-      'rgb(0,255,255)',
-      '#FFD700',
-    ],
+    fore_color: ['black', 'white', 'gray', 'red', 'green', 'yellow', 'rgb(255,255,0)', 'rgb(0,255,255)', '#FFD700'],
     x_margin: [20, 40],
     y_margin: [4, 8, 16],
     _text: [
@@ -30,11 +20,11 @@ class eff_text {
   }
   render() {
     tint(255, this.alpha);
-    // image_scaled_pad(this.output, this.isrc.pad);
+    // image_scaled_pad(this.output, this.eff_src.pad);
     tint(255);
   }
   init() {
-    this.output = createGraphics(this.isrc.pad.width, this.isrc.pad.height);
+    this.output = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
     this.draw_text();
   }
   draw_text() {
@@ -48,10 +38,10 @@ class eff_text {
     let tw = layer.textWidth(str) + x_margin * 2;
     // fill('black');
     let hi = ta + td + y_marghin * 2;
-    let cx = (this.isrc.pad.width - tw) / 2;
+    let cx = (this.eff_src.pad.width - tw) / 2;
     if (cx < 0) cx = 0;
-    let x = this.isrc.pad.x0 + cx;
-    let y = this.isrc.pad.y0 + this.isrc.pad.height - hi;
+    let x = this.eff_src.pad.x0 + cx;
+    let y = this.eff_src.pad.y0 + this.eff_src.pad.height - hi;
     if (this.back_color === 'clear') {
       layer.clear();
     } else {

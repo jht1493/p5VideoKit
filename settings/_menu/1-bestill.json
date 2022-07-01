@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "bestill",
+        "eff_label": "bestill",
         "pad": {
           "width": 1920,
           "height": 1080,
@@ -22,7 +22,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "factor": 200,
         "mirror": 0
       }

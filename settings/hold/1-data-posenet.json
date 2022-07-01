@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "image",
+        "eff_label": "image",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -23,7 +23,7 @@
         },
         "ihide": 0
       },
-      "eff": {
+      "eff_inits": {
         "zoomed": 0,
         "pan_ease": 0,
         "group": "graph",
@@ -46,10 +46,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "image",
+        "eff_label": "image",
         "pad": {
           "x0": 912,
           "y0": 0,
@@ -58,7 +58,7 @@
         },
         "ihide": 0
       },
-      "eff": {
+      "eff_inits": {
         "zoomed": 0,
         "pan_ease": 0,
         "group": "group",
@@ -81,10 +81,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 2,
         "imedia": 1,
-        "effect": "pose_net",
+        "eff_label": "pose_net",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -92,7 +92,7 @@
           "height": 1080
         }
       },
-      "eff": {
+      "eff_inits": {
         "alpha": 100,
         "points": 0,
         "points_size": 10,
@@ -103,10 +103,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 3,
         "imedia": 0,
-        "effect": "bestill",
+        "eff_label": "bestill",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -114,7 +114,7 @@
           "height": 1080
         }
       },
-      "eff": {
+      "eff_inits": {
         "factor": 10,
         "mirror": 0
       }

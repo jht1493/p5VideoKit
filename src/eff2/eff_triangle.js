@@ -10,7 +10,7 @@ class eff_triangle {
   render() {
     image_copy(this.img, this.input);
     while (!this.scan_draw_step()) {}
-    // image_scaled_pad(this.output, this.isrc.pad);
+    // image_scaled_pad(this.output, this.eff_src.pad);
   }
   init() {
     this.iimage = 0; // to sync with eff_tile

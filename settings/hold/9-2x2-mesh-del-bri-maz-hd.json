@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "face_mesh",
+        "eff_label": "face_mesh",
         "ihide": 0,
         "pad": {
           "x0": 0,
@@ -23,7 +23,7 @@
           "height": 540
         }
       },
-      "eff": {
+      "eff_inits": {
         "alpha": 255,
         "align": "center",
         "back_color": 1,
@@ -43,10 +43,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "delaunay",
+        "eff_label": "delaunay",
         "ihide": 0,
         "ipipe": 1,
         "pad": {
@@ -56,7 +56,7 @@
           "height": 540
         }
       },
-      "eff": {
+      "eff_inits": {
         "dcell": 50,
         "period": 30,
         "type": "triangle",
@@ -65,10 +65,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 2,
         "imedia": 1,
-        "effect": "bright",
+        "eff_label": "bright",
         "ipipe": 1,
         "pad": {
           "x0": 0,
@@ -77,7 +77,7 @@
           "height": 540
         }
       },
-      "eff": {
+      "eff_inits": {
         "scale": 16,
         "back_color": 0,
         "src_color": 255,
@@ -86,10 +86,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 3,
         "imedia": 1,
-        "effect": "maze",
+        "eff_label": "maze",
         "ipipe": 1,
         "pad": {
           "x0": 960,
@@ -98,7 +98,7 @@
           "height": 540
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 32,
         "weight": 0.5,
         "rate": "frame",

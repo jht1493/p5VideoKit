@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "image",
+        "eff_label": "image",
         "pad": {
           "width": 1920,
           "height": 1080,
@@ -22,7 +22,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "group": "covid19m",
         "labeled": 0,
         "label_align": "center",

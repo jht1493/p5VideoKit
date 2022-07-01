@@ -7,7 +7,7 @@ class eff_fft_graph {
   render() {
     this.layer.clear();
     this.draw_fft();
-    image_scaled_pad(this.layer, this.isrc.pad);
+    image_scaled_pad(this.layer, this.eff_src.pad);
   }
   init() {
     this.layer = createGraphics(width, height);

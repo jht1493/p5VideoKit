@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "fft_graph",
+        "eff_label": "fft_graph",
         "pad": {
           "width": 640,
           "height": 480,
@@ -22,15 +22,15 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "max": 5
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "face_band",
+        "eff_label": "face_band",
         "pad": {
           "width": 640,
           "height": 480,
@@ -38,7 +38,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "align": "center",
         "alpha": 255,
         "size": 0.2,

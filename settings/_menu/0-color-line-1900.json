@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "none",
+        "eff_label": "none",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -22,15 +22,15 @@
           "height": 1080
         }
       },
-      "eff": {
+      "eff_inits": {
         "back_color_patch": 5
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "none",
+        "eff_label": "none",
         "pad": {
           "x0": 1280,
           "y0": 0,
@@ -38,15 +38,15 @@
           "height": 1080
         }
       },
-      "eff": {
+      "eff_inits": {
         "back_color_patch": 6
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 2,
         "imedia": 1,
-        "effect": "none",
+        "eff_label": "none",
         "pad": {
           "x0": 0,
           "y0": 60,
@@ -54,15 +54,15 @@
           "height": 960
         }
       },
-      "eff": {
+      "eff_inits": {
         "back_color_patch": 0
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 3,
         "imedia": 1,
-        "effect": "image",
+        "eff_label": "image",
         "pad": {
           "x0": 640,
           "y0": 60,
@@ -70,7 +70,7 @@
           "height": 960
         }
       },
-      "eff": {
+      "eff_inits": {
         "face": "mesh",
         "align": "right",
         "alpha": 255,
@@ -99,10 +99,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 4,
         "imedia": 1,
-        "effect": "face_mesh",
+        "eff_label": "face_mesh",
         "pad": {
           "x0": 1280,
           "y0": 60,
@@ -110,7 +110,7 @@
           "height": 960
         }
       },
-      "eff": {
+      "eff_inits": {
         "alpha": 255,
         "align": "left",
         "back_color": 0,
@@ -132,10 +132,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 5,
         "imedia": 1,
-        "effect": "image_mesh",
+        "eff_label": "image_mesh",
         "pad": {
           "x0": 0,
           "y0": 60,
@@ -143,7 +143,7 @@
           "height": 960
         }
       },
-      "eff": {
+      "eff_inits": {
         "image_patch": 4,
         "align": "left",
         "alpha": 255,

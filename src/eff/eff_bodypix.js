@@ -7,7 +7,7 @@ class eff_bodypix {
     this.init(this);
   }
   render() {
-    if (this.isrc.ihide) return;
+    if (this.eff_src.ihide) return;
     this.bodypix.segment(this.video, (error, results) => {
       this.gotResults(error, results);
     });
@@ -24,7 +24,7 @@ class eff_bodypix {
     this.bodypix = ml5.bodyPix(options);
   }
   gotResults(error, result) {
-    if (this.isrc.ihide) return;
+    if (this.eff_src.ihide) return;
     if (error) {
       console.log('eff_body_pix', error);
       return;

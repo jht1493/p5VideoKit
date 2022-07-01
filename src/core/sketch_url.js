@@ -135,10 +135,10 @@ function store_name_update(name) {
   window.location = loc;
 }
 
-let isrc_props = {
+let eff_src_props = {
   ipatch: 1,
   imedia: 1,
-  effect: 1,
+  eff_label: 1,
   pad: 1,
   pad_ref: 1,
   ihide: 1,
@@ -154,12 +154,12 @@ function store_restore_from(ent) {
 }
 
 function store_restore_ent(ent) {
-  store_restore_create_isrc(ent);
+  store_restore_create_eff_src(ent);
   if (a_canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
     for (let patch of ent.patches) {
-      patch.isrc.pad_ref = Object.assign({}, patch.isrc.pad);
+      patch.eff_src.pad_ref = Object.assign({}, patch.eff_src.pad);
     }
   }
   // Save settings to local storage
@@ -188,10 +188,10 @@ function store_restore_ent(ent) {
 
 // "patches": [
 //   {
-//     "isrc": {
+//     "eff_src": {
 //       "ipatch": 0,
 //       "imedia": 1,
-//       "effect": "bestill",
+//       "eff_label": "bestill",
 //       "pad": {
 //         "width": 1920,
 //         "height": 1080,
@@ -199,29 +199,29 @@ function store_restore_ent(ent) {
 //         "y0": 0
 //       }
 //     },
-//     "eff": {
+//     "eff_inits": {
 //       "factor": 200,
 //       "mirror": 0
 //     }
 //   }
 // ],
 
-function store_restore_create_isrc(ent) {
+function store_restore_create_eff_src(ent) {
   // For prior version of patches recode to { src, eff }
   let npatches = [];
   for (let patch of ent.patches) {
-    if (patch.isrc) continue;
-    let isrc = {};
+    if (patch.eff_src) continue;
+    let eff_src = {};
     let eff = {};
     for (let prop in patch) {
       if (prop === 'ieff') continue;
-      if (isrc_props[prop]) {
-        isrc[prop] = patch[prop];
+      if (eff_src_props[prop]) {
+        eff_src[prop] = patch[prop];
       } else {
         eff[prop] = patch[prop];
       }
     }
-    npatches.push({ isrc, eff });
+    npatches.push({ eff_src, eff });
   }
   if (npatches.length > 0) {
     ent.patches = npatches;

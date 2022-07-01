@@ -99,11 +99,11 @@ class eff_image_show {
     this.init();
     this.zoom_init();
     this.align_center = this.image_align === 'center';
-    // console.log('eff_image_show pad', this.isrc.pad);
+    // console.log('eff_image_show pad', this.eff_src.pad);
     my_canvas.mousePressed(() => {
       this.mousePressed();
     });
-    this.output = createGraphics(this.isrc.pad.width, this.isrc.pad.height);
+    this.output = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
   }
   render() {
     if (!this.img) return;
@@ -123,10 +123,10 @@ class eff_image_show {
   }
   show_image() {
     if (!this.zoomed) {
-      layer_image_scaled_pad(this.output, this.img, this.isrc.pad, this.align_center);
+      layer_image_scaled_pad(this.output, this.img, this.eff_src.pad, this.align_center);
       // this.output = this.img;
     } else {
-      this.show_zoomed(this.img, this.isrc.pad);
+      this.show_zoomed(this.img, this.eff_src.pad);
     }
     this.draw_image_name();
   }
@@ -259,15 +259,15 @@ class eff_image_show {
     saveJSON(this.predictions, ename);
   }
   next_action(aPatch) {
-    if (!aPatch.eff.iimage) aPatch.eff.iimage = 0;
-    aPatch.eff.iimage = (aPatch.eff.iimage + 1) % this.images.length;
-    // if (aPatch.eff.iimage < 0 || aPatch.eff.iimage >= this.images.length - 1) aPatch.eff.iimage = 0;
+    if (!aPatch.eff_inits.iimage) aPatch.eff_inits.iimage = 0;
+    aPatch.eff_inits.iimage = (aPatch.eff_inits.iimage + 1) % this.images.length;
+    // if (aPatch.eff_inits.iimage < 0 || aPatch.eff_inits.iimage >= this.images.length - 1) aPatch.eff_inits.iimage = 0;
     ui_patch_update(aPatch);
   }
   previous_action(aPatch) {
-    if (!aPatch.eff.iimage) aPatch.eff.iimage = 0;
-    aPatch.eff.iimage--;
-    // if (aPatch.eff.iimage < 0) aPatch.eff.iimage = this.images.length - 1;
+    if (!aPatch.eff_inits.iimage) aPatch.eff_inits.iimage = 0;
+    aPatch.eff_inits.iimage--;
+    // if (aPatch.eff_inits.iimage < 0) aPatch.eff_inits.iimage = this.images.length - 1;
     ui_patch_update(aPatch);
   }
   reset_action(aPatch) {
@@ -302,14 +302,14 @@ class eff_image_show {
     loadImage(ipath, (img) => {
       console.log('eff_image_show img.width', img.width, 'height', img.height);
       console.log('eff_image_show output width', this.output.width, 'height', this.output.height);
-      console.log('eff_image_show pad width', this.isrc.pad.width, 'height', this.isrc.pad.height);
+      console.log('eff_image_show pad width', this.eff_src.pad.width, 'height', this.eff_src.pad.height);
 
       if (this.zoomed) {
-        this.zscale = img.width / this.isrc.pad.width;
+        this.zscale = img.width / this.eff_src.pad.width;
         this.zscale_org = this.zscale;
         console.log('eff_image_show this.zscale', this.zscale);
       }
-      console.log('ipatch', this.isrc.ipatch, 'image_name', image_name);
+      console.log('ipatch', this.eff_src.ipatch, 'image_name', image_name);
       this.imageReady(img, image_name);
     });
   }
@@ -379,7 +379,7 @@ class eff_image_show {
         return [255, 255, 255, this.alpha];
       };
     }
-    let pad = this.isrc.pad;
+    let pad = this.eff_src.pad;
     let w = pad.width;
     let h = pad.height;
     let ox0 = pad.x0;

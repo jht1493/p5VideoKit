@@ -38,9 +38,9 @@ function draw() {
 function draw_patch(ipatch, prior) {
   let uiPatch = a_ui.patches[ipatch];
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
-  let isrc = uiPatch.isrc;
-  let { effect, imedia } = isrc;
-  let aeff = effectFind(effect);
+  let eff_src = uiPatch.eff_src;
+  let { eff_label, imedia } = eff_src;
+  let aeff = effectFind(eff_label);
   let media = a_media_panes[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
@@ -61,8 +61,8 @@ function draw_patch(ipatch, prior) {
       return;
     }
     let input = media.capture;
-    let init = { isrc, input, media };
-    init = Object.assign(init, uiPatch.eff);
+    let init = { eff_src, input, media };
+    init = Object.assign(init, uiPatch.eff_inits);
     inst = new aeff.eff(init);
     a_patch_instances[ipatch] = inst;
     mouse_event_check(inst);
@@ -71,14 +71,14 @@ function draw_patch(ipatch, prior) {
     inst.media = media;
     inst.input = media.capture;
   }
-  if (isrc.ipipe && prior && prior.output) {
+  if (eff_src.ipipe && prior && prior.output) {
     // players must use the current value of .input
     // for pipe to work
     inst.input = prior.output;
   }
   inst.render();
-  if (!isrc.ihide && inst.output) {
-    image_scaled_pad(inst.output, isrc.pad);
+  if (!eff_src.ihide && inst.output) {
+    image_scaled_pad(inst.output, eff_src.pad);
   }
   return inst;
 }

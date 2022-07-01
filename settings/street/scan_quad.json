@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "slit_scan",
+        "eff_label": "slit_scan",
         "pad": {
           "x0": 0,
           "y0": 0,
@@ -22,7 +22,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "xdir": 1,
         "step": 0.2,
         "auto_flip": 0,
@@ -30,10 +30,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "slant_scan",
+        "eff_label": "slant_scan",
         "pad": {
           "x0": 480,
           "y0": 0,
@@ -41,7 +41,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 2028,
         "step": 1,
         "start": 225,
@@ -51,10 +51,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 2,
         "imedia": 1,
-        "effect": "slant_scan",
+        "eff_label": "slant_scan",
         "pad": {
           "x0": 0,
           "y0": 270,
@@ -62,7 +62,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "ncell": 2028,
         "step": 1,
         "start": 270,
@@ -72,10 +72,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 3,
         "imedia": 1,
-        "effect": "slit_scan",
+        "eff_label": "slit_scan",
         "pad": {
           "x0": 480,
           "y0": 270,
@@ -83,7 +83,7 @@
           "height": 270
         }
       },
-      "eff": {
+      "eff_inits": {
         "xdir": 0,
         "step": 0.2,
         "auto_flip": 0,

@@ -19,9 +19,9 @@ class eff_face_band {
     this.drawKeypoints(this.predictions);
     if (this.back_color) {
       fill(this.avg_color);
-      rect(this.isrc.pad.x0, this.isrc.pad.y0, this.isrc.pad.width, this.isrc.pad.height);
+      rect(this.eff_src.pad.x0, this.eff_src.pad.y0, this.eff_src.pad.width, this.eff_src.pad.height);
     }
-    image_scaled_pad(this.layer, this.isrc.pad);
+    image_scaled_pad(this.layer, this.eff_src.pad);
   }
   init() {
     this.fft_anal = new fft_anal({ media: this.media });
@@ -51,7 +51,7 @@ class eff_face_band {
     this.img = createImage(w, h);
     this.avg_color = [255, 255, 255, 255];
     this.img = createImage(this.input.width, this.input.height);
-    this.layer = createGraphics(this.isrc.pad.width, this.isrc.pad.height);
+    this.layer = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
   }
   drawKeypoints(predictions) {
     let layer = this.layer;
@@ -60,7 +60,7 @@ class eff_face_band {
       image_copy(img, this.input);
     }
 
-    let pad = this.isrc.pad;
+    let pad = this.eff_src.pad;
     let w = pad.width;
     let h = pad.height;
 

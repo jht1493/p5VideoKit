@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "bright",
+        "eff_label": "bright",
         "pad": {
           "width": 960,
           "height": 720,
@@ -28,7 +28,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "scale": 16,
         "back_color": 0,
         "src_color": 255,
@@ -37,10 +37,10 @@
       }
     },
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 1,
         "imedia": 1,
-        "effect": "pose_net",
+        "eff_label": "pose_net",
         "pad": {
           "width": 960,
           "height": 720,
@@ -54,7 +54,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "alpha": 255,
         "ndetect": 1,
         "points": 0,

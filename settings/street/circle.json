@@ -11,10 +11,10 @@
   "live_chk": 0,
   "patches": [
     {
-      "isrc": {
+      "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "effect": "circle",
+        "eff_label": "circle",
         "pad": {
           "width": 960,
           "height": 540,
@@ -22,7 +22,7 @@
           "y0": 0
         }
       },
-      "eff": {
+      "eff_inits": {
         "per_frame": 50,
         "ntry": 500,
         "period": 60

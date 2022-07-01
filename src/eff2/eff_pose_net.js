@@ -55,7 +55,7 @@ class eff_pose_net {
     }
     // noFill();
     strokeWeight(this.stroke_weight);
-    let pad = this.isrc.pad;
+    let pad = this.eff_src.pad;
     // let w = pad.width;
     let h = pad.height;
     this.px0 = pad.x0;
@@ -235,7 +235,7 @@ class eff_pose_net {
   drawKeypoints(poses) {
     // fill('yellow');
     noStroke();
-    let pad = this.isrc.pad;
+    let pad = this.eff_src.pad;
     // let w = pad.width;
     let h = pad.height;
     let px0 = pad.x0;
@@ -267,7 +267,7 @@ class eff_pose_net {
   drawSkeleton(poses) {
     strokeWeight(this.skel_weight);
     // stroke('red');
-    let pad = this.isrc.pad;
+    let pad = this.eff_src.pad;
     // let w = pad.width;
     let h = pad.height;
     let px0 = pad.x0;
