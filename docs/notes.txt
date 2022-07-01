@@ -1,2 +1,5 @@
 notes.txt
 
+2x2 live face mesh
+each cell and select effect
+
