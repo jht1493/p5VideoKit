@@ -10,8 +10,9 @@ class eff_circle {
   }
   render() {
     image_copy(this.src, this.input);
+    this.output.clear();
     this.period_timer.check(() => {
-      this.output.clear();
+      this.full = this.fullPending;
     });
     this.draw_circles();
   }
@@ -21,10 +22,13 @@ class eff_circle {
     this.output = createGraphics(this.input.width, this.input.height);
     this.circles = [];
     this.output.noStroke();
+    this.full = 0;
+    this.fullPending = 0;
   }
   draw_circles() {
     // All the circles
     let circles = this.circles;
+    let deadCount = 0;
     for (var i = 0; i < circles.length; i++) {
       var c = circles[i];
       c.show();
@@ -45,29 +49,41 @@ class eff_circle {
         if (c.growing) {
           c.growing = !c.edges();
         }
+      } else if (this.full) {
+        // Not growing, shrink
+        c.shrink();
+        if (c.r <= 0) deadCount++;
       }
+    }
+    // console.log('circle  n', this.circles.length, 'd', deadCount);
+    if (this.circles.length == deadCount) {
+      this.full = 0;
+      this.fullPending = 0;
+      this.circles = [];
+      this.output.clear();
     }
     // Try to make a certain number of new circles each frame
     let target = this.per_frame;
     // How many
     var count = 0;
-    // Try N times
-    for (var i = 0; i < this.ntry; i++) {
-      if (this.addCircle()) {
-        count++;
-      }
-      // We made enough
-      if (count == target) {
-        break;
+    if (!this.full) {
+      // Try N times
+      for (var i = 0; i < this.ntry; i++) {
+        if (this.addCircle()) {
+          count++;
+        }
+        // We made enough
+        if (count == target) {
+          break;
+        }
       }
     }
     // We can't make any more
     if (count < 1) {
-      // noLoop();
-      //console.log('finished');
-      this.circles = [];
-      // this.output.clear();
+      // console.log('circle finished');
+      this.fullPending = 1;
     }
+    // console.log('circle count', count, 'n', this.circles.length, 'd', deadCount);
   }
   // Add one circle
   addCircle() {
@@ -104,6 +120,7 @@ class Circle {
     this.x = x;
     this.y = y;
     this.r = r;
+    this.delta = 0.5;
   }
   // Check stuck to an edge
   edges() {
@@ -114,13 +131,17 @@ class Circle {
   }
   // Grow
   grow() {
-    this.r += 0.5;
+    this.r += this.delta;
+  }
+  // Shrink
+  shrink() {
+    this.r -= this.delta;
+    if (this.r < 0) {
+      this.r = 0;
+    }
   }
   // Show
   show() {
-    // noFill();
-    // strokeWeight(1.5);
-    // stroke(255, 0, 175, 225);
     let output = this.eff.output;
     let src = this.eff.src;
     let col = src.get(this.x, this.y);
