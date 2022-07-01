@@ -3,11 +3,14 @@ function moduleTest() {
     .then((module) => {
       // Do something with the module.
       console.log('moduleTest module', module);
+      a_mod = module;
+      console.log('moduleTest test1', module.test1('test1 called'));
     })
     .catch((err) => {
-      myErr = err;
       console.log('moduleTest catch', err);
+      a_err = err;
     });
 }
 
-let myErr;
+let a_err;
+let a_mod;
