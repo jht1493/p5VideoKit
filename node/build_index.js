@@ -38,7 +38,7 @@ function build_index(index_root_path, index_file, nbuild_num) {
     dirs.push(dir);
     startIndex = endIndex;
   }
-  console.log('dirs', dirs);
+  console.log('dirs', dirs + '');
 
   // find all .js files in folders
   let incFiles = [];

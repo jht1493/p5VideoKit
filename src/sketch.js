@@ -1,11 +1,17 @@
 let my_canvas;
+let videoKit;
 
 p5.disableFriendlyErrors = true; // disables FES
 
 function setup() {
+  let lapse = window.performance.now() - a_start_now;
+  console.log('setup lapse', lapse);
+
   // pixelDensity(1); // does not appear to affect live media
   // let sz = ui_restore();
   my_canvas = createCanvas(100, 100);
+
+  videoKit = new p5VideoKit();
 
   ui_restore((sizeResult) => {
     console.log('setup sizeResult', sizeResult);
@@ -19,9 +25,13 @@ function setup() {
   });
 
   moduleTest();
+
+  console.log('setup this', this);
 }
 
 function draw() {
+  videoKit.draw();
+
   set_background();
   stroke(255);
   if (!a_ui.pads_count) {
