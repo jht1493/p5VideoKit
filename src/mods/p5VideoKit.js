@@ -2,7 +2,6 @@
 
 class p5VideoKit {
   //
-
   constructor(p5_inst = p5.instance) {
     console.log('p5VideoKit p5_inst', p5_inst);
     vk_setup();
@@ -16,7 +15,7 @@ class p5VideoKit {
 
 function vk_setup() {
   ui_restore((sizeResult) => {
-    console.log('setup sizeResult', sizeResult);
+    console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
 
     init_media_panes();

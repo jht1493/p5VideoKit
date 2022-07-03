@@ -1,1825 +1,1825 @@
 let a_settings = [
   {
-    "setting": ""
+    setting: '',
   },
   {
-    "setting": "-2x2",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "2x2",
-    "canvas_size": "960x540",
-    "capture_size": "480x270",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
+    setting: '-2x2',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: '2x2',
+    canvas_size: '960x540',
+    capture_size: '480x270',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
       {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "circle",
-          "pad": {
-            "x0": 0,
-            "y0": 0,
-            "width": 480,
-            "height": 270
-          }
-        },
-        "eff_inits": {
-          "per_frame": 5,
-          "ntry": 50,
-          "period": 10
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "maze",
-          "pad": {
-            "x0": 480,
-            "y0": 0,
-            "width": 480,
-            "height": 270
-          }
-        },
-        "eff_inits": {
-          "ncell": 32,
-          "weight": 0.5,
-          "rate": "frame",
-          "period": 10
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "bright",
-          "pad": {
-            "x0": 0,
-            "y0": 270,
-            "width": 480,
-            "height": 270
-          }
-        },
-        "eff_inits": {
-          "scale": 16,
-          "back_color": 0,
-          "src_color": 255,
-          "fill": 1,
-          "invert": 1,
-          "shape": "rect"
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 3,
-          "imedia": 1,
-          "eff_label": "grid",
-          "pad": {
-            "x0": 480,
-            "y0": 270,
-            "width": 480,
-            "height": 270
-          }
-        },
-        "eff_inits": {
-          "ncell": 32,
-          "margin": 1,
-          "rate": "frame"
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 4,
-    "canvas_resize_ref": "",
-    "canvas_data_chk": 0
-  },
-  {
-    "setting": "0-club",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "320x240",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 0,
-          "eff_label": "image",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "group": "screens",
-          "labeled": 0,
-          "label_align": "center",
-          "image_align": "none",
-          "loop": 0,
-          "period": 5,
-          "shuffle": 0,
-          "face": "none",
-          "align": "center",
-          "alpha": 255,
-          "color": "black",
-          "ncell": 32,
-          "shape": "circle",
-          "zoomed": 0,
-          "peg_width": 1,
-          "pan_ease": 0,
-          "export_on": 0,
-          "iimage": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 0,
-          "eff_label": "loop",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "period": 10,
-          "step_patch": 0,
-          "freeze_patch": 0,
-          "freeze_screen": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 0,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 20,
-          "mirror": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-color-line-1900",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "2x1",
-    "canvas_size": "1920x1080",
-    "capture_size": "",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "none",
-          "pad": {
-            "x0": 0,
-            "y0": 0,
-            "width": 1280,
-            "height": 1080
-          }
-        },
-        "eff_inits": {
-          "back_color_patch": 5
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "none",
-          "pad": {
-            "x0": 1280,
-            "y0": 0,
-            "width": 960,
-            "height": 1080
-          }
-        },
-        "eff_inits": {
-          "back_color_patch": 6
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "none",
-          "pad": {
-            "x0": 0,
-            "y0": 60,
-            "width": 1280,
-            "height": 960
-          }
-        },
-        "eff_inits": {
-          "back_color_patch": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 3,
-          "imedia": 1,
-          "eff_label": "image",
-          "pad": {
-            "x0": 640,
-            "y0": 60,
-            "width": 1280,
-            "height": 960
-          }
-        },
-        "eff_inits": {
-          "face": "mesh",
-          "align": "right",
-          "alpha": 255,
-          "color": "black",
-          "ncell": 32,
-          "shape": "circle",
-          "image_name": "test/fac.png",
-          "group": "fmfm",
-          "show": 1,
-          "loop": 1,
-          "period": 20,
-          "load_msg": 1,
-          "export": 0,
-          "reveal": 0,
-          "bbox": 0,
-          "wt": 0,
-          "zoomed": 0,
-          "pan_ease": 0,
-          "labeled": 1,
-          "flush": "left",
-          "shuffle": 1,
-          "peg_width": 1,
-          "export_on": 0,
-          "label_align": "center",
-          "image_align": "none"
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 4,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "x0": 1280,
-            "y0": 60,
-            "width": 1280,
-            "height": 960
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "left",
-          "back_color": 0,
-          "period": 0.5,
-          "reveal": 0,
-          "reveal_full": 1,
-          "from": 0,
-          "to": 1,
-          "sticky": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "draw": "mesh",
-          "mar_h": 0,
-          "slen": 5,
-          "hi_rez": 1,
-          "mask_index": 0,
-          "avg_index": 1440,
-          "pixd_n": 8
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 5,
-          "imedia": 1,
-          "eff_label": "image_mesh",
-          "pad": {
-            "x0": 0,
-            "y0": 60,
-            "width": 1280,
-            "height": 960
-          }
-        },
-        "eff_inits": {
-          "image_patch": 4,
-          "align": "left",
-          "alpha": 255,
-          "mar_h": 0,
-          "draw": "mesh",
-          "slen": 5
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      },
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 1,
-    "pads_count": 4,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-covid19m",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "320x240",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "image",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "group": "covid19m",
-          "labeled": 0,
-          "label_align": "center",
-          "image_align": "none",
-          "loop": 1,
-          "period": 20,
-          "shuffle": 0,
-          "face": "none",
-          "align": "center",
-          "alpha": 255,
-          "color": "black",
-          "ncell": 32,
-          "shape": "circle",
-          "zoomed": 0,
-          "peg_width": 1,
-          "pan_ease": 0,
-          "export_on": 0,
-          "iimage": 3
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 1,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-face-live",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "640x480",
-    "capture_size": "320x240",
-    "chat_name": "face",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 1,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 640,
-            "height": 480,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 1,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 5,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 0,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 640,
-            "height": 480,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 10,
-          "mirror": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      },
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 2,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-face-tile",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "960x540",
-    "capture_size": "320x240",
-    "chat_name": "tile",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 1,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 2,
-          "eff_label": "tile",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "ncell": 1,
-          "period": 3,
-          "freeze_patch": 0,
-          "livem_cycle": 1
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      },
-      {
-        "vis": false
-      },
-      {
-        "vis": false
-      },
-      {
-        "vis": true
-      },
-      {
-        "vis": true
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 1,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-facet-hd",
-    "back_color": -1,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'circle',
+          urect: {
+            x0: 0,
+            y0: 0,
+            width: 480,
+            height: 270,
           },
-          "ihide": 1
         },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 1,
-          "period": 0,
-          "reveal": 0,
-          "reveal_full": 1,
-          "from": 0,
-          "to": 1,
-          "src_patch": 1,
-          "type": "triangle",
-          "bbox": 0,
-          "mar_h": 5,
-          "show": 0,
-          "hi_rez": 0,
-          "box_outter": 0,
-          "box_rect": 0,
-          "draw": "mesh",
-          "slen": 2,
-          "sticky": 1,
-          "mask_index": 0,
-          "avg_index": 1440,
-          "pixd_n": 8,
-          "draw_mod": 4,
-          "detect_max": 1
-        }
+        eff_inits: {
+          per_frame: 5,
+          ntry: 50,
+          period: 10,
+        },
       },
       {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 0,
-          "eff_label": "loop",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'maze',
+          urect: {
+            x0: 480,
+            y0: 0,
+            width: 480,
+            height: 270,
           },
-          "ipipe": 1,
-          "ihide": 1
         },
-        "eff_inits": {
-          "period": 10,
-          "snap": 0,
-          "snap_screen": 0,
-          "phase_check": 0,
-          "step_patch": 3,
-          "freeze_patch": 1,
-          "freeze_screen": 0
-        }
+        eff_inits: {
+          ncell: 32,
+          weight: 0.5,
+          rate: 'frame',
+          period: 10,
+        },
       },
       {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "tile_clock",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'bright',
+          urect: {
+            x0: 0,
+            y0: 270,
+            width: 480,
+            height: 270,
           },
-          "ipipe": 1
         },
-        "eff_inits": {
-          "period": 1,
-          "pixd_n": 16,
-          "freeze_patch": 1,
-          "center_draw": "pixd",
-          "gray_back": 0,
-          "center_only": 0,
-          "freeze_damp": 30
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
+        eff_inits: {
+          scale: 16,
+          back_color: 0,
+          src_color: 255,
+          fill: 1,
+          invert: 1,
+          shape: 'rect',
+        },
       },
       {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-skin-tone-left",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 3,
+          imedia: 1,
+          eff_label: 'grid',
+          urect: {
+            x0: 480,
+            y0: 270,
+            width: 480,
+            height: 270,
           },
-          "ihide": 1,
-          "ipipe": 0
         },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 1,
-          "period": 0,
-          "reveal": 0,
-          "reveal_full": 1,
-          "from": 0,
-          "to": 1,
-          "show": 0,
-          "src_patch": 1,
-          "type": "triangle",
-          "bbox": 0,
-          "mar_h": 5,
-          "hi_rez": 1,
-          "sticky": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "draw": "mesh",
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 1440,
-          "rend": 0,
-          "pixd_n": 8
-        }
+        eff_inits: {
+          ncell: 32,
+          margin: 1,
+          rate: 'frame',
+        },
       },
+    ],
+    medias: [
+      null,
       {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 0,
-          "eff_label": "tile_clock",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 4,
+    canvas_resize_ref: '',
+    canvas_data_chk: 0,
+  },
+  {
+    setting: '0-club',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '320x240',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 0,
+          eff_label: 'image',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
           },
-          "ipipe": 1,
-          "ihide": 0
         },
-        "eff_inits": {
-          "period": 5,
-          "pixd_n": 16,
-          "gray_back": 0,
-          "freeze_patch": 1,
-          "center_draw": "mesh",
-          "center_only": 1,
-          "freeze_damp": 2
-        }
-      }
-    ],
-    "medias": [
-      null,
+        eff_inits: {
+          group: 'screens',
+          labeled: 0,
+          label_align: 'center',
+          image_align: 'none',
+          loop: 0,
+          period: 5,
+          shuffle: 0,
+          face: 'none',
+          align: 'center',
+          alpha: 255,
+          color: 'black',
+          ncell: 32,
+          shape: 'circle',
+          zoomed: 0,
+          peg_width: 1,
+          pan_ease: 0,
+          export_on: 0,
+          iimage: 0,
+        },
+      },
       {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 2,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-skin-tone-right",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 1,
+          imedia: 0,
+          eff_label: 'loop',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
           },
-          "ihide": 1
         },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 1,
-          "period": 0,
-          "reveal": 0,
-          "reveal_full": 1,
-          "from": 0,
-          "to": 1,
-          "show": 0,
-          "src_patch": 1,
-          "type": "triangle",
-          "bbox": 0,
-          "mar_h": 5,
-          "hi_rez": 1,
-          "sticky": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "draw": "mesh",
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 1440,
-          "rend": 0,
-          "pixd_n": 8
-        }
+        eff_inits: {
+          period: 10,
+          step_patch: 0,
+          freeze_patch: 0,
+          freeze_screen: 0,
+        },
       },
       {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 0,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
+        eff_src: {
+          ipatch: 2,
+          imedia: 0,
+          eff_label: 'bestill',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
           },
-          "ipipe": 1
         },
-        "eff_inits": {
-          "factor": 10,
-          "mirror": 0,
-          "src_patch": 1,
-          "rend": 1
-        }
-      }
+        eff_inits: {
+          factor: 20,
+          mirror: 0,
+        },
+      },
     ],
-    "medias": [
+    medias: [
       null,
       {
-        "vis": false
-      }
+        vis: false,
+      },
     ],
-    "pads_lock": 0,
-    "pads_count": 2,
-    "canvas_resize_ref": ""
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
   },
   {
-    "setting": "0-street-bestill-face-pose",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "1920x1080",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
+    setting: '0-color-line-1900',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: '2x1',
+    canvas_size: '1920x1080',
+    capture_size: '',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
       {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 200,
-          "mirror": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-street-big-face",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "1920x1080",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "slit_scan",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "xdir": 0,
-          "step": 1,
-          "auto_flip": 1,
-          "speed": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 3,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 4,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-street-bright-face-pose",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "1920x1080",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "bright",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "scale": 16,
-          "back_color": 0,
-          "src_color": 255,
-          "fill": 1,
-          "invert": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-street-fig-face",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "960x540",
-    "capture_size": "480x270",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 2,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 1,
-          "skel_weight": 5,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 0,
-          "figure_color": 1,
-          "stroke_weight": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 2,
-    "canvas_resize_ref": "",
-    "canvas_data_chk": 0
-  },
-  {
-    "setting": "0-street-grid-face-pose",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "1920x1080",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "grid",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "ncell": 32,
-          "margin": 2,
-          "rate": "ncell"
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "0-street-slant-dots",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "960x540",
-    "capture_size": "480x270",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "slant_scan",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "ncell": 512,
-          "step": 1,
-          "start": 225,
-          "end": 360,
-          "delta": 5,
-          "dir_up": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1,
-          "figure_color": 1,
-          "stroke_weight": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "center",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 10,
-          "draw": "dots",
-          "draw_mod": 4,
-          "slen": 3,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 3,
-          "imedia": 0,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 10,
-          "mirror": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 4,
-    "canvas_resize_ref": "",
-    "canvas_data_chk": 0
-  },
-  {
-    "setting": "0-street-slant",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "960x540",
-    "capture_size": "480x270",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "slant_scan",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "ncell": 512,
-          "step": 1,
-          "start": 225,
-          "end": 360,
-          "delta": 5,
-          "dir_up": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1,
-          "figure_color": 1,
-          "stroke_weight": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 3,
-          "imedia": 0,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 960,
-            "height": 540,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 10,
-          "mirror": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 4,
-    "canvas_resize_ref": "",
-    "canvas_data_chk": 0
-  },
-  {
-    "setting": "0-street-slit",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "1920x1080",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "slit_scan",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "xdir": 1,
-          "step": 1,
-          "auto_flip": 1,
-          "speed": 0
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "pose_net",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "ndetect": 4,
-          "points": 0,
-          "points_size": 10,
-          "points_color_offset": 0,
-          "skel": 0,
-          "skel_weight": 1,
-          "skel_color_offset": 0,
-          "hflip": 0,
-          "show_head": 1
-        }
-      },
-      {
-        "eff_src": {
-          "ipatch": 2,
-          "imedia": 1,
-          "eff_label": "face_mesh",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "alpha": 255,
-          "align": "none",
-          "back_color": 0,
-          "period": 0,
-          "hi_rez": 1,
-          "sticky": 1,
-          "reveal": 0,
-          "reveal_full": 1,
-          "box_outter": 0,
-          "box_rect": 0,
-          "mar_h": 0,
-          "draw": "mesh",
-          "draw_mod": 4,
-          "slen": 2,
-          "mask_index": 0,
-          "avg_index": 0,
-          "pixd_n": 8,
-          "detect_max": 10
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 3,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "1-bestill",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "Single",
-    "canvas_size": "1920x1080",
-    "capture_size": "40x30",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "bestill",
-          "pad": {
-            "width": 1920,
-            "height": 1080,
-            "x0": 0,
-            "y0": 0
-          }
-        },
-        "eff_inits": {
-          "factor": 200,
-          "mirror": 0
-        }
-      }
-    ],
-    "medias": [
-      null,
-      {
-        "vis": false
-      }
-    ],
-    "pads_lock": 0,
-    "pads_count": 1,
-    "canvas_resize_ref": ""
-  },
-  {
-    "setting": "9-data-slides",
-    "back_color": 200,
-    "room_name": "Dice-Play-1",
-    "patch_layout": "2x1",
-    "canvas_size": "1920x1080",
-    "capture_size": "",
-    "chat_name": "jht",
-    "chat_chk": 0,
-    "live_index": 0,
-    "live_chk": 0,
-    "patches": [
-      {
-        "eff_src": {
-          "ipatch": 0,
-          "imedia": 1,
-          "eff_label": "image",
-          "pad": {
-            "x0": 0,
-            "y0": 0,
-            "width": 960,
-            "height": 1080
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'none',
+          urect: {
+            x0: 0,
+            y0: 0,
+            width: 1280,
+            height: 1080,
           },
-          "ihide": 0
         },
-        "eff_inits": {
-          "zoomed": 0,
-          "pan_ease": 0,
-          "group": "graph",
-          "labeled": 1,
-          "flush": "right",
-          "face": "none",
-          "align": "none",
-          "alpha": 255,
-          "color": "black",
-          "ncell": 32,
-          "shape": "circle",
-          "loop": 1,
-          "period": 20,
-          "shuffle": 1,
-          "peg_width": 1,
-          "export_on": 0,
-          "iimage": 27,
-          "label_align": "left",
-          "image_align": "none"
-        }
+        eff_inits: {
+          back_color_patch: 5,
+        },
       },
       {
-        "eff_src": {
-          "ipatch": 1,
-          "imedia": 1,
-          "eff_label": "image",
-          "pad": {
-            "x0": 912,
-            "y0": 0,
-            "width": 960,
-            "height": 1080
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'none',
+          urect: {
+            x0: 1280,
+            y0: 0,
+            width: 960,
+            height: 1080,
           },
-          "ihide": 0
         },
-        "eff_inits": {
-          "zoomed": 0,
-          "pan_ease": 0,
-          "group": "group",
-          "labeled": 1,
-          "flush": "left",
-          "face": "none",
-          "align": "center",
-          "alpha": 255,
-          "color": "black",
-          "ncell": 32,
-          "shape": "circle",
-          "loop": 1,
-          "period": 20,
-          "shuffle": 1,
-          "peg_width": 1,
-          "export_on": 0,
-          "iimage": 37,
-          "label_align": "right",
-          "image_align": "center"
-        }
-      }
+        eff_inits: {
+          back_color_patch: 6,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'none',
+          urect: {
+            x0: 0,
+            y0: 60,
+            width: 1280,
+            height: 960,
+          },
+        },
+        eff_inits: {
+          back_color_patch: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 3,
+          imedia: 1,
+          eff_label: 'image',
+          urect: {
+            x0: 640,
+            y0: 60,
+            width: 1280,
+            height: 960,
+          },
+        },
+        eff_inits: {
+          face: 'mesh',
+          align: 'right',
+          alpha: 255,
+          color: 'black',
+          ncell: 32,
+          shape: 'circle',
+          image_name: 'test/fac.png',
+          group: 'fmfm',
+          show: 1,
+          loop: 1,
+          period: 20,
+          load_msg: 1,
+          export: 0,
+          reveal: 0,
+          bbox: 0,
+          wt: 0,
+          zoomed: 0,
+          pan_ease: 0,
+          labeled: 1,
+          flush: 'left',
+          shuffle: 1,
+          peg_width: 1,
+          export_on: 0,
+          label_align: 'center',
+          image_align: 'none',
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 4,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            x0: 1280,
+            y0: 60,
+            width: 1280,
+            height: 960,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'left',
+          back_color: 0,
+          period: 0.5,
+          reveal: 0,
+          reveal_full: 1,
+          from: 0,
+          to: 1,
+          sticky: 1,
+          box_outter: 0,
+          box_rect: 0,
+          draw: 'mesh',
+          mar_h: 0,
+          slen: 5,
+          hi_rez: 1,
+          mask_index: 0,
+          avg_index: 1440,
+          pixd_n: 8,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 5,
+          imedia: 1,
+          eff_label: 'image_mesh',
+          urect: {
+            x0: 0,
+            y0: 60,
+            width: 1280,
+            height: 960,
+          },
+        },
+        eff_inits: {
+          image_patch: 4,
+          align: 'left',
+          alpha: 255,
+          mar_h: 0,
+          draw: 'mesh',
+          slen: 5,
+        },
+      },
     ],
-    "medias": [
+    medias: [
       null,
       {
-        "vis": false
-      }
+        vis: false,
+      },
+      {
+        vis: false,
+      },
     ],
-    "pads_lock": 1,
-    "pads_count": 2,
-    "canvas_resize_ref": ""
-  }
-]
+    pads_lock: 1,
+    pads_count: 4,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-covid19m',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '320x240',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'image',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          group: 'covid19m',
+          labeled: 0,
+          label_align: 'center',
+          image_align: 'none',
+          loop: 1,
+          period: 20,
+          shuffle: 0,
+          face: 'none',
+          align: 'center',
+          alpha: 255,
+          color: 'black',
+          ncell: 32,
+          shape: 'circle',
+          zoomed: 0,
+          peg_width: 1,
+          pan_ease: 0,
+          export_on: 0,
+          iimage: 3,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 1,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-face-live',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '640x480',
+    capture_size: '320x240',
+    chat_name: 'face',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 1,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 640,
+            height: 480,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 1,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 5,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 0,
+          eff_label: 'bestill',
+          urect: {
+            width: 640,
+            height: 480,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          factor: 10,
+          mirror: 0,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 2,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-face-tile',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '960x540',
+    capture_size: '320x240',
+    chat_name: 'tile',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 1,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 2,
+          eff_label: 'tile',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          ncell: 1,
+          period: 3,
+          freeze_patch: 0,
+          livem_cycle: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+      {
+        vis: false,
+      },
+      {
+        vis: false,
+      },
+      {
+        vis: true,
+      },
+      {
+        vis: true,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 1,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-facet-hd',
+    back_color: -1,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ihide: 1,
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 1,
+          period: 0,
+          reveal: 0,
+          reveal_full: 1,
+          from: 0,
+          to: 1,
+          src_patch: 1,
+          type: 'triangle',
+          bbox: 0,
+          mar_h: 5,
+          show: 0,
+          hi_rez: 0,
+          box_outter: 0,
+          box_rect: 0,
+          draw: 'mesh',
+          slen: 2,
+          sticky: 1,
+          mask_index: 0,
+          avg_index: 1440,
+          pixd_n: 8,
+          draw_mod: 4,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 0,
+          eff_label: 'loop',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ipipe: 1,
+          ihide: 1,
+        },
+        eff_inits: {
+          period: 10,
+          snap: 0,
+          snap_screen: 0,
+          phase_check: 0,
+          step_patch: 3,
+          freeze_patch: 1,
+          freeze_screen: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'tile_clock',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ipipe: 1,
+        },
+        eff_inits: {
+          period: 1,
+          pixd_n: 16,
+          freeze_patch: 1,
+          center_draw: 'pixd',
+          gray_back: 0,
+          center_only: 0,
+          freeze_damp: 30,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-skin-tone-left',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ihide: 1,
+          ipipe: 0,
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 1,
+          period: 0,
+          reveal: 0,
+          reveal_full: 1,
+          from: 0,
+          to: 1,
+          show: 0,
+          src_patch: 1,
+          type: 'triangle',
+          bbox: 0,
+          mar_h: 5,
+          hi_rez: 1,
+          sticky: 1,
+          box_outter: 0,
+          box_rect: 0,
+          draw: 'mesh',
+          slen: 2,
+          mask_index: 0,
+          avg_index: 1440,
+          rend: 0,
+          pixd_n: 8,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 0,
+          eff_label: 'tile_clock',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ipipe: 1,
+          ihide: 0,
+        },
+        eff_inits: {
+          period: 5,
+          pixd_n: 16,
+          gray_back: 0,
+          freeze_patch: 1,
+          center_draw: 'mesh',
+          center_only: 1,
+          freeze_damp: 2,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 2,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-skin-tone-right',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ihide: 1,
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 1,
+          period: 0,
+          reveal: 0,
+          reveal_full: 1,
+          from: 0,
+          to: 1,
+          show: 0,
+          src_patch: 1,
+          type: 'triangle',
+          bbox: 0,
+          mar_h: 5,
+          hi_rez: 1,
+          sticky: 1,
+          box_outter: 0,
+          box_rect: 0,
+          draw: 'mesh',
+          slen: 2,
+          mask_index: 0,
+          avg_index: 1440,
+          rend: 0,
+          pixd_n: 8,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 0,
+          eff_label: 'bestill',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+          ipipe: 1,
+        },
+        eff_inits: {
+          factor: 10,
+          mirror: 0,
+          src_patch: 1,
+          rend: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 2,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-street-bestill-face-pose',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '1920x1080',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'bestill',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          factor: 200,
+          mirror: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-street-big-face',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '1920x1080',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'slit_scan',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          xdir: 0,
+          step: 1,
+          auto_flip: 1,
+          speed: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 3,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 4,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-street-bright-face-pose',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '1920x1080',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'bright',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          scale: 16,
+          back_color: 0,
+          src_color: 255,
+          fill: 1,
+          invert: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-street-fig-face',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '960x540',
+    capture_size: '480x270',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 2,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 1,
+          skel_weight: 5,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 0,
+          figure_color: 1,
+          stroke_weight: 0,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 2,
+    canvas_resize_ref: '',
+    canvas_data_chk: 0,
+  },
+  {
+    setting: '0-street-grid-face-pose',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '1920x1080',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'grid',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          ncell: 32,
+          margin: 2,
+          rate: 'ncell',
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '0-street-slant-dots',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '960x540',
+    capture_size: '480x270',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'slant_scan',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          ncell: 512,
+          step: 1,
+          start: 225,
+          end: 360,
+          delta: 5,
+          dir_up: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+          figure_color: 1,
+          stroke_weight: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'center',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 10,
+          draw: 'dots',
+          draw_mod: 4,
+          slen: 3,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 3,
+          imedia: 0,
+          eff_label: 'bestill',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          factor: 10,
+          mirror: 0,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 4,
+    canvas_resize_ref: '',
+    canvas_data_chk: 0,
+  },
+  {
+    setting: '0-street-slant',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '960x540',
+    capture_size: '480x270',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'slant_scan',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          ncell: 512,
+          step: 1,
+          start: 225,
+          end: 360,
+          delta: 5,
+          dir_up: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+          figure_color: 1,
+          stroke_weight: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 3,
+          imedia: 0,
+          eff_label: 'bestill',
+          urect: {
+            width: 960,
+            height: 540,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          factor: 10,
+          mirror: 0,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 4,
+    canvas_resize_ref: '',
+    canvas_data_chk: 0,
+  },
+  {
+    setting: '0-street-slit',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '1920x1080',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'slit_scan',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          xdir: 1,
+          step: 1,
+          auto_flip: 1,
+          speed: 0,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'pose_net',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          ndetect: 4,
+          points: 0,
+          points_size: 10,
+          points_color_offset: 0,
+          skel: 0,
+          skel_weight: 1,
+          skel_color_offset: 0,
+          hflip: 0,
+          show_head: 1,
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 2,
+          imedia: 1,
+          eff_label: 'face_mesh',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          alpha: 255,
+          align: 'none',
+          back_color: 0,
+          period: 0,
+          hi_rez: 1,
+          sticky: 1,
+          reveal: 0,
+          reveal_full: 1,
+          box_outter: 0,
+          box_rect: 0,
+          mar_h: 0,
+          draw: 'mesh',
+          draw_mod: 4,
+          slen: 2,
+          mask_index: 0,
+          avg_index: 0,
+          pixd_n: 8,
+          detect_max: 10,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 3,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '1-bestill',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: 'Single',
+    canvas_size: '1920x1080',
+    capture_size: '40x30',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'bestill',
+          urect: {
+            width: 1920,
+            height: 1080,
+            x0: 0,
+            y0: 0,
+          },
+        },
+        eff_inits: {
+          factor: 200,
+          mirror: 0,
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 0,
+    pads_count: 1,
+    canvas_resize_ref: '',
+  },
+  {
+    setting: '9-data-slides',
+    back_color: 200,
+    room_name: 'Dice-Play-1',
+    patch_layout: '2x1',
+    canvas_size: '1920x1080',
+    capture_size: '',
+    chat_name: 'jht',
+    chat_chk: 0,
+    live_index: 0,
+    live_chk: 0,
+    patches: [
+      {
+        eff_src: {
+          ipatch: 0,
+          imedia: 1,
+          eff_label: 'image',
+          urect: {
+            x0: 0,
+            y0: 0,
+            width: 960,
+            height: 1080,
+          },
+          ihide: 0,
+        },
+        eff_inits: {
+          zoomed: 0,
+          pan_ease: 0,
+          group: 'graph',
+          labeled: 1,
+          flush: 'right',
+          face: 'none',
+          align: 'none',
+          alpha: 255,
+          color: 'black',
+          ncell: 32,
+          shape: 'circle',
+          loop: 1,
+          period: 20,
+          shuffle: 1,
+          peg_width: 1,
+          export_on: 0,
+          iimage: 27,
+          label_align: 'left',
+          image_align: 'none',
+        },
+      },
+      {
+        eff_src: {
+          ipatch: 1,
+          imedia: 1,
+          eff_label: 'image',
+          urect: {
+            x0: 912,
+            y0: 0,
+            width: 960,
+            height: 1080,
+          },
+          ihide: 0,
+        },
+        eff_inits: {
+          zoomed: 0,
+          pan_ease: 0,
+          group: 'group',
+          labeled: 1,
+          flush: 'left',
+          face: 'none',
+          align: 'center',
+          alpha: 255,
+          color: 'black',
+          ncell: 32,
+          shape: 'circle',
+          loop: 1,
+          period: 20,
+          shuffle: 1,
+          peg_width: 1,
+          export_on: 0,
+          iimage: 37,
+          label_align: 'right',
+          image_align: 'center',
+        },
+      },
+    ],
+    medias: [
+      null,
+      {
+        vis: false,
+      },
+    ],
+    pads_lock: 1,
+    pads_count: 2,
+    canvas_resize_ref: '',
+  },
+];

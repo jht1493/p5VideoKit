@@ -15,7 +15,7 @@
         "ipatch": 0,
         "imedia": 0,
         "eff_label": "image",
-        "pad": {
+        "urect": {
           "width": 1920,
           "height": 1080,
           "x0": 0,
@@ -48,7 +48,7 @@
         "ipatch": 1,
         "imedia": 0,
         "eff_label": "loop",
-        "pad": {
+        "urect": {
           "width": 1920,
           "height": 1080,
           "x0": 0,
@@ -67,7 +67,7 @@
         "ipatch": 2,
         "imedia": 0,
         "eff_label": "bestill",
-        "pad": {
+        "urect": {
           "width": 1920,
           "height": 1080,
           "x0": 0,

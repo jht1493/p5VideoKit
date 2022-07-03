@@ -1,4 +1,4 @@
-let a_app_ver = 'Present?v=29 ';
+let a_app_ver = 'Present?v=30 ';
 let a_store_ver = '192';
 let a_store_name = 'Store-A';
 let a_store_prefix = '';
@@ -7,10 +7,9 @@ let a_ui = {
   back_color: 200,
   room_name: 'Dice-Play-1',
   patch_layout: 'Single',
-  // canvas_size: '640x480',
   canvas_size: '960x540',
-  // capture_size: '320x240',
   capture_size: '480x270',
+  render_size: 'Canvas',
   chat_name: 'jht',
   chat_chk: 0,
   live_index: 0,
@@ -20,12 +19,10 @@ let a_ui = {
   pads_lock: 0,
   pads_count: 0,
   canvas_resize_ref: '',
-  // pads_scale
   canvas_data_chk: 0,
 };
 let a_patch_instances = [];
 let a_canvas_size_lock = 0;
-
 let a_hideui = 0; // Default is to hide using with s= settings
 let a_chat_name; // chat name from url param c
 

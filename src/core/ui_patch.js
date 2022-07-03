@@ -21,6 +21,8 @@ function ui_patch_layout() {
       ui_reset();
     });
   }
+  ui_backcolor(div);
+
   div.child(createSpan(' Store: '));
   {
     let aSel = createSelect();

@@ -14,7 +14,7 @@
       "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "pad": {
+        "urect": {
           "width": 1920,
           "height": 1080,
           "x0": 0,

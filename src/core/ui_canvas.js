@@ -63,33 +63,33 @@ let a_canvas_sizes = [
     height: 540,
   },
   {
-    width: 1280,
-    height: 480,
-  },
-  {
-    width: 1280,
-    height: 960,
-  },
-  {
     width: 1920,
     height: 1080,
   },
-  {
-    width: 1920,
-    height: 1440,
-  },
-  {
-    width: 1080,
-    height: 1920,
-  },
-  {
-    width: 960,
-    height: 720,
-  },
-  {
-    width: 1600,
-    height: 1200,
-  },
+  // {
+  //   width: 1280,
+  //   height: 480,
+  // },
+  // {
+  //   width: 1280,
+  //   height: 960,
+  // },
+  // {
+  //   width: 1920,
+  //   height: 1440,
+  // },
+  // {
+  //   width: 1080,
+  //   height: 1920,
+  // },
+  // {
+  //   width: 960,
+  //   height: 720,
+  // },
+  // {
+  //   width: 1600,
+  //   height: 1200,
+  // },
   {
     label: 'Window',
     func: function () {

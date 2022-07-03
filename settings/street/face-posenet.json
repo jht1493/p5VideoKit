@@ -15,7 +15,7 @@
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "fft_graph",
-        "pad": {
+        "urect": {
           "width": 640,
           "height": 480,
           "x0": 0,
@@ -31,7 +31,7 @@
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "face_band",
-        "pad": {
+        "urect": {
           "width": 640,
           "height": 480,
           "x0": 0,
@@ -51,7 +51,7 @@
         "ipatch": 2,
         "imedia": 1,
         "eff_label": "pose_net",
-        "pad": {
+        "urect": {
           "width": 640,
           "height": 480,
           "x0": 0,

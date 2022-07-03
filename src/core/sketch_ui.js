@@ -102,7 +102,7 @@ function ui_size_pane() {
   let div = ui_div_empty('size_pane');
   ui_canvas(div);
   ui_capture_size(div);
-  ui_backcolor(div);
+  ui_render(div);
 }
 
 function ui_reset() {

@@ -15,7 +15,7 @@
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "circle",
-        "pad": {
+        "urect": {
           "width": 960,
           "height": 540,
           "x0": 0,

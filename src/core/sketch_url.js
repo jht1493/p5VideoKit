@@ -135,16 +135,6 @@ function store_name_update(name) {
   window.location = loc;
 }
 
-let eff_src_props = {
-  ipatch: 1,
-  imedia: 1,
-  eff_label: 1,
-  pad: 1,
-  pad_ref: 1,
-  ihide: 1,
-  ipipe: 1,
-};
-
 function store_restore_from(ent) {
   console.log('store_restore_from ent', ent);
   store_restore_ent(ent);
@@ -154,7 +144,7 @@ function store_restore_from(ent) {
 }
 
 function store_restore_ent(ent) {
-  store_restore_create_eff_src(ent);
+  // store_restore_create_eff_src(ent);
   if (a_canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
@@ -192,7 +182,7 @@ function store_restore_ent(ent) {
 //       "ipatch": 0,
 //       "imedia": 1,
 //       "eff_label": "bestill",
-//       "pad": {
+//       "urect": {
 //         "width": 1920,
 //         "height": 1080,
 //         "x0": 0,
@@ -206,27 +196,37 @@ function store_restore_ent(ent) {
 //   }
 // ],
 
-function store_restore_create_eff_src(ent) {
-  // For prior version of patches recode to { src, eff }
-  let npatches = [];
-  for (let patch of ent.patches) {
-    if (patch.eff_src) continue;
-    let eff_src = {};
-    let eff = {};
-    for (let prop in patch) {
-      if (prop === 'ieff') continue;
-      if (eff_src_props[prop]) {
-        eff_src[prop] = patch[prop];
-      } else {
-        eff[prop] = patch[prop];
-      }
-    }
-    npatches.push({ eff_src, eff });
-  }
-  if (npatches.length > 0) {
-    ent.patches = npatches;
-  }
-}
+// let eff_src_props = {
+//   ipatch: 1,
+//   imedia: 1,
+//   eff_label: 1,
+//   pad: 1,
+//   pad_ref: 1,
+//   ihide: 1,
+//   ipipe: 1,
+// };
+
+// function store_restore_create_eff_src(ent) {
+//   // For prior version of patches recode to { src, eff }
+//   let npatches = [];
+//   for (let patch of ent.patches) {
+//     if (patch.eff_src) continue;
+//     let eff_src = {};
+//     let eff = {};
+//     for (let prop in patch) {
+//       if (prop === 'ieff') continue;
+//       if (eff_src_props[prop]) {
+//         eff_src[prop] = patch[prop];
+//       } else {
+//         eff[prop] = patch[prop];
+//       }
+//     }
+//     npatches.push({ eff_src, eff });
+//   }
+//   if (npatches.length > 0) {
+//     ent.patches = npatches;
+//   }
+// }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 

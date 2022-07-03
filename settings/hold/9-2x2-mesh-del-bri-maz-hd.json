@@ -16,7 +16,7 @@
         "imedia": 1,
         "eff_label": "face_mesh",
         "ihide": 0,
-        "pad": {
+        "urect": {
           "x0": 0,
           "y0": 0,
           "width": 960,
@@ -49,7 +49,7 @@
         "eff_label": "delaunay",
         "ihide": 0,
         "ipipe": 1,
-        "pad": {
+        "urect": {
           "x0": 960,
           "y0": 0,
           "width": 960,
@@ -70,7 +70,7 @@
         "imedia": 1,
         "eff_label": "bright",
         "ipipe": 1,
-        "pad": {
+        "urect": {
           "x0": 0,
           "y0": 540,
           "width": 960,
@@ -91,7 +91,7 @@
         "imedia": 1,
         "eff_label": "maze",
         "ipipe": 1,
-        "pad": {
+        "urect": {
           "x0": 960,
           "y0": 540,
           "width": 960,

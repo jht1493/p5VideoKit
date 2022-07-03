@@ -15,7 +15,7 @@
         "ipatch": 0,
         "imedia": 2,
         "eff_label": "diff",
-        "pad": {
+        "urect": {
           "x0": 0,
           "y0": 60,
           "width": 1280,
@@ -35,7 +35,7 @@
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 1,
-        "pad": {
+        "urect": {
           "x0": 1280,
           "y0": 60,
           "width": 640,
@@ -51,7 +51,7 @@
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 2,
-        "pad": {
+        "urect": {
           "x0": 1280,
           "y0": 540,
           "width": 320,
@@ -67,7 +67,7 @@
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 3,
-        "pad": {
+        "urect": {
           "x0": 1600,
           "y0": 540,
           "width": 320,
@@ -83,7 +83,7 @@
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 4,
-        "pad": {
+        "urect": {
           "x0": 1280,
           "y0": 780,
           "width": 320,
@@ -99,7 +99,7 @@
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 5,
-        "pad": {
+        "urect": {
           "x0": 1600,
           "y0": 780,
           "width": 320,

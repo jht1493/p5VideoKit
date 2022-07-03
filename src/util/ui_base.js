@@ -33,7 +33,6 @@ function ui_hide() {
 function ui_size_pane() {
   let div = ui_div_empty('size_pane');
   ui_canvas(div);
-  // ui_capture_size(div);
   // ui_backcolor(div);
 }
 

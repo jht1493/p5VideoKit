@@ -8,7 +8,6 @@ function setup() {
   console.log('setup lapse', lapse);
 
   // pixelDensity(1); // does not appear to affect live media
-  // let sz = ui_restore();
   my_canvas = createCanvas(100, 100);
 
   videoKit = new p5VideoKit();
