@@ -13,15 +13,9 @@ function ui_render(div) {
     aSel.changed(function () {
       let label = this.value();
       let se = a_render_sizes_dict[label];
-      if (se.func) {
-        se.func();
-      } else if (se.width) {
-        a_ui_set('render_size', se.label);
-        resizeCanvas(se.width, se.height);
-      } else {
-        console.log('No render size in se', se);
-      }
-      ui_window_refresh();
+      a_ui_set('render_size', se.label);
+      // resizeCanvas(se.width, se.height);
+      // ui_window_refresh();
     });
   }
 }

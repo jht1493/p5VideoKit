@@ -3,6 +3,7 @@
 function ui_restore(sizeResult) {
   ui_capture_init();
   ui_canvas_init();
+  ui_render_init();
   store_name_restore();
   store_url_parse((urlResult) => {
     if (!urlResult.uiSet) {
