@@ -1,11 +1,11 @@
-let a_media_devices = [];
+let a_mediaDevices = [];
 // { label, deviceId, capture, stream }
 
 // let default_vis = 1;
 
-function create_media_devices() {
+function create_mediaDevices() {
   let default_vis = !a_hideui;
-  for (let ent of a_media_devices) {
+  for (let ent of a_mediaDevices) {
     init_device_capture(ent);
     create_mediaDiv(ent, default_vis);
   }
@@ -38,7 +38,7 @@ function create_media_devices() {
 }
 
 function media_enum() {
-  a_media_devices = [];
+  a_mediaDevices = [];
   if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
     console.log('enumerateDevices() not supported.');
     return;
@@ -59,11 +59,11 @@ function media_enum() {
           if (!deviceId) {
             label = 'No-id-' + random();
           }
-          a_media_devices.push({ label, deviceId });
+          a_mediaDevices.push({ label, deviceId });
         }
       });
-      // console.log('a_media_devices', a_media_devices);
-      create_media_devices();
+      // console.log('a_mediaDevices', a_mediaDevices);
+      create_mediaDevices();
     })
     .catch(function (err) {
       console.log(err.name + ': ' + err.message);
