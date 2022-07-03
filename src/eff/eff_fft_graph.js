@@ -24,7 +24,7 @@ class eff_fft_graph {
     let a_audioCtx = getAudioContext();
     a_audioCtx.resume();
     this.analyser = a_audioCtx.createAnalyser();
-    let stream = this.media.device.stream;
+    let stream = this.media.mediaDevice.stream;
     let source = a_audioCtx.createMediaStreamSource(stream);
     source.connect(this.analyser);
   }

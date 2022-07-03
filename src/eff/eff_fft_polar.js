@@ -38,7 +38,7 @@ class eff_fft_polar {
   init_analyser() {
     let a_audioCtx = getAudioContext();
     a_audioCtx.resume();
-    let stream = this.media.device.stream;
+    let stream = this.media.mediaDevice.stream;
     this.analyser = a_audioCtx.createAnalyser();
     let source = a_audioCtx.createMediaStreamSource(stream);
     source.connect(this.analyser);

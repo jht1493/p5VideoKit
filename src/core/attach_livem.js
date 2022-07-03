@@ -1,12 +1,12 @@
 let a_livem;
 
-function attach_livem(ent) {
-  console.log('attach_livem ent=', ent);
+function attach_livem(mediaDiv) {
+  console.log('attach_livem mediaDiv=', mediaDiv);
   let type;
   let stream;
-  let device = ent.device;
-  if (device) {
-    stream = device.stream;
+  let mediaDevice = mediaDiv.mediaDevice;
+  if (mediaDevice) {
+    stream = mediaDevice.stream;
     if (!stream) {
       console.log('attach_livem NO stream ent=', ent);
       return;
@@ -21,7 +21,7 @@ function attach_livem(ent) {
     stream = null;
     type = 'DATA';
   }
-  let livem = ent.livem;
+  let livem = mediaDiv.livem;
   if (livem) {
     console.log('attach_livem livem', livem);
     return;
@@ -37,13 +37,13 @@ function attach_livem(ent) {
     a_livem = livem;
     // console.log('attach_livem SET a_livem', a_livem);
   }
-  ent.livem = livem;
+  mediaDiv.livem = livem;
 }
 
-function detach_livem(ent) {
-  console.log('detach_livem ent=', ent);
-  if (!ent) return;
-  ent.livem = null;
+function detach_livem(mediaDiv) {
+  console.log('detach_livem mediaDiv=', mediaDiv);
+  if (!mediaDiv) return;
+  mediaDiv.livem = null;
 }
 
 // For debugging
@@ -58,9 +58,9 @@ function gotStream(capture, id) {
   capture.elt.muted = true;
   let stream = capture.elt.srcObject;
   let deviceId = id;
-  let device = { deviceId, capture, stream };
+  let mediaDevice = { deviceId, capture, stream };
   let default_vis = !a_hideui;
-  create_mediaDiv(device, default_vis);
+  create_mediaDiv(mediaDevice, default_vis);
   ui_refresh();
   console.log('gotStream width', capture.width, 'height', capture.height);
   livem_send('Hello');

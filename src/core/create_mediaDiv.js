@@ -1,14 +1,14 @@
 let a_mediaDivs = [];
-// { imedia, device, id, label, div, chk, vis, capture, info, ready }
+// { imedia, device, id, label, div, chk, vis, capture, info, ready, livem }
 // 0: canvas
 // 1: first local device
 // 2: livem device for self
 // 3: livem device for others ...
 
-function create_mediaDiv(device, vis_in) {
-  let capture = device.capture;
-  let id = device.deviceId;
-  let label = device.label;
+function create_mediaDiv(mediaDevice, vis_in) {
+  let capture = mediaDevice.capture;
+  let id = mediaDevice.deviceId;
+  let label = mediaDevice.label;
   if (!label) label = id;
   let imedia = a_mediaDivs.length;
   let vis = ui_media_default_vis(imedia, vis_in);
@@ -35,7 +35,7 @@ function create_mediaDiv(device, vis_in) {
 
   let ent = {
     imedia,
-    device,
+    mediaDevice,
     id,
     label,
     div,

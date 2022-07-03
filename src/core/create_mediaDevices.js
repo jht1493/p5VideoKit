@@ -1,19 +1,20 @@
 let a_mediaDevices = [];
-// { label, deviceId, capture, stream }
+// mediaDevice
+//  { label, deviceId, capture, stream }
 
 function create_mediaDevices() {
   let default_vis = !a_hideui;
-  for (let ent of a_mediaDevices) {
-    init_device_capture(ent);
-    create_mediaDiv(ent, default_vis);
+  for (let mediaDevice of a_mediaDevices) {
+    init_device_capture(mediaDevice);
+    create_mediaDiv(mediaDevice, default_vis);
   }
   ui_refresh();
 
-  function init_device_capture(ent) {
+  function init_device_capture(mediaDevice) {
     let vcap = {
       audio: true,
       video: {
-        deviceId: { exact: ent.deviceId },
+        deviceId: { exact: mediaDevice.deviceId },
       },
     };
     let dim = get_capture_size();
@@ -21,17 +22,12 @@ function create_mediaDevices() {
       vcap.video.width = { exact: dim.width };
       vcap.video.height = { exact: dim.height };
     }
-    // console.log('create_ent vcap', vcap);
     let capture = createCapture(vcap, function (stream) {
-      // console.log('create_ent stream', stream);
-      ent.stream = stream;
-      // ent.ready = 1;
-      // console.log('create_ent ent', ent);
+      mediaDevice.stream = stream;
       livem_restore();
     });
-    // console.log('create_ent capture', capture);
     capture.elt.muted = true;
-    ent.capture = capture;
+    mediaDevice.capture = capture;
   }
 }
 
