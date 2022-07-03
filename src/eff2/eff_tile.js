@@ -63,28 +63,28 @@ class eff_tile {
     // console.log('livem_step ipatch', ipatch);
     let uiPatch = a_ui.patches[ipatch];
     let imedia = uiPatch.eff_src.imedia;
-    if (imedia >= a_media_panes.length) {
+    if (imedia >= a_mediaDivs.length) {
       imedia = this.ifirst;
     }
-    imedia = (imedia + 1) % a_media_panes.length;
+    imedia = (imedia + 1) % a_mediaDivs.length;
     if (imedia < this.ifirst) imedia = this.ifirst;
-    if (imedia >= a_media_panes.length) imedia = uiPatch.eff_src.imedia;
+    if (imedia >= a_mediaDivs.length) imedia = uiPatch.eff_src.imedia;
     let change = uiPatch.eff_src.imedia !== imedia;
     if (change) {
       console.log('livem_step draw_step old imedia', uiPatch.eff_src.imedia, 'new', imedia);
       uiPatch.eff_src.imedia = imedia;
       this.draw_step();
     }
-    this.check_media_panes();
+    this.check_mediaDivs();
   }
-  check_media_panes() {
-    let omp_len = this.old_media_panes_length;
-    if (omp_len != a_media_panes.length) {
-      this.old_media_panes_length = a_media_panes.length;
+  check_mediaDivs() {
+    let omp_len = this.old_mediaDivs_length;
+    if (omp_len != a_mediaDivs.length) {
+      this.old_mediaDivs_length = a_mediaDivs.length;
       // 0 = Canvas
       // 1 = local camera
       // 2 = first livemedia source
-      let nsrc = a_media_panes.length - this.ifirst;
+      let nsrc = a_mediaDivs.length - this.ifirst;
       if (nsrc <= 1) {
         this.cells = [1, 1];
       } else if (nsrc <= 2) {
@@ -125,23 +125,23 @@ class eff_tile {
     }
   }
   draw_all() {
-    this.check_media_panes();
+    this.check_mediaDivs();
     let ipatch = this.eff_src.ipatch;
     let uiPatch = a_ui.patches[ipatch];
-    let imedia = uiPatch.eff_src.imedia % a_media_panes.length;
+    let imedia = uiPatch.eff_src.imedia % a_mediaDivs.length;
     if (imedia != uiPatch.eff_src.imedia) {
       return;
     }
-    let more = a_media_panes.length - this.ifirst;
+    let more = a_mediaDivs.length - this.ifirst;
     let input = this.input;
     let savex = this.x;
     let savey = this.y;
     let nimedia = imedia;
     while (more > 0) {
       this.draw_single(input);
-      nimedia = (nimedia + 1) % a_media_panes.length;
+      nimedia = (nimedia + 1) % a_mediaDivs.length;
       if (nimedia < this.ifirst) nimedia = this.ifirst;
-      let media = a_media_panes[nimedia];
+      let media = a_mediaDivs[nimedia];
       input = media.capture;
       //more = nimedia != imedia;
       more--;

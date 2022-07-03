@@ -15,8 +15,8 @@ function ui_live_selection() {
   let aSel = createSelect();
   div.child(aSel);
   // aSel.option('Canvas', 0);
-  for (let index = 0; index < a_media_panes.length; index++) {
-    let ent = a_media_panes[index];
+  for (let index = 0; index < a_mediaDivs.length; index++) {
+    let ent = a_mediaDivs[index];
     // aSel.option(ent.label, index + 1);
     aSel.option(ent.label, index);
   }
@@ -42,7 +42,7 @@ function ui_live_selection() {
 }
 
 function media_for_livem_index(index) {
-  return a_media_panes[index];
+  return a_mediaDivs[index];
 }
 
 function livem_restore() {

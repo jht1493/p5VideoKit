@@ -7,7 +7,7 @@ function create_media_devices() {
   let default_vis = !a_hideui;
   for (let ent of a_media_devices) {
     init_device_capture(ent);
-    create_media_pane(ent, default_vis);
+    create_mediaDiv(ent, default_vis);
   }
   ui_refresh();
 
@@ -72,7 +72,7 @@ function media_enum() {
 
 function media_reset() {
   console.log('media_reset');
-  remove_media_panes();
+  remove_mediaDivs();
   media_enum();
 }
 
@@ -91,7 +91,7 @@ function save_others(fn) {
 
 function save_other(fn, imedia) {
   console.log('save_other idev', imedia);
-  let vent = a_media_panes[imedia];
+  let vent = a_mediaDivs[imedia];
   if (!vent) return;
   let vin = vent.capture;
   if (!vin) return;

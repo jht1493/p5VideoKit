@@ -1,16 +1,16 @@
-let a_media_panes = [];
+let a_mediaDivs = [];
 // { imedia, device, id, label, div, chk, vis, capture, info, ready }
 // 0: canvas
 // 1: first local device
 // 2: livem device for self
 // 3: livem device for others ...
 
-function create_media_pane(device, vis_in) {
+function create_mediaDiv(device, vis_in) {
   let capture = device.capture;
   let id = device.deviceId;
   let label = device.label;
   if (!label) label = id;
-  let imedia = a_media_panes.length;
+  let imedia = a_mediaDivs.length;
   let vis = ui_media_default_vis(imedia, vis_in);
 
   // Can't re-parent capture, so move div before it
@@ -46,7 +46,7 @@ function create_media_pane(device, vis_in) {
     ready,
     update_info,
   };
-  a_media_panes.push(ent);
+  a_mediaDivs.push(ent);
 
   function update_info() {
     let info = ent.info;
@@ -73,29 +73,29 @@ function create_media_pane(device, vis_in) {
 
 function find_media_by_id(id) {
   if (!id) return null;
-  return a_media_panes.find((item) => item.id === id);
+  return a_mediaDivs.find((item) => item.id === id);
 }
 
 function remove_media_by_id(id) {
-  a_media_panes = a_media_panes.filter((item) => item.id !== id);
+  a_mediaDivs = a_mediaDivs.filter((item) => item.id !== id);
   console.log('remove_media_by_id id=', id);
-  // console.log('remove_media_by_id id=', id, 'a_media_panes', a_media_panes);
+  // console.log('remove_media_by_id id=', id, 'a_mediaDivs', a_mediaDivs);
   // tile_notify_media_update({ remove: id });
 }
 
-function remove_media_panes() {
+function remove_mediaDivs() {
   // Remove all but first
-  for (let index = a_media_panes.length - 1; index > 0; index--) {
-    let ent = a_media_panes[index];
-    remove_media_pane(ent.id);
+  for (let index = a_mediaDivs.length - 1; index > 0; index--) {
+    let ent = a_mediaDivs[index];
+    remove_mediaDiv(ent.id);
   }
 }
 
-function remove_media_pane(id) {
-  // console.log('remove_media_pane id=', id, !id);
+function remove_mediaDiv(id) {
+  // console.log('remove_mediaDiv id=', id, !id);
   // Remove the div associated with id
   let ent = find_media_by_id(id);
-  console.log('remove_media_pane ent', ent);
+  console.log('remove_mediaDiv ent', ent);
   if (ent) {
     ent.div.remove();
     ent.capture.remove();
@@ -104,16 +104,16 @@ function remove_media_pane(id) {
 }
 
 function attach_media_nlabel(id, nlabel) {
-  let ent = a_media_panes.find((item) => item.id === id);
+  let ent = a_mediaDivs.find((item) => item.id === id);
   if (ent) {
     ent.nlabel = nlabel;
     if (ent.update_info) ent.update_info();
   }
 }
 
-function init_media_panes() {
+function init_mediaDivs() {
   // First media pane is canvas
-  a_media_panes = [
+  a_mediaDivs = [
     {
       label: 'Canvas',
       capture: my_canvas,

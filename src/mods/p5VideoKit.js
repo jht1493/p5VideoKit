@@ -18,7 +18,7 @@ function vk_setup() {
     console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
 
-    init_media_panes();
+    init_mediaDivs();
 
     create_ui();
 
@@ -46,7 +46,7 @@ function draw_patch(ipatch, prior) {
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
   let aeff = effectFind(eff_label);
-  let media = a_media_panes[imedia];
+  let media = a_mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
   } else if (!media.ready()) {

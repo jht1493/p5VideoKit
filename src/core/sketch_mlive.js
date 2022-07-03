@@ -60,7 +60,7 @@ function gotStream(capture, id) {
   let deviceId = id;
   let device = { deviceId, capture, stream };
   let default_vis = !a_hideui;
-  create_media_pane(device, default_vis);
+  create_mediaDiv(device, default_vis);
   ui_refresh();
   console.log('gotStream width', capture.width, 'height', capture.height);
   livem_send('Hello');
@@ -77,7 +77,7 @@ function gotData(theData, id) {
 function gotDisconnect(id) {
   console.log('gotDisconnect id', id);
   ui_chat_receive('', id);
-  remove_media_pane(id);
+  remove_mediaDiv(id);
 }
 
 function gotConnect(id) {

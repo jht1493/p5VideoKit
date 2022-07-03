@@ -62,8 +62,8 @@ function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      for (let ii = 0; ii < a_media_panes.length; ii++) {
-        aSel.option(a_media_panes[ii].label, ii);
+      for (let ii = 0; ii < a_mediaDivs.length; ii++) {
+        aSel.option(a_mediaDivs[ii].label, ii);
       }
       aSel.selected(aPatch.eff_src.imedia);
       aSel.changed(function () {
