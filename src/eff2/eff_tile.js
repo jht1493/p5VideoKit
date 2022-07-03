@@ -249,14 +249,3 @@ class eff_tile {
 
 let tile_op_que = [];
 let tile_inst;
-
-// opt={add:id}
-// opt={remove:id}
-//
-// function tile_notify_media_update(opt) {
-//   console.log('tile_inst opt', opt);
-//   console.log('tile_inst tile_inst', tile_inst);
-//   console.log('tile_notify_media_update a_media_panes', a_media_panes);
-//   console.log('tile_notify_media_update a_media_devices', a_media_devices);
-//   tile_op_que.push(opt);
-// }
