@@ -29,8 +29,8 @@ function vk_setup() {
 function vk_draw() {
   set_background();
   stroke(255);
-  if (!a_ui.pads_count) {
-    console.log('draw a_ui.pads_count', a_ui.pads_count);
+  if (!a_ui.urects_count) {
+    console.log('draw a_ui.urects_count', a_ui.urects_count);
     pad_layout_update();
   }
   let prior;
@@ -83,7 +83,7 @@ function draw_patch(ipatch, prior) {
   }
   inst.render();
   if (!eff_src.ihide && inst.output) {
-    image_scaled_pad(inst.output, eff_src.pad);
+    image_scaled_pad(inst.output, eff_src.urect);
   }
   return inst;
 }

@@ -20,11 +20,11 @@ class eff_text {
   }
   render() {
     tint(255, this.alpha);
-    // image_scaled_pad(this.output, this.eff_src.pad);
+    // image_scaled_pad(this.output, this.eff_src.urect);
     tint(255);
   }
   init() {
-    this.output = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
+    this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
     this.draw_text();
   }
   draw_text() {
@@ -38,10 +38,10 @@ class eff_text {
     let tw = layer.textWidth(str) + x_margin * 2;
     // fill('black');
     let hi = ta + td + y_marghin * 2;
-    let cx = (this.eff_src.pad.width - tw) / 2;
+    let cx = (this.eff_src.urect.width - tw) / 2;
     if (cx < 0) cx = 0;
-    let x = this.eff_src.pad.x0 + cx;
-    let y = this.eff_src.pad.y0 + this.eff_src.pad.height - hi;
+    let x = this.eff_src.urect.x0 + cx;
+    let y = this.eff_src.urect.y0 + this.eff_src.urect.height - hi;
     if (this.back_color === 'clear') {
       layer.clear();
     } else {

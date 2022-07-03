@@ -89,8 +89,8 @@
       "vis": false
     }
   ],
-  "pads_lock": 0,
-  "pads_count": 3,
+  "urects_lock": 0,
+  "urects_count": 3,
   "canvas_resize_ref": "",
   "canvas_data_chk": 0
 }

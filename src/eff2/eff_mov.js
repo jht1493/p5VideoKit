@@ -34,7 +34,7 @@ class eff_mov_show {
     }
     // console.log('eff_mov_show', this.vid.duration(), this.vid.time());
     // image(this.vid, 0, 0, width, height);
-    image_scaled_pad(this.vid, this.eff_src.pad);
+    image_scaled_pad(this.vid, this.eff_src.urect);
   }
   init() {
     this.predictions = [];

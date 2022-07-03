@@ -29,6 +29,6 @@ class eff_image_mesh {
     this.from = 0; // Only use first face detected
     this.to = 1;
     this.avg_color = [255, 255, 255, 255];
-    this.output = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
+    this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
   }
 }

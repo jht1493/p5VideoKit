@@ -24,8 +24,8 @@ function store_restore_canvas_lock() {
 function store_restore_a_ui(settings) {
   console.log('store_restore_a_ui settings', settings);
   // Force pads to be re-calculated
-  a_ui.pads_count = 0;
-  a_ui.pads_lock = 0;
+  a_ui.urects_count = 0;
+  a_ui.urects_lock = 0;
   if (settings) {
     store_restore_settings(settings);
   } else {

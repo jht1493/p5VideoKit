@@ -33,10 +33,10 @@ function image_scaled(img) {
   image(img, 0, 0, w, h, 0, 0, w2, h2);
 }
 
-function image_scaled_pad(img, pad, flush_right) {
-  if (!pad) pad = { width, height, x0: 0, y0: 0 };
-  let pw = pad.width;
-  let ph = pad.height;
+function image_scaled_pad(img, urect, flush_right) {
+  if (!urect) urect = { width, height, x0: 0, y0: 0 };
+  let pw = urect.width;
+  let ph = urect.height;
   let iw = img.width;
   let ih = img.height;
   let rr = ih / iw;
@@ -47,20 +47,20 @@ function image_scaled_pad(img, pad, flush_right) {
   } else {
     pw = ph / rr;
   }
-  // console.log('pad.width', pad.width, 'iw', iw, 'ih', ih, 'pw', pw, 'ph', ph);
-  let dx = pad.x0;
-  let dy = pad.y0;
+  // console.log('urect.width', urect.width, 'iw', iw, 'ih', ih, 'pw', pw, 'ph', ph);
+  let dx = urect.x0;
+  let dy = urect.y0;
   if (flush_right) {
-    dx = dx + (pad.width - pw) / 2;
+    dx = dx + (urect.width - pw) / 2;
   }
   image(img, dx, dy, pw, ph, 0, 0, iw, ih);
 }
 
-function layer_image_scaled_pad(layer, img, pad, align_center) {
+function layer_image_scaled_pad(layer, img, urect, align_center) {
   if (!img) return;
-  if (!pad) pad = { width, height, x0: 0, y0: 0 };
-  let pw = pad.width;
-  let ph = pad.height;
+  if (!urect) urect = { width, height, x0: 0, y0: 0 };
+  let pw = urect.width;
+  let ph = urect.height;
   let iw = img.width;
   let ih = img.height;
   let rr = ih / iw;
@@ -69,12 +69,12 @@ function layer_image_scaled_pad(layer, img, pad, align_center) {
   if (rr < 1) {
     ph = pw * rr;
     if (align_center) {
-      dy = dy + (pad.height - ph) / 2;
+      dy = dy + (urect.height - ph) / 2;
     }
   } else {
     pw = ph / rr;
     if (align_center) {
-      dx = dx + (pad.width - pw) / 2;
+      dx = dx + (urect.width - pw) / 2;
     }
   }
   // console.log('layer iw', iw, 'ih', ih, 'pw', pw, 'ph', ph);
@@ -82,11 +82,11 @@ function layer_image_scaled_pad(layer, img, pad, align_center) {
   layer.image(img, dx, dy, pw, ph, 0, 0, iw, ih);
 }
 
-function image_scaled_pad_source(img, pad, src) {
+function image_scaled_pad_source(img, urect, src) {
   console.log('image_scaled_pad_source src', JSON.stringify(src));
-  if (!pad) pad = { width, height, x0: 0, y0: 0 };
-  let pw = pad.width;
-  let ph = pad.height;
+  if (!urect) urect = { width, height, x0: 0, y0: 0 };
+  let pw = urect.width;
+  let ph = urect.height;
   let iw = img.width;
   let ih = img.height;
   let rr = ih / iw;
@@ -95,8 +95,8 @@ function image_scaled_pad_source(img, pad, src) {
   } else {
     pw = ph / rr;
   }
-  let dx = pad.x0;
-  let dy = pad.y0;
+  let dx = urect.x0;
+  let dy = urect.y0;
   let sx = src.x;
   let sy = src.y;
   let sw = src.width;

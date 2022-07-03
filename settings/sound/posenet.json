@@ -21,7 +21,7 @@
           "x0": 0,
           "y0": 0
         },
-        "pad_ref": {
+        "urects_ref": {
           "width": 640,
           "height": 480,
           "x0": 0,
@@ -47,7 +47,7 @@
           "x0": 0,
           "y0": 0
         },
-        "pad_ref": {
+        "urects_ref": {
           "width": 640,
           "height": 480,
           "x0": 0,
@@ -79,9 +79,9 @@
       "vis": true
     }
   ],
-  "pads_lock": 0,
-  "pads_count": 2,
+  "urects_lock": 0,
+  "urects_count": 2,
   "canvas_resize_ref": "640x480",
   "canvas_data_chk": 0,
-  "pads_scale": 1.5
+  "urects_scale": 1.5
 }

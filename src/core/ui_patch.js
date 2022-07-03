@@ -114,18 +114,18 @@ function ui_patch_update(aPatch) {
 
 function pad_layout_update() {
   let layout;
-  console.log('pad_layout_update a_ui.canvas_resize_ref |' + a_ui.canvas_resize_ref + '|');
+  // console.log('pad_layout_update a_ui.canvas_resize_ref |' + a_ui.canvas_resize_ref + '|');
   if (a_ui.canvas_resize_ref) {
     pads_resize_set_scale();
   } else {
-    if (a_ui.pads_lock) {
-      console.log('pad_layout_update a_ui.pads_lock');
+    if (a_ui.urects_lock) {
+      console.log('pad_layout_update a_ui.urects_lock');
       return;
     }
     layout = new pad_layout();
   }
-  let pads_count = 0;
-  let pad;
+  let urects_count = 0;
+  let urect;
   for (let ipatch = 0; ipatch < a_ui.patches.length; ipatch++) {
     let uiPatch = a_ui.patches[ipatch];
     if (uiPatch) {
@@ -136,36 +136,36 @@ function pad_layout_update() {
         eff_src.ipatch = ipatch;
       }
       if (layout) {
-        pad = layout.next();
-      } else if (eff_src.pad_ref) {
-        pad = Object.assign({}, eff_src.pad_ref);
-        console.log('pad_layout_ assign pad', JSON.stringify(pad));
-        pads_resize_pad(pad);
+        urect = layout.next();
+      } else if (eff_src.urect_ref) {
+        urect = Object.assign({}, eff_src.urect_ref);
+        console.log('pad_layout_ assign pad', JSON.stringify(urect));
+        pads_resize_pad(urect);
       } else {
-        // !!@ Error no pad_ref
-        console.log('!!@ pad_layout_update pad_ref missing ipatch', ipatch, 'uiPatch', JSON.stringify(uiPatch));
+        // !!@ Error no urects_ref
+        console.log('!!@ pad_layout_update urects_ref missing ipatch', ipatch, 'uiPatch', JSON.stringify(uiPatch));
       }
-      eff_src.pad = pad;
-      pads_count++;
+      eff_src.urect = urect;
+      urects_count++;
     }
     // console.log('pad_layout_update uiPatch', JSON.stringify(uiPatch));
   }
   a_ui_set('patches', a_ui.patches);
-  a_ui_set('pads_count', pads_count);
+  a_ui_set('urects_count', urects_count);
   // pads_resize_save();
 }
 
 function pads_resize_set_scale() {
   let refsz = str_to_width_height(a_ui.canvas_resize_ref);
   let tosz = str_to_width_height(a_ui.canvas_size);
-  a_ui.pads_scale = tosz.width / refsz.width;
+  a_ui.urects_scale = tosz.width / refsz.width;
   console.log('pads_resize_set_scale a_ui.canvas_resize_ref', a_ui.canvas_resize_ref);
   console.log('pads_resize_set_scale a_ui.canvas_size', a_ui.canvas_size);
-  console.log('pads_resize_set_scale pads_scale', a_ui.pads_scale);
+  console.log('pads_resize_set_scale urects_scale', a_ui.urects_scale);
 }
 
-function pads_resize_pad(pad) {
-  for (let prop in pad) {
-    pad[prop] = Math.floor(pad[prop] * a_ui.pads_scale);
+function pads_resize_pad(urect) {
+  for (let prop in urect) {
+    urect[prop] = Math.floor(urect[prop] * a_ui.urects_scale);
   }
 }

@@ -55,11 +55,11 @@ class eff_pose_net {
     }
     // noFill();
     strokeWeight(this.stroke_weight);
-    let pad = this.eff_src.pad;
-    // let w = pad.width;
-    let h = pad.height;
-    this.px0 = pad.x0;
-    this.py0 = pad.y0;
+    let urect = this.eff_src.urect;
+    // let w = urect.width;
+    let h = urect.height;
+    this.px0 = urect.x0;
+    this.py0 = urect.y0;
     this.r1 = h / this.input.height;
     // Loop through all the poses detected
     for (let i = 0; i < poses.length; i++) {
@@ -235,11 +235,11 @@ class eff_pose_net {
   drawKeypoints(poses) {
     // fill('yellow');
     noStroke();
-    let pad = this.eff_src.pad;
-    // let w = pad.width;
-    let h = pad.height;
-    let px0 = pad.x0;
-    let py0 = pad.y0;
+    let urect = this.eff_src.urect;
+    // let w = urect.width;
+    let h = urect.height;
+    let px0 = urect.x0;
+    let py0 = urect.y0;
     let r1 = h / this.input.height;
     let len = this.points_size;
     // Loop through all the poses detected
@@ -267,11 +267,11 @@ class eff_pose_net {
   drawSkeleton(poses) {
     strokeWeight(this.skel_weight);
     // stroke('red');
-    let pad = this.eff_src.pad;
-    // let w = pad.width;
-    let h = pad.height;
-    let px0 = pad.x0;
-    let py0 = pad.y0;
+    let urect = this.eff_src.urect;
+    // let w = urect.width;
+    let h = urect.height;
+    let px0 = urect.x0;
+    let py0 = urect.y0;
     let r1 = h / this.input.height;
     // Loop through all the skeletons detected
     for (let i = 0; i < poses.length; i++) {

@@ -13,10 +13,10 @@ class eff_fft_polar {
       this.period_next();
     });
     this.draw_fft();
-    image_scaled_pad(this.layer, this.eff_src.pad);
+    image_scaled_pad(this.layer, this.eff_src.urect);
   }
   init() {
-    this.layer = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
+    this.layer = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
     let layer = this.layer;
     layer.noStroke();
     this.alpha_line = 10;

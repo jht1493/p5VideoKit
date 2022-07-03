@@ -149,7 +149,7 @@ function store_restore_ent(ent) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
     for (let patch of ent.patches) {
-      patch.eff_src.pad_ref = Object.assign({}, patch.eff_src.pad);
+      patch.eff_src.urect_ref = Object.assign({}, patch.eff_src.urect);
     }
   }
   // Save settings to local storage
@@ -168,7 +168,7 @@ function store_restore_ent(ent) {
   }
   if (a_canvas_size_lock) {
     // Force pad_layout_update
-    a_ui_set('pads_count', 0);
+    a_ui_set('urects_count', 0);
   } else {
     // Canvas is not locked
     // clear a_ui.canvas_resize_ref to prevent scaling
@@ -201,7 +201,7 @@ function store_restore_ent(ent) {
 //   imedia: 1,
 //   eff_label: 1,
 //   pad: 1,
-//   pad_ref: 1,
+//   urects_ref: 1,
 //   ihide: 1,
 //   ipipe: 1,
 // };

@@ -1,8 +1,8 @@
 class pad_layout {
   constructor() {
     this.tiled = a_ui.patch_layout !== 'Single';
-    let ipad = { width, height, x0: 0, y0: 0 };
-    this.io = Object.assign({}, ipad);
+    let iurect = { width, height, x0: 0, y0: 0 };
+    this.io = Object.assign({}, iurect);
     let io = this.io;
     if (!this.tiled) return;
     let pl = a_ui.patch_layout.split('x');

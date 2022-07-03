@@ -99,11 +99,11 @@ class eff_image_show {
     this.init();
     this.zoom_init();
     this.align_center = this.image_align === 'center';
-    // console.log('eff_image_show pad', this.eff_src.pad);
+    // console.log('eff_image_show pad', this.eff_src.urect);
     my_canvas.mousePressed(() => {
       this.mousePressed();
     });
-    this.output = createGraphics(this.eff_src.pad.width, this.eff_src.pad.height);
+    this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
   }
   render() {
     if (!this.img) return;
@@ -123,10 +123,10 @@ class eff_image_show {
   }
   show_image() {
     if (!this.zoomed) {
-      layer_image_scaled_pad(this.output, this.img, this.eff_src.pad, this.align_center);
+      layer_image_scaled_pad(this.output, this.img, this.eff_src.urect, this.align_center);
       // this.output = this.img;
     } else {
-      this.show_zoomed(this.img, this.eff_src.pad);
+      this.show_zoomed(this.img, this.eff_src.urect);
     }
     this.draw_image_name();
   }
@@ -158,10 +158,10 @@ class eff_image_show {
     y += ta + margin;
     layer.text(str, x, y);
   }
-  show_zoomed(img, pad) {
-    if (!pad) pad = { width, height, x0: 0, y0: 0 };
-    let dw = pad.width;
-    let dh = pad.height;
+  show_zoomed(img, urect) {
+    if (!urect) urect = { width, height, x0: 0, y0: 0 };
+    let dw = urect.width;
+    let dh = urect.height;
     let iw = img.width;
     let ih = img.height;
     let rr = ih / iw;
@@ -172,11 +172,11 @@ class eff_image_show {
     }
     iw = dw * this.zscale;
     ih = dh * this.zscale;
-    // image(img, pad.x0, pad.y0, dw, dh, -this.zx0, -this.zy0, iw, ih);
-    // image(img, pad.x0 + this.zx0, pad.y0 + this.zy0, dw, dh, 0, 0, iw, ih);
-    image(img, pad.x0, pad.y0, dw, dh, this.zx0, this.zy0, iw, ih);
+    // image(img, urect.x0, urect.y0, dw, dh, -this.zx0, -this.zy0, iw, ih);
+    // image(img, urect.x0 + this.zx0, urect.y0 + this.zy0, dw, dh, 0, 0, iw, ih);
+    image(img, urect.x0, urect.y0, dw, dh, this.zx0, this.zy0, iw, ih);
     // image(img, dx,     dy,     dWidth, dHeight, sx, sy, [sWidth], [sHeight])
-    //       img, pad.x0, pad.y0, dw,     dh,      0,  0,  iw,       ih
+    //       img, urect.x0, urect.y0, dw,     dh,      0,  0,  iw,       ih
     // console.log('rr', rr);
   }
   mouseDragged() {
@@ -302,10 +302,10 @@ class eff_image_show {
     loadImage(ipath, (img) => {
       console.log('eff_image_show img.width', img.width, 'height', img.height);
       console.log('eff_image_show output width', this.output.width, 'height', this.output.height);
-      console.log('eff_image_show pad width', this.eff_src.pad.width, 'height', this.eff_src.pad.height);
+      console.log('eff_image_show pad width', this.eff_src.urect.width, 'height', this.eff_src.urect.height);
 
       if (this.zoomed) {
-        this.zscale = img.width / this.eff_src.pad.width;
+        this.zscale = img.width / this.eff_src.urect.width;
         this.zscale_org = this.zscale;
         console.log('eff_image_show this.zscale', this.zscale);
       }
@@ -379,11 +379,11 @@ class eff_image_show {
         return [255, 255, 255, this.alpha];
       };
     }
-    let pad = this.eff_src.pad;
-    let w = pad.width;
-    let h = pad.height;
-    let ox0 = pad.x0;
-    let oy0 = pad.y0;
+    let urect = this.eff_src.urect;
+    let w = urect.width;
+    let h = urect.height;
+    let ox0 = urect.x0;
+    let oy0 = urect.y0;
     let rr = h / img.height;
     let c_len = w / this.ncell;
     let align_none = this.align === 'none';
