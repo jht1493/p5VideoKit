@@ -1,4 +1,4 @@
-let a_app_ver = 'Present?v=34 ';
+let a_app_ver = 'Present?v=35 ';
 let a_store_ver = '192';
 let a_store_name = 'Store-A';
 let a_store_prefix = '';

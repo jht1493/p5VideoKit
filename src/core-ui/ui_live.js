@@ -26,7 +26,7 @@ function ui_live_selection() {
     console.log('ui_live_selection index', index);
     a_ui_set('live_index', index);
     let ent = media_for_livem_index(index);
-    if (a_ui.live_chk) attach_livem(ent);
+    if (a_ui.live_chk) attach_liveMedia(ent);
     else detach_livem(ent);
   });
 
@@ -48,6 +48,6 @@ function media_for_livem_index(index) {
 function livem_restore() {
   if (!a_livem && a_ui.live_chk) {
     let ent = media_for_livem_index(a_ui.live_index);
-    if (ent) attach_livem(ent);
+    if (ent) attach_liveMedia(ent);
   }
 }

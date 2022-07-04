@@ -11,6 +11,29 @@ class p5VideoKit {
     // console.log('p5VideoKit draw');
     vk_draw();
   }
+
+  // let n = videoKit.mediaDeviceCount()
+  mediaDeviceCount() {
+    //
+  }
+
+  // let eff1 = videoKit.createEffect({effect: 'grid', input: 0...n} )
+  // let eff2 = videoKit.createEffect({effect: 'bestill', input: eff1.output} )
+  createEffect(eff_label, props) {
+    //
+  }
+
+  // process input --> output
+  // videoKit.prepareOutput(eff1, {urect: { x0:0, y0:0, width:w, height:h }})
+  prepareOutput(eff, props) {
+    //
+  }
+
+  // videoKit.imageToCanvas( eff1, { destRect: } )
+  // image_scaled_pad(eff1.output, eff1.eff_src.pad);
+  imageToCanvas(eff, props) {
+    //
+  }
 }
 
 function vk_setup() {
