@@ -23,9 +23,9 @@ const settingsPath = path.join(root_path, 'settings/_menu');
 const settingsOutPath = path.join(src_path, 'let/a_settings.js');
 build_settings(settingsPath, settingsOutPath);
 
-// build_num_run(buildnum_path, build_num, src_path, buildnum_files);
+build_num_run(buildnum_path, build_num, src_path, buildnum_files);
 
-// build_index(src_path, 'index.html', build_num.next);
+build_index(src_path, 'index.html', build_num.next);
 
 const effectRefsPath = path.join(src_path, 'let/a_effectRefs.js');
 const effectModPath = path.join(src_path, 'mods');
