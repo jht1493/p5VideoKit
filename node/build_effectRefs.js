@@ -21,7 +21,6 @@ function build_effectRefs(effectRefsPath, effectModPath) {
     let dpath = path.join(effectModPath, dir);
     // dpath = mods/eff
     if (!fs.lstatSync(dpath).isDirectory()) {
-      console.log('build_effectRefs no dpath', dpath);
       continue;
     }
     const files = fs.readdirSync(dpath);
@@ -50,6 +49,7 @@ function build_effectRefs(effectRefsPath, effectModPath) {
   ]
   `;
   fs.writeFileSync(effectRefsPath, str);
+  console.log('mods', ents.length);
 }
 
 module.exports = build_effectRefs;

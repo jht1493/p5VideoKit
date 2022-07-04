@@ -23,7 +23,7 @@ function effectRef_import(effRef) {
     import(inpath)
       .then((module) => {
         // console.log('effectRef_import module', module, '\n effRef.import_path', effRef.import_path);
-        console.log('effRef.import_path', effRef.import_path);
+        // console.log('effRef.import_path', effRef.import_path);
         effRef.factory = module.default;
         resolve();
       })

@@ -1,6 +1,7 @@
 // Restore a_ui settings from local storage
 // function ui_restore(isize) {
 function ui_restore(sizeResult) {
+  let start = window.performance.now();
   effectRef_init(() => {
     ui_capture_init();
     ui_canvas_init();
@@ -13,6 +14,9 @@ function ui_restore(sizeResult) {
         store_restore_a_ui(urlResult.settings);
       }
       sizeResult(canvas_size_default());
+
+      let lapse = window.performance.now() - start;
+      console.log('ui_restore lapse', lapse);
     });
   });
 }
