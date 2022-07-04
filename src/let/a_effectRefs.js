@@ -1,7 +1,11 @@
-let a_effects = [
+// EffectRef
+// { label, factory, path }
+
+let a_effectRefs = [
   { label: 'show', factory: eff_show_pad },
   { label: 'none', factory: eff_show_none },
-  { label: 'bestill', factory: eff_bestill },
+  // { label: 'bestill', factory: eff_bestill, import: 'eff/Eff_bestill'},
+  { label: 'bestill', import_path: 'eff/eff_bestill' },
   { label: 'bodypix', factory: eff_bodypix },
   { label: 'bright', factory: eff_bright },
   { label: 'circle', factory: eff_circle },

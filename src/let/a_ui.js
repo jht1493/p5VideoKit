@@ -25,26 +25,3 @@ let a_patch_instances = [];
 let a_canvas_size_lock = 0;
 let a_hideui = 0; // Default is to hide using with s= settings
 let a_chat_name; // chat name from url param c
-
-let a_effects_dict;
-
-function effectFind(label) {
-  if (!a_effects_dict) {
-    a_effects_dict = {};
-    let index = 0;
-    for (let eff of a_effects) {
-      a_effects_dict[eff.label] = eff;
-      eff.index = index;
-      index++;
-    }
-  }
-  if (!label) {
-    return a_effects[0];
-  }
-  let eff = a_effects_dict[label];
-  if (!eff) {
-    console.log('effectFind label not found', label);
-    eff = a_effects[0];
-  }
-  return eff;
-}

@@ -1,17 +1,19 @@
 // Restore a_ui settings from local storage
 // function ui_restore(isize) {
 function ui_restore(sizeResult) {
-  ui_capture_init();
-  ui_canvas_init();
-  ui_render_init();
-  store_name_restore();
-  store_url_parse((urlResult) => {
-    if (!urlResult.uiSet) {
-      store_restore_ver();
-      store_restore_canvas_lock();
-      store_restore_a_ui(urlResult.settings);
-    }
-    sizeResult(canvas_size_default());
+  effectRef_init(() => {
+    ui_capture_init();
+    ui_canvas_init();
+    ui_render_init();
+    store_name_restore();
+    store_url_parse((urlResult) => {
+      if (!urlResult.uiSet) {
+        store_restore_ver();
+        store_restore_canvas_lock();
+        store_restore_a_ui(urlResult.settings);
+      }
+      sizeResult(canvas_size_default());
+    });
   });
 }
 

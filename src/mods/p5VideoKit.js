@@ -3,7 +3,10 @@
 class p5VideoKit {
   //
   constructor(p5_inst = p5.instance) {
-    console.log('p5VideoKit p5_inst', p5_inst);
+    // console.log('p5VideoKit p5_inst', p5_inst);
+    // To work in p5 instance mode we need to use this.p0 on all globals
+    //
+    this.p0 = p5_inst;
     vk_setup();
   }
 
@@ -12,15 +15,27 @@ class p5VideoKit {
     vk_draw();
   }
 
-  // let n = videoKit.mediaDeviceCount()
-  mediaDeviceCount() {
-    //
+  // let n = videoKit.mediaDivCount()
+  mediaDivCount() {
+    return a_mediaDivs.length;
+  }
+
+  // mediaDiv = videoKit.mediaDeviceAt(index)
+  mediaDivAt(index) {
+    return a_mediaDivs[index];
   }
 
   // let eff1 = videoKit.createEffect({effect: 'grid', input: 0...n} )
   // let eff2 = videoKit.createEffect({effect: 'bestill', input: eff1.output} )
   createEffect(eff_label, props) {
     //
+    let eff_src = {};
+    let media = this.mediaDivAt(props.input);
+    let input = media.capture;
+    let init = { eff_src, input, media };
+    init = Object.assign(init, uiPatch.eff_inits);
+    let aeff = effectRef_find(eff_label);
+    return new aeff.factory(init);
   }
 
   // process input --> output
@@ -68,7 +83,7 @@ function draw_patch(ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
-  let aeff = effectFind(eff_label);
+  let aeff = effectRef_find(eff_label);
   let media = a_mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
