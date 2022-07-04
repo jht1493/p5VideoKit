@@ -12,6 +12,7 @@ class p5VideoKit {
 
   draw() {
     // console.log('p5VideoKit draw');
+    if (!a_initDone) return;
     vk_draw();
   }
 
@@ -51,6 +52,8 @@ class p5VideoKit {
   }
 }
 
+let a_initDone = 0;
+
 function vk_setup() {
   ui_restore((sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
@@ -61,6 +64,8 @@ function vk_setup() {
     create_ui();
 
     media_enum();
+
+    a_initDone = 1;
   });
 }
 
