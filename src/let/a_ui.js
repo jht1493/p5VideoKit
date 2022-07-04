@@ -1,4 +1,4 @@
-let a_app_ver = 'Present?v=33 ';
+let a_app_ver = 'Present?v=34 ';
 let a_store_ver = '192';
 let a_store_name = 'Store-A';
 let a_store_prefix = '';
@@ -15,7 +15,7 @@ let a_ui = {
   live_index: 0,
   live_chk: 0,
   patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
-  medias: [],
+  mediaDiv_states: [],
   urects_lock: 0,
   urects_count: 0,
   canvas_resize_ref: '',

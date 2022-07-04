@@ -1,5 +1,5 @@
 let a_mediaDivs = [];
-// { imedia, device, id, label, div, chk, vis, capture, info, ready, livem }
+// { imedia, mediaDevice, id, label, div, chk, vis, capture, info, ready, livem }
 // 0: canvas
 // 1: first local device
 // 2: livem device for self
@@ -126,16 +126,16 @@ function init_mediaDivs() {
 
 function ui_media_default_vis(imedia, vis) {
   // let vis = default_vis;
-  let ent = a_ui.medias[imedia];
+  let ent = a_ui.mediaDiv_states[imedia];
   if (ent) {
     return ent.vis;
   }
-  a_ui.medias[imedia] = { vis };
-  a_ui_set('medias', a_ui.medias);
+  a_ui.mediaDiv_states[imedia] = { vis };
+  a_ui_set('mediaDiv_states', a_ui.mediaDiv_states);
   return vis;
 }
 
 function ui_media_update_vis(imedia, vis) {
-  a_ui.medias[imedia].vis = vis;
-  a_ui_set('medias', a_ui.medias);
+  a_ui.mediaDiv_states[imedia].vis = vis;
+  a_ui_set('mediaDiv_states', a_ui.mediaDiv_states);
 }
