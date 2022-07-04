@@ -1,4 +1,4 @@
-class eff_face_band {
+export default class eff_face_band {
   static meta_props = {
     align: ['center', 'left', 'right', 'none'],
     alpha: [255, 230, 180, 100, 10],

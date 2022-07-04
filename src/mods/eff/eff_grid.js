@@ -1,4 +1,4 @@
-class eff_grid {
+export default class eff_grid {
   static meta_props = {
     ncell: [32, 16, 32, 64, 128],
     margin: [1, 2, 3],

@@ -1,4 +1,4 @@
-class eff_face_mesh {
+export default class eff_face_mesh {
   static meta_props = {
     alpha: [255, 230, 180, 100, 10],
     align: ['center', 'left', 'right', 'none'],

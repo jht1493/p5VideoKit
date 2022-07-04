@@ -1,15 +1,8 @@
-class eff_diff {
+export default class eff_diff {
   static meta_props = {
     threshold: [16, 1, 2, 4, 8, 16, 32, 64, 128, 200],
     period: [0, 0, 0.5, 1, 2, 5, 10, 20, 30, 60],
-    back_color: [
-      'clear',
-      'rgb(0,0,0)',
-      'rgb(50,50,50)',
-      'rgb(100,100,100)',
-      'rgb(200,200,200)',
-      'rgb(255,255,255)',
-    ],
+    back_color: ['clear', 'rgb(0,0,0)', 'rgb(50,50,50)', 'rgb(100,100,100)', 'rgb(200,200,200)', 'rgb(255,255,255)'],
     smooth: [0, 10, 1, 5, 10, 50, 100, 200],
     hold: [0, 0.001, 0.005, 0.01, 0.5, 1, 5, 10, 20],
   };

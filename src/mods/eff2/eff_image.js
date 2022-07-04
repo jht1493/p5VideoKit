@@ -13,7 +13,7 @@ let g_image_groups = [
   'screens',
 ];
 
-class eff_image_show {
+export default class eff_image_show {
   static meta_props = {
     group: g_image_groups,
     next: {

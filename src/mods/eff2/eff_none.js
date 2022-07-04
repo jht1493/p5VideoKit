@@ -1,4 +1,4 @@
-class eff_show_pad {
+export default class eff_show_pad {
   static meta_props = {
     // show: [1, 0],
     // step_patch: [1, 0],

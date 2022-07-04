@@ -1,4 +1,4 @@
-class eff_tile_clock {
+export default class eff_tile_clock {
   static meta_props = {
     center_draw: ['pixd', 'mesh', 'dots', 'rects', 'tris', 'crop', 'cycle'],
     // ncell: [3, 2, 3, 4, 5, 6, 7, 8],

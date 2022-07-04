@@ -1,4 +1,4 @@
-class eff_bright {
+export default class eff_bright {
   static meta_props = {
     // ncell: [32, 64, 128, 256, 512],
     scale: [16, 8, 16, 32, 64],

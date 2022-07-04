@@ -1,4 +1,4 @@
-class eff_bodypix {
+export default class eff_bodypix {
   static meta_props = {
     alpha: [255, 230, 180, 100, 10],
   };

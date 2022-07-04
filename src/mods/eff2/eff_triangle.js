@@ -1,4 +1,4 @@
-class eff_triangle {
+export default class eff_triangle {
   static meta_props = {
     dcell: [5, 10, 20, 30],
     rate: ['frame', 'line', 'ncell'],

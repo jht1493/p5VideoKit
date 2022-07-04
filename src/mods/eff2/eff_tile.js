@@ -1,4 +1,4 @@
-class eff_tile {
+export default class eff_tile {
   static meta_props = {
     // ncell: [1, 2, 3, 4, 5, 6, 7, 8],
     // cells: [[2, 2]],

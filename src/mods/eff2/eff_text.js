@@ -1,4 +1,4 @@
-class eff_text {
+export default class eff_text {
   static meta_props = {
     size: [16, 30, 40, 45, 60, 90],
     alpha: [255, 0, 10, 50, 100, 200, 255],

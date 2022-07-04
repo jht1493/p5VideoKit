@@ -1,4 +1,4 @@
-class eff_delaunay {
+export default class eff_delaunay {
   static meta_props = {
     dcell: [50, 5, 10, 20, 30, 40, 50, 100],
     period: [30, 0, 0.5, 1, 2, 5, 10, 20, 30, 60],

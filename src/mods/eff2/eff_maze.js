@@ -1,4 +1,4 @@
-class eff_maze {
+export default class eff_maze {
   static meta_props = {
     ncell: [32, 64, 128, 16],
     weight: [0.5, 0.6, 0.7, 0.8],

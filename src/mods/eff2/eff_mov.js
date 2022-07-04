@@ -1,4 +1,4 @@
-class eff_mov_show {
+export default class eff_mov_show {
   static meta_props = {
     group: ['covid19mov', '370-mov'],
     ifile: [0, 1, 2],

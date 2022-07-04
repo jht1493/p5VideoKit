@@ -1,4 +1,4 @@
-class eff_slant_scan {
+export default class eff_slant_scan {
   static meta_props = {
     ncell: [512, 1024, 2028],
     // step: [1, 2, 4, 0.2],

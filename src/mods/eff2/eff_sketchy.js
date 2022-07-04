@@ -1,4 +1,4 @@
-class eff_sketchy {
+export default class eff_sketchy {
   static meta_props = {
     speed: [150, 1, 2, 5, 10, 20, 100],
     alpha: [255, 230, 180, 100, 10],

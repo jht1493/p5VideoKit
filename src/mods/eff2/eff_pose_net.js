@@ -1,4 +1,4 @@
-class eff_pose_net {
+export default class eff_pose_net {
   static meta_props = {
     alpha: [255, 230, 180, 100, 10],
     ndetect: [4, 1, 2, 3],

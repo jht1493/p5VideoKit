@@ -1,4 +1,4 @@
-class eff_fft_graph {
+export default class eff_fft_graph {
   static meta_props = { max: [5, 6, 7, 2, 4, 8, 9, 10] };
   constructor(props) {
     Object.assign(this, props);

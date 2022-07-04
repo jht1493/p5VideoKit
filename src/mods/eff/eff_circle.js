@@ -1,4 +1,4 @@
-class eff_circle {
+export default class eff_circle {
   static meta_props = {
     per_frame: [5, 10, 50, 100, 200, 1000],
     ntry: [50, 100, 200, 500, 1000, 2000],

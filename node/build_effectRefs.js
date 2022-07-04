@@ -31,17 +31,25 @@ function build_effectRefs(effectRefsPath, effectModPath) {
     files.sort();
     files.map((ent) => {
       if (ent.endsWith('.js')) {
-        imparts.push(dir + '/' + ent);
+        let pos = ent.lastIndexOf('.');
+        let nent = ent.substring(0, pos);
+        imparts.push(dir + '/' + nent);
       }
     });
   }
-  console.log('imparts', imparts);
+  // console.log('imparts', imparts);
   let ents = imparts.map((ent) => {
-    let pos = ent.lastIndexOf('_');
+    let pos = ent.indexOf('_');
     let label = ent.substring(pos + 1);
     return `{ label: '${label}', import_path: '${ent}' },`;
   });
-  console.log('ents', ents);
+  // console.log('ents', ents);
+  let str = `// !!@ Generated File
+  let a_effectRefs = [
+  ${ents.join('\n')}
+  ]
+  `;
+  fs.writeFileSync(effectRefsPath, str);
 }
 
 module.exports = build_effectRefs;
