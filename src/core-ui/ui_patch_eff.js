@@ -48,11 +48,11 @@ function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_effectMetas.length; ii++) {
         aSel.option(a_effectMetas[ii].label, ii);
       }
-      let effMeta = effectMeta_find(aPatch.eff_src.eff_label).index;
-      aSel.selected(effMeta);
+      let effIndex = effectMeta_find(aPatch.eff_src.eff_label).index;
+      aSel.selected(effIndex);
       aSel.changed(function () {
-        let effMeta = parseFloat(this.value());
-        patch_update_effMeta(aPatch, effMeta);
+        let effIndex = parseFloat(this.value());
+        patch_update_effIndex(aPatch, effIndex);
       });
     }
 
@@ -198,10 +198,10 @@ function patch_remove_last() {
   patch_remove_at(ipatch);
 }
 
-function patch_update_ieff(aPatch, ieff) {
+function patch_update_effIndex(aPatch, effIndex) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
-  eff_src.eff_label = a_effectMetas[ieff].label;
+  eff_src.eff_label = a_effectMetas[effIndex].label;
   a_ui.patches[ipatch] = { eff_src, factory: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();

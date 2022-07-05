@@ -6,7 +6,7 @@ dest=../src/external/lib
 curl https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js -o $dest/p5.js
 curl https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js -o $dest/p5.sound.min.js
 # !!@ Update to latest p5js lib pending
-# https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js
+# https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js
 # https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js
 
 curl https://p5livemedia.itp.io/simplepeer.min.js -o $dest/simplepeer.min.js
