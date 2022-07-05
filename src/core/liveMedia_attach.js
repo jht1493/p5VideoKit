@@ -1,14 +1,14 @@
 let a_livem;
 
-function attach_liveMedia(mediaDiv) {
-  console.log('attach_liveMedia mediaDiv=', mediaDiv);
+function liveMedia_attach(mediaDiv) {
+  console.log('liveMedia_attach mediaDiv=', mediaDiv);
   let type;
   let stream;
   let mediaDevice = mediaDiv.mediaDevice;
   if (mediaDevice) {
     stream = mediaDevice.stream;
     if (!stream) {
-      console.log('attach_liveMedia NO stream ent=', ent);
+      console.log('liveMedia_attach NO stream ent=', ent);
       return;
     }
     type = 'CAPTURE';
@@ -23,11 +23,11 @@ function attach_liveMedia(mediaDiv) {
   }
   let livem = mediaDiv.livem;
   if (livem) {
-    console.log('attach_liveMedia livem', livem);
+    console.log('liveMedia_attach livem', livem);
     return;
   }
-  // console.log('attach_liveMedia this=', this);
-  console.log('attach_liveMedia type=' + type + ' a_ui.room_name=' + a_ui.room_name);
+  // console.log('liveMedia_attach this=', this);
+  console.log('liveMedia_attach type=' + type + ' a_ui.room_name=' + a_ui.room_name);
   livem = new p5LiveMedia(this, type, stream, a_ui.room_name);
   if (!a_livem) {
     livem.on('stream', gotStream);
@@ -35,13 +35,13 @@ function attach_liveMedia(mediaDiv) {
     livem.on('disconnect', gotDisconnect);
     livem.on('connect', gotConnect);
     a_livem = livem;
-    // console.log('attach_liveMedia SET a_livem', a_livem);
+    // console.log('liveMedia_attach SET a_livem', a_livem);
   }
   mediaDiv.livem = livem;
 }
 
-function detach_livem(mediaDiv) {
-  console.log('detach_livem mediaDiv=', mediaDiv);
+function liveMedia_detach(mediaDiv) {
+  console.log('liveMedia_detach mediaDiv=', mediaDiv);
   if (!mediaDiv) return;
   mediaDiv.livem = null;
 }

@@ -2,7 +2,7 @@
 // function ui_restore(isize) {
 function ui_restore(sizeResult) {
   let start = window.performance.now();
-  effectRef_init(() => {
+  effectMeta_init(() => {
     ui_capture_init();
     ui_canvas_init();
     ui_render_init();

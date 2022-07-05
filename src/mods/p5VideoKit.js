@@ -26,29 +26,44 @@ class p5VideoKit {
     return a_mediaDivs[index];
   }
 
-  // let eff1 = videoKit.createEffect({effect: 'grid', input: 0...n} )
-  // let eff2 = videoKit.createEffect({effect: 'bestill', input: eff1.output} )
-  createEffect(eff_label, props) {
-    //
-    let eff_src = {};
-    let media = this.mediaDivAt(props.input);
+  // {
+  //   "eff_src": {
+  //     "ipatch": 2,
+  //     "imedia": 0,
+  //     "eff_label": "bestill",
+  //     "urect": {
+  //       "width": 1920,
+  //       "height": 1080,
+  //       "x0": 0,
+  //       "y0": 0
+  //     }
+  //   },
+  //   "eff_inits": {
+  //     "factor": 20,
+  //     "mirror": 0
+  //   }
+  // }
+
+  // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
+  //
+  createEffect(eff_label, imedia, urect, props) {
+    let eff_src = { urect };
+    let media = this.mediaDivAt(imedia);
     let input = media.capture;
-    let init = { eff_src, input, media };
-    init = Object.assign(init, uiPatch.eff_inits);
-    let aeff = effectRef_find(eff_label);
-    return new aeff.factory(init);
+    let init = Object.assign({ eff_src, input, media }, props);
+    let effRef = effectMeta_find(eff_label);
+    return new effRef.factory(init);
   }
 
   // process input --> output
-  // videoKit.prepareOutput(eff1, {urect: { x0:0, y0:0, width:w, height:h }})
-  prepareOutput(eff, props) {
-    //
+  // videoKit.prepareOutput(eff)
+  prepareOutput(eff) {
+    eff.render();
   }
 
-  // videoKit.imageToCanvas( eff1, { destRect: } )
-  // image_scaled_pad(eff1.output, eff1.eff_src.pad);
-  imageToCanvas(eff, props) {
-    //
+  // videoKit.imageToCanvas( eff  )
+  imageToCanvas(eff) {
+    image_scaled_pad(eff.output, eff.eff_src.urect);
   }
 }
 
@@ -88,7 +103,7 @@ function draw_patch(ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
-  let aeff = effectRef_find(eff_label);
+  let aeff = effectMeta_find(eff_label);
   let media = a_mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);

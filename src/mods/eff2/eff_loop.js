@@ -174,7 +174,7 @@ export default class eff_loop {
     let eff_names = this.constructor.eff_names;
     let label = eff_names[this.index];
     this.index = (this.index + 1) % eff_names.length;
-    let aeff = effectRef_find(label);
+    let aeff = effectMeta_find(label);
     // console.log('next_eff aeff', aeff);
     if (aeff) {
       console.log('next_eff aeff', aeff.label);

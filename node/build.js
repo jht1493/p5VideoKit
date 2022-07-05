@@ -5,7 +5,7 @@ const { get_build_nums, build_num_run } = require('./build_num');
 const build_index = require('./build_index');
 const build_webdb = require('./build_webdb');
 const build_settings = require('./build_settings');
-const build_effectRefs = require('./build_effectRefs');
+const build_effectMetas = require('./build_effectMetas');
 
 // source files that will have ?v=<buildnumber> updated
 const buildnum_files = ['./index.html', './let/a_ui.js'];
@@ -27,6 +27,6 @@ build_num_run(buildnum_path, build_num, src_path, buildnum_files);
 
 build_index(src_path, 'index.html', build_num.next);
 
-const effectRefsPath = path.join(src_path, 'let/a_effectRefs.js');
+const effectMetasPath = path.join(src_path, 'let/a_effectMetas.js');
 const effectModPath = path.join(src_path, 'mods');
-build_effectRefs(effectRefsPath, effectModPath);
+build_effectMetas(effectMetasPath, effectModPath);

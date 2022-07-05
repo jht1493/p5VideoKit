@@ -45,10 +45,10 @@ function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      for (let ii = 0; ii < a_effectRefs.length; ii++) {
-        aSel.option(a_effectRefs[ii].label, ii);
+      for (let ii = 0; ii < a_effectMetas.length; ii++) {
+        aSel.option(a_effectMetas[ii].label, ii);
       }
-      let ieff = effectRef_find(aPatch.eff_src.eff_label).index;
+      let ieff = effectMeta_find(aPatch.eff_src.eff_label).index;
       aSel.selected(ieff);
       aSel.changed(function () {
         let ieff = parseFloat(this.value());
@@ -75,7 +75,7 @@ function ui_patch_eff_panes() {
 
     function create_settings() {
       // console.log('create_settings aPatch', aPatch);
-      let aeff = effectRef_find(aPatch.eff_src.eff_label);
+      let aeff = effectMeta_find(aPatch.eff_src.eff_label);
       create_selections_for_dict(aeff.factory.meta_props);
       div.child(createElement('br'));
       div.child(createElement('br'));
@@ -201,7 +201,7 @@ function patch_remove_last() {
 function patch_update_ieff(aPatch, ieff) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
-  eff_src.eff_label = a_effectRefs[ieff].label;
+  eff_src.eff_label = a_effectMetas[ieff].label;
   a_ui.patches[ipatch] = { eff_src, factory: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();

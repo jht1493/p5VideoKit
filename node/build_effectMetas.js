@@ -1,13 +1,13 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-// 'let/a_effectRefs.js'
+// 'let/a_effectMetas.js'
 // 'mods'
 //
-function build_effectRefs(effectRefsPath, effectModPath) {
+function build_effectMetas(effectMetasPath, effectModPath) {
   //
   if (!fs.existsSync(effectModPath)) {
-    console.log('build_effectRefs not effectModPath', effectModPath);
+    console.log('build_effectMetas not effectModPath', effectModPath);
     return;
   }
   const dirs = fs.readdirSync(effectModPath);
@@ -44,20 +44,20 @@ function build_effectRefs(effectRefsPath, effectModPath) {
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File
-  let a_effectRefs = [
+  let a_effectMetas = [
   ${ents.join('\n')}
   ]
   `;
-  fs.writeFileSync(effectRefsPath, str);
+  fs.writeFileSync(effectMetasPath, str);
   console.log('mods', ents.length);
 }
 
-module.exports = build_effectRefs;
+module.exports = build_effectMetas;
 
 // EffectRef
 // { label, factory, path }
 
-// let a_effectRefs = [
+// let a_effectMetas = [
 //    { label: 'show', factory: eff_show_pad },
 //    { label: 'bestill', import_path: 'eff/eff_bestill' },
 // ];
