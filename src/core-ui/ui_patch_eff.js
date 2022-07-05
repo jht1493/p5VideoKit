@@ -202,7 +202,7 @@ function patch_update_effIndex(aPatch, effIndex) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
   eff_src.eff_label = a_effectMetas[effIndex].label;
-  a_ui.patches[ipatch] = { eff_src, factory: {} };
+  a_ui.patches[ipatch] = { eff_src, eff_inits: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();
 }
