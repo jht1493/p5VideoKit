@@ -174,16 +174,16 @@ export default class eff_loop {
     let eff_names = this.constructor.eff_names;
     let label = eff_names[this.index];
     this.index = (this.index + 1) % eff_names.length;
-    let aeff = effectMeta_find(label);
-    // console.log('next_eff aeff', aeff);
-    if (aeff) {
-      console.log('next_eff aeff', aeff.label);
-      let iprops = this.eff_inits(aeff.factory.meta_props);
+    let effMeta = effectMeta_find(label);
+    // console.log('next_eff effMeta', effMeta);
+    if (effMeta) {
+      console.log('next_eff effMeta', effMeta.label);
+      let iprops = this.eff_inits(effMeta.factory.meta_props);
       // Set input on iprops for eff_inst.init
       this.prepare_input(iprops);
       let eff_inst = this.eff_inst_arr[this.index];
       if (!eff_inst) {
-        eff_inst = new aeff.factory(iprops);
+        eff_inst = new effMeta.factory(iprops);
         this.eff_inst_arr[this.index] = eff_inst;
       } else {
         // console.log('next_eff init eff_inst', eff_inst);

@@ -51,8 +51,8 @@ class p5VideoKit {
     let media = this.mediaDivAt(imedia);
     let input = media.capture;
     let init = Object.assign({ eff_src, input, media }, props);
-    let effRef = effectMeta_find(eff_label);
-    return new effRef.factory(init);
+    let effMeta = effectMeta_find(eff_label);
+    return new effMeta.factory(init);
   }
 
   // process input --> output
@@ -103,7 +103,7 @@ function draw_patch(ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
-  let aeff = effectMeta_find(eff_label);
+  let effMeta = effectMeta_find(eff_label);
   let media = a_mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
@@ -126,7 +126,7 @@ function draw_patch(ipatch, prior) {
     let input = media.capture;
     let init = { eff_src, input, media };
     init = Object.assign(init, uiPatch.eff_inits);
-    inst = new aeff.factory(init);
+    inst = new effMeta.factory(init);
     a_patch_instances[ipatch] = inst;
     mouse_event_check(inst);
   } else if (media) {
