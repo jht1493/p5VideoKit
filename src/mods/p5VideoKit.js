@@ -17,24 +17,6 @@ p5VideoKit.prototype.draw = function () {
   this.vk_draw();
 };
 
-// {
-//   "eff_src": {
-//     "ipatch": 2,
-//     "imedia": 0,
-//     "eff_label": "bestill",
-//     "urect": {
-//       "width": 1920,
-//       "height": 1080,
-//       "x0": 0,
-//       "y0": 0
-//     }
-//   },
-//   "eff_inits": {
-//     "factor": 20,
-//     "mirror": 0
-//   }
-// }
-
 p5VideoKit.prototype.vk_setup = function () {
   ui_restore((sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
@@ -63,6 +45,24 @@ p5VideoKit.prototype.vk_draw = function () {
   }
   update_ui();
 };
+
+// {
+//   "eff_src": {
+//     "ipatch": 2,
+//     "imedia": 0,
+//     "eff_label": "bestill",
+//     "urect": {
+//       "width": 1920,
+//       "height": 1080,
+//       "x0": 0,
+//       "y0": 0
+//     }
+//   },
+//   "eff_inits": {
+//     "factor": 20,
+//     "mirror": 0
+//   }
+// }
 
 // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
 //

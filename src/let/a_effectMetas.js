@@ -11,6 +11,7 @@ let a_effectMetas = [
 { label: 'fft_graph', import_path: 'eff/eff_fft_graph' },
 { label: 'fft_polar', import_path: 'eff/eff_fft_polar' },
 { label: 'grid', import_path: 'eff/eff_grid' },
+{ label: 'import', import_path: 'eff/eff_import' },
 { label: 'image', import_path: 'eff2/eff_image' },
 { label: 'image_mesh', import_path: 'eff2/eff_image_mesh' },
 { label: 'loop', import_path: 'eff2/eff_loop' },

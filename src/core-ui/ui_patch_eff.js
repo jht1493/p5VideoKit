@@ -118,6 +118,18 @@ function ui_patch_eff_panes() {
           if (first) {
             btn.style('margin-left', '10px');
           }
+        } else if (iprop === 'text_input') {
+          let oldVal = aPatch.eff_inits[prop];
+          if (oldVal === undefined) {
+            oldVal = '' + item;
+          }
+          let elm = createInput(oldVal).input(function () {
+            let aVal = this.value();
+            console.log('text_input ' + aVal);
+            aPatch.eff_inits[prop] = aVal;
+            ui_patch_update(aPatch);
+          });
+          div.child(elm);
         } else {
           console.log('create_other !!@ Unkown type=' + iprop);
         }
