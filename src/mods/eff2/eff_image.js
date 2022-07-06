@@ -124,7 +124,6 @@ export default class eff_image_show {
   show_image() {
     if (!this.zoomed) {
       layer_image_scaled_pad(this.output, this.img, this.eff_src.urect, this.align_center);
-      // this.output = this.img;
     } else {
       this.show_zoomed(this.img, this.eff_src.urect);
     }

@@ -7,69 +7,35 @@ class p5VideoKit {
     // To work in p5 instance mode we need to use this.p0 on all globals
     //
     this.p0 = p5_inst;
-    vk_setup();
-  }
-
-  draw() {
-    // console.log('p5VideoKit draw');
-    if (!a_initDone) return;
-    vk_draw();
-  }
-
-  // let n = videoKit.mediaDivCount()
-  mediaDivCount() {
-    return a_mediaDivs.length;
-  }
-
-  // mediaDiv = videoKit.mediaDeviceAt(index)
-  mediaDivAt(index) {
-    return a_mediaDivs[index];
-  }
-
-  // {
-  //   "eff_src": {
-  //     "ipatch": 2,
-  //     "imedia": 0,
-  //     "eff_label": "bestill",
-  //     "urect": {
-  //       "width": 1920,
-  //       "height": 1080,
-  //       "x0": 0,
-  //       "y0": 0
-  //     }
-  //   },
-  //   "eff_inits": {
-  //     "factor": 20,
-  //     "mirror": 0
-  //   }
-  // }
-
-  // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
-  //
-  createEffect(eff_label, imedia, urect, props) {
-    let eff_src = { urect };
-    let media = this.mediaDivAt(imedia);
-    let input = media.capture;
-    let init = Object.assign({ eff_src, input, media }, props);
-    let effMeta = effectMeta_find(eff_label);
-    return new effMeta.factory(init);
-  }
-
-  // process input --> output
-  // videoKit.prepareOutput(eff)
-  prepareOutput(eff) {
-    eff.render();
-  }
-
-  // videoKit.imageToCanvas( eff  )
-  imageToCanvas(eff) {
-    image_scaled_pad(eff.output, eff.eff_src.urect);
+    this.vk_setup();
   }
 }
 
-let a_initDone = 0;
+p5VideoKit.prototype.draw = function () {
+  // console.log('p5VideoKit draw');
+  if (!this.a_initDone) return;
+  this.vk_draw();
+};
 
-function vk_setup() {
+// {
+//   "eff_src": {
+//     "ipatch": 2,
+//     "imedia": 0,
+//     "eff_label": "bestill",
+//     "urect": {
+//       "width": 1920,
+//       "height": 1080,
+//       "x0": 0,
+//       "y0": 0
+//     }
+//   },
+//   "eff_inits": {
+//     "factor": 20,
+//     "mirror": 0
+//   }
+// }
+
+p5VideoKit.prototype.vk_setup = function () {
   ui_restore((sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
@@ -80,12 +46,12 @@ function vk_setup() {
 
     media_enum();
 
-    a_initDone = 1;
+    this.a_initDone = 1;
   });
-}
+};
 
-function vk_draw() {
-  set_background();
+p5VideoKit.prototype.vk_draw = function () {
+  this.set_background();
   stroke(255);
   if (!a_ui.urects_count) {
     console.log('draw a_ui.urects_count', a_ui.urects_count);
@@ -93,12 +59,44 @@ function vk_draw() {
   }
   let prior;
   for (let ipatch = 0; ipatch < a_ui.patches.length; ipatch++) {
-    prior = draw_patch(ipatch, prior);
+    prior = this.draw_patch(ipatch, prior);
   }
   update_ui();
-}
+};
 
-function draw_patch(ipatch, prior) {
+// let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
+//
+p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
+  let eff_src = { urect };
+  let media = this.mediaDivAt(imedia);
+  let input = media.capture;
+  let init = Object.assign({ eff_src, input, media }, props);
+  let effMeta = effectMeta_find(eff_label);
+  return new effMeta.factory(init);
+};
+
+// process input --> output
+// videoKit.prepareOutput(eff)
+p5VideoKit.prototype.prepareOutput = function (eff) {
+  eff.render();
+};
+
+// videoKit.imageToCanvas( eff  )
+p5VideoKit.prototype.imageToCanvas = function (eff) {
+  image_scaled_pad(eff.output, eff.eff_src.urect);
+};
+
+// let n = videoKit.mediaDivCount()
+p5VideoKit.prototype.mediaDivCount = function () {
+  return a_mediaDivs.length;
+};
+
+// mediaDiv = videoKit.mediaDeviceAt(index)
+p5VideoKit.prototype.mediaDivAt = function (index) {
+  return a_mediaDivs[index];
+};
+
+p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   let uiPatch = a_ui.patches[ipatch];
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_src = uiPatch.eff_src;
@@ -128,7 +126,7 @@ function draw_patch(ipatch, prior) {
     init = Object.assign(init, uiPatch.eff_inits);
     inst = new effMeta.factory(init);
     a_patch_instances[ipatch] = inst;
-    mouse_event_check(inst);
+    this.mouse_event_check(inst);
   } else if (media) {
     // !!@ for tile - seek media up to date for live device connect/disconnect
     inst.media = media;
@@ -144,9 +142,9 @@ function draw_patch(ipatch, prior) {
     image_scaled_pad(inst.output, eff_src.urect);
   }
   return inst;
-}
+};
 
-function set_background() {
+p5VideoKit.prototype.set_background = function () {
   let bg = a_ui.back_color;
   // console.log('set_background a_ui.back_color', a_ui.back_color);
   if (!bg) {
@@ -160,25 +158,25 @@ function set_background() {
     }
   }
   background(bg);
-}
+};
 
-function mouse_event_check(inst) {
+p5VideoKit.prototype.mouse_event_check = function (inst) {
   if (inst.mouseDragged) {
-    mouseDragged_inst = inst;
+    this.mouseDragged_inst = inst;
   }
   if (inst.mouseReleased) {
-    mouseReleased_inst = inst;
+    this.mouseReleased_inst = inst;
   }
-}
-let mouseDragged_inst;
-function mouseDragged() {
-  if (mouseDragged_inst) {
-    mouseDragged_inst.mouseDragged();
+};
+
+p5VideoKit.prototype.mouseDragged = function () {
+  if (this.mouseDragged_inst) {
+    this.mouseDragged_inst.mouseDragged();
   }
-}
-let mouseReleased_inst;
-function mouseReleased() {
-  if (mouseReleased_inst) {
-    mouseReleased_inst.mouseReleased();
+};
+
+p5VideoKit.prototype.mouseReleased = function () {
+  if (this.mouseReleased_inst) {
+    this.mouseReleased_inst.mouseReleased();
   }
-}
+};
