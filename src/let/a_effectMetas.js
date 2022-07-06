@@ -1,6 +1,6 @@
 // !!@ Generated File
-  let a_effectMetas = [
-  { label: 'bestill', import_path: 'eff/eff_bestill' },
+let a_effectMetas = [
+{ label: 'bestill', import_path: 'eff/eff_bestill' },
 { label: 'bodypix', import_path: 'eff/eff_bodypix' },
 { label: 'bright', import_path: 'eff/eff_bright' },
 { label: 'circle', import_path: 'eff/eff_circle' },
@@ -26,5 +26,4 @@
 { label: 'tile', import_path: 'eff2/eff_tile' },
 { label: 'tile_clock', import_path: 'eff2/eff_tile_clock' },
 { label: 'triangle', import_path: 'eff2/eff_triangle' },
-  ]
-  
+];
