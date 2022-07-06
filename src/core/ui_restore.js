@@ -1,5 +1,4 @@
 // Restore a_ui settings from local storage
-// function ui_restore(isize) {
 function ui_restore(sizeResult) {
   let start = window.performance.now();
   effectMeta_init(() => {
@@ -13,12 +12,65 @@ function ui_restore(sizeResult) {
         store_restore_canvas_lock();
         store_restore_a_ui(urlResult.settings);
       }
-      sizeResult(canvas_size_default());
-
-      let lapse = window.performance.now() - start;
-      console.log('ui_restore lapse', lapse);
+      ui_restore_imports(start, sizeResult);
     });
   });
+}
+
+function ui_restore_imports(start, sizeResult) {
+  ui_load_imports_patches(() => {
+    sizeResult(canvas_size_default());
+
+    let lapse = window.performance.now() - start;
+    console.log('ui_restore lapse', lapse);
+  });
+}
+
+function ui_load_imports_patches(done) {
+  let imports = [];
+  for (let patch of a_ui.patches) {
+    if (patch.eff_src.eff_label === 'import') {
+      imports.push(patch_import(patch));
+    }
+  }
+  Promise.allSettled(imports).then(done);
+}
+
+function patch_import(patch) {
+  let npath = patch.eff_inits.path;
+  if (!npath) return;
+  let inpath = '../' + npath;
+  if (!inpath.endsWith('.js')) {
+    inpath += '.js';
+  }
+  console.log('patch_import inpath', inpath);
+  return new Promise((resolve, reject) => {
+    import(inpath)
+      .then((module) => {
+        // console.log('patch_import module', module, '\n inpath', inpath);
+        // console.log('patch_import inpath', inpath);
+        patch.import_factory = module.default;
+        resolve();
+      })
+      .catch((err) => {
+        console.log('patch_import err', err, '\n inpath', inpath);
+        a_import_err = err;
+        patch.import_factory = eff_import_failed;
+        reject();
+      });
+  });
+}
+
+class eff_import_failed {
+  static meta_props = {
+    err: {
+      message: 'import not found',
+    },
+  };
+  constructor(props) {
+    Object.assign(this, props);
+  }
+  render() {}
 }
 
 function store_restore_canvas_lock() {

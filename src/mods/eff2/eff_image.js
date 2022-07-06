@@ -17,18 +17,18 @@ export default class eff_image_show {
   static meta_props = {
     group: g_image_groups,
     next: {
-      button: (ent, aPatch) => {
-        ent.next_action(aPatch);
+      button: (inst, aPatch) => {
+        inst.next_action(aPatch);
       },
     },
     prev: {
-      button: (ent, aPatch) => {
-        ent.previous_action(aPatch);
+      button: (inst, aPatch) => {
+        inst.previous_action(aPatch);
       },
     },
     reset: {
-      button: (ent, aPatch) => {
-        ent.reset_action(aPatch);
+      button: (inst, aPatch) => {
+        inst.reset_action(aPatch);
       },
     },
     labeled: [0, 1],

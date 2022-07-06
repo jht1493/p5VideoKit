@@ -7,8 +7,9 @@ function ui_patch_eff_panes() {
   function create_patch(ipatch) {
     let div = ui_div_empty('patch_' + ipatch);
     droot.child(div);
+
     let aPatch = a_ui.patches[ipatch];
-    // a_ui.patches: [{ imedia: 1, ifactory: 0, ipatch: 0 }],
+    // a_ui.patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
     create_patch_selection();
 
@@ -77,8 +78,13 @@ function ui_patch_eff_panes() {
       // console.log('create_settings aPatch', aPatch);
       let effMeta = effectMeta_find(aPatch.eff_src.eff_label);
       create_selections_for_dict(effMeta.factory.meta_props);
-      div.child(createElement('br'));
-      div.child(createElement('br'));
+
+      // Get props for imported module via import_factory
+      if (aPatch.import_factory) {
+        create_selections_for_dict(aPatch.import_factory.meta_props);
+      }
+      div_break(div);
+      div_break(div);
     }
 
     function create_selections_for_dict(dict) {
@@ -104,7 +110,7 @@ function ui_patch_eff_panes() {
     function create_other(prop, items, first) {
       // console.log('create_other prop', prop, 'items', items, 'first', first);
       if (first) {
-        div.child(createElement('br'));
+        div_break(div);
       }
       for (iprop in items) {
         let item = items[iprop];
@@ -130,6 +136,8 @@ function ui_patch_eff_panes() {
             ui_patch_update(aPatch);
           });
           div.child(elm);
+        } else if (iprop === 'message') {
+          div.child(createSpan(item));
         } else {
           console.log('create_other !!@ Unkown type=' + iprop);
         }
@@ -144,7 +152,7 @@ function ui_patch_eff_panes() {
     function create_selection(prop, arr, first) {
       // console.log('create_selection prop', prop, 'arr', arr);
       if (first) {
-        div.child(createElement('br'));
+        div_break(div);
       }
       let span = createSpan(` ${prop}:`);
       div.child(span);
@@ -221,4 +229,8 @@ function patch_update_effIndex(aPatch, effIndex) {
 
 function patch_index1(ind) {
   return a_patch_instances[ind - 1];
+}
+
+function div_break(div) {
+  div.child(createElement('br'));
 }
