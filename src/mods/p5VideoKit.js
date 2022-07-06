@@ -46,30 +46,26 @@ p5VideoKit.prototype.vk_draw = function () {
   update_ui();
 };
 
-// {
-//   "eff_src": {
-//     "ipatch": 2,
-//     "imedia": 0,
-//     "eff_label": "bestill",
-//     "urect": {
-//       "width": 1920,
-//       "height": 1080,
-//       "x0": 0,
-//       "y0": 0
-//     }
-//   },
-//   "eff_inits": {
-//     "factor": 20,
-//     "mirror": 0
-//   }
+// "urect": {
+//   "width": 1920,
+//   "height": 1080,
+//   "x0": 0,
+//   "y0": 0
 // }
 
 // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
-//
+//  imedia is mediaDiv indext or effect.output
 p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
   let eff_src = { urect };
-  let media = this.mediaDivAt(imedia);
-  let input = media.capture;
+  let media;
+  let input;
+  if (typeof imedia === 'number') {
+    // select inpu by number
+    media = this.mediaDivAt(imedia);
+    input = media.capture;
+  } else {
+    input = imedia;
+  }
   let init = Object.assign({ eff_src, input, media }, props);
   let effMeta = effectMeta_find(eff_label);
   return new effMeta.factory(init);
@@ -95,6 +91,24 @@ p5VideoKit.prototype.mediaDivCount = function () {
 p5VideoKit.prototype.mediaDivAt = function (index) {
   return a_mediaDivs[index];
 };
+
+// {
+//   "eff_src": {
+//     "ipatch": 2,
+//     "imedia": 0,
+//     "eff_label": "bestill",
+//     "urect": {
+//       "width": 1920,
+//       "height": 1080,
+//       "x0": 0,
+//       "y0": 0
+//     }
+//   },
+//   "eff_inits": {
+//     "factor": 20,
+//     "mirror": 0
+//   }
+// }
 
 p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   let uiPatch = a_ui.patches[ipatch];

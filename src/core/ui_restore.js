@@ -26,8 +26,11 @@ function ui_restore_imports(start, sizeResult) {
   });
 }
 
+let a_import_factory_dict;
+
 function ui_load_imports_patches(done) {
   let imports = [];
+  a_import_factory_dict = {};
   for (let patch of a_ui.patches) {
     if (patch.eff_src.eff_label === 'import') {
       imports.push(patch_import(patch));
@@ -35,6 +38,9 @@ function ui_load_imports_patches(done) {
   }
   Promise.allSettled(imports).then(done);
 }
+
+// patch = a_ui.patches[0]
+//    [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
 function patch_import(patch) {
   let npath = patch.eff_inits.path;
@@ -48,8 +54,10 @@ function patch_import(patch) {
     import(inpath)
       .then((module) => {
         // console.log('patch_import module', module, '\n inpath', inpath);
-        // console.log('patch_import inpath', inpath);
+        console.log('patch_import inpath', inpath);
+        //  inpath ../import/eff_example.js
         patch.import_factory = module.default;
+        import_factory_dict_add(inpath, patch.import_factory);
         resolve();
       })
       .catch((err) => {
@@ -59,6 +67,19 @@ function patch_import(patch) {
         reject();
       });
   });
+}
+
+// inpath ../import/eff_example.js
+// --> example
+function import_factory_dict_add(inpath, import_factory) {
+  let pos = inpath.lastIndexOf('/');
+  if (pos > 0) inpath = inpath.substring(pos + 1);
+  pos = inpath.indexOf('_');
+  if (pos > 0) inpath = inpath.substring(pos + 1);
+  pos = inpath.lastIndexOf('.');
+  if (pos > 0) inpath = inpath.substring(0, pos);
+  console.log('import_factory_dict_add inpath', inpath);
+  a_import_factory_dict[inpath] = import_factory;
 }
 
 class eff_import_failed {

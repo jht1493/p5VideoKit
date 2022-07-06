@@ -6,7 +6,7 @@ export default class eff_import {
     reload: {
       button: (inst, aPatch) => {
         // console.log('eff_import reload inst', inst, 'aPatch', aPatch);
-        console.log('eff_import reload aPatch.eff_inits', aPatch.eff_inits);
+        // console.log('eff_import reload aPatch.eff_inits', aPatch.eff_inits);
         if (!aPatch.eff_inits.path) {
           aPatch.eff_inits.path = inst.constructor.meta_props.path.text_input;
         }

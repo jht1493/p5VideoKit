@@ -37,6 +37,7 @@ function build_effectMetas(effectMetasPath, effectModPath) {
     });
   }
   // console.log('imparts', imparts);
+  // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix',
   let ents = imparts.map((ent) => {
     let pos = ent.indexOf('_');
     let label = ent.substring(pos + 1);
