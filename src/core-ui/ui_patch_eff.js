@@ -137,7 +137,7 @@ function ui_patch_eff_panes() {
           });
           div.child(elm);
         } else if (iprop === 'message') {
-          div.child(createSpan(item));
+          div.child(createSpan(` ${prop}: ${item}`));
         } else {
           console.log('create_other !!@ Unkown type=' + iprop);
         }

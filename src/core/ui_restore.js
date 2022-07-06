@@ -63,7 +63,7 @@ function patch_import(patch) {
 
 class eff_import_failed {
   static meta_props = {
-    err: {
+    error: {
       message: 'import not found',
     },
   };
