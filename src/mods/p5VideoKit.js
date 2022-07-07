@@ -68,8 +68,18 @@ p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
   }
   let init = Object.assign({ eff_src, input, media }, props);
   let effMeta = effectMeta_find(eff_label);
-  console.log('createEffect effMeta', effMeta);
+  // console.log('createEffect effMeta', effMeta);
   return new effMeta.factory(init);
+};
+
+p5VideoKit.prototype.factoryPropInits = function (eff_label, init_props = {}) {
+  let effMeta = effectMeta_find(eff_label);
+  if (!effMeta) {
+    console.log('factory_prop_inits no effMeta');
+    return init_props;
+  }
+  // console.log('factory_prop_inits effMeta', effMeta);
+  return factory_prop_inits(effMeta.factory, init_props);
 };
 
 // process input --> output

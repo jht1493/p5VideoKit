@@ -50,6 +50,7 @@ function effectMeta_find(label) {
 
 function factory_prop_inits(factory, init_props) {
   let dict = factory.meta_props;
+  // console.log('factory_prop_inits dict', dict);
   let inits = Object.assign({}, init_props);
   for (let prop in dict) {
     // eg. items = factor: [10, 50, 100 ... ]
@@ -64,5 +65,6 @@ function factory_prop_inits(factory, init_props) {
       // eg: _next: { button: next_action }
     }
   }
+  // console.log('factory_prop_inits inits', inits);
   return inits;
 }

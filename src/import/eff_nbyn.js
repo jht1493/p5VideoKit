@@ -26,17 +26,14 @@ export default class eff_nbyn {
     let uh = Math.floor(this.eff_src.urect.height);
     let xstep = uw / this.ncell;
     let ystep = uh / this.ncell;
-    let props = { ncell: 32, margin: 1, rate: 'frame' };
-    // static meta_props = {
-    //   ncell: [32, 16, 32, 64, 128],
-    //   margin: [1, 2, 3],
-    //   rate: ['frame', 'line', 'ncell'],
-    // };
+    // let props = { ncell: 32, margin: 1, rate: 'frame' };
+    let eff_name = 'grid';
+    let props = videoKit.factoryPropInits(eff_name);
     let n = this.ncell * this.ncell;
     for (let index = 0; index < n; index++) {
       let urect = { x0, y0, width: xstep, height: ystep };
-      let eff = videoKit.createEffect('grid', devIndex, urect, props);
-      console.log('eff_nbyn index', index, 'eff', eff);
+      let eff = videoKit.createEffect(eff_name, devIndex, urect, props);
+      // console.log('eff_nbyn index', index, 'eff', eff);
       this.effs.push(eff);
       x0 += xstep;
       if (x0 >= uw) {
