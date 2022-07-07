@@ -19,7 +19,7 @@ const webdbPath = path.join(src_path, 'external/media/webdb');
 const imagesOutPath = path.join(src_path, 'let/a_images.js');
 // build_webdb(webdbPath, imagesOutPath);
 
-const settingsPartialPath = 'settings/_menu';
+const settingsPartialPath = 'settings/baked';
 const settingsOutPath = path.join(src_path, 'let/a_settings.js');
 const settingMetasPath = path.join(src_path, 'let/a_settingMetas.js');
 build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath);

@@ -36,7 +36,8 @@ function build_settings(src_path, settingsPartialPath, settingsOutPath, settingM
     settings.push(ent);
 
     let import_path = settingsPartialPath + '/' + afile;
-    settingMetas.push({ label, import_path });
+    let mstr = `{ label: '${label}', import_path: '${import_path}' },`;
+    settingMetas.push(mstr);
   }
   let str = 'let a_settings = ';
   str += JSON.stringify(settings, null, 2);
@@ -45,9 +46,9 @@ function build_settings(src_path, settingsPartialPath, settingsOutPath, settingM
 
   // { label: '2x2', import_path: 'settings/_menu/-2x2.json', menu: 1  },
   let strm = `// !!@ Generated File
-let a_settingMetas = 
-${JSON.stringify(settingMetas, null, 2)};
-`;
+let a_settingMetas = [
+${settingMetas.join('\n')}
+]`;
   fs.writeFileSync(settingMetasPath, strm);
   console.log('settingMetas.length', settingMetas.length);
 }

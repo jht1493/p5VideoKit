@@ -38,7 +38,8 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
     });
   }
   // console.log('imparts', imparts);
-  // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix',
+  // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix'
+  // avoid JSON.stringify to get one per line
   let ents = imparts.map((ent) => {
     let import_path = mods + '/' + ent;
     let pos = ent.indexOf('_');
