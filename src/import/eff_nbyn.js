@@ -9,7 +9,7 @@ export default class eff_nbyn {
   prepareOutput() {
     let videoKit = this.videoKit;
     for (let eff of this.effs) {
-      eff.prepareOutput();
+      videoKit.prepareOutput(eff);
     }
     for (let eff of this.effs) {
       videoKit.imageToCanvas(eff);
