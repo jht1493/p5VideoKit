@@ -1,7 +1,7 @@
 let a_effectMetas_dict;
 let a_import_err;
 
-function effectMeta_init(done) {
+function effectMeta_init(donef) {
   a_effectMetas_dict = {};
   let imports = [];
   let index = 0;
@@ -13,7 +13,7 @@ function effectMeta_init(done) {
     }
     index++;
   }
-  Promise.allSettled(imports).then(done);
+  Promise.allSettled(imports).then(donef);
 }
 
 function effectMeta_import(effMeta) {

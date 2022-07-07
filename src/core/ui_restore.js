@@ -32,7 +32,38 @@ function ui_restore(effects, settings, sizeResult) {
 }
 
 function settingMetas_init(donef) {
-  donef();
+  a_settings = [{ settings: '' }];
+  let imports = [];
+  for (let sete of a_settingMetas) {
+    imports.push(setting_import(sete));
+  }
+  // console.log('settingMetas_init imports', imports);
+  Promise.allSettled(imports).then(() => {
+    donef();
+  });
+}
+
+// set = { label: '0-club', import_path: 'settings/baked/0-club.json' }
+//
+function setting_import(sete) {
+  let url = './' + sete.import_path;
+  // console.log('setting_import url', url);
+  return new Promise((resolve, reject) => {
+    loadJSON(
+      url,
+      (settings) => {
+        // console.log('setting_import settings', settings);
+        // a_settings_async = data;
+        settings.setting = sete.label;
+        a_settings.push(settings);
+        resolve();
+      },
+      (err) => {
+        console.log('setting_import error url', url, 'error', err);
+        reject(err);
+      }
+    );
+  });
 }
 
 function store_restore_canvas_lock() {
