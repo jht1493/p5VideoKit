@@ -178,12 +178,14 @@ export default class eff_loop {
     // console.log('next_eff effMeta', effMeta);
     if (effMeta) {
       console.log('next_eff effMeta', effMeta.label);
-      let iprops = this.eff_inits(effMeta.factory.meta_props);
-      // Set input on iprops for eff_inst.init
-      this.prepare_input(iprops);
+      // let iprops = this.eff_prop_inits(effMeta.factory.meta_props);
+      // let inits = this.eff_prop_inits(effMeta.factory.meta_props);
+      let inits = factory_prop_inits(effMeta.factory, this.basic_props);
+      // Set input on inits for eff_inst.init
+      this.prepare_input(inits);
       let eff_inst = this.eff_inst_arr[this.index];
       if (!eff_inst) {
-        eff_inst = new effMeta.factory(iprops);
+        eff_inst = new effMeta.factory(inits);
         this.eff_inst_arr[this.index] = eff_inst;
       } else {
         // console.log('next_eff init eff_inst', eff_inst);
@@ -193,21 +195,21 @@ export default class eff_loop {
       this.has_completed_phase = this.eff_inst.completed_phase;
     }
   }
-  eff_inits(dict) {
-    let iprops = Object.assign({}, this.basic_props);
-    for (let prop in dict) {
-      // eg. items = factor: [10, 50, 100 ... ]
-      let items = dict[prop];
-      if (prop.substring(0, 1) === '_') {
-        prop = prop.substring(1);
-      }
-      if (Array.isArray(items)) {
-        // eg. items = factor: [10, 50, 100 ... ]
-        iprops[prop] = items[0];
-      } else {
-        // eg: _next: { button: next_action }
-      }
-    }
-    return iprops;
-  }
+  // eff_prop_inits(dict) {
+  //   let inits = Object.assign({}, this.basic_props);
+  //   for (let prop in dict) {
+  //     // eg. items = factor: [10, 50, 100 ... ]
+  //     let items = dict[prop];
+  //     if (prop.substring(0, 1) === '_') {
+  //       prop = prop.substring(1);
+  //     }
+  //     if (Array.isArray(items)) {
+  //       // eg. items = factor: [10, 50, 100 ... ]
+  //       inits[prop] = items[0];
+  //     } else {
+  //       // eg: _next: { button: next_action }
+  //     }
+  //   }
+  //   return inits;
+  // }
 }

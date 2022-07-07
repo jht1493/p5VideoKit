@@ -47,3 +47,22 @@ function effectMeta_find(label) {
   }
   return effMeta;
 }
+
+function factory_prop_inits(factory, init_props) {
+  let dict = factory.meta_props;
+  let inits = Object.assign({}, init_props);
+  for (let prop in dict) {
+    // eg. items = factor: [10, 50, 100 ... ]
+    let items = dict[prop];
+    if (prop.substring(0, 1) === '_') {
+      prop = prop.substring(1);
+    }
+    if (Array.isArray(items)) {
+      // eg. items = factor: [10, 50, 100 ... ]
+      inits[prop] = items[0];
+    } else {
+      // eg: _next: { button: next_action }
+    }
+  }
+  return inits;
+}
