@@ -68,6 +68,7 @@ p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
   }
   let init = Object.assign({ eff_src, input, media }, props);
   let effMeta = effectMeta_find(eff_label);
+  console.log('createEffect effMeta', effMeta);
   return new effMeta.factory(init);
 };
 
@@ -79,7 +80,9 @@ p5VideoKit.prototype.prepareOutput = function (eff) {
 
 // videoKit.imageToCanvas( eff  )
 p5VideoKit.prototype.imageToCanvas = function (eff) {
-  image_scaled_pad(eff.output, eff.eff_src.urect);
+  if (eff.output) {
+    image_scaled_pad(eff.output, eff.eff_src.urect);
+  }
 };
 
 // let n = videoKit.mediaDivCount()
@@ -136,7 +139,8 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
       return;
     }
     let input = media.capture;
-    let init = { eff_src, input, media };
+    let videoKit = this;
+    let init = { videoKit, eff_src, input, media };
     init = Object.assign(init, uiPatch.eff_inits);
     inst = new effMeta.factory(init);
     a_patch_instances[ipatch] = inst;

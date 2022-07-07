@@ -37,6 +37,7 @@ function effectMeta_import(effMeta) {
 
 function effectMeta_find(label) {
   if (!label) {
+    console.log('effectMeta_find no label', label);
     return a_effectMetas[0];
   }
   let effMeta = a_effectMetas_dict[label];

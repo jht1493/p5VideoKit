@@ -1,4 +1,4 @@
-function ui_render(div) {
+function ui_render_size(div) {
   // console.log('ui_canvas');
   render_size();
 
@@ -22,7 +22,7 @@ function ui_render(div) {
 
 let a_render_sizes_dict;
 
-function ui_render_init() {
+function ui_render_size_init() {
   a_render_sizes_dict = init_size_in(a_render_sizes);
 }
 

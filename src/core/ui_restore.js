@@ -4,7 +4,7 @@ function ui_restore(sizeResult) {
   effectMeta_init(() => {
     ui_capture_init();
     ui_canvas_init();
-    ui_render_init();
+    ui_render_size_init();
     store_name_restore();
     store_url_parse((urlResult) => {
       if (!urlResult.uiSet) {
@@ -43,9 +43,9 @@ function ui_load_imports_patches(done) {
 //    [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
 function patch_import(patch) {
-  let npath = patch.eff_inits.path;
-  if (!npath) return;
-  let inpath = '../' + npath;
+  let import_path = patch.eff_inits.import_path;
+  if (!import_path) return;
+  let inpath = '../' + import_path;
   if (!inpath.endsWith('.js')) {
     inpath += '.js';
   }
@@ -54,10 +54,10 @@ function patch_import(patch) {
     import(inpath)
       .then((module) => {
         // console.log('patch_import module', module, '\n inpath', inpath);
-        console.log('patch_import inpath', inpath);
+        // console.log('patch_import inpath', inpath);
         //  inpath ../import/eff_example.js
         patch.import_factory = module.default;
-        import_factory_dict_add(inpath, patch.import_factory);
+        import_factory_dict_add(import_path, patch.import_factory);
         resolve();
       })
       .catch((err) => {
@@ -70,16 +70,15 @@ function patch_import(patch) {
 }
 
 // inpath ../import/eff_example.js
-// --> example
-function import_factory_dict_add(inpath, import_factory) {
-  let pos = inpath.lastIndexOf('/');
-  if (pos > 0) inpath = inpath.substring(pos + 1);
-  pos = inpath.indexOf('_');
-  if (pos > 0) inpath = inpath.substring(pos + 1);
-  pos = inpath.lastIndexOf('.');
-  if (pos > 0) inpath = inpath.substring(0, pos);
-  console.log('import_factory_dict_add inpath', inpath);
-  a_import_factory_dict[inpath] = import_factory;
+function import_factory_dict_add(import_path, import_factory) {
+  // let pos = inpath.lastIndexOf('/');
+  // if (pos > 0) inpath = inpath.substring(pos + 1);
+  // pos = inpath.indexOf('_');
+  // if (pos > 0) inpath = inpath.substring(pos + 1);
+  // pos = inpath.lastIndexOf('.');
+  // if (pos > 0) inpath = inpath.substring(0, pos);
+  console.log('import_factory_dict_add import_path', import_path);
+  a_import_factory_dict[import_path] = import_factory;
 }
 
 class eff_import_failed {
