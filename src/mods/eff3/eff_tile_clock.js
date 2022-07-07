@@ -37,7 +37,7 @@ export default class eff_tile_clock {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.check_patches();
     if (this.advancePending) {
       this.draw_step(1);

@@ -11,7 +11,7 @@ export default class eff_slant_scan {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     strokeWeight(this.scan.xstep / 2);
     image_copy(this.image, this.input);
     if (this.dir_up) {

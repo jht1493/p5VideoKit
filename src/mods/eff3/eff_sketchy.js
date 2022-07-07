@@ -12,7 +12,7 @@ export default class eff_sketchy {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.update_phase();
     this.sketchy_draw();
   }

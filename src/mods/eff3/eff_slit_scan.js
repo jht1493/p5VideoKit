@@ -14,7 +14,7 @@ export default class eff_slit_scan {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.draw_slit();
   }
   init() {

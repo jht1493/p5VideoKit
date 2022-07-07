@@ -18,7 +18,7 @@ export default class eff_text {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     tint(255, this.alpha);
     // image_scaled_pad(this.output, this.eff_src.urect);
     tint(255);

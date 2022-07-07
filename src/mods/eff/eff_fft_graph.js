@@ -4,7 +4,7 @@ export default class eff_fft_graph {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.layer.clear();
     this.draw_fft();
     image_scaled_pad(this.layer, this.eff_src.urect);

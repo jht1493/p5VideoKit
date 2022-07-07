@@ -11,7 +11,7 @@ export default class eff_delaunay {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     image_copy(this.img, this.input);
     while (!this.draw_step()) {}
     this.period_timer.check(() => {

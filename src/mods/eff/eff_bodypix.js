@@ -6,7 +6,7 @@ export default class eff_bodypix {
     Object.assign(this, props);
     this.init(this);
   }
-  render() {
+  prepareOutput() {
     if (this.eff_src.ihide) return;
     this.bodypix.segment(this.video, (error, results) => {
       this.gotResults(error, results);

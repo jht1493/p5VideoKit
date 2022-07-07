@@ -8,7 +8,7 @@ export default class eff_example {
   constructor(props) {
     Object.assign(this, props);
   }
-  render() {
+  prepareOutput() {
     // console.log('eff_example render');
   }
 }

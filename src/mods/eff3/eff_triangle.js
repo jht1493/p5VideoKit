@@ -7,7 +7,7 @@ export default class eff_triangle {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     image_copy(this.img, this.input);
     while (!this.scan_draw_step()) {}
     // image_scaled_pad(this.output, this.eff_src.urect);

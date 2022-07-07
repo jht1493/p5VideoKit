@@ -27,7 +27,7 @@ export default class eff_tile {
     // stash instance for debugging
     tile_inst = this;
   }
-  render() {
+  prepareOutput() {
     this.check_patches();
     if (this.freeze_patch && this.wasFrozen) {
       this.draw_freeze();

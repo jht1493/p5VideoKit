@@ -9,7 +9,7 @@ export default class eff_maze {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     image_copy(this.src, this.input);
     while (!this.draw_one()) {}
     this.period_timer.check(() => {

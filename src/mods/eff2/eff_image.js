@@ -105,7 +105,7 @@ export default class eff_image_show {
     });
     this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
   }
-  render() {
+  prepareOutput() {
     if (!this.img) return;
     if (this.loop) {
       this.period_timer.check(() => {
@@ -114,7 +114,7 @@ export default class eff_image_show {
     }
     this.pan_check();
     this.show_image();
-    this.face_render();
+    this.face_prepareOutput();
   }
   init() {
     this.predictions = [];
@@ -246,7 +246,7 @@ export default class eff_image_show {
     this.zscale = this.zscale_org;
     console.log('this.zscale', this.zscale);
   }
-  face_render() {
+  face_prepareOutput() {
     noStroke();
     if (this.face === 'points') {
       this.draw_face_points(this.predictions);

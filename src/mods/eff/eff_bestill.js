@@ -7,11 +7,11 @@ export default class eff_bestill {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     if (this.mirror) {
       this.bestill_render_mirror();
     } else {
-      this.bestill_render();
+      this.bestill_prepareOutput();
     }
   }
   init() {
@@ -22,7 +22,7 @@ export default class eff_bestill {
     this.buf = [];
     // console.log('eff_bestill stillf', this.stillf);
   }
-  bestill_render() {
+  bestill_prepareOutput() {
     // console.log('bestill_render this', this);
     if (!this.inited) {
       this.buf_init();

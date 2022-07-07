@@ -75,7 +75,7 @@ p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
 // process input --> output
 // videoKit.prepareOutput(eff)
 p5VideoKit.prototype.prepareOutput = function (eff) {
-  eff.render();
+  eff.prepareOutput();
 };
 
 // videoKit.imageToCanvas( eff  )
@@ -155,7 +155,7 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
     // for pipe to work
     inst.input = prior.output;
   }
-  inst.render();
+  inst.prepareOutput();
   if (!eff_src.ihide && inst.output) {
     image_scaled_pad(inst.output, eff_src.urect);
   }

@@ -43,7 +43,7 @@ export default class eff_face_mesh {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     if (this.facemesh) {
       this.facemesh.video = this.video;
     }

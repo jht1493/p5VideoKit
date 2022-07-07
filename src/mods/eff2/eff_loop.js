@@ -71,7 +71,7 @@ export default class eff_loop {
     this.basic_props = Object.assign({}, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.advance_check();
     if (this.advancePending) {
       this.patch_step();
@@ -84,7 +84,7 @@ export default class eff_loop {
         // console.log('eff_loop  ', this.got_freeze);
         this.draw_freeze();
       } else {
-        other.render();
+        other.prepareOutput();
         this.output = other.output;
       }
     }

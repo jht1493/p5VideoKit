@@ -15,7 +15,7 @@ export default class eff_show_pad {
   init() {
     this.done = 0;
   }
-  render() {
+  prepareOutput() {
     this.trigger_check();
     if (!this.eff_src.ihide) {
       if (this.input) {

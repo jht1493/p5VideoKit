@@ -10,8 +10,8 @@ export default class eff_diff {
     Object.assign(this, props);
     this.init();
   }
-  render() {
-    this.diff_render();
+  prepareOutput() {
+    this.diff_prepareOutput();
     if (this.period) {
       this.period_timer.check(() => {
         this.inited = 0;
@@ -48,7 +48,7 @@ export default class eff_diff {
     }
     this.maxdiff = image1.width * image1.height;
   }
-  diff_render() {
+  diff_prepareOutput() {
     if (!this.inited) {
       this.image_init();
       return;
@@ -99,7 +99,7 @@ export default class eff_diff {
       }
     }
     if (this.smooth) {
-      this.smooth_render();
+      this.smooth_prepareOutput();
     }
   }
   image_init() {
@@ -117,8 +117,8 @@ export default class eff_diff {
       factor: this.smooth,
     });
   }
-  smooth_render() {
-    this.bestill.bestill_render();
+  smooth_prepareOutput() {
+    this.bestill.bestill_prepareOutput();
     image_copy(this.output, this.bestill.output);
   }
 }

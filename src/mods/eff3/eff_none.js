@@ -5,7 +5,7 @@ export default class eff_show_none {
   constructor(props) {
     Object.assign(this, props);
   }
-  render() {
+  prepareOutput() {
     if (this.back_color_patch) {
       let src = patch_index1(this.back_color_patch);
       if (src && src.avg_color) {

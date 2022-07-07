@@ -8,7 +8,7 @@ export default class eff_grid {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     image_copy(this.src, this.input);
     while (!this.draw_one()) {}
     this.output.image(this.src, 0, 0);

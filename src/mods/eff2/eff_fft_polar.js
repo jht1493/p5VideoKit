@@ -8,7 +8,7 @@ export default class eff_fft_polar {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.period_timer.check(() => {
       this.period_next();
     });

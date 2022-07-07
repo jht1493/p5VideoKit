@@ -24,10 +24,10 @@ export default class eff_import {
       this.eff_inst = new factory(props);
     }
   }
-  render() {
+  prepareOutput() {
     // console.log('eff_import render this.eff_inst', this.eff_inst);
     if (this.eff_inst) {
-      this.eff_inst.render();
+      this.eff_inst.prepareOutput();
       this.output = this.eff_inst.output;
     }
   }

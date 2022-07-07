@@ -10,7 +10,7 @@ export default class eff_face_band {
     Object.assign(this, props);
     this.init(this);
   }
-  render() {
+  prepareOutput() {
     this.layer.clear();
     this.layer.noStroke();
     if (this.facemesh) {

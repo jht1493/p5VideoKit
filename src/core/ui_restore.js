@@ -90,7 +90,7 @@ class eff_import_failed {
   constructor(props) {
     Object.assign(this, props);
   }
-  render() {}
+  prepareOutput() {}
 }
 
 function store_restore_canvas_lock() {

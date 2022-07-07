@@ -12,7 +12,7 @@ export default class eff_bright {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     this.draw_it();
   }
   init() {

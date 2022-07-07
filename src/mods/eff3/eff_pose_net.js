@@ -17,7 +17,7 @@ export default class eff_pose_net {
     Object.assign(this, props);
     this.init(this);
   }
-  render() {
+  prepareOutput() {
     if (this.poseNet) {
       this.poseNet.video = this.video;
     }

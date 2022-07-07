@@ -26,7 +26,7 @@ export default class eff_mov_show {
     this.file_name = 'covid19mov/Document_Ticker-short-h.mov';
     this.init();
   }
-  render() {
+  prepareOutput() {
     if (this.loop) {
       this.period_timer.check(() => {
         this.period_next();

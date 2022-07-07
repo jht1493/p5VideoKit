@@ -11,7 +11,7 @@ export default class eff_image_mesh {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     //
     let nthis = patch_index1(this.image_patch);
     // console.log('eff_image_mesh nthis.predictions', nthis.predictions);

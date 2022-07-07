@@ -6,10 +6,10 @@ export default class eff_nbyn {
     Object.assign(this, props);
     this.init();
   }
-  render() {
+  prepareOutput() {
     let videoKit = this.videoKit;
     for (let eff of this.effs) {
-      eff.render();
+      eff.prepareOutput();
     }
     for (let eff of this.effs) {
       videoKit.imageToCanvas(eff);
