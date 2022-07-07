@@ -1,7 +1,7 @@
 let a_app_ver = 'Present?v=35 ';
-let a_store_ver = '1';
-let a_store_name = 'Str-A';
-let a_store_prefix = '';
+let a_store_ver = '2';
+let a_store_name = 'Store-A';
+let a_store_prefix = 'v';
 let a_ui = {
   setting: '',
   back_color: 200,
