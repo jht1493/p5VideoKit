@@ -5,28 +5,30 @@ class p5VideoKit {
   // let effects = [
   //   { label: 'example', import_path: 'module/eff_example', menu: 1 },
 
-  constructor({ effects, settings, p5_instance = p5.instance }) {
+  constructor(p5_instance = p5.instance) {
     // console.log('p5VideoKit p5_inst', p5_inst);
-    // To work in p5 instance mode we need to use this.p0 on all globals
+    // To work in p5 instance mode we need to use this.p0 on all p5 globals
     //
     this.p0 = p5_instance;
-    this.vk_setup(effects, settings);
   }
 
-  init() {
+  init({ effects, settings }) {
     return new Promise((resolve, reject) => {
-      resolve();
+      this.vk_setup(effects, settings, resolve);
     });
   }
 }
 
 p5VideoKit.prototype.draw = function () {
   // console.log('p5VideoKit draw');
-  if (!this.a_initDone) return;
+  if (!this.a_initDone) {
+    console.log('p5VideoKit draw init not done');
+    return;
+  }
   this.vk_draw();
 };
 
-p5VideoKit.prototype.vk_setup = function (effects, settings) {
+p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
   ui_restore(effects, settings, (sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
@@ -38,6 +40,8 @@ p5VideoKit.prototype.vk_setup = function (effects, settings) {
     media_enum();
 
     this.a_initDone = 1;
+
+    resolve();
   });
 };
 

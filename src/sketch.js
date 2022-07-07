@@ -20,9 +20,9 @@ function setup() {
     { label: 'ncell-circles', import_path: 'settings/demo/-ncell-circles.json' },
   ];
 
-  videoKit = new p5VideoKit({ effects, settings });
+  videoKit = new p5VideoKit();
 
-  videoKit.init().then(() => {
+  videoKit.init({ effects, settings }).then(() => {
     console.log('videoKit.init done');
   });
 }
