@@ -4,7 +4,8 @@ const path = require('path');
 // 'let/a_effectMetas.js'
 // 'mods'
 //
-function build_effectMetas(effectMetasPath, effectModPath) {
+function build_effectMetas(effectMetasPath, src_path, mods) {
+  const effectModPath = path.join(src_path, mods);
   //
   if (!fs.existsSync(effectModPath)) {
     console.log('build_effectMetas not effectModPath', effectModPath);
@@ -39,9 +40,10 @@ function build_effectMetas(effectMetasPath, effectModPath) {
   // console.log('imparts', imparts);
   // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix',
   let ents = imparts.map((ent) => {
+    let import_path = mods + '/' + ent;
     let pos = ent.indexOf('_');
     let label = ent.substring(pos + 1);
-    return `{ label: '${label}', import_path: '${ent}' },`;
+    return `{ label: '${label}', import_path: '${import_path}' },`;
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File

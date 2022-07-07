@@ -103,6 +103,47 @@ let a_settings = [
     "canvas_data_chk": 0
   },
   {
+    "setting": "-ncell-circles",
+    "back_color": 200,
+    "room_name": "Dice-Play-1",
+    "patch_layout": "Single",
+    "canvas_size": "960x540",
+    "capture_size": "480x270",
+    "render_size": "Canvas",
+    "chat_name": "jht",
+    "chat_chk": 0,
+    "live_index": 0,
+    "live_chk": 0,
+    "patches": [
+      {
+        "eff_src": {
+          "ipatch": 0,
+          "imedia": 1,
+          "eff_label": "ncell",
+          "urect": {
+            "width": 960,
+            "height": 540,
+            "x0": 0,
+            "y0": 0
+          }
+        },
+        "eff_inits": {
+          "ncell": 2
+        }
+      }
+    ],
+    "mediaDiv_states": [
+      null,
+      {
+        "vis": false
+      }
+    ],
+    "urects_lock": 0,
+    "urects_count": 1,
+    "canvas_resize_ref": "",
+    "canvas_data_chk": 0
+  },
+  {
     "setting": "0-club",
     "back_color": 200,
     "room_name": "Dice-Play-1",

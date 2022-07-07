@@ -1,6 +1,13 @@
+//
+// let effects = [
+//   { label: 'example', import_path: 'module/eff_example', menu: 1 },
+
 // Restore a_ui settings from local storage
-function ui_restore(sizeResult) {
+function ui_restore(effects, sizeResult) {
   let start = window.performance.now();
+
+  a_effectMetas = effects.concat(a_effectMetas);
+
   effectMeta_init(() => {
     ui_capture_init();
     ui_canvas_init();
@@ -12,85 +19,13 @@ function ui_restore(sizeResult) {
         store_restore_canvas_lock();
         store_restore_a_ui(urlResult.settings);
       }
-      ui_restore_imports(start, sizeResult);
+      // ui_restore_imports(start, sizeResult);
+      sizeResult(canvas_size_default());
+
+      let lapse = window.performance.now() - start;
+      console.log('ui_restore lapse', lapse);
     });
   });
-}
-
-function ui_restore_imports(start, sizeResult) {
-  ui_load_imports_patches(() => {
-    sizeResult(canvas_size_default());
-
-    let lapse = window.performance.now() - start;
-    console.log('ui_restore lapse', lapse);
-  });
-}
-
-let a_import_factory_dict;
-
-function ui_load_imports_patches(done) {
-  let imports = [];
-  a_import_factory_dict = {};
-  for (let patch of a_ui.patches) {
-    if (patch.eff_src.eff_label === 'import') {
-      imports.push(patch_import(patch));
-    }
-  }
-  Promise.allSettled(imports).then(done);
-}
-
-// patch = a_ui.patches[0]
-//    [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
-
-function patch_import(patch) {
-  let import_path = patch.eff_inits.import_path;
-  if (!import_path) return;
-  let inpath = '../' + import_path;
-  if (!inpath.endsWith('.js')) {
-    inpath += '.js';
-  }
-  console.log('patch_import inpath', inpath);
-  return new Promise((resolve, reject) => {
-    import(inpath)
-      .then((module) => {
-        // console.log('patch_import module', module, '\n inpath', inpath);
-        // console.log('patch_import inpath', inpath);
-        //  inpath ../import/eff_example.js
-        patch.import_factory = module.default;
-        import_factory_dict_add(import_path, patch.import_factory);
-        resolve();
-      })
-      .catch((err) => {
-        console.log('patch_import err', err, '\n inpath', inpath);
-        a_import_err = err;
-        patch.import_factory = eff_import_failed;
-        reject();
-      });
-  });
-}
-
-// inpath ../import/eff_example.js
-function import_factory_dict_add(import_path, import_factory) {
-  // let pos = inpath.lastIndexOf('/');
-  // if (pos > 0) inpath = inpath.substring(pos + 1);
-  // pos = inpath.indexOf('_');
-  // if (pos > 0) inpath = inpath.substring(pos + 1);
-  // pos = inpath.lastIndexOf('.');
-  // if (pos > 0) inpath = inpath.substring(0, pos);
-  console.log('import_factory_dict_add import_path', import_path);
-  a_import_factory_dict[import_path] = import_factory;
-}
-
-class eff_import_failed {
-  static meta_props = {
-    error: {
-      message: 'import not found',
-    },
-  };
-  constructor(props) {
-    Object.assign(this, props);
-  }
-  prepareOutput() {}
 }
 
 function store_restore_canvas_lock() {

@@ -17,7 +17,7 @@ function effectMeta_init(done) {
 }
 
 function effectMeta_import(effMeta) {
-  let inpath = '../mods/' + effMeta.import_path + '.js';
+  let inpath = '../' + effMeta.import_path + '.js';
   // console.log('effectMeta_import', inpath);
   return new Promise((resolve, reject) => {
     import(inpath)

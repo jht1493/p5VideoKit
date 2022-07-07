@@ -28,5 +28,4 @@ build_num_run(buildnum_path, build_num, src_path, buildnum_files);
 build_index(src_path, 'index.html', build_num.next);
 
 const effectMetasPath = path.join(src_path, 'let/a_effectMetas.js');
-const effectModPath = path.join(src_path, 'mods');
-build_effectMetas(effectMetasPath, effectModPath);
+build_effectMetas(effectMetasPath, src_path, 'mods');
