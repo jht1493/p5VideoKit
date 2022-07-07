@@ -13,7 +13,6 @@ let a_effectMetas = [
 { label: 'grid', import_path: 'mods/eff2/eff_grid' },
 { label: 'image', import_path: 'mods/eff2/eff_image' },
 { label: 'image_mesh', import_path: 'mods/eff2/eff_image_mesh' },
-{ label: 'import', import_path: 'mods/eff2/eff_import' },
 { label: 'loop', import_path: 'mods/eff2/eff_loop' },
 { label: 'maze', import_path: 'mods/eff2/eff_maze' },
 { label: 'mov', import_path: 'mods/eff2/eff_mov' },
