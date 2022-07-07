@@ -3,29 +3,36 @@
 //   { label: 'example', import_path: 'module/eff_example', menu: 1 },
 
 // Restore a_ui settings from local storage
-function ui_restore(effects, sizeResult) {
+function ui_restore(effects, settings, sizeResult) {
   let start = window.performance.now();
 
   a_effectMetas = effects.concat(a_effectMetas);
+  a_settingMetas = settings.concat(a_settingMetas);
 
   effectMeta_init(() => {
-    ui_capture_init();
-    ui_canvas_init();
-    ui_render_size_init();
-    store_name_restore();
-    store_url_parse((urlResult) => {
-      if (!urlResult.uiSet) {
-        store_restore_ver();
-        store_restore_canvas_lock();
-        store_restore_a_ui(urlResult.settings);
-      }
-      // ui_restore_imports(start, sizeResult);
-      sizeResult(canvas_size_default());
+    settingMetas_init(() => {
+      ui_capture_init();
+      ui_canvas_init();
+      ui_render_size_init();
+      store_name_restore();
+      store_url_parse((urlResult) => {
+        if (!urlResult.uiSet) {
+          store_restore_ver();
+          store_restore_canvas_lock();
+          store_restore_a_ui(urlResult.settings);
+        }
+        // ui_restore_imports(start, sizeResult);
+        sizeResult(canvas_size_default());
 
-      let lapse = window.performance.now() - start;
-      console.log('ui_restore lapse', lapse);
+        let lapse = window.performance.now() - start;
+        console.log('ui_restore lapse', lapse);
+      });
     });
   });
+}
+
+function settingMetas_init(donef) {
+  donef();
 }
 
 function store_restore_canvas_lock() {
