@@ -19,9 +19,10 @@ const webdbPath = path.join(src_path, 'external/media/webdb');
 const imagesOutPath = path.join(src_path, 'let/a_images.js');
 // build_webdb(webdbPath, imagesOutPath);
 
-const settingsPath = path.join(root_path, 'settings/_menu');
+const settingsPartialPath = 'settings/_menu';
 const settingsOutPath = path.join(src_path, 'let/a_settings.js');
-build_settings(settingsPath, settingsOutPath);
+const settingMetasPath = path.join(src_path, 'let/a_settingMetas.js');
+build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath);
 
 build_num_run(buildnum_path, build_num, src_path, buildnum_files);
 
