@@ -1,3 +1,6 @@
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { image_copy } from '../util/image.js';
+
 export default class eff_circle {
   static meta_props = {
     per_frame: [5, 10, 50, 100, 200, 1000],
@@ -17,7 +20,7 @@ export default class eff_circle {
     this.draw_circles();
   }
   init() {
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.src = createImage(this.input.width, this.input.height);
     this.output = createGraphics(this.input.width, this.input.height);
     this.circles = [];

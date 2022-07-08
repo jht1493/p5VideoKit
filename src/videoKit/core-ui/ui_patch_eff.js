@@ -235,7 +235,7 @@ function patch_update_effIndex(aPatch, effIndex) {
   ui_patch_eff_panes();
 }
 
-function patch_index1(ind) {
+export function patch_index1(ind) {
   return a_.patch_instances[ind - 1];
 }
 

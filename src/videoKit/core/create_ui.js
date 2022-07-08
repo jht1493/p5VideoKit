@@ -8,6 +8,8 @@ import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
 import { ui_patch_buttons } from '../core-ui/ui_patch.js';
 import { ui_live_selection } from '../core-ui/ui_live.js';
 import { ui_chat_pane } from '../core-ui/ui_chat.js';
+import { store_restore_from } from '../core/store_url_parse.js';
+import { check_reset_video } from '../core/check_reset_video.js';
 
 export function create_ui() {
   ui_top_pane();
@@ -132,7 +134,7 @@ export function update_ui() {
   }
 }
 
-function ui_message(msg) {
+export function ui_message(msg) {
   let imsg = select('#imsg');
   if (!imsg) return;
   if (msg) {

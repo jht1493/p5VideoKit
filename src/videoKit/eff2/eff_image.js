@@ -1,4 +1,6 @@
-import { image_scaled_pad } from '../util/image.js';
+// import { image_scaled_pad } from '../util/image.js';
+import { ui_message } from '../core/create_ui.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
 
 let g_image_groups = [
   'group',
@@ -120,7 +122,7 @@ export default class eff_image_show {
   }
   init() {
     this.predictions = [];
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.load_image();
   }
   show_image() {

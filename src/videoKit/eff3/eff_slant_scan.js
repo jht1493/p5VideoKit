@@ -1,3 +1,5 @@
+import { image_copy } from '../util/image.js';
+
 export default class eff_slant_scan {
   static meta_props = {
     ncell: [512, 1024, 2028],

@@ -3,10 +3,11 @@ import { init_mediaDivs, a_mediaDivs, create_mediaDiv } from './create_mediaDiv.
 import { create_ui } from './create_ui.js';
 import { media_enum } from './create_mediaDevices.js';
 import { a_ } from '../let/a_ui.js';
-import { effectMeta_find } from '../core/effectMeta.js';
+import { effectMeta_find, factory_prop_inits } from '../core/effectMeta.js';
 import { pad_layout_update } from '../core-ui/ui_patch.js';
 import { update_ui } from '../core/create_ui.js';
 import { image_scaled_pad } from '../util/image.js';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js';
 
 p5VideoKit.prototype.draw = function () {
   // console.log('p5VideoKit draw');

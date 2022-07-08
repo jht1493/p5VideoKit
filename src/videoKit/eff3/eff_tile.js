@@ -1,5 +1,7 @@
 import { a_ } from '../let/a_ui.js';
 import { a_mediaDivs } from '../core/create_mediaDiv.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js';
 
 export default class eff_tile {
   static meta_props = {
@@ -106,7 +108,7 @@ export default class eff_tile {
   init() {
     this.wasFrozen = 0;
     this.iperiod = 0;
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.twidth = width;
     this.theight = height;
     this.output = createGraphics(this.twidth, this.theight);

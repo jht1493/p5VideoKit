@@ -1,5 +1,7 @@
-import { effectMeta_find } from '../core/effectMeta.js';
+import { effectMeta_find, factory_prop_inits } from '../core/effectMeta.js';
 import { image_scaled_pad } from '../util/image.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js';
 
 export default class eff_loop {
   static meta_props = {
@@ -123,7 +125,7 @@ export default class eff_loop {
     this.eff_inst = null;
     this.eff_inst_arr = [];
     this.next_eff();
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.iperiod = 0;
     this.img_freeze = createImage(this.input.width, this.input.height);
   }

@@ -1,4 +1,5 @@
 import { image_scaled_pad } from '../util/image.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
 
 export default class eff_fft_polar {
   static meta_props = {
@@ -35,7 +36,7 @@ export default class eff_fft_polar {
     this.x0 = layer.width / 2;
     this.y0 = layer.height / 2;
     this.init_analyser();
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
   }
   init_analyser() {
     let a_audioCtx = getAudioContext();

@@ -1,3 +1,6 @@
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { image_copy } from '../util/image.js';
+
 export default class eff_maze {
   static meta_props = {
     ncell: [32, 64, 128, 16],
@@ -17,7 +20,7 @@ export default class eff_maze {
     });
   }
   init() {
-    if (!this.period_timer) this.period_timer = new period_timer(this.period);
+    if (!this.period_timer) this.period_timer = new PeriodTimer(this.period);
     let w = this.input.width;
     let h = this.input.height;
     this.inw = w;

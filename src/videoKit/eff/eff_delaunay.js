@@ -1,3 +1,6 @@
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { image_copy } from '../util/image.js';
+
 export default class eff_delaunay {
   static meta_props = {
     dcell: [50, 5, 10, 20, 30, 40, 50, 100],
@@ -20,7 +23,7 @@ export default class eff_delaunay {
     });
   }
   init() {
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     let w = this.input.width;
     let h = this.input.height;
     if (!this.img) this.img = createImage(w, h);

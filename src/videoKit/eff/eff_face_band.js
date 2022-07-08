@@ -1,4 +1,6 @@
 import { image_scaled_pad } from '../util/image.js';
+import { ui_message } from '../core/create_ui.js';
+import { image_copy } from '../util/image.js';
 
 export default class eff_face_band {
   static meta_props = {

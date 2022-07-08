@@ -1,3 +1,6 @@
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { image_copy } from '../util/image.js';
+
 export default class eff_diff {
   static meta_props = {
     threshold: [16, 1, 2, 4, 8, 16, 32, 64, 128, 200],
@@ -20,7 +23,7 @@ export default class eff_diff {
     }
   }
   init() {
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     let image1 = createImage(this.input.width, this.input.height);
     let image2 = createImage(image1.width, image1.height);
     this.diffimage = createImage(image1.width, image1.height);

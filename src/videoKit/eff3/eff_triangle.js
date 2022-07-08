@@ -1,3 +1,5 @@
+import { image_copy } from '../util/image.js';
+
 export default class eff_triangle {
   static meta_props = {
     dcell: [5, 10, 20, 30],

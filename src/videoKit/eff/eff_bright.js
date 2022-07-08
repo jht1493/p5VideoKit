@@ -1,3 +1,5 @@
+import { image_copy } from '../util/image.js';
+
 export default class eff_bright {
   static meta_props = {
     // ncell: [32, 64, 128, 256, 512],

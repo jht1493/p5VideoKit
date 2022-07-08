@@ -1,4 +1,4 @@
-function image_copy(image, src) {
+export function image_copy(image, src) {
   image.copy(src, 0, 0, src.width, src.height, 0, 0, image.width, image.height);
 }
 // image.copy(srcImage, sx, sy, sw, sh, dx, dy, dw, dh)

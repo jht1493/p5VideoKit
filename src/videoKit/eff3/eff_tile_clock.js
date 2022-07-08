@@ -1,3 +1,7 @@
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js';
+import { face_mesh_draw } from '../core/face_mesh_draw.js';
+
 export default class eff_tile_clock {
   static meta_props = {
     center_draw: ['pixd', 'mesh', 'dots', 'rects', 'tris', 'crop', 'cycle'],
@@ -75,7 +79,7 @@ export default class eff_tile_clock {
     this.ncell = 3;
     this.wasFrozen = 0;
     this.iperiod = 0;
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.twidth = width;
     this.theight = height;
     this.output = createGraphics(this.twidth, this.theight);

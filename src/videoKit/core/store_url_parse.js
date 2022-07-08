@@ -74,7 +74,7 @@ function url_a_restore(str) {
       // console.log('store_url_parse ui', ui);
       a_.ui = ui;
       // Reflect url parameters in local storage
-      for (prop in a_.ui) {
+      for (let prop in a_.ui) {
         a_.ui_set(prop, a_.ui[prop]);
       }
       return 1;
@@ -83,7 +83,7 @@ function url_a_restore(str) {
   return 0;
 }
 
-function location_noquery() {
+export function location_noquery() {
   let loc = window.location.href;
   let ii = loc.indexOf('?');
   if (ii >= 0) {
@@ -138,7 +138,7 @@ function store_name_update(name) {
   window.location = loc;
 }
 
-function store_restore_from(ent) {
+export function store_restore_from(ent) {
   console.log('store_restore_from ent', ent);
   store_restore_ent(ent);
   let loc = location_url();

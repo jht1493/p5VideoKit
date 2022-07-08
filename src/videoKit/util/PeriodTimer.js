@@ -1,4 +1,4 @@
-class period_timer {
+export class PeriodTimer {
   constructor(period) {
     this.period = period;
     this.restart();

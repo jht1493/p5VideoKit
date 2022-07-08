@@ -26,4 +26,8 @@ class p5VideoKit {
         });
     });
   }
+
+  draw() {
+    console.log('p5VideoKit draw stub');
+  }
 }

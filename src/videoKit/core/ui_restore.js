@@ -127,7 +127,7 @@ function store_restore_ver() {
     console.log('store_restore_ver reset ver=' + ver);
     store_set('a_.store_ver', a_.store_ver);
     // Version diff, clear out all properties
-    for (prop in a_.ui) {
+    for (let prop in a_.ui) {
       store_remove(prop);
     }
   }

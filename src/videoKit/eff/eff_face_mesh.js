@@ -1,3 +1,8 @@
+import { ui_message } from '../core/create_ui.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
+import { image_copy } from '../util/image.js';
+import { face_mesh_draw } from '../core/face_mesh_draw.js';
+
 export default class eff_face_mesh {
   static meta_props = {
     alpha: [255, 230, 180, 100, 10],
@@ -83,7 +88,7 @@ export default class eff_face_mesh {
     this.nnits = 0;
     this.iperiod = 0;
     this.iperiod_next = -1;
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.video = this.input.elt;
     this.predictions = [];
     this.iupdate = 0;

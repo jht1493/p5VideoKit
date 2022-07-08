@@ -1,3 +1,5 @@
+import { patch_index1 } from '../core-ui/ui_patch_eff.js';
+
 export default class eff_show_none {
   static meta_props = {
     back_color_patch: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],

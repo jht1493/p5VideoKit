@@ -1,3 +1,5 @@
+import { image_copy } from '../util/image.js';
+
 export default class eff_sketchy {
   static meta_props = {
     speed: [150, 1, 2, 5, 10, 20, 100],

@@ -1,4 +1,5 @@
 import { image_scaled_pad } from '../util/image.js';
+import { PeriodTimer } from '../util/PeriodTimer.js';
 
 export default class eff_mov_show {
   static meta_props = {
@@ -40,7 +41,7 @@ export default class eff_mov_show {
   }
   init() {
     this.predictions = [];
-    this.period_timer = new period_timer(this.period);
+    this.period_timer = new PeriodTimer(this.period);
     this.load_from_group();
   }
   load_from_group() {
