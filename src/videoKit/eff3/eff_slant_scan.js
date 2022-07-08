@@ -3,7 +3,7 @@ import { image_copy } from '../util/image.js';
 export default class eff_slant_scan {
   static meta_props = {
     ncell: [512, 1024, 2028],
-    // step: [1, 2, 4, 0.2],
+    step: [1, 2, 4, 0.2],
     start: [225, 45, 90, 135, 180, 225, 270, 315],
     end: [360, 90, 135, 180, 270, 315],
     delta: [5, 1, 2, 4, 6, 8, 16, 32, 64],
