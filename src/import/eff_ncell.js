@@ -21,11 +21,11 @@ export default class eff_ncell {
     let eff_names = ['circle'];
     let videoKit = this.videoKit;
     let devIndex = 1;
-    let urect = this.eff_src.urect;
-    let x0 = urect.x0;
-    let y0 = urect.y0;
-    let uw = x0 + Math.floor(urect.width);
-    let uh = y0 + Math.floor(urect.height);
+    let uout = this.eff_src.urect;
+    let x0 = uout.x0;
+    let y0 = uout.y0;
+    let uw = x0 + uout.width;
+    let uh = y0 + uout.height;
     let xstep = uw / this.ncell;
     let ystep = uh / this.ncell;
     let n = this.ncell * this.ncell;
@@ -38,10 +38,10 @@ export default class eff_ncell {
       this.effs.push(eff);
       x0 += xstep;
       if (x0 >= uw) {
-        x0 = urect.x0;
+        x0 = uout.x0;
         y0 += ystep;
         if (y0 >= uh) {
-          y0 = urect.y0;
+          y0 = uout.y0;
         }
       }
     }
