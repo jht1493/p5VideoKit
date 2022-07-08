@@ -18,8 +18,6 @@ export function ui_render_size(div) {
       let label = this.value();
       let se = a_render_sizes_dict[label];
       ui_prop_set('render_size', se.label);
-      // resizeCanvas(se.width, se.height);
-      // ui_window_refresh();
     });
   }
 }

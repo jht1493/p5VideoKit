@@ -86,7 +86,7 @@ function remove_media_by_id(id) {
   // tile_notify_media_update({ remove: id });
 }
 
-function remove_mediaDivs() {
+export function remove_mediaDivs() {
   // Remove all but first
   for (let index = a_mediaDivs.value.length - 1; index > 0; index--) {
     let ent = a_mediaDivs.value[index];

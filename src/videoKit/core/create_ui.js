@@ -105,7 +105,7 @@ function ui_hide() {
   }
 }
 
-function ui_window_refresh() {
+export function ui_window_refresh() {
   // my_canvas.elt.style.cursor = 'none';
   pad_layout_update();
   ui_reset();
@@ -118,7 +118,7 @@ function ui_size_pane() {
   ui_render_size(div);
 }
 
-function ui_reset() {
+export function ui_reset() {
   // All patch instances will be re-created on next draw
   a_.patch_instances = [];
 }

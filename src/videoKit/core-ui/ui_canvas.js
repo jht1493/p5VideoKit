@@ -1,6 +1,7 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { store_set } from '../core/ui_restore.js';
+import { ui_window_refresh } from '../core/create_ui.js';
 
 export function ui_canvas_div(div) {
   // console.log('ui_canvas');

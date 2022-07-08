@@ -1,6 +1,8 @@
 import { init_size_in } from '../core-ui/ui_canvas.js';
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
+import { media_reset } from '../core/create_mediaDevices.js';
+import { ui_reset } from '../core/create_ui.js';
 
 export function ui_capture_size(div) {
   // console.log('ui_capture_size');
