@@ -1,8 +1,11 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-// 'let/a_effectMetas.js'
-// 'mods'
+// create listing for dynanmic import of effect modules
+//  'videoKit/let/a_effectMetas.js'
+// based on js files in mods directory
+// mods=videoKit directory for modules
+//  videoKit/eff*
 //
 function build_effectMetas(effectMetasPath, src_path, mods) {
   const effectModPath = path.join(src_path, mods);
@@ -54,7 +57,7 @@ ${ents.join('\n')}
 ] };
 `;
   fs.writeFileSync(effectMetasPath, str);
-  console.log(mods, ents.length);
+  console.log(mods + '/effs*', ents.length);
 }
 
 module.exports = build_effectMetas;
