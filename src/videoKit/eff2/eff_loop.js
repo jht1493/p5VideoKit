@@ -1,3 +1,5 @@
+import { effectMeta_find } from '../core/effectMeta.js';
+
 export default class eff_loop {
   static meta_props = {
     period: [1, 0, 0.5, 1, 2, 3, 4, 5, 6, 8, 10, 15, 20, 30, 60],

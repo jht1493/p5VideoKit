@@ -1,9 +1,15 @@
-let a_mediaDevices = [];
+import { a_ } from '../let/a_ui.js';
+import { a_mediaDivs, create_mediaDiv } from '../core/create_mediaDiv.js';
+import { get_capture_size } from '../core-ui/ui_capture.js';
+import { livem_restore } from '../core-ui/ui_live.js';
+
+export let a_mediaDevices = [];
+
 // mediaDevice
 //  { label, deviceId, capture, stream }
 
 function create_mediaDevices() {
-  let default_vis = !a_hideui;
+  let default_vis = !a_.hideui;
   for (let mediaDevice of a_mediaDevices) {
     init_device_capture(mediaDevice);
     create_mediaDiv(mediaDevice, default_vis);
@@ -31,7 +37,7 @@ function create_mediaDevices() {
   }
 }
 
-function media_enum() {
+export function media_enum() {
   a_mediaDevices = [];
   if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
     console.log('enumerateDevices() not supported.');
@@ -71,9 +77,9 @@ function media_reset() {
 }
 
 function save_others(fn) {
-  // a_ui.patches.imedia
+  // a_.ui.patches.imedia
   let imd = {};
-  for (let ent of a_ui.patches) {
+  for (let ent of a_.ui.patches) {
     let imedia = ent.eff_src.imedia;
     if (imd[imedia]) {
       continue;
@@ -85,7 +91,7 @@ function save_others(fn) {
 
 function save_other(fn, imedia) {
   console.log('save_other idev', imedia);
-  let vent = a_mediaDivs[imedia];
+  let vent = a_mediaDivs.value[imedia];
   if (!vent) return;
   let vin = vent.capture;
   if (!vin) return;

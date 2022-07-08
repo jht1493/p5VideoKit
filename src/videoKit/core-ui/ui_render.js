@@ -1,4 +1,8 @@
-function ui_render_size(div) {
+import { init_size_in } from '../core-ui/ui_canvas.js';
+import { a_ } from '../let/a_ui.js';
+import { ui_prop_set } from '../core/ui_restore.js';
+
+export function ui_render_size(div) {
   // console.log('ui_canvas');
   render_size();
 
@@ -9,11 +13,11 @@ function ui_render_size(div) {
     for (let se of a_render_sizes) {
       aSel.option(se.label);
     }
-    aSel.selected(a_ui.render_size);
+    aSel.selected(a_.ui.render_size);
     aSel.changed(function () {
       let label = this.value();
       let se = a_render_sizes_dict[label];
-      a_ui_set('render_size', se.label);
+      ui_prop_set('render_size', se.label);
       // resizeCanvas(se.width, se.height);
       // ui_window_refresh();
     });
@@ -22,13 +26,13 @@ function ui_render_size(div) {
 
 let a_render_sizes_dict;
 
-function ui_render_size_init() {
+export function ui_render_size_init() {
   a_render_sizes_dict = init_size_in(a_render_sizes);
 }
 
 function render_size_default() {
-  let sz = a_render_sizes_dict[a_ui.render_size];
-  // console.log('render_sizei index', a_ui.render_sizei, 'size', sz);
+  let sz = a_render_sizes_dict[a_.ui.render_size];
+  // console.log('render_sizei index', a_.ui.render_sizei, 'size', sz);
   if (sz) return sz;
   return a_render_sizes[0];
 }

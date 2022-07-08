@@ -1,3 +1,6 @@
+import { a_ } from '../let/a_ui.js';
+import { create_mediaDiv } from '../core/create_mediaDiv.js';
+
 let a_livem;
 
 function liveMedia_attach(mediaDiv) {
@@ -12,7 +15,7 @@ function liveMedia_attach(mediaDiv) {
       return;
     }
     type = 'CAPTURE';
-  } else if (!a_ui.canvas_data_chk) {
+  } else if (!a_.ui.canvas_data_chk) {
     // no mediaDevice --> canvas
     stream = my_canvas;
     type = 'CANVAS';
@@ -27,8 +30,8 @@ function liveMedia_attach(mediaDiv) {
     return;
   }
   // console.log('liveMedia_attach this=', this);
-  console.log('liveMedia_attach type=' + type + ' a_ui.room_name=' + a_ui.room_name);
-  livem = new p5LiveMedia(this, type, stream, a_ui.room_name);
+  console.log('liveMedia_attach type=' + type + ' a_.ui.room_name=' + a_.ui.room_name);
+  livem = new p5LiveMedia(this, type, stream, a_.ui.room_name);
   if (!a_livem) {
     livem.on('stream', gotStream);
     livem.on('data', gotData);
@@ -59,7 +62,7 @@ function gotStream(capture, id) {
   let stream = capture.elt.srcObject;
   let deviceId = id;
   let mediaDevice = { deviceId, capture, stream };
-  let default_vis = !a_hideui;
+  let default_vis = !a_.hideui;
   create_mediaDiv(mediaDevice, default_vis);
   ui_refresh();
   console.log('gotStream width', capture.width, 'height', capture.height);
@@ -87,7 +90,7 @@ function gotConnect(id) {
 function livem_send(text) {
   console.log('livem_send text', text);
   if (!a_livem) return;
-  let name = a_ui.chat_name;
+  let name = a_.ui.chat_name;
   let obj = { name, text };
   a_livem.send(JSON.stringify(obj));
 }

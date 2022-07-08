@@ -1,6 +1,13 @@
-function ui_patch_eff_panes() {
+import { a_effectMetas } from '../let/a_effectMetas.js';
+import { a_ } from '../let/a_ui.js';
+import { ui_div_empty } from '../util/ui_base.js';
+import { effectMeta_find } from '../core/effectMeta.js';
+import { a_mediaDivs } from '../core/create_mediaDiv.js';
+import { pad_layout_update } from '../core-ui/ui_patch.js';
+
+export function ui_patch_eff_panes() {
   let droot = ui_div_empty('ipatch_eff');
-  for (let ipatch = 0; ipatch < a_ui.patches.length; ipatch++) {
+  for (let ipatch = 0; ipatch < a_.ui.patches.length; ipatch++) {
     create_patch(ipatch);
   }
 
@@ -8,8 +15,8 @@ function ui_patch_eff_panes() {
     let div = ui_div_empty('patch_' + ipatch);
     droot.child(div);
 
-    let aPatch = a_ui.patches[ipatch];
-    // a_ui.patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
+    let aPatch = a_.ui.patches[ipatch];
+    // a_.ui.patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
     create_patch_selection();
 
@@ -46,8 +53,8 @@ function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      for (let ii = 0; ii < a_effectMetas.length; ii++) {
-        aSel.option(a_effectMetas[ii].label, ii);
+      for (let ii = 0; ii < a_effectMetas.value.length; ii++) {
+        aSel.option(a_effectMetas.value[ii].label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_src.eff_label).index;
       aSel.selected(effIndex);
@@ -63,8 +70,8 @@ function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      for (let ii = 0; ii < a_mediaDivs.length; ii++) {
-        aSel.option(a_mediaDivs[ii].label, ii);
+      for (let ii = 0; ii < a_mediaDivs.value.length; ii++) {
+        aSel.option(a_mediaDivs.value[ii].label, ii);
       }
       aSel.selected(aPatch.eff_src.imedia);
       aSel.changed(function () {
@@ -112,7 +119,7 @@ function ui_patch_eff_panes() {
       if (first) {
         div_break(div);
       }
-      for (iprop in items) {
+      for (let iprop in items) {
         let item = items[iprop];
         // console.log('create_other iprop', iprop, 'item', item);
         if (iprop === 'button') {
@@ -145,7 +152,7 @@ function ui_patch_eff_panes() {
     }
 
     function button_action(item, aPatch) {
-      let inst = a_patch_instances[aPatch.eff_src.ipatch];
+      let inst = a_.patch_instances[aPatch.eff_src.ipatch];
       item(inst, aPatch);
     }
 
@@ -187,8 +194,8 @@ function ui_patch_eff_panes() {
 }
 
 function patch_add(aPatch) {
-  aPatch.eff_src.ipatch = a_ui.patches.length;
-  a_ui.patches.push(aPatch);
+  aPatch.eff_src.ipatch = a_.ui.patches.length;
+  a_.ui.patches.push(aPatch);
   ui_patch_update(aPatch);
   ui_refresh();
   pad_layout_update();
@@ -204,8 +211,8 @@ function patch_remove_at(ipatch) {
   // if (ipatch === 0) {
   //   return;
   // }
-  a_ui.patches.splice(ipatch, 1);
-  a_patch_instances.splice(ipatch, 1);
+  a_.ui.patches.splice(ipatch, 1);
+  a_.patch_instances.splice(ipatch, 1);
   ui_div_empty('patch_' + ipatch);
   ui_patch_update();
   ui_refresh();
@@ -214,21 +221,21 @@ function patch_remove_at(ipatch) {
 
 // Remove the last patch
 function patch_remove_last() {
-  let ipatch = a_ui.patches.length - 1;
+  let ipatch = a_.ui.patches.length - 1;
   patch_remove_at(ipatch);
 }
 
 function patch_update_effIndex(aPatch, effIndex) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
-  eff_src.eff_label = a_effectMetas[effIndex].label;
-  a_ui.patches[ipatch] = { eff_src, eff_inits: {} };
+  eff_src.eff_label = a_effectMetas.value[effIndex].label;
+  a_.ui.patches[ipatch] = { eff_src, eff_inits: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();
 }
 
 function patch_index1(ind) {
-  return a_patch_instances[ind - 1];
+  return a_.patch_instances[ind - 1];
 }
 
 function div_break(div) {

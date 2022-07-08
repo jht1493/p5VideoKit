@@ -1,3 +1,7 @@
+import { a_ } from '../let/a_ui.js';
+import { pad_layout_update } from '../core-ui/ui_patch.js';
+import { ui_prop_set } from '../core/ui_restore.js';
+
 // Are we setting up store from our url query?
 // url parm
 //  a = gather settings from param itself
@@ -6,7 +10,7 @@
 //  al/d = settings from json file
 //  h = 0/1, explicit setting for hide ui
 //
-function store_url_parse(urlResult) {
+export function store_url_parse(urlResult) {
   let uiSet = 0;
   let settings;
   let loc = window.location.href;
@@ -23,24 +27,24 @@ function store_url_parse(urlResult) {
     }
     let u_str = params['u'];
     if (u_str) {
-      a_store_prefix = u_str;
-      // console.log('a_store_prefix', a_store_prefix);
+      a_.store_prefix = u_str;
+      // console.log('a_.store_prefix', a_s.tore_prefix);
     }
     let s_str = params['s'];
     if (s_str) {
       console.log('store_url_parse s_str', s_str);
-      let ent = a_settings.find((ent) => ent.setting === s_str);
+      let ent = a_.settings.find((ent) => ent.setting === s_str);
       settings = ent;
       console.log('store_url_parse settings', settings);
-      a_hideui = 1;
+      a_.hideui = 1;
     }
     let h_str = params['h'];
     if (h_str) {
-      a_hideui = parseFloat(h_str);
+      a_.hideui = parseFloat(h_str);
     }
     let c_str = params['c'];
     if (c_str) {
-      a_chat_name = c_str;
+      a_.chat_name = c_str;
     }
     // ?d=settings-sound/face-graph.json
     // ?d=settings-sound/face-posenet.json
@@ -49,7 +53,6 @@ function store_url_parse(urlResult) {
       let url = './' + d_str;
       loadJSON(url, (settings) => {
         console.log('d_str settings', settings);
-        // a_settings_async = data;
         urlResult({ uiSet, settings });
       });
       return;
@@ -69,10 +72,10 @@ function url_a_restore(str) {
       // console.log('store_url_parse parse failed');
     } else {
       // console.log('store_url_parse ui', ui);
-      a_ui = ui;
+      a_.ui = ui;
       // Reflect url parameters in local storage
-      for (prop in a_ui) {
-        a_ui_set(prop, a_ui[prop]);
+      for (prop in a_.ui) {
+        a_.ui_set(prop, a_.ui[prop]);
       }
       return 1;
     }
@@ -89,12 +92,12 @@ function location_noquery() {
   return loc;
 }
 
-// Return current location a_store_prefix
+// Return current location a_.store_prefix
 function location_url() {
   let loc = location_noquery();
   loc += '?';
-  if (a_store_prefix) {
-    let ustr = encodeURIComponent(a_store_prefix);
+  if (a_.store_prefix) {
+    let ustr = encodeURIComponent(a_.store_prefix);
     loc += 'u=' + ustr + '&';
   }
   return loc;
@@ -109,9 +112,9 @@ function store_export_url() {
 
 function store_export(updateUrl) {
   pad_layout_update();
-  let fn = a_ui.setting || 'setting';
-  saveJSON(a_ui, fn);
-  let str = JSON.stringify(a_ui);
+  let fn = a_.ui.setting || 'setting';
+  saveJSON(a_.ui, fn);
+  let str = JSON.stringify(a_.ui);
   // console.log('store_export str');
   // console.log(str);
   str = encodeURIComponent(str);
@@ -123,14 +126,14 @@ function store_export(updateUrl) {
   }
 }
 
-function store_name_restore() {
-  let nstore = localStorage.getItem('a_store_name');
-  if (nstore) a_store_name = nstore;
+export function store_name_restore() {
+  let nstore = localStorage.getItem('a_.store_name');
+  if (nstore) a_.store_name = nstore;
 }
 
 function store_name_update(name) {
   console.log('store_name_update', name);
-  localStorage.setItem('a_store_name', name);
+  localStorage.setItem('a_.store_name', name);
   let loc = location_url();
   window.location = loc;
 }
@@ -145,7 +148,7 @@ function store_restore_from(ent) {
 
 function store_restore_ent(ent) {
   // store_restore_create_eff_src(ent);
-  if (a_canvas_size_lock) {
+  if (a_.canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
     for (let patch of ent.patches) {
@@ -155,24 +158,24 @@ function store_restore_ent(ent) {
   // Save settings to local storage
   for (let prop in ent) {
     let nprop = prop;
-    if (a_canvas_size_lock) {
+    if (a_.canvas_size_lock) {
       if (prop === 'canvas_size') {
-        // ui.canvas_size is replaced by a_ui.canvas_resize_ref
+        // ui.canvas_size is replaced by a_.ui.canvas_resize_ref
         // to enable scaling relative to original canvas size
         nprop = 'canvas_resize_ref';
       } else if (prop === 'canvas_resize_ref') {
         continue;
       }
     }
-    a_ui_set(nprop, ent[prop]);
+    ui_prop_set(nprop, ent[prop]);
   }
-  if (a_canvas_size_lock) {
+  if (a_.canvas_size_lock) {
     // Force pad_layout_update
-    a_ui_set('urects_count', 0);
+    ui_prop_set('urects_count', 0);
   } else {
     // Canvas is not locked
-    // clear a_ui.canvas_resize_ref to prevent scaling
-    a_ui_set('canvas_resize_ref', '');
+    // clear a_.ui.canvas_resize_ref to prevent scaling
+    ui_prop_set('canvas_resize_ref', '');
   }
 }
 

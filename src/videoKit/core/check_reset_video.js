@@ -2,7 +2,7 @@
 // are not requested and no video is displayed.
 // This simple use of createCapture appears to trigger permissions
 let myVideo;
-function check_reset_video() {
+export function check_reset_video() {
   ui_message('Resetting Configuration');
   localStorage.clear();
   let vconstraints = {

@@ -1,4 +1,7 @@
-function ui_capture_size(div) {
+import { init_size_in } from '../core-ui/ui_canvas.js';
+import { a_ } from '../let/a_ui.js';
+
+export function ui_capture_size(div) {
   // console.log('ui_capture_size');
   div.child(createSpan(' Capture Size: '));
   let aSel = createSelect();
@@ -6,11 +9,11 @@ function ui_capture_size(div) {
   for (let se of a_capture_sizes) {
     aSel.option(se.label);
   }
-  aSel.selected(a_ui.capture_size);
+  aSel.selected(a_.ui.capture_size);
   aSel.changed(function () {
     let label = this.value();
     let se = a_capture_sizes_dict[label];
-    a_ui_set('capture_size', se.label);
+    ui_prop_set('capture_size', se.label);
     media_reset();
     ui_reset();
   });
@@ -18,7 +21,7 @@ function ui_capture_size(div) {
 
 let a_capture_sizes_dict;
 
-function ui_capture_init() {
+export function ui_capture_init() {
   a_capture_sizes_dict = init_size_in(a_capture_sizes);
 }
 
@@ -61,8 +64,8 @@ let a_capture_sizes = [
   },
 ];
 
-function get_capture_size() {
-  let se = a_capture_sizes_dict[a_ui.capture_size];
-  // console.log('get_capture_size index', a_ui.capture_sizei, 'se', se);
+export function get_capture_size() {
+  let se = a_capture_sizes_dict[a_.ui.capture_size];
+  // console.log('get_capture_size index', a_.ui.capture_sizei, 'se', se);
   return se;
 }

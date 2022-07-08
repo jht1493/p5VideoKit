@@ -1,22 +1,6 @@
-let ui_show_ids = {};
-
-function ui_show_num(label, num) {
-  num = round(num, 2);
-  ui_show_text(label, ' [' + label + ' ' + num + ']');
-}
-
-function ui_show_text(label, text) {
-  let ilabel = 'i_' + label;
-  let item = ui_show_ids[ilabel];
-  if (!item) {
-    item = select('#' + ilabel);
-    ui_show_ids[ilabel] = item;
-  }
-  // console.log('ui_show_text ilabel='+ilabel+' item='+item)
-  if (item && item.html) {
-    item.html(text);
-  }
-}
+import { a_ } from '../let/a_ui.js';
+import { ui_canvas_div } from '../core-ui/ui_canvas.js';
+import { ui_prop_set } from '../core/ui_restore.js';
 
 function ui_hide() {
   let m = select('main').elt;
@@ -32,13 +16,12 @@ function ui_hide() {
 
 function ui_size_pane() {
   let div = ui_div_empty('size_pane');
-  ui_canvas(div);
-  // ui_backcolor(div);
+  ui_canvas_div(div);
 }
 
 let a_back_color_options = [200, 0, 50, 100, 200, 255, -1];
 
-function ui_backcolor(div) {
+export function ui_backcolor(div) {
   div.child(createSpan(' Back: '));
   let aSel = createSelect();
   div.child(aSel);
@@ -46,10 +29,10 @@ function ui_backcolor(div) {
   for (let index = 0; index < back_colors.length; index++) {
     aSel.option(back_colors[index]);
   }
-  aSel.selected(a_ui.back_color);
+  aSel.selected(a_.ui.back_color);
   aSel.changed(function () {
     let valu = parseFloat(this.value());
-    a_ui_set('back_color', valu);
+    ui_prop_set('back_color', valu);
   });
 }
 
@@ -63,14 +46,14 @@ function ui_message(msg) {
 // Return date stamped file name based on first patch name
 function ui_save_fn() {
   // "2021-04-25T14:44:31.227Z"
-  let saveName = a_ui.setting || 'dice_face';
+  let saveName = a_.ui.setting || 'dice_face';
   let dt = new Date().toISOString().substring(0, 10);
   let fn = saveName + '_' + dt;
   return fn;
 }
 
 // Create empty div or empty it if already exists
-function ui_div_empty(id) {
+export function ui_div_empty(id) {
   let div = select('#' + id);
   // console.log('ui_device_selection div', div);
   if (!div) {

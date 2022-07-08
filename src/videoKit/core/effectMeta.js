@@ -1,12 +1,14 @@
-let a_effectMetas_dict;
+import { a_effectMetas } from '../let/a_effectMetas.js';
+
+let a_effectMetaDict;
 let a_import_err;
 
-function effectMeta_init(donef) {
-  a_effectMetas_dict = {};
+export function effectMeta_init(donef) {
+  a_effectMetaDict = {};
   let imports = [];
   let index = 0;
-  for (let effMeta of a_effectMetas) {
-    a_effectMetas_dict[effMeta.label] = effMeta;
+  for (let effMeta of a_effectMetas.value) {
+    a_effectMetaDict[effMeta.label] = effMeta;
     effMeta.index = index;
     if (!effMeta.factory) {
       imports.push(effectMeta_import(effMeta));
@@ -16,8 +18,8 @@ function effectMeta_init(donef) {
   Promise.allSettled(imports).then(donef);
 }
 
-function effectMeta_import(effMeta) {
-  let inpath = '../' + effMeta.import_path + '.js';
+export function effectMeta_import(effMeta) {
+  let inpath = '../../' + effMeta.import_path + '.js';
   // console.log('effectMeta_import', inpath);
   return new Promise((resolve, reject) => {
     import(inpath)
@@ -35,20 +37,20 @@ function effectMeta_import(effMeta) {
   });
 }
 
-function effectMeta_find(label) {
+export function effectMeta_find(label) {
   if (!label) {
     console.log('effectMeta_find no label', label);
-    return a_effectMetas[0];
+    return a_effectMetas.value[0];
   }
-  let effMeta = a_effectMetas_dict[label];
+  let effMeta = a_effectMetaDict[label];
   if (!effMeta) {
     console.log('effectMeta_find label not found', label);
-    effMeta = a_effectMetas[0];
+    effMeta = a_effectMeta.values[0];
   }
   return effMeta;
 }
 
-function factory_prop_inits(factory, init_props) {
+export function factory_prop_inits(factory, init_props) {
   let dict = factory.meta_props;
   // console.log('factory_prop_inits dict', dict);
   let inits = Object.assign({}, init_props);

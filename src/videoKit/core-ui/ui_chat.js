@@ -1,18 +1,21 @@
-function ui_chat_pane() {
+import { a_ } from '../let/a_ui.js';
+import { ui_prop_set } from '../core/ui_restore.js';
+
+export function ui_chat_pane() {
   // ichat_blk
   let blk = createSpan('').id('ichat_blk');
-  blk.style(a_ui.live_chk ? 'display:inline' : 'display:none');
+  blk.style(a_.ui.live_chk ? 'display:inline' : 'display:none');
   let elm;
   elm = createSpan('Room: ');
   blk.child(elm);
-  elm = createInput(a_ui.room_name).input(function () {
-    a_ui_set('room_name', this.value());
+  elm = createInput(a_.ui.room_name).input(function () {
+    ui_prop_set('room_name', this.value());
   });
   blk.child(elm);
   elm = createSpan(' Chat name: ');
   blk.child(elm);
-  elm = createInput(a_ui.chat_name).input(function () {
-    a_ui_set('chat_name', this.value());
+  elm = createInput(a_.ui.chat_name).input(function () {
+    ui_prop_set('chat_name', this.value());
   });
   blk.child(elm);
   elm = createButton('Send').mousePressed(function () {
@@ -34,7 +37,7 @@ function ui_chat_pane() {
     .id('ichat_msg')
     .input(function () {
       console.log('ichat_msg ' + this.value());
-      a_ui_set('chat_text', this.value());
+      ui_prop_set('chat_text', this.value());
     });
   blk.child(elm);
   select('#ichat_msg').style('width', '80%');
@@ -55,7 +58,7 @@ function ui_chat_receive(str, id) {
   }
   let { name, text } = obj;
   if (!text) text = '';
-  if (name === a_ui.chat_name) {
+  if (name === a_.ui.chat_name) {
     name += '-' + id;
   }
   a_chat_log.html(name + ': ' + text + '<br/>', true);

@@ -1,4 +1,11 @@
-function ui_patch_layout() {
+import { a_ } from '../let/a_ui.js';
+import { ui_div_empty, ui_backcolor } from '../util/ui_base.js';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
+import { ui_live_selection } from '../core-ui/ui_live.js';
+import { PadLayout } from '../util/PadLayout.js';
+import { ui_prop_set } from '../core/ui_restore.js';
+
+export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');
   div.child(createSpan('Layout: '));
   {
@@ -12,11 +19,11 @@ function ui_patch_layout() {
     aSel.option('3x3');
     aSel.option('3x1');
     aSel.option('4x4');
-    aSel.selected(a_ui.patch_layout);
+    aSel.selected(a_.ui.patch_layout);
     aSel.changed(function () {
       let val = this.value();
       // console.log('ui_patch_layout', val);
-      a_ui_set('patch_layout', val);
+      ui_prop_set('patch_layout', val);
       pad_layout_update();
       ui_reset();
     });
@@ -31,7 +38,7 @@ function ui_patch_layout() {
     aSel.option('Store-B');
     aSel.option('Store-C');
     aSel.option('Store-D');
-    aSel.selected(a_store_name);
+    aSel.selected(a_.store_name);
     aSel.changed(function () {
       let val = this.value();
       store_name_update(val);
@@ -53,27 +60,27 @@ function ui_patch_layout() {
   {
     let aSel = createSelect();
     div.child(aSel);
-    // console.log('a_ui.setting', a_ui.setting);
+    // console.log('a_.ui.setting', a_.ui.setting);
     let sii = 0;
-    for (let ii = 0; ii < a_settings.length; ii++) {
-      let ent = a_settings[ii];
+    for (let ii = 0; ii < a_.settings.length; ii++) {
+      let ent = a_.settings[ii];
       aSel.option(ent.setting, ii);
       // console.log('ii', ii, 'label', ent.label);
-      if (ent.setting === a_ui.setting) {
+      if (ent.setting === a_.ui.setting) {
         sii = ii;
       }
     }
     aSel.selected(sii);
     aSel.changed(function () {
       let ii = parseFloat(this.value());
-      let ent = a_settings[ii];
+      let ent = a_.settings[ii];
       store_restore_from(ent);
     });
   }
   createElement('br');
 }
 
-function ui_patch_buttons() {
+export function ui_patch_buttons() {
   createButton('Add Patch').mousePressed(function () {
     let newPatch = { eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } };
     patch_add(newPatch);
@@ -86,48 +93,48 @@ function ui_patch_buttons() {
 
 // Rebuild dynamic elements of ui
 function ui_refresh() {
-  if (a_hideui) return;
+  if (a_.hideui) return;
   ui_live_selection();
   ui_patch_eff_panes();
 }
 
 // Write out all patches to local storage
 function ui_patch_save_all() {
-  a_ui_set('patches', a_ui.patches);
+  ui_prop_set('patches', a_.ui.patches);
 }
 
 // Write out all patches to local storage
 // and reset given patch
 function ui_patch_update(aPatch) {
   // console.log('ui_patch_update');
-  a_ui_set('patches', a_ui.patches);
+  ui_prop_set('patches', a_.ui.patches);
   if (!aPatch) return;
   let ipatch = aPatch.eff_src.ipatch;
   // console.log('ui_patch_update ipatch', ipatch);
-  let inst = a_patch_instances[ipatch];
+  let inst = a_.patch_instances[ipatch];
   // console.log('ui_patch_update inst', inst);
   if (inst && inst.remove_eff) {
     inst.remove_eff();
   }
-  a_patch_instances[ipatch] = null;
+  a_.patch_instances[ipatch] = null;
 }
 
-function pad_layout_update() {
+export function pad_layout_update() {
   let layout;
-  // console.log('pad_layout_update a_ui.canvas_resize_ref |' + a_ui.canvas_resize_ref + '|');
-  if (a_ui.canvas_resize_ref) {
+  // console.log('pad_layout_update a_.ui.canvas_resize_ref |' + a_.ui.canvas_resize_ref + '|');
+  if (a_.ui.canvas_resize_ref) {
     pads_resize_set_scale();
   } else {
-    if (a_ui.urects_lock) {
-      console.log('pad_layout_update a_ui.urects_lock');
+    if (a_.ui.urects_lock) {
+      console.log('pad_layout_update a_.ui.urects_lock');
       return;
     }
-    layout = new pad_layout();
+    layout = new PadLayout();
   }
   let urects_count = 0;
   let urect;
-  for (let ipatch = 0; ipatch < a_ui.patches.length; ipatch++) {
-    let uiPatch = a_ui.patches[ipatch];
+  for (let ipatch = 0; ipatch < a_.ui.patches.length; ipatch++) {
+    let uiPatch = a_.ui.patches[ipatch];
     if (uiPatch) {
       let eff_src = uiPatch.eff_src;
       if (eff_src.ipatch != ipatch) {
@@ -150,22 +157,22 @@ function pad_layout_update() {
     }
     // console.log('pad_layout_update uiPatch', JSON.stringify(uiPatch));
   }
-  a_ui_set('patches', a_ui.patches);
-  a_ui_set('urects_count', urects_count);
+  ui_prop_set('patches', a_.ui.patches);
+  ui_prop_set('urects_count', urects_count);
   // pads_resize_save();
 }
 
 function pads_resize_set_scale() {
-  let refsz = str_to_width_height(a_ui.canvas_resize_ref);
-  let tosz = str_to_width_height(a_ui.canvas_size);
-  a_ui.urects_scale = tosz.width / refsz.width;
-  console.log('pads_resize_set_scale a_ui.canvas_resize_ref', a_ui.canvas_resize_ref);
-  console.log('pads_resize_set_scale a_ui.canvas_size', a_ui.canvas_size);
-  console.log('pads_resize_set_scale urects_scale', a_ui.urects_scale);
+  let refsz = str_to_width_height(a_.ui.canvas_resize_ref);
+  let tosz = str_to_width_height(a_.ui.canvas_size);
+  a_.ui.urects_scale = tosz.width / refsz.width;
+  console.log('pads_resize_set_scale a_.ui.canvas_resize_ref', a_.ui.canvas_resize_ref);
+  console.log('pads_resize_set_scale a_.ui.canvas_size', a_.ui.canvas_size);
+  console.log('pads_resize_set_scale urects_scale', a_.ui.urects_scale);
 }
 
 function pads_resize_pad(urect) {
   for (let prop in urect) {
-    urect[prop] = Math.floor(urect[prop] * a_ui.urects_scale);
+    urect[prop] = Math.floor(urect[prop] * a_.ui.urects_scale);
   }
 }

@@ -2,7 +2,7 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "asketches_list.js.js",
+  "main": "asketches_list.js",
   "dependencies": {
     "dotenv": "^8.2.0",
     "faster-delaunay": "^1.0.0",

@@ -1,3 +1,6 @@
+import { a_ } from '../let/a_ui.js';
+import { a_mediaDivs } from '../core/create_mediaDiv.js';
+
 export default class eff_tile {
   static meta_props = {
     // ncell: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -61,14 +64,14 @@ export default class eff_tile {
     if (!this.livem_cycle) return;
     let ipatch = this.eff_src.ipatch;
     // console.log('livem_step ipatch', ipatch);
-    let uiPatch = a_ui.patches[ipatch];
+    let uiPatch = a_.ui.patches[ipatch];
     let imedia = uiPatch.eff_src.imedia;
-    if (imedia >= a_mediaDivs.length) {
+    if (imedia >= a_mediaDivs.value.length) {
       imedia = this.ifirst;
     }
-    imedia = (imedia + 1) % a_mediaDivs.length;
+    imedia = (imedia + 1) % a_mediaDivs.value.length;
     if (imedia < this.ifirst) imedia = this.ifirst;
-    if (imedia >= a_mediaDivs.length) imedia = uiPatch.eff_src.imedia;
+    if (imedia >= a_mediaDivs.value.length) imedia = uiPatch.eff_src.imedia;
     let change = uiPatch.eff_src.imedia !== imedia;
     if (change) {
       console.log('livem_step draw_step old imedia', uiPatch.eff_src.imedia, 'new', imedia);
@@ -79,12 +82,12 @@ export default class eff_tile {
   }
   check_mediaDivs() {
     let omp_len = this.old_mediaDivs_length;
-    if (omp_len != a_mediaDivs.length) {
-      this.old_mediaDivs_length = a_mediaDivs.length;
+    if (omp_len != a_mediaDivs.value.length) {
+      this.old_mediaDivs_length = a_mediaDivs.value.length;
       // 0 = Canvas
       // 1 = local camera
       // 2 = first livemedia source
-      let nsrc = a_mediaDivs.length - this.ifirst;
+      let nsrc = a_mediaDivs.value.length - this.ifirst;
       if (nsrc <= 1) {
         this.cells = [1, 1];
       } else if (nsrc <= 2) {
@@ -127,21 +130,21 @@ export default class eff_tile {
   draw_all() {
     this.check_mediaDivs();
     let ipatch = this.eff_src.ipatch;
-    let uiPatch = a_ui.patches[ipatch];
-    let imedia = uiPatch.eff_src.imedia % a_mediaDivs.length;
+    let uiPatch = a_.ui.patches[ipatch];
+    let imedia = uiPatch.eff_src.imedia % a_mediaDivs.value.length;
     if (imedia != uiPatch.eff_src.imedia) {
       return;
     }
-    let more = a_mediaDivs.length - this.ifirst;
+    let more = a_mediaDivs.value.length - this.ifirst;
     let input = this.input;
     let savex = this.x;
     let savey = this.y;
     let nimedia = imedia;
     while (more > 0) {
       this.draw_single(input);
-      nimedia = (nimedia + 1) % a_mediaDivs.length;
+      nimedia = (nimedia + 1) % a_mediaDivs.value.length;
       if (nimedia < this.ifirst) nimedia = this.ifirst;
-      let media = a_mediaDivs[nimedia];
+      let media = a_mediaDivs.value[nimedia];
       input = media.capture;
       //more = nimedia != imedia;
       more--;

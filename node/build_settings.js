@@ -24,9 +24,10 @@ function build_settings(src_path, settingsPartialPath, settingsOutPath, settingM
 
   // { label: '2x2', import_path: 'settings/_menu/-2x2.json', menu: 1  },
   let strm = `// !!@ Generated File
-let a_settingMetas = [
+let a_settingMetas = { value: [
 ${settingMetas.join('\n')}
-]`;
+] };
+`;
   fs.writeFileSync(settingMetasPath, strm);
   console.log('settingMetas.length', settingMetas.length);
 }

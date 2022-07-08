@@ -1,13 +1,23 @@
+import { a_effectMetas } from '../let/a_effectMetas.js';
+import { a_settingMetas } from '../let/a_settingMetas.js';
+import { effectMeta_init } from '../core/effectMeta.js';
+import { ui_capture_init } from '../core-ui/ui_capture.js';
+import { a_ } from '../let/a_ui.js';
+import { ui_canvas_init } from '../core-ui/ui_canvas.js';
+import { ui_render_size_init } from '../core-ui/ui_render.js';
+import { store_name_restore, store_url_parse } from '../core/store_url_parse.js';
+import { canvas_size_default } from '../core-ui/ui_canvas.js';
+
 //
 // let effects = [
 //   { label: 'example', import_path: 'module/eff_example', menu: 1 },
 
-// Restore a_ui settings from local storage
-function ui_restore(effects, settings, sizeResult) {
+// Restore a_.ui settings from local storage
+export function ui_restore(effects, settings, sizeResult) {
   let start = window.performance.now();
 
-  a_effectMetas = effects.concat(a_effectMetas);
-  a_settingMetas = settings.concat(a_settingMetas);
+  a_effectMetas.value = effects.concat(a_effectMetas.value);
+  a_settingMetas.value = settings.concat(a_settingMetas.value);
 
   effectMeta_init(() => {
     settingMetas_init(() => {
@@ -19,7 +29,7 @@ function ui_restore(effects, settings, sizeResult) {
         if (!urlResult.uiSet) {
           store_restore_ver();
           store_restore_canvas_lock();
-          store_restore_a_ui(urlResult.settings);
+          store_restore_ui(urlResult.settings);
         }
         // ui_restore_imports(start, sizeResult);
         sizeResult(canvas_size_default());
@@ -32,9 +42,9 @@ function ui_restore(effects, settings, sizeResult) {
 }
 
 function settingMetas_init(donef) {
-  a_settings = [{ settings: '' }];
+  a_.settings = [{ settings: '' }];
   let imports = [];
-  for (let sete of a_settingMetas) {
+  for (let sete of a_settingMetas.value) {
     imports.push(setting_import(sete));
   }
   // console.log('settingMetas_init imports', imports);
@@ -53,9 +63,8 @@ function setting_import(sete) {
       url,
       (settings) => {
         // console.log('setting_import settings', settings);
-        // a_settings_async = data;
         settings.setting = sete.label;
-        a_settings.push(settings);
+        a_.settings.push(settings);
         resolve();
       },
       (err) => {
@@ -67,78 +76,78 @@ function setting_import(sete) {
 }
 
 function store_restore_canvas_lock() {
-  let val = store_get('a_canvas_size_lock');
+  let val = store_get('a_.canvas_size_lock');
   if (val) {
-    a_canvas_size_lock = parseFloat(val);
+    a_.canvas_size_lock = parseFloat(val);
   }
 }
 
-function store_restore_a_ui(settings) {
-  console.log('store_restore_a_ui settings', settings);
+function store_restore_ui(settings) {
+  console.log('store_restore_ui settings', settings);
   // Force pads to be re-calculated
-  a_ui.urects_count = 0;
-  a_ui.urects_lock = 0;
+  a_.ui.urects_count = 0;
+  a_.ui.urects_lock = 0;
   if (settings) {
     store_restore_settings(settings);
   } else {
     store_restore_store_get();
   }
-  if (a_chat_name) {
-    a_ui.chat_name = a_chat_name;
+  if (a_.chat_name) {
+    a_.ui.chat_name = a_.chat_name;
   }
 }
 
 function store_restore_settings(settings) {
-  a_ui = settings;
-  if (a_hideui) {
+  a_.ui = settings;
+  if (a_.hideui) {
     let delay = 3000;
     setTimeout(ui_present_window, delay);
   }
 }
 
 function store_restore_store_get() {
-  for (prop in a_ui) {
-    let valu = store_get('a_ui_' + prop);
+  for (let prop in a_.ui) {
+    let valu = store_get('a_.ui_' + prop);
     if (valu !== null) {
       valu = JSON.parse(valu);
       if (Array.isArray(valu)) {
         valu = valu[0];
-        a_ui[prop] = valu;
+        a_.ui[prop] = valu;
       } else {
-        console.log('a_ui_restore skipping prop=' + prop + ' valu=' + valu);
+        console.log('store_restore_store_get skipping prop=' + prop + ' valu=' + valu);
       }
-      // console.log('a_ui_restore prop', prop, 'valu', valu);
+      // console.log('store_restore_store_get prop', prop, 'valu', valu);
     }
   }
 }
 
 function store_restore_ver() {
-  let ver = store_get('a_store_ver');
-  if (ver !== a_store_ver) {
-    console.log('a_ui_restore reset ver=' + ver);
-    store_set('a_store_ver', a_store_ver);
+  let ver = store_get('a_.store_ver');
+  if (ver !== a_.store_ver) {
+    console.log('store_restore_ver reset ver=' + ver);
+    store_set('a_.store_ver', a_.store_ver);
     // Version diff, clear out all properties
-    for (prop in a_ui) {
+    for (prop in a_.ui) {
       store_remove(prop);
     }
   }
 }
 
 // Set a ui property that's stored into local storage
-function a_ui_set(prop, value) {
-  a_ui[prop] = value;
+export function ui_prop_set(prop, value) {
+  a_.ui[prop] = value;
   let str = JSON.stringify([value]);
-  store_set('a_ui_' + prop, str);
+  store_set('a_.ui_' + prop, str);
 }
 
 // Get or set a ui property that's stored into local storage
-function a_ui_ref(prop, value) {
+function ui_prop_ref(prop, value) {
   if (value === undefined) {
-    return a_ui[prop];
+    return a_.ui[prop];
   } else {
-    a_ui[prop] = value;
+    a_.ui[prop] = value;
     let str = JSON.stringify([value]);
-    store_set('a_ui_' + prop, str);
+    store_set('a_.ui_' + prop, str);
   }
 }
 
@@ -147,7 +156,7 @@ function a_ui_ref(prop, value) {
 function store_ref(prop) {
   // Store-A
   // 0123456
-  return a_store_prefix + a_store_name.substring(6, 7) + prop.substring(1);
+  return a_.store_prefix + a_.store_name.substring(6, 7) + prop.substring(1);
 }
 
 function store_set(prop, value) {

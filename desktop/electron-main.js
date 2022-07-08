@@ -46,7 +46,6 @@ function parse_argv(argv) {
         break;
       case '--s':
         // select settings and hide ui
-        // set a_settings_pending
         opt.s = argv[index + 1];
         index++;
         break;

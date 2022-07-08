@@ -1,23 +1,26 @@
-let a_mediaDivs = [];
+import { a_ } from '../let/a_ui.js';
+import { ui_prop_set } from '../core/ui_restore.js';
+
+export let a_mediaDivs = { value: [] };
 // { imedia, mediaDevice, id, label, div, chk, vis, capture, info, ready, livem }
 // 0: canvas
 // 1: first local device
 // 2: livem device for self
 // 3: livem device for others ...
 
-function create_mediaDiv(mediaDevice, vis_in) {
+export function create_mediaDiv(mediaDevice, vis_in) {
   let capture = mediaDevice.capture;
   let id = mediaDevice.deviceId;
   let label = mediaDevice.label;
   if (!label) label = id;
-  let imedia = a_mediaDivs.length;
+  let imedia = a_mediaDivs.value.length;
   let vis = ui_media_default_vis(imedia, vis_in);
 
   // Can't re-parent capture, so move div before it
   let div = createDiv();
   capture.elt.parentNode.insertBefore(div.elt, capture.elt);
 
-  if (a_hideui) {
+  if (a_.hideui) {
     div.hide();
   }
 
@@ -46,7 +49,7 @@ function create_mediaDiv(mediaDevice, vis_in) {
     ready,
     update_info,
   };
-  a_mediaDivs.push(ent);
+  a_mediaDivs.value.push(ent);
 
   function update_info() {
     let info = ent.info;
@@ -73,20 +76,20 @@ function create_mediaDiv(mediaDevice, vis_in) {
 
 function find_media_by_id(id) {
   if (!id) return null;
-  return a_mediaDivs.find((item) => item.id === id);
+  return a_mediaDivs.value.find((item) => item.id === id);
 }
 
 function remove_media_by_id(id) {
-  a_mediaDivs = a_mediaDivs.filter((item) => item.id !== id);
+  a_mediaDivs.value = a_mediaDivs.value.filter((item) => item.id !== id);
   console.log('remove_media_by_id id=', id);
-  // console.log('remove_media_by_id id=', id, 'a_mediaDivs', a_mediaDivs);
+  // console.log('remove_media_by_id id=', id, 'a_mediaDivs.value', a_mediaDivs.value);
   // tile_notify_media_update({ remove: id });
 }
 
 function remove_mediaDivs() {
   // Remove all but first
-  for (let index = a_mediaDivs.length - 1; index > 0; index--) {
-    let ent = a_mediaDivs[index];
+  for (let index = a_mediaDivs.value.length - 1; index > 0; index--) {
+    let ent = a_mediaDivs.value[index];
     remove_mediaDiv(ent.id);
   }
 }
@@ -104,16 +107,16 @@ function remove_mediaDiv(id) {
 }
 
 function attach_media_nlabel(id, nlabel) {
-  let ent = a_mediaDivs.find((item) => item.id === id);
+  let ent = a_mediaDivs.value.find((item) => item.id === id);
   if (ent) {
     ent.nlabel = nlabel;
     if (ent.update_info) ent.update_info();
   }
 }
 
-function init_mediaDivs() {
+export function init_mediaDivs() {
   // First media pane is canvas
-  a_mediaDivs = [
+  a_mediaDivs.value = [
     {
       label: 'Canvas',
       capture: my_canvas,
@@ -126,16 +129,16 @@ function init_mediaDivs() {
 
 function ui_media_default_vis(imedia, vis) {
   // let vis = default_vis;
-  let ent = a_ui.mediaDiv_states[imedia];
+  let ent = a_.ui.mediaDiv_states[imedia];
   if (ent) {
     return ent.vis;
   }
-  a_ui.mediaDiv_states[imedia] = { vis };
-  a_ui_set('mediaDiv_states', a_ui.mediaDiv_states);
+  a_.ui.mediaDiv_states[imedia] = { vis };
+  ui_prop_set('mediaDiv_states', a_.ui.mediaDiv_states);
   return vis;
 }
 
 function ui_media_update_vis(imedia, vis) {
-  a_ui.mediaDiv_states[imedia].vis = vis;
-  a_ui_set('mediaDiv_states', a_ui.mediaDiv_states);
+  a_.ui.mediaDiv_states[imedia].vis = vis;
+  ui_prop_set('mediaDiv_states', a_.ui.mediaDiv_states);
 }

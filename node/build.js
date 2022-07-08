@@ -20,7 +20,7 @@ const imagesOutPath = path.join(src_path, 'let/a_images.js');
 // build_webdb(webdbPath, imagesOutPath);
 
 const settingsPartialPath = 'settings/baked';
-const settingsOutPath = path.join(src_path, 'let/a_settings.js');
+// const settingsOutPath = path.join(src_path, 'let/a_.settings.js');
 const settingMetasPath = path.join(src_path, 'let/a_settingMetas.js');
 build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath);
 
@@ -29,4 +29,4 @@ build_num_run(buildnum_path, build_num, src_path, buildnum_files);
 build_index(src_path, 'index.html', build_num.next);
 
 const effectMetasPath = path.join(src_path, 'let/a_effectMetas.js');
-build_effectMetas(effectMetasPath, src_path, 'mods');
+build_effectMetas(effectMetasPath, src_path, 'videoKit');

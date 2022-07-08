@@ -1,4 +1,6 @@
-function ui_canvas(div) {
+import { a_ } from '../let/a_ui.js';
+
+export function ui_canvas_div(div) {
   // console.log('ui_canvas');
   canvas_size();
 
@@ -11,14 +13,14 @@ function ui_canvas(div) {
     for (let se of a_canvas_sizes) {
       aSel.option(se.label);
     }
-    aSel.selected(a_ui.canvas_size);
+    aSel.selected(a_.ui.canvas_size);
     aSel.changed(function () {
       let label = this.value();
       let se = a_canvas_sizes_dict[label];
       if (se.func) {
         se.func();
       } else if (se.width) {
-        a_ui_set('canvas_size', se.label);
+        ui_prop_set('canvas_size', se.label);
         resizeCanvas(se.width, se.height);
       } else {
         console.log('No canvas size in se', se);
@@ -28,20 +30,20 @@ function ui_canvas(div) {
   }
 
   function canvas_lock() {
-    let chk = createCheckbox('Lock]', a_canvas_size_lock);
+    let chk = createCheckbox('Lock]', a_.canvas_size_lock);
     div.child(chk);
     chk.style('display:inline');
     chk.changed(function () {
       let state = this.checked();
-      a_canvas_size_lock = state ? 1 : 0;
-      store_set('a_canvas_size_lock', a_canvas_size_lock + '');
+      a_.canvas_size_lock = state ? 1 : 0;
+      store_set('a_.canvas_size_lock', a_.canvas_size_lock + '');
     });
   }
 }
 
 let a_canvas_sizes_dict;
 
-function ui_canvas_init() {
+export function ui_canvas_init() {
   a_canvas_sizes_dict = init_size_in(a_canvas_sizes);
 }
 
@@ -105,14 +107,14 @@ let a_canvas_sizes = [
   },
 ];
 
-function canvas_size_default() {
-  let sz = a_canvas_sizes_dict[a_ui.canvas_size];
-  // console.log('canvas_sizei index', a_ui.canvas_sizei, 'size', sz);
+export function canvas_size_default() {
+  let sz = a_canvas_sizes_dict[a_.ui.canvas_size];
+  // console.log('canvas_sizei index', a_.ui.canvas_sizei, 'size', sz);
   if (sz) return sz;
   return a_canvas_sizes[0];
 }
 
-function init_size_in(sizes) {
+export function init_size_in(sizes) {
   let dict = {};
   for (let se of sizes) {
     if (!se.label) {

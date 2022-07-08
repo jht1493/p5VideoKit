@@ -1,4 +1,15 @@
-function create_ui() {
+import { a_ } from '../let/a_ui.js';
+import { ui_canvas_div } from '../core-ui/ui_canvas.js';
+import { ui_capture_size } from '../core-ui/ui_capture.js';
+import { ui_render_size } from '../core-ui/ui_render.js';
+import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js';
+import { ui_div_empty } from '../util/ui_base.js';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
+import { ui_patch_buttons } from '../core-ui/ui_patch.js';
+import { ui_live_selection } from '../core-ui/ui_live.js';
+import { ui_chat_pane } from '../core-ui/ui_chat.js';
+
+export function create_ui() {
   ui_top_pane();
   ui_size_pane();
   ui_patch_layout();
@@ -11,8 +22,8 @@ function create_ui() {
 }
 
 function ui_top_pane() {
-  // createSpan(a_app_ver);
-  createButton(a_app_ver).mousePressed(function () {
+  // createSpan(a_.app_ver);
+  createButton(a_.app_ver).mousePressed(function () {
     present_action();
   });
   createButton('HideUI').mousePressed(function () {
@@ -37,8 +48,8 @@ function ui_top_pane() {
     ui_reset();
   });
   {
-    // console.log('a_store_prefix', a_store_prefix);
-    let u = a_store_prefix;
+    // console.log('a_.store_prefix', a_.store_prefix);
+    let u = a_.store_prefix;
     if (u) u = '(' + u + ')';
     createSpan().id('iu').html(u);
   }
@@ -60,7 +71,7 @@ function ui_top_pane() {
 // }
 
 function reload_action() {
-  let ent = a_settings.find((ent) => ent.setting === a_ui.setting);
+  let ent = a_.settings.find((ent) => ent.setting === a_.ui.setting);
   console.log('reload_action ent', ent);
   store_restore_from(ent);
   // let loc = location_url();
@@ -100,19 +111,19 @@ function ui_window_refresh() {
 
 function ui_size_pane() {
   let div = ui_div_empty('size_pane');
-  ui_canvas(div);
+  ui_canvas_div(div);
   ui_capture_size(div);
   ui_render_size(div);
 }
 
 function ui_reset() {
   // All patch instances will be re-created on next draw
-  a_patch_instances = [];
+  a_.patch_instances = [];
 }
 
 let a_ifps;
 
-function update_ui() {
+export function update_ui() {
   if (!a_ifps) {
     a_ifps = select('#ifps');
   }
@@ -133,24 +144,8 @@ function ui_message(msg) {
 // Return date stamped file name based on first patch name
 function ui_save_fn() {
   // "2021-04-25T14:44:31.227Z"
-  let saveName = a_ui.setting || 'dice_face';
+  let saveName = a_.ui.setting || 'dice_face';
   let dt = new Date().toISOString().substring(0, 10);
   let fn = saveName + '_' + dt;
   return fn;
-}
-
-// Create empty div or empty it if already exists
-function ui_div_empty(id) {
-  let div = select('#' + id);
-  // console.log('ui_device_selection div', div);
-  if (!div) {
-    div = createDiv().id(id);
-  } else {
-    let children = div.child();
-    for (let ii = children.length - 1; ii >= 0; ii--) {
-      let elm = children[ii];
-      elm.remove();
-    }
-  }
-  return div;
 }

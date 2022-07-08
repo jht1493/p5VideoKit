@@ -1,11 +1,13 @@
-class pad_layout {
+import { a_ } from '../let/a_ui.js';
+
+export class PadLayout {
   constructor() {
-    this.tiled = a_ui.patch_layout !== 'Single';
+    this.tiled = a_.ui.patch_layout !== 'Single';
     let iurect = { width, height, x0: 0, y0: 0 };
     this.io = Object.assign({}, iurect);
     let io = this.io;
     if (!this.tiled) return;
-    let pl = a_ui.patch_layout.split('x');
+    let pl = a_.ui.patch_layout.split('x');
     let dw = parseFloat(pl[0]);
     let dh = parseFloat(pl[1]);
     io.xs = Math.floor(io.width / dw);

@@ -48,9 +48,9 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File
-let a_effectMetas = [
+let a_effectMetas = { value: [
 ${ents.join('\n')}
-];
+] };
 `;
   fs.writeFileSync(effectMetasPath, str);
   console.log('mods', ents.length);
