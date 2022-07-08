@@ -1,4 +1,5 @@
 import { effectMeta_find } from '../core/effectMeta.js';
+import { image_scaled_pad } from '../util/image.js';
 
 export default class eff_loop {
   static meta_props = {

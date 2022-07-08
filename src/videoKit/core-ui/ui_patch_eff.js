@@ -4,6 +4,7 @@ import { ui_div_empty } from '../util/ui_base.js';
 import { effectMeta_find } from '../core/effectMeta.js';
 import { a_mediaDivs } from '../core/create_mediaDiv.js';
 import { pad_layout_update } from '../core-ui/ui_patch.js';
+import { ui_refresh } from '../core-ui/ui_patch.js';
 
 export function ui_patch_eff_panes() {
   let droot = ui_div_empty('ipatch_eff');

@@ -6,6 +6,7 @@ import { a_ } from '../let/a_ui.js';
 import { effectMeta_find } from '../core/effectMeta.js';
 import { pad_layout_update } from '../core-ui/ui_patch.js';
 import { update_ui } from '../core/create_ui.js';
+import { image_scaled_pad } from '../util/image.js';
 
 p5VideoKit.prototype.draw = function () {
   // console.log('p5VideoKit draw');

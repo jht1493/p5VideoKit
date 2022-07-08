@@ -51,7 +51,7 @@ function media_for_livem_index(index) {
 }
 
 export function livem_restore() {
-  if (!a_livem && a_.ui.live_chk) {
+  if (!a_.livem && a_.ui.live_chk) {
     let ent = media_for_livem_index(a_.ui.live_index);
     if (ent) liveMedia_attach(ent);
   }

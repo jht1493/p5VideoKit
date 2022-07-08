@@ -1,3 +1,5 @@
+import { image_scaled_pad } from '../util/image.js';
+
 export default class eff_show_pad {
   static meta_props = {
     // show: [1, 0],

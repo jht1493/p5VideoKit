@@ -1,7 +1,8 @@
 import { a_ } from '../let/a_ui.js';
 import { create_mediaDiv } from '../core/create_mediaDiv.js';
+import { ui_refresh } from '../core-ui/ui_patch.js';
 
-let a_livem;
+// let a_livem;
 
 function liveMedia_attach(mediaDiv) {
   console.log('liveMedia_attach mediaDiv=', mediaDiv);
@@ -32,13 +33,13 @@ function liveMedia_attach(mediaDiv) {
   // console.log('liveMedia_attach this=', this);
   console.log('liveMedia_attach type=' + type + ' a_.ui.room_name=' + a_.ui.room_name);
   livem = new p5LiveMedia(this, type, stream, a_.ui.room_name);
-  if (!a_livem) {
+  if (!a_.livem) {
     livem.on('stream', gotStream);
     livem.on('data', gotData);
     livem.on('disconnect', gotDisconnect);
     livem.on('connect', gotConnect);
-    a_livem = livem;
-    // console.log('liveMedia_attach SET a_livem', a_livem);
+    a_.livem = livem;
+    // console.log('liveMedia_attach SET a_.livem', a_.livem);
   }
   mediaDiv.livem = livem;
 }
@@ -89,10 +90,10 @@ function gotConnect(id) {
 
 function livem_send(text) {
   console.log('livem_send text', text);
-  if (!a_livem) return;
+  if (!a_.livem) return;
   let name = a_.ui.chat_name;
   let obj = { name, text };
-  a_livem.send(JSON.stringify(obj));
+  a_.livem.send(JSON.stringify(obj));
 }
 
 // https://github.com/vanevery/p5LiveMedia

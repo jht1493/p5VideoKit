@@ -1,3 +1,5 @@
+import { image_scaled_pad } from '../util/image.js';
+
 export default class eff_fft_polar {
   static meta_props = {
     max: [5, 6, 7, 2, 4, 8, 9, 10],

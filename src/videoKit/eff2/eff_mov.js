@@ -1,3 +1,5 @@
+import { image_scaled_pad } from '../util/image.js';
+
 export default class eff_mov_show {
   static meta_props = {
     group: ['covid19mov', '370-mov'],

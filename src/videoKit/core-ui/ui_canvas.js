@@ -1,4 +1,5 @@
 import { a_ } from '../let/a_ui.js';
+import { ui_prop_set } from '../core/ui_restore.js';
 
 export function ui_canvas_div(div) {
   // console.log('ui_canvas');

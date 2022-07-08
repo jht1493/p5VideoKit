@@ -1,5 +1,6 @@
 import { init_size_in } from '../core-ui/ui_canvas.js';
 import { a_ } from '../let/a_ui.js';
+import { ui_prop_set } from '../core/ui_restore.js';
 
 export function ui_capture_size(div) {
   // console.log('ui_capture_size');

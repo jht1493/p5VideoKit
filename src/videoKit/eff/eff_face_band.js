@@ -1,3 +1,5 @@
+import { image_scaled_pad } from '../util/image.js';
+
 export default class eff_face_band {
   static meta_props = {
     align: ['center', 'left', 'right', 'none'],

@@ -33,7 +33,7 @@ function image_scaled(img) {
   image(img, 0, 0, w, h, 0, 0, w2, h2);
 }
 
-function image_scaled_pad(img, urect, flush_right) {
+export function image_scaled_pad(img, urect, flush_right) {
   if (!urect) urect = { width, height, x0: 0, y0: 0 };
   let pw = urect.width;
   let ph = urect.height;

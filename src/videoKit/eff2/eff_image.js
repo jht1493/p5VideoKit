@@ -1,3 +1,5 @@
+import { image_scaled_pad } from '../util/image.js';
+
 let g_image_groups = [
   'group',
   'fmfm',
