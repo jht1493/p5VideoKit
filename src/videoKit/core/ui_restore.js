@@ -61,10 +61,10 @@ function setting_import(sete) {
   return new Promise((resolve, reject) => {
     loadJSON(
       url,
-      (settings) => {
-        // console.log('setting_import settings', settings);
-        settings.setting = sete.label;
-        a_.settings.push(settings);
+      (setting) => {
+        // console.log('setting_import setting', setting);
+        setting.setting = sete.label;
+        a_.settings.push(setting);
         resolve();
       },
       (err) => {
