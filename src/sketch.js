@@ -16,8 +16,9 @@ function setup() {
     { label: 'ncell', import_path: 'import/eff_ncell' },
   ];
   let settings = [
-    { label: '2x2.json', import_path: 'settings/demo/-2x2.json' },
-    { label: 'ncell-circles', import_path: 'settings/demo/-ncell-circles.json' },
+    { label: 'slant-4.json', import_path: 'settings/demo/slant-4.json' },
+    { label: '2x2.json', import_path: 'settings/demo/2x2.json' },
+    { label: 'ncell-circles', import_path: 'settings/demo/ncell-circles.json' },
   ];
 
   videoKit = new p5VideoKit();

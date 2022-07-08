@@ -44,8 +44,10 @@ export function ui_restore(effects, settings, sizeResult) {
 function settingMetas_init(donef) {
   a_.settings = [{ setting: '' }];
   let imports = [];
+  let index = 0;
   for (let sete of a_settingMetas.value) {
-    imports.push(setting_import(sete));
+    imports.push(setting_import(sete, index));
+    index++;
   }
   // console.log('settingMetas_init imports', imports);
   Promise.allSettled(imports).then(() => {
@@ -55,7 +57,7 @@ function settingMetas_init(donef) {
 
 // set = { label: '0-club', import_path: 'settings/baked/0-club.json' }
 //
-function setting_import(sete) {
+function setting_import(sete, index) {
   let url = './' + sete.import_path;
   // console.log('setting_import url', url);
   return new Promise((resolve, reject) => {
@@ -64,7 +66,7 @@ function setting_import(sete) {
       (setting) => {
         // console.log('setting_import setting', setting);
         setting.setting = sete.label;
-        a_.settings.push(setting);
+        a_.settings[index] = setting;
         resolve();
       },
       (err) => {
