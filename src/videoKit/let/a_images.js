@@ -1,4 +1,4 @@
-let a_images = {
+export let a_images = {
   '370-img': [
     'IMG_1288.JPG',
     'IMG_1289.JPG',

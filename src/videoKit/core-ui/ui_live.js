@@ -2,6 +2,7 @@ import { a_ } from '../let/a_ui.js';
 import { ui_div_empty } from '../util/ui_base.js';
 import { a_mediaDivs } from '../core/create_mediaDiv.js';
 import { ui_prop_set } from '../core/ui_restore.js';
+import { liveMedia_attach, liveMedia_detach } from '../core/liveMedia_attach.js';
 
 export function ui_live_selection() {
   let div = ui_div_empty('live_selection');

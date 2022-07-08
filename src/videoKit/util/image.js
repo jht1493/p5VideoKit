@@ -56,7 +56,7 @@ export function image_scaled_pad(img, urect, flush_right) {
   image(img, dx, dy, pw, ph, 0, 0, iw, ih);
 }
 
-function layer_image_scaled_pad(layer, img, urect, align_center) {
+export function layer_image_scaled_pad(layer, img, urect, align_center) {
   if (!img) return;
   if (!urect) urect = { width, height, x0: 0, y0: 0 };
   let pw = urect.width;

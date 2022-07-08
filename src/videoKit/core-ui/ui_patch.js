@@ -5,6 +5,7 @@ import { ui_live_selection } from '../core-ui/ui_live.js';
 import { PadLayout } from '../util/PadLayout.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { store_restore_from } from '../core/store_url_parse.js';
+import { str_to_width_height } from '../core-ui/ui_canvas.js';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');
@@ -106,7 +107,7 @@ function ui_patch_save_all() {
 
 // Write out all patches to local storage
 // and reset given patch
-function ui_patch_update(aPatch) {
+export function ui_patch_update(aPatch) {
   // console.log('ui_patch_update');
   ui_prop_set('patches', a_.ui.patches);
   if (!aPatch) return;

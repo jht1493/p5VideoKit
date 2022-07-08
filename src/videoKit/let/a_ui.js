@@ -38,3 +38,6 @@ export let a_ = {
 // let a_.canvas_size_lock = 0;
 // let a_.hideui = 0; // Default is to hide using with s= settings
 // let a_.chat_name; // chat name from url param c
+
+// !!@ For debugging
+window.a_ = a_;

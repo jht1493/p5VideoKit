@@ -42,7 +42,7 @@ export function ui_restore(effects, settings, sizeResult) {
 }
 
 function settingMetas_init(donef) {
-  a_.settings = [{ settings: '' }];
+  a_.settings = [{ setting: '' }];
   let imports = [];
   for (let sete of a_settingMetas.value) {
     imports.push(setting_import(sete));
@@ -159,7 +159,7 @@ function store_ref(prop) {
   return a_.store_prefix + a_.store_name.substring(6, 7) + prop.substring(1);
 }
 
-function store_set(prop, value) {
+export function store_set(prop, value) {
   localStorage.setItem(store_ref(prop), value);
 }
 

@@ -1,5 +1,6 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
+import { store_set } from '../core/ui_restore.js';
 
 export function ui_canvas_div(div) {
   // console.log('ui_canvas');
@@ -127,7 +128,7 @@ export function init_size_in(sizes) {
 }
 
 // 1920x1080 --> { width: 1920, height: 1080 }
-function str_to_width_height(str) {
+export function str_to_width_height(str) {
   let pl = str.split('x');
   let width = parseFloat(pl[0]);
   let height = parseFloat(pl[1]);

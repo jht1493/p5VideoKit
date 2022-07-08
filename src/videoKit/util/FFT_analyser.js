@@ -1,4 +1,4 @@
-class fft_anal {
+export class FFT_analyser {
   constructor(props) {
     // { media }
     Object.assign(this, props);

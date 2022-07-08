@@ -1,6 +1,6 @@
-import { image_scaled_pad } from '../util/image.js';
+import { image_scaled_pad, image_copy } from '../util/image.js';
 import { ui_message } from '../core/create_ui.js';
-import { image_copy } from '../util/image.js';
+import { FFT_analyser } from '../util/FFT_analyser.js';
 
 export default class eff_face_band {
   static meta_props = {
@@ -28,7 +28,7 @@ export default class eff_face_band {
     image_scaled_pad(this.layer, this.eff_src.urect);
   }
   init() {
-    this.fft_anal = new fft_anal({ media: this.media });
+    this.fft_anal = new FFT_analyser({ media: this.media });
     this.video = this.input.elt;
     this.predictions = [];
     // console.log('this.video', this.video);
