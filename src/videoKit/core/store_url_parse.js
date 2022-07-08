@@ -75,7 +75,7 @@ function url_a_restore(str) {
       a_.ui = ui;
       // Reflect url parameters in local storage
       for (let prop in a_.ui) {
-        a_.ui_set(prop, a_.ui[prop]);
+        ui_prop_set(prop, a_.ui[prop]);
       }
       return 1;
     }
@@ -103,10 +103,10 @@ function location_url() {
   return loc;
 }
 
-function store_export_json() {
+export function store_export_json() {
   store_export(0);
 }
-function store_export_url() {
+export function store_export_url() {
   store_export(1);
 }
 
