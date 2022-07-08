@@ -18,6 +18,7 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
   for (let dir of dirs) {
     // dir = eff, eff2
     if (dir.substring(0, 1) == '.') continue;
+    if (!dir.startsWith('eff')) continue;
 
     let dpath = path.join(effectModPath, dir);
     // dpath = mods/eff
@@ -48,12 +49,12 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File
-let a_effectMetas = { value: [
+export let a_effectMetas = { value: [
 ${ents.join('\n')}
 ] };
 `;
   fs.writeFileSync(effectMetasPath, str);
-  console.log('mods', ents.length);
+  console.log(mods, ents.length);
 }
 
 module.exports = build_effectMetas;

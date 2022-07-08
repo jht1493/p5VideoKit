@@ -28,16 +28,5 @@ export let a_ = {
   chat_name: '', // chat name from url param c
   settings: [],
 };
-// let a_.settings = [];
-// let a_.app_ver = 'Present?v=35 ';
-// let a_.store_ver = '2';
-// let a_.store_name = 'Store-A';
-// let a_.store_prefix = 'v';
-// let a_.ui = {
-// let a_.patch_instances = [];
-// let a_.canvas_size_lock = 0;
-// let a_.hideui = 0; // Default is to hide using with s= settings
-// let a_.chat_name; // chat name from url param c
-
 // !!@ For debugging
 window.a_ = a_;

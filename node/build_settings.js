@@ -3,8 +3,9 @@ const path = require('path');
 
 // build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath);
 // function build_settings(settingsPath, settingsOutPath, settingMetasPath) {
+// function build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath) {
 
-function build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath) {
+function build_settings(src_path, settingsPartialPath, settingMetasPath) {
   const settingsPath = path.join(src_path, settingsPartialPath);
   const files = fs.readdirSync(settingsPath);
   files.sort();
@@ -24,7 +25,7 @@ function build_settings(src_path, settingsPartialPath, settingsOutPath, settingM
 
   // { label: '2x2', import_path: 'settings/_menu/-2x2.json', menu: 1  },
   let strm = `// !!@ Generated File
-let a_settingMetas = { value: [
+export let a_settingMetas = { value: [
 ${settingMetas.join('\n')}
 ] };
 `;
