@@ -136,7 +136,7 @@ export function str_to_width_height(str) {
   return { width, height };
 }
 
-function toggleFullScreen() {
+export function toggleFullScreen() {
   if (!document.documentElement.requestFullscreen) {
     console.log('NO document.documentElement.requestFullscreen');
     return;

@@ -44,7 +44,7 @@ export function ui_restore(effects, settings, sizeResult) {
 function settingMetas_init(donef) {
   a_.settings = [{ setting: '' }];
   let imports = [];
-  let index = 0;
+  let index = 1;
   for (let sete of a_settingMetas.value) {
     imports.push(setting_import(sete, index));
     index++;

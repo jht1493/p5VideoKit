@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js';
-import { ui_canvas_div } from '../core-ui/ui_canvas.js';
+import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js';
 import { ui_capture_size } from '../core-ui/ui_capture.js';
 import { ui_render_size } from '../core-ui/ui_render.js';
 import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js';
