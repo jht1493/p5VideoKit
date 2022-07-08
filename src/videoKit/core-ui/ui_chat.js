@@ -1,5 +1,6 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
+import { attach_media_nlabel } from '../core/create_mediaDiv.js';
 
 export function ui_chat_pane() {
   // ichat_blk

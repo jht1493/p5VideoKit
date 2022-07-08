@@ -106,7 +106,7 @@ function remove_mediaDiv(id) {
   remove_media_by_id(id);
 }
 
-function attach_media_nlabel(id, nlabel) {
+export function attach_media_nlabel(id, nlabel) {
   let ent = a_mediaDivs.value.find((item) => item.id === id);
   if (ent) {
     ent.nlabel = nlabel;
