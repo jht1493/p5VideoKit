@@ -1,8 +1,8 @@
+import { a_ } from '../let/a_ui.js';
 import { a_effectMetas } from '../let/a_effectMetas.js';
 import { a_settingMetas } from '../let/a_settingMetas.js';
 import { effectMeta_init } from '../core/effectMeta.js';
 import { ui_capture_init } from '../core-ui/ui_capture.js';
-import { a_ } from '../let/a_ui.js';
 import { ui_canvas_init } from '../core-ui/ui_canvas.js';
 import { ui_render_size_init } from '../core-ui/ui_render.js';
 import { store_name_restore, store_url_parse } from '../core/store_url_parse.js';

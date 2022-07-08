@@ -1,24 +1,16 @@
+import { a_ } from '../let/a_ui.js';
 import { ui_restore } from './ui_restore.js';
 import { init_mediaDivs, a_mediaDivs, create_mediaDiv } from './create_mediaDiv.js';
 import { create_ui } from './create_ui.js';
 import { media_enum } from './create_mediaDevices.js';
-import { a_ } from '../let/a_ui.js';
 import { effectMeta_find, factory_prop_inits } from '../core/effectMeta.js';
 import { pad_layout_update } from '../core-ui/ui_patch.js';
 import { update_ui } from '../core/create_ui.js';
 import { image_scaled_pad } from '../util/image.js';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js';
 
-p5VideoKit.prototype.draw = function () {
-  // console.log('p5VideoKit draw');
-  if (!this.a_initDone) {
-    console.log('p5VideoKit draw init not done');
-    return;
-  }
-  this.vk_draw();
-};
-
 p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
+  a_.my_canvas = this.my_canvas;
   ui_restore(effects, settings, (sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
@@ -35,7 +27,12 @@ p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
   });
 };
 
-p5VideoKit.prototype.vk_draw = function () {
+p5VideoKit.prototype.draw = function () {
+  // console.log('p5VideoKit draw');
+  if (!this.a_initDone) {
+    console.log('p5VideoKit draw init not done');
+    return;
+  }
   this.set_background();
   stroke(255);
   if (!a_.ui.urects_count) {
@@ -69,7 +66,8 @@ p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
   } else {
     input = imedia;
   }
-  let init = Object.assign({ eff_src, input, media }, props);
+  let videoKit = this;
+  let init = Object.assign({ videoKit, eff_src, input, media }, props);
   let effMeta = effectMeta_find(eff_label);
   // console.log('createEffect effMeta', effMeta);
   return new effMeta.factory(init);

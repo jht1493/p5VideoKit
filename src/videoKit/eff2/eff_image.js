@@ -107,7 +107,7 @@ export default class eff_image_show {
     this.zoom_init();
     this.align_center = this.image_align === 'center';
     // console.log('eff_image_show pad', this.eff_src.urect);
-    my_canvas.mousePressed(() => {
+    a_.my_canvas.mousePressed(() => {
       this.mousePressed();
     });
     this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);

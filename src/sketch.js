@@ -1,4 +1,4 @@
-let my_canvas;
+// let my_canvas;
 let videoKit;
 
 p5.disableFriendlyErrors = true; // disables FES to improve performance
@@ -8,8 +8,11 @@ function setup() {
   console.log('setup lapse', lapse);
 
   // pixelDensity(1); // does not appear to affect live media
-  // !!@ retore my_canvas
-  my_canvas = createCanvas(100, 100);
+  // !!@ retire my_canvas
+  // my_canvas = createCanvas(100, 100);
+  createCanvas(100, 100);
+
+  // p5VideoKit create must follow createCanvas
 
   let effects = [
     { label: 'example', import_path: 'import/eff_example' },

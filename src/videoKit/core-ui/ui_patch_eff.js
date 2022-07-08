@@ -1,5 +1,5 @@
-import { a_effectMetas } from '../let/a_effectMetas.js';
 import { a_ } from '../let/a_ui.js';
+import { a_effectMetas } from '../let/a_effectMetas.js';
 import { ui_div_empty } from '../util/ui_base.js';
 import { effectMeta_find } from '../core/effectMeta.js';
 import { a_mediaDivs } from '../core/create_mediaDiv.js';

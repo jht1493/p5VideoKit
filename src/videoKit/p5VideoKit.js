@@ -9,7 +9,14 @@ class p5VideoKit {
     // console.log('p5VideoKit p5_inst', p5_inst);
     // To work in p5 instance mode we need to use this.p0 on all p5 globals
     //
-    this.p0 = p5_instance;
+    if (!p5_instance) {
+      console.log('p5VideoKit !!@ no p5_instance');
+    }
+    this.p5_instance = p5_instance;
+    this.my_canvas = p5_instance._renderer;
+    if (!this.my_canvas) {
+      console.log('p5VideoKit !!@ no my_canvas');
+    }
   }
 
   init({ effects, settings }) {

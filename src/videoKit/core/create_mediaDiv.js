@@ -119,7 +119,7 @@ export function init_mediaDivs() {
   a_mediaDivs.value = [
     {
       label: 'Canvas',
-      capture: my_canvas,
+      capture: a_.my_canvas,
       ready: function () {
         return 1;
       },

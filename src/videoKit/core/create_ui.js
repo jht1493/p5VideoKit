@@ -93,7 +93,7 @@ function present_action() {
 }
 
 function ui_hide() {
-  my_canvas.elt.style.cursor = 'none';
+  a_.my_canvas.elt.style.cursor = 'none';
   let m = select('main').elt;
   while (m.nextSibling) {
     // elt.nodeName VIDEO
@@ -106,7 +106,6 @@ function ui_hide() {
 }
 
 export function ui_window_refresh() {
-  // my_canvas.elt.style.cursor = 'none';
   pad_layout_update();
   ui_reset();
 }

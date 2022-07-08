@@ -18,7 +18,7 @@ export function liveMedia_attach(mediaDiv) {
     type = 'CAPTURE';
   } else if (!a_.ui.canvas_data_chk) {
     // no mediaDevice --> canvas
-    stream = my_canvas;
+    stream = a_.my_canvas;
     type = 'CANVAS';
   } else {
     // Data only - don't stream out our canvas
