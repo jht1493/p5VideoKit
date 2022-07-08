@@ -1,6 +1,6 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_div_empty, ui_backcolor } from '../util/ui_base.js';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
+import { ui_patch_eff_panes, patch_add } from '../core-ui/ui_patch_eff.js';
 import { ui_live_selection } from '../core-ui/ui_live.js';
 import { PadLayout } from '../util/PadLayout.js';
 import { ui_prop_set } from '../core/ui_restore.js';

@@ -193,7 +193,7 @@ export function ui_patch_eff_panes() {
   }
 }
 
-function patch_add(aPatch) {
+export function patch_add(aPatch) {
   aPatch.eff_src.ipatch = a_.ui.patches.length;
   a_.ui.patches.push(aPatch);
   ui_patch_update(aPatch);
