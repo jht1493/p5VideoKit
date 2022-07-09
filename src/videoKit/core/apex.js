@@ -135,7 +135,7 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
     // console.log('NO media imedia', imedia);
   } else if (!media.ready()) {
     if (!media.notReadyWarningIssued) {
-      console.log('NOT media.ready imedia', imedia);
+      console.log('imedia', imedia, 'NOT media.ready');
       media.notReadyWarningIssued = 1;
     }
     let inst = a_.patch_instances[ipatch];
@@ -146,7 +146,7 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
     }
     return;
   } else if (media.notReadyWarningIssued) {
-    console.log('media.ready imedia', imedia);
+    console.log('imedia', imedia, 'media.ready');
     media.notReadyWarningIssued = 0;
   }
   let inst = a_.patch_instances[ipatch];
