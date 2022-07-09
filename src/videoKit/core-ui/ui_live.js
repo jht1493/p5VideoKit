@@ -35,7 +35,14 @@ export function ui_live_selection() {
     if (a_.ui.live_chk) liveMedia_attach(ent);
     else liveMedia_detach(ent);
   });
-
+  {
+    let elm = createSpan('Room: ');
+    div.child(elm);
+    elm = createInput(a_.ui.room_name).input(function () {
+      ui_prop_set('room_name', this.value());
+    });
+    div.child(elm);
+  }
   {
     let chk = createCheckbox('Data ', a_.ui.canvas_data_chk);
     div.child(chk);

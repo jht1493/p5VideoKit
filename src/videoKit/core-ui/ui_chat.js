@@ -8,12 +8,6 @@ export function ui_chat_pane() {
   let blk = createSpan('').id('ichat_blk');
   blk.style(a_.ui.live_chk ? 'display:inline' : 'display:none');
   let elm;
-  elm = createSpan('Room: ');
-  blk.child(elm);
-  elm = createInput(a_.ui.room_name).input(function () {
-    ui_prop_set('room_name', this.value());
-  });
-  blk.child(elm);
   elm = createSpan(' Chat name: ');
   blk.child(elm);
   elm = createInput(a_.ui.chat_name).input(function () {
