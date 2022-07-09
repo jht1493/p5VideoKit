@@ -19,9 +19,11 @@ function setup() {
     { label: 'ncell', import_path: 'import/eff_ncell' },
   ];
 
+  // src/settings/demo/live4.json
   // settings for import, will appear at top of settings menu
   let settings = [
-    { label: 'slant-4.json', import_path: 'settings/demo/slant-4.json' },
+    { label: 'live4', import_path: 'settings/demo/live4.json' },
+    { label: 'slant-4', import_path: 'settings/demo/slant-4.json' },
     { label: '2x2.json', import_path: 'settings/demo/2x2.json' },
     { label: 'ncell-circles', import_path: 'settings/demo/ncell-circles.json' },
   ];

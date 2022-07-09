@@ -1,6 +1,7 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { attach_media_nlabel } from '../core/create_mediaDiv.js';
+import { livem_send } from '../core/liveMedia_attach.js';
 
 export function ui_chat_pane() {
   // ichat_blk
@@ -50,7 +51,7 @@ export function ui_chat_pane() {
 
 let a_chat_log;
 
-function ui_chat_receive(str, id) {
+export function ui_chat_receive(str, id) {
   // console.log('ui_chat_receive', str);
   let obj = { name: id, text: 'Bye' };
   if (str) {

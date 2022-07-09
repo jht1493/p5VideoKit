@@ -1,6 +1,7 @@
 import { a_ } from '../let/a_ui.js';
 import { create_mediaDiv } from '../core/create_mediaDiv.js';
 import { ui_refresh } from '../core-ui/ui_patch.js';
+import { ui_chat_receive } from '../core-ui/ui_chat.js';
 
 // let a_livem;
 
@@ -91,7 +92,7 @@ function gotConnect(id) {
   console.log('gotConnect id', id);
 }
 
-function livem_send(text) {
+export function livem_send(text) {
   console.log('livem_send text', text);
   if (!a_.livem) return;
   let name = a_.ui.chat_name;

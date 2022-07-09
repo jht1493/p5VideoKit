@@ -1,0 +1,102 @@
+{
+  "setting": "",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "2x2",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "patches": [
+    {
+      "eff_src": {
+        "ipatch": 0,
+        "imedia": 3,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_inits": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_src": {
+        "ipatch": 1,
+        "imedia": 4,
+        "eff_label": "show",
+        "urect": {
+          "x0": 480,
+          "y0": 0,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_inits": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_src": {
+        "ipatch": 2,
+        "imedia": 5,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 270,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_inits": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_src": {
+        "ipatch": 3,
+        "imedia": 1,
+        "eff_label": "show",
+        "urect": {
+          "x0": 480,
+          "y0": 270,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_inits": {
+        "step_patch": 0
+      }
+    }
+  ],
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    },
+    {
+      "vis": true
+    },
+    {
+      "vis": true
+    },
+    {
+      "vis": true
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "chat_text": "hello"
+}
