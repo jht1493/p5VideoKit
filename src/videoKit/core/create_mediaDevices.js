@@ -10,7 +10,8 @@ export let a_mediaDevices = [];
 //  { label, deviceId, capture, stream }
 
 function create_mediaDevices() {
-  let default_vis = !a_.hideui;
+  // let default_vis = !a_.hideui;
+  let default_vis = 0; // Default new devices to invisible
   for (let mediaDevice of a_mediaDevices) {
     init_device_capture(mediaDevice);
     create_mediaDiv(mediaDevice, default_vis);
@@ -77,6 +78,7 @@ export function media_reset() {
   media_enum();
 }
 
+// Save image of each media device = camera or live stream
 function save_others(fn) {
   // a_.ui.patches.imedia
   let imd = {};

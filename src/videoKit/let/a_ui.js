@@ -1,12 +1,12 @@
 export let a_ = {
-  app_ver: 'Present?v=78 ',
+  app_ver: 'Present?v=80 ',
   store_ver: '2',
   store_name: 'Store-A',
-  store_prefix: 'v',
+  store_prefix: 'a',
   ui: {
     setting: '',
     back_color: 200,
-    room_name: 'Dice-Play-2',
+    room_name: 'VideoKit-Room-1',
     patch_layout: 'Single',
     canvas_size: '960x540',
     capture_size: '480x270',

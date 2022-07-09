@@ -94,7 +94,7 @@ export function remove_mediaDivs() {
   }
 }
 
-function remove_mediaDiv(id) {
+export function remove_mediaDiv(id) {
   // console.log('remove_mediaDiv id=', id, !id);
   // Remove the div associated with id
   let ent = find_media_by_id(id);

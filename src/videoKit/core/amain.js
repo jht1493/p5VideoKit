@@ -134,7 +134,10 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   if (!media) {
     // console.log('NO media imedia', imedia);
   } else if (!media.ready()) {
-    console.log('NOT media.ready imedia', imedia);
+    if (!media.notReadyWarningIssued) {
+      console.log('NOT media.ready imedia', imedia);
+      media.notReadyWarningIssued = 1;
+    }
     let inst = a_.patch_instances[ipatch];
     // console.log('NOT media.ready inst', inst);
     if (inst && inst.livem_step) {
@@ -142,11 +145,14 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
       inst.livem_step();
     }
     return;
+  } else if (media.notReadyWarningIssued) {
+    console.log('media.ready imedia', imedia);
+    media.notReadyWarningIssued = 0;
   }
   let inst = a_.patch_instances[ipatch];
   if (!inst) {
     if (!media) {
-      console.log('NO media for init imedia', imedia);
+      // console.log('NO media for init imedia', imedia);
       return;
     }
     let input = media.capture;

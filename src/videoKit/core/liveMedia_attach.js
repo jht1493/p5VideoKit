@@ -2,11 +2,12 @@ import { a_ } from '../let/a_ui.js';
 import { create_mediaDiv } from '../core/create_mediaDiv.js';
 import { ui_refresh } from '../core-ui/ui_patch.js';
 import { ui_chat_receive } from '../core-ui/ui_chat.js';
+import { remove_mediaDiv } from '../core/create_mediaDiv.js';
 
 // let a_livem;
 
 export function liveMedia_attach(mediaDiv) {
-  console.log('liveMedia_attach mediaDiv=', mediaDiv);
+  // console.log('liveMedia_attach mediaDiv=', mediaDiv);
   let type;
   let stream;
   let mediaDevice = mediaDiv.mediaDevice;
@@ -32,10 +33,10 @@ export function liveMedia_attach(mediaDiv) {
     return;
   }
   // console.log('liveMedia_attach this=', this);
-  console.log('liveMedia_attach type=' + type + ' a_.ui.room_name=' + a_.ui.room_name);
+  // console.log('liveMedia_attach type=' + type + ' a_.ui.room_name=' + a_.ui.room_name);
   // this is nulll in modules
   let nthis = this || window;
-  console.log('liveMedia_attach this', this, 'nthis', nthis);
+  // console.log('liveMedia_attach this', this, 'nthis', nthis);
   livem = new p5LiveMedia(nthis, type, stream, a_.ui.room_name);
   if (!a_.livem) {
     livem.on('stream', gotStream);

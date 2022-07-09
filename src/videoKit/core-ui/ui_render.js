@@ -59,4 +59,12 @@ let a_render_sizes = [
     width: 1920,
     height: 1080,
   },
+  {
+    width: 540,
+    height: 960,
+  },
+  {
+    width: 1080,
+    height: 1920,
+  },
 ];
