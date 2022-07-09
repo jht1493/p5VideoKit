@@ -1,3 +1,6 @@
+// Show a ncell by ncell grid of effects
+// eff_names is array of effects to cycle between
+//
 export default class eff_ncell {
   static meta_props = {
     ncell: [2, 3, 4],

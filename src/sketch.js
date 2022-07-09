@@ -1,3 +1,6 @@
+// p5LiveVideo example dashboard
+// https://github.com/jht1493/p5VideoKit
+//
 let videoKit;
 
 p5.disableFriendlyErrors = true; // disables FES to improve performance
@@ -7,7 +10,8 @@ function setup() {
   let lapse = window.performance.now() - a_start_now;
   console.log('setup lapse', lapse);
 
-  // pixelDensity(1); // does not appear to affect live media
+  // pixelDensity does not appear to affect live media
+  // pixelDensity(1);
 
   createCanvas(100, 100);
 
@@ -19,7 +23,6 @@ function setup() {
     { label: 'ncell', import_path: 'import/eff_ncell' },
   ];
 
-  // src/settings/demo/live4.json
   // settings for import, will appear at top of settings menu
   let settings = [
     { label: 'live4', import_path: 'settings/demo/live4.json' },

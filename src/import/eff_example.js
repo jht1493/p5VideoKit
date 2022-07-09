@@ -1,3 +1,5 @@
+// Example of simple effect show parameter in dashboard
+//
 export default class eff_example {
   static meta_props = {
     fruit: ['apple', 'banana', 'cherry'],
