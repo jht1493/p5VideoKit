@@ -1,5 +1,5 @@
 {
-  "setting": "",
+  "setting": "live4",
   "back_color": 200,
   "room_name": "Dice-Play-1",
   "patch_layout": "2x2",
@@ -62,7 +62,7 @@
     {
       "eff_src": {
         "ipatch": 3,
-        "imedia": 1,
+        "imedia": 6,
         "eff_label": "show",
         "urect": {
           "x0": 480,
@@ -85,18 +85,20 @@
       "vis": false
     },
     {
-      "vis": true
+      "vis": false
     },
     {
-      "vis": true
+      "vis": false
     },
     {
-      "vis": true
+      "vis": false
+    },
+    {
+      "vis": false
     }
   ],
   "urects_lock": 0,
   "urects_count": 4,
   "canvas_resize_ref": "",
-  "canvas_data_chk": 1,
-  "chat_text": "hello"
+  "canvas_data_chk": 1
 }
