@@ -61,8 +61,8 @@ export default class eff_fft_graph {
     let { width, height } = urect;
     let output = this.output;
     let x = width - this.fft_maxs.length * this.vol_len;
-    if (x < urect.x0) x = urect.x0;
-    let y2 = urect.y0 + height;
+    if (x < 0) x = 0;
+    let y2 = height;
     // let r = width / 540;
     // r = r * r * r;
     // console.log('draw_fft_max r', r);
