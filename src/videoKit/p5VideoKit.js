@@ -20,7 +20,7 @@ class p5VideoKit {
   }
 
   init({ effects, settings }) {
-    let inpath = './core/amain.js';
+    let inpath = './core/apex.js';
     return new Promise((resolve, reject) => {
       import(inpath)
         .then((module) => {

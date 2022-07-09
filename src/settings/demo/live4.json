@@ -10,6 +10,31 @@
   "chat_chk": 0,
   "live_index": 0,
   "live_chk": 1,
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    },
+    {
+      "vis": false
+    }
+  ],
   "patches": [
     {
       "eff_src": {
@@ -75,30 +100,5 @@
         "step_patch": 0
       }
     }
-  ],
-  "mediaDiv_states": [
-    null,
-    {
-      "vis": false
-    },
-    {
-      "vis": false
-    },
-    {
-      "vis": false
-    },
-    {
-      "vis": false
-    },
-    {
-      "vis": false
-    },
-    {
-      "vis": false
-    }
-  ],
-  "urects_lock": 0,
-  "urects_count": 4,
-  "canvas_resize_ref": "",
-  "canvas_data_chk": 1
+  ]
 }
