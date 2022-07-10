@@ -24,7 +24,7 @@ export default class eff_fft_graph {
     this.fft_maxs = [];
     let r = width / 540;
     r = r * r;
-    console.log('draw_fft_max r', r);
+    // console.log('draw_fft_max r', r);
     this.vol_len = r;
     this.n_vol = int(this.output.width / this.vol_len);
     let a_audioCtx = getAudioContext();
