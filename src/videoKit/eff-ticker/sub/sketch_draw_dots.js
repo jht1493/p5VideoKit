@@ -1,12 +1,12 @@
-function draw_dots_fast() {
+eff_ticker.prototype.draw_dots_fast = function () {
   let n = a_fast ? a_fast_n : 1;
   // attempt at dot rhythm
   // n = random([0, 1]);
   while (n-- > 0) {
     draw_dots();
   }
-}
-function draw_dots() {
+};
+eff_ticker.prototype.draw_dots = function () {
   if (dot_count_reached()) {
     return;
   }
@@ -24,9 +24,9 @@ function draw_dots() {
       dot_y = 0;
     }
   }
-}
+};
 
-function dot_next() {
+eff_ticker.prototype.dot_next = function () {
   // console.log('dot_next dot_cindex', dot_cindex);
   // dot_cindex ^= 1;
   dot_cindex = 1;
@@ -43,34 +43,34 @@ function dot_next() {
   if (cycle_done) {
     cycle_start_init();
   }
-}
+};
 
-function cycle_start_init() {
+eff_ticker.prototype.cycle_start_init = function () {
   // console.log('cycle_start_init a_dir', a_dir);
   let_init();
   // !!@ 2-day
   // a_dir = a_dir === 'up' ? 'down' : 'up';
   fresh_canvas();
   load_json();
-}
+};
 
-function fresh_canvas() {
+eff_ticker.prototype.fresh_canvas = function () {
   console.log('fresh_canvas day_next', day_next);
   // background(0);
   clear_per_day();
   dot_x = 0;
   dot_y = 0;
-}
+};
 
-function dot_count_reached() {
+eff_ticker.prototype.dot_count_reached = function () {
   return dot_count >= a_count;
-}
+};
 
-function draw_dot(a_x, a_y, len_x, len_y) {
+eff_ticker.prototype.draw_dot = function (a_x, a_y, len_x, len_y) {
   rect(a_x, a_y, len_x, len_y);
   // ellipse(a_x + len_x / 2, a_y + len_y / 2, len_x, len_y);
-}
+};
 
-function fill_dot_color() {
+eff_ticker.prototype.fill_dot_color = function () {
   fill(dot_colors[dot_cindex]);
-}
+};

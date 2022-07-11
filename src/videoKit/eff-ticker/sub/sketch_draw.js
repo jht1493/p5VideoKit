@@ -1,4 +1,4 @@
-function draw_char_start() {
+eff_ticker.prototype.function =  draw_char_start() {
   a_char = a_string[string_index];
   while (a_char === '\n') {
     draw_next_line();
@@ -20,7 +20,7 @@ function draw_char_start() {
   rect(a_x, a_y, char_len * 2, char_len);
 }
 
-function draw_bit() {
+eff_ticker.prototype.function =  draw_bit() {
   let n = 1;
   let rush = dot_count_reached();
   if (a_fast) {
@@ -35,7 +35,7 @@ function draw_bit() {
   }
 }
 
-function draw_bit_one(rush) {
+eff_ticker.prototype.draw_bit_one = function (rush) {
   let bc = bit_count;
   while (bit_count == bc) {
     if (bit_index < 8) {
@@ -76,12 +76,12 @@ function draw_bit_one(rush) {
   }
 }
 
-function draw_shape(a_x, a_y, len_x, len_y) {
+eff_ticker.prototype.draw_shape = function (a_x, a_y, len_x, len_y) {
   rect(a_x, a_y, len_x, len_y);
   // ellipse(a_x + len_x / 2, a_y + len_y / 2, len_x, len_y);
 }
 
-function draw_next_char() {
+eff_ticker.prototype.draw_next_char = function () {
   next_string_index();
   if (a_paused) return;
   x_pos += char_len;
@@ -91,18 +91,18 @@ function draw_next_char() {
   draw_char_start();
 }
 
-function next_string_index() {
+eff_ticker.prototype.next_string_index = function () {
   string_index += 1;
   if (string_index > end_index) {
     set_paused();
   }
 }
 
-function message_done() {
+eff_ticker.prototype.message_done = function () {
   return string_index > end_index;
 }
 
-function draw_next_line() {
+eff_ticker.prototype.draw_next_line = function () {
   x_pos = x_margin;
   y_pos += char_len;
   if (y_pos + char_len > height - y_margin) {
@@ -111,6 +111,6 @@ function draw_next_line() {
   }
 }
 
-function set_last() {
+eff_ticker.prototype.set_last = function () {
   if (bit_count) last_count = bit_count;
 }

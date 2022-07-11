@@ -18,7 +18,7 @@ eff_ticker.prototype.setup = function (display_copy_right) {
   if (display_copy_right) this.show_copyright();
 };
 
-function show_copyright() {
+eff_ticker.prototype.show_copyright = function () {
   let adiv = createDiv();
   adiv.style('font-size:24px');
   let title = createDiv('COVID-19 Memorial Ticker (preview)');
@@ -28,9 +28,9 @@ function show_copyright() {
   adiv.child(title);
   adiv.child(adash);
   adiv.child(copyr);
-}
+};
 
-function setup_period_reload() {
+eff_ticker.prototype.setup_period_reload = function () {
   // Reload at 8am to get most recent update
   let sec = parse_restart_time('08:00:00');
   // let sec = parse_restart_time('23:59:59');
@@ -43,9 +43,9 @@ function setup_period_reload() {
     console.log('setup_period_reload setTimeout ');
     cycle_start_init();
   }, per);
-}
+};
 
-function begin_day() {
+eff_ticker.prototype.begin_day = function () {
   // console.log('begin_day day_next', day_next);
   clear_per_day();
   cycle_init();
@@ -58,9 +58,9 @@ function begin_day() {
   // !!@ 2-day
   dot_y = 0;
   dot_x = 0;
-}
+};
 
-function clear_per_day() {
+eff_ticker.prototype.clear_per_day = function () {
   // console.log('clear_per_day day_next', day_next);
   fill(0);
   let yLeft = 0;
@@ -72,9 +72,9 @@ function clear_per_day() {
   }
   rect(0, yLeft, panel_right, height);
   rect(panel_right, yRight, width - panel_right, height);
-}
+};
 
-function draw() {
+eff_ticker.prototype.draw = function () {
   if (!json_loaded) return;
   if (!a_run) return;
 
@@ -93,9 +93,9 @@ function draw() {
   draw_day_count();
 
   update_ui();
-}
+};
 
-function draw_progress() {
+eff_ticker.prototype.draw_progress = function () {
   let x = -1;
   let y = height - pix_len + 1;
   // let nu = data_index_up - data_index_start;
@@ -116,9 +116,9 @@ function draw_progress() {
     x += pix_len;
   }
   fill(0);
-}
+};
 
-function draw_day_count() {
+eff_ticker.prototype.draw_day_count = function () {
   // str = 'day ' + data_index + '/' + a_data.length + ' ';
   // let str = 'DAY ' + data_index + ' of ' + a_data.length;
   let str = 'USA COVID DEATHS - DAY ' + data_index + ' of ' + a_data.length;
@@ -136,9 +136,9 @@ function draw_day_count() {
   rect(x, y - th, tw, th);
   fill('white');
   text(str, x, y);
-}
+};
 
-function draw_count(str) {
+eff_ticker.prototype.draw_count = function (str) {
   // let x = x_margin + (char_len * (nchars_wide - str.length)) / 2;
   let boxwidth = char_len * 5;
   // let xedge = panel_right;
@@ -154,9 +154,9 @@ function draw_count(str) {
     draw_char(x, y, ch);
     x += char_len;
   }
-}
+};
 
-function draw_char(x0, y0, ch) {
+eff_ticker.prototype.draw_char = function (x0, y0, ch) {
   let bytes = font8x8_dict[ch];
   for (let y1 = 0; y1 < 8; y1++) {
     let byte = bytes[y1];
@@ -170,7 +170,7 @@ function draw_char(x0, y0, ch) {
       }
     }
   }
-}
+};
 
 // https://github.com/EP-Visual-Design/COVID-19-parsed-data/blob/main/c_data/world/c_series/United_States.json
 // https://raw.githubusercontent.com/EP-Visual-Design/COVID-19-parsed-data/main/c_data/world/c_series/United_States.json

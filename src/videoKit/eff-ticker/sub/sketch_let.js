@@ -68,7 +68,7 @@ let load_count = 0;
 let json_loaded = 0;
 let day_next = 0;
 
-function let_init() {
+eff_ticker.prototype.let_init = function () {
   // data_index_offset = 85;
   // data_index_offset = 600;
   bottom_color = 'white';
@@ -100,9 +100,9 @@ function let_init() {
   console.log('pix_len', pix_len);
   console.log('nlines', nlines);
   day_next = 0;
-}
+};
 
-function cycle_init() {
+eff_ticker.prototype.cycle_init = function () {
   y_pos = y_top;
   x_pos = x_margin;
-}
+};

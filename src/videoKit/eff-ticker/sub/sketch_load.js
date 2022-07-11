@@ -1,4 +1,4 @@
-function load_json() {
+eff_ticker.prototype.function =  load_json() {
   json_loaded = 0;
   let url = 'https://epvisual.com/COVID-19-Impact/Dashboard/a0/c_data/world/c_series/United_States.json';
   loadJSON(url, (data) => {
@@ -19,7 +19,7 @@ function load_json() {
   });
 }
 
-function select_entry() {
+eff_ticker.prototype.select_entry = function () {
   let ent1, ent0;
   if (a_dir === 'down') {
     select_down();
@@ -47,7 +47,7 @@ function select_entry() {
   end_index = a_string.length - 1;
   begin_day();
 
-  function select_down() {
+  eff_ticker.prototype.select_down = function () {
     do {
       data_index_down--;
       if (data_index_down < 1) {
@@ -59,7 +59,7 @@ function select_entry() {
       a_count = ent1.count;
     } while (a_count < 1);
   }
-  function select_up() {
+  eff_ticker.prototype.select_up = function () {
     do {
       data_index_up++;
       if (data_index_up >= a_data.length) {
@@ -74,7 +74,7 @@ function select_entry() {
       data_index_start = data_index_up;
     }
   }
-  function select_up_down() {
+  eff_ticker.prototype.select_up_down = function () {
     do {
       if (a_down) {
         data_index_down--;
@@ -99,7 +99,7 @@ function select_entry() {
 }
 
 // mindex 85 mdate 2020-04-16 mcount 4607
-// function show_max_deaths() {
+// eff_ticker.prototype.function =  show_max_deaths() {
 //   let mindex = -1;
 //   let mcount = -1;
 //   let mdate;
@@ -129,7 +129,7 @@ function select_entry() {
 // 2021-01-07 4028 351
 // 2021-01-13 4018 357
 
-function prepare_data() {
+eff_ticker.prototype.prepare_data = function () {
   let ent0 = { Deaths: 0 };
   for (let index = 0; index < a_data.length; index++) {
     let ent1 = a_data[index];
@@ -140,7 +140,7 @@ function prepare_data() {
   }
 }
 
-function sort_data() {
+eff_ticker.prototype.sort_data = function () {
   let data = a_data.slice();
   data.sort((ent0, ent1) => ent0.count - ent1.count);
   if (1) {

@@ -34,7 +34,7 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
   div.child(info);
 
   function ready() {
-    return capture.loadedmetadata;
+    return capture.loadedmetadata && capture.width > 0 && capture.height > 0;
   }
 
   let ent = {
