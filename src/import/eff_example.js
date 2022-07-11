@@ -16,7 +16,7 @@ export default class eff_example {
   constructor(props) {
     Object.assign(this, props);
     let { width, height } = this.input;
-    this.output = createGraphics(width, height);
+    // this.output = createGraphics(width, height);
     console.log('eff_example constructor width, height', width, height);
   }
   prepareOutput() {
@@ -27,7 +27,7 @@ export default class eff_example {
     let txsize = height / 10;
     this.output.textSize(txsize);
     // this.output.background(this.num);
-    image_copy(this.output, this.input);
+    // image_copy(this.output, this.input);
     // this.output.text('hello', x, y);
     let txt = this.some_text + ' ' + this.num;
     this.output.text(txt, x, y);
