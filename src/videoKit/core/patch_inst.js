@@ -1,5 +1,7 @@
 import { a_ } from '../let/a_ui.js';
 import { pad_layout_update, ui_refresh, ui_patch_update } from '../core-ui/ui_patch.js';
+import { ui_div_empty } from '../util/ui_base.js';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
 
 export function patch_add(aPatch) {
   aPatch.eff_src.ipatch = a_.ui.patches.length;

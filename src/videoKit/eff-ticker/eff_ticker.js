@@ -10,6 +10,6 @@ export default class eff_ticker {
     Object.assign(this, props);
   }
   prepareOutput() {
-    // console.log('eff_example render');
+    // console.log('eff_ticker prepareOutput');
   }
 }
