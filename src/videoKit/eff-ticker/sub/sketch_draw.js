@@ -1,116 +1,118 @@
-eff_ticker.prototype.function =  draw_char_start() {
-  a_char = a_string[string_index];
-  while (a_char === '\n') {
-    draw_next_line();
-    next_string_index();
-    if (a_paused) return;
-    a_char = a_string[string_index];
+eff_ticker.prototype.draw_char_start = function () {
+  this.a_char = this.a_string[this.string_index];
+  while (this.a_char === '\n') {
+    this.draw_next_line();
+    this.next_string_index();
+    if (this.a_paused) return;
+    this.a_char = this.a_string[this.string_index];
     // print('string_index', string_index, 'a_char', a_char);
   }
-  a_bytes = font8x8_dict[a_char];
-  if (!a_bytes) {
+  this.a_bytes = this.font8x8_dict[this.a_char];
+  if (!this.a_bytes) {
     return;
   }
-  a_x = x_pos;
-  a_y = y_pos;
-  byte_index = 0;
-  bit_index = 0;
-  a_byte = a_bytes[byte_index];
-  fill('black');
-  rect(a_x, a_y, char_len * 2, char_len);
-}
+  this.a_x = this.x_pos;
+  this.a_y = this.y_pos;
+  this.byte_index = 0;
+  this.bit_index = 0;
+  this.a_byte = this.a_bytes[this.byte_index];
+  this.output.erase();
+  this.output.fill(0);
+  this.output.rect(this.a_x, this.a_y, this.char_len * 2, this.char_len);
+  this.output.noErase();
+};
 
-eff_ticker.prototype.function =  draw_bit() {
+eff_ticker.prototype.draw_bit = function () {
   let n = 1;
-  let rush = dot_count_reached();
-  if (a_fast) {
-    n = a_fast_n;
+  let rush = this.dot_count_reached();
+  if (this.a_fast) {
+    n = this.a_fast_n;
   } else if (rush) {
     // n = (n + 1) % 11;
-    n = draw_bit_delay;
+    n = this.draw_bit_delay;
   }
   while (n-- > 0) {
-    draw_bit_one(rush);
-    if (a_paused) return;
+    this.draw_bit_one(rush);
+    if (this.a_paused) return;
   }
-}
+};
 
 eff_ticker.prototype.draw_bit_one = function (rush) {
-  let bc = bit_count;
-  while (bit_count == bc) {
-    if (bit_index < 8) {
-      if (a_byte & (1 << bit_index)) {
-        let dci = dot_cindex;
+  let bc = this.bit_count;
+  while (this.bit_count == bc) {
+    if (this.bit_index < 8) {
+      if (this.a_byte & (1 << this.bit_index)) {
+        let dci = this.dot_cindex;
         // if (rush) dci ^= 1;
         // else {
         //   // console.log('draw_bit_one ~rush bit_count', bit_count);
         // }
-        fill(dot_colors[dci]);
-        draw_shape(a_x, a_y, pix_len, pix_len);
-        if (!a_rev) bit_count++;
+        this.output.fill(this.dot_colors[dci]);
+        this.draw_shape(this.a_x, this.a_y, this.pix_len, this.pix_len);
+        if (!this.a_rev) this.bit_count++;
       } else {
-        if (a_rev) {
-          fill('white');
-          draw_shape(a_x, a_y, pix_len, pix_len);
-          bit_count++;
+        if (this.a_rev) {
+          this.output.fill('white');
+          this.draw_shape(this.a_x, this.a_y, this.pix_len, this.pix_len);
+          this.bit_count++;
         }
       }
-      bit_index += 1;
-      a_x += pix_len;
+      this.bit_index += 1;
+      this.a_x += this.pix_len;
     } else {
-      bit_index = 0;
-      byte_index += 1;
-      a_x = x_pos;
-      a_y += pix_len;
-      if (byte_index < 8) {
-        a_byte = a_bytes[byte_index];
+      this.bit_index = 0;
+      this.byte_index += 1;
+      this.a_x = this.x_pos;
+      this.a_y += this.pix_len;
+      if (this.byte_index < 8) {
+        this.a_byte = this.a_bytes[this.byte_index];
       } else {
-        draw_next_char();
-        if (a_paused) return;
+        this.draw_next_char();
+        if (this.a_paused) return;
       }
     }
-    if (a_paused) {
-      draw_paused();
+    if (this.a_paused) {
+      this.draw_paused();
       return;
     }
   }
-}
+};
 
 eff_ticker.prototype.draw_shape = function (a_x, a_y, len_x, len_y) {
-  rect(a_x, a_y, len_x, len_y);
+  this.output.rect(a_x, a_y, len_x, len_y);
   // ellipse(a_x + len_x / 2, a_y + len_y / 2, len_x, len_y);
-}
+};
 
 eff_ticker.prototype.draw_next_char = function () {
-  next_string_index();
-  if (a_paused) return;
-  x_pos += char_len;
-  if (x_pos + char_len - x_margin > width) {
-    draw_next_line();
+  this.next_string_index();
+  if (this.a_paused) return;
+  this.x_pos += this.char_len;
+  if (this.x_pos + this.char_len - this.x_margin > this.width) {
+    this.draw_next_line();
   }
-  draw_char_start();
-}
+  this.draw_char_start();
+};
 
 eff_ticker.prototype.next_string_index = function () {
-  string_index += 1;
-  if (string_index > end_index) {
-    set_paused();
+  this.string_index += 1;
+  if (this.string_index > this.end_index) {
+    this.set_paused();
   }
-}
+};
 
 eff_ticker.prototype.message_done = function () {
-  return string_index > end_index;
-}
+  return this.string_index > this.end_index;
+};
 
 eff_ticker.prototype.draw_next_line = function () {
-  x_pos = x_margin;
-  y_pos += char_len;
-  if (y_pos + char_len > height - y_margin) {
-    y_pos = y_top;
-    string_index = start_index;
+  this.x_pos = this.x_margin;
+  this.y_pos += this.char_len;
+  if (this.y_pos + this.char_len > this.height - this.y_margin) {
+    this.y_pos = this.y_top;
+    this.string_index = this.start_index;
   }
-}
+};
 
 eff_ticker.prototype.set_last = function () {
-  if (bit_count) last_count = bit_count;
-}
+  if (this.bit_count) this.last_count = this.bit_count;
+};

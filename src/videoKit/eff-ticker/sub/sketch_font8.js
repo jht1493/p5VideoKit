@@ -1,6 +1,6 @@
 // 8 bit by 8 bit font
 
-const font8x8_dict = {
+eff_ticker.prototype.font8x8_dict = {
   ' ': [0, 0, 0, 0, 0, 0, 0, 0],
   0: [62, 99, 115, 123, 111, 103, 62, 0],
   1: [12, 14, 12, 12, 12, 12, 63, 0],

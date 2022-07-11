@@ -1,102 +1,102 @@
-eff_ticker.prototype.function =  load_json() {
-  json_loaded = 0;
+eff_ticker.prototype.load_json = function () {
+  this.json_loaded = 0;
   let url = 'https://epvisual.com/COVID-19-Impact/Dashboard/a0/c_data/world/c_series/United_States.json';
   loadJSON(url, (data) => {
     console.log('load_json data last', JSON.stringify(data[data.length - 1]));
     console.log('data.length', data.length);
-    console.log('load_count', load_count);
-    json_loaded = 1;
-    load_count++;
-    data_index_start = 0;
-    cycle_done = 0;
-    a_data = data;
-    data_index_down = data.length;
-    if (data_index_offset) data_index_down = data_index_offset + 1;
-    data_index_up = 0;
-    data_index_mid = Math.floor(data_index_down / 2);
-    prepare_data();
-    select_entry();
+    console.log('load_count', this.load_count);
+    this.json_loaded = 1;
+    this.load_count++;
+    this.data_index_start = 0;
+    this.cycle_done = 0;
+    this.a_data = data;
+    this.data_index_down = data.length;
+    if (this.data_index_offset) this.data_index_down = this.data_index_offset + 1;
+    this.data_index_up = 0;
+    this.data_index_mid = Math.floor(this.data_index_down / 2);
+    this.prepare_data();
+    this.select_entry();
   });
-}
+};
 
 eff_ticker.prototype.select_entry = function () {
+  let select_down = () => {
+    do {
+      this.data_index_down--;
+      if (this.data_index_down < 1) {
+        this.data_index_down = this.a_data.length - 1;
+        this.cycle_done = 1;
+      }
+      this.data_index = this.data_index_down;
+      ent1 = this.a_data[this.data_index];
+      this.a_count = ent1.count;
+    } while (this.a_count < 1);
+  };
+  let select_up = () => {
+    do {
+      this.data_index_up++;
+      if (this.data_index_up >= this.a_data.length) {
+        this.data_index_up = 1;
+        this.cycle_done = 1;
+      }
+      this.data_index = this.data_index_up;
+      ent1 = this.a_data[this.data_index];
+      this.a_count = ent1.count;
+    } while (a_count < 1);
+    if (!this.data_index_start) {
+      this.data_index_start = this.data_index_up;
+    }
+  };
+  let select_up_down = () => {
+    do {
+      if (this.a_down) {
+        this.data_index_down--;
+        if (this.data_index_down < this.data_index_mid) {
+          this.data_index_down = this.a_data.length - 1;
+          this.cycle_done = 1;
+        }
+        this.data_index = this.data_index_down;
+      } else {
+        this.data_index_up++;
+        if (this.data_index_up > this.data_index_mid) {
+          this.data_index_up = 0;
+          this.cycle_done = 1;
+        }
+        this.data_index = this.data_index_up;
+      }
+      ent1 = this.a_data[this.data_index];
+      this.a_count = ent1.count;
+    } while (this.a_count < 1);
+    this.a_down ^= 1;
+  };
+
   let ent1, ent0;
-  if (a_dir === 'down') {
+  if (this.a_dir === 'down') {
     select_down();
-  } else if (a_dir === 'up') {
+  } else if (this.a_dir === 'up') {
     select_up();
   } else {
     select_up_down();
   }
-  a_date = ent1.on;
-  let s = a_count > 1 ? 's' : '';
-  if (day_next == 0) {
-    a_string = a_date + '\n' + a_count + '\n';
-    day_next++;
+  this.a_date = ent1.on;
+  let s = this.a_count > 1 ? 's' : '';
+  if (this.day_next == 0) {
+    this.a_string = this.a_date + '\n' + this.a_count + '\n';
+    this.day_next++;
   } else {
-    if (day_next == 1) {
-      panel_top = panel_top + dot_y + char_len + y_margin * 2;
-      y_top = char_len * 3;
+    if (this.day_next == 1) {
+      this.panel_top = this.panel_top + this.dot_y + this.char_len + this.y_margin * 2;
+      this.y_top = this.char_len * 3;
       // data_index_down = a_data.length;
       // a_data = sort_data();
     }
-    day_next++;
-    a_string = a_date + '\n' + a_count + '\n\nUSA Death' + s + '\n' + a_postfix;
+    this.day_next++;
+    this.a_string = this.a_date + '\n' + this.a_count + '\n\nUSA Death' + s + '\n' + this.a_postfix;
     // a_string = a_date + '\n' + a_count + '\n\n' + a_postfix;
   }
-  end_index = a_string.length - 1;
-  begin_day();
-
-  eff_ticker.prototype.select_down = function () {
-    do {
-      data_index_down--;
-      if (data_index_down < 1) {
-        data_index_down = a_data.length - 1;
-        cycle_done = 1;
-      }
-      data_index = data_index_down;
-      ent1 = a_data[data_index];
-      a_count = ent1.count;
-    } while (a_count < 1);
-  }
-  eff_ticker.prototype.select_up = function () {
-    do {
-      data_index_up++;
-      if (data_index_up >= a_data.length) {
-        data_index_up = 1;
-        cycle_done = 1;
-      }
-      data_index = data_index_up;
-      ent1 = a_data[data_index];
-      a_count = ent1.count;
-    } while (a_count < 1);
-    if (!data_index_start) {
-      data_index_start = data_index_up;
-    }
-  }
-  eff_ticker.prototype.select_up_down = function () {
-    do {
-      if (a_down) {
-        data_index_down--;
-        if (data_index_down < data_index_mid) {
-          data_index_down = a_data.length - 1;
-          cycle_done = 1;
-        }
-        data_index = data_index_down;
-      } else {
-        data_index_up++;
-        if (data_index_up > data_index_mid) {
-          data_index_up = 0;
-          cycle_done = 1;
-        }
-        data_index = data_index_up;
-      }
-      ent1 = a_data[data_index];
-      a_count = ent1.count;
-    } while (a_count < 1);
-    a_down ^= 1;
-  }
-}
+  this.end_index = this.a_string.length - 1;
+  this.begin_day();
+};
 
 // mindex 85 mdate 2020-04-16 mcount 4607
 // eff_ticker.prototype.function =  show_max_deaths() {
@@ -131,17 +131,17 @@ eff_ticker.prototype.select_entry = function () {
 
 eff_ticker.prototype.prepare_data = function () {
   let ent0 = { Deaths: 0 };
-  for (let index = 0; index < a_data.length; index++) {
-    let ent1 = a_data[index];
+  for (let index = 0; index < this.a_data.length; index++) {
+    let ent1 = this.a_data[index];
     let count = ent1.Deaths - ent0.Deaths;
     ent1.count = count;
     ent1.index = index;
     ent0 = ent1;
   }
-}
+};
 
 eff_ticker.prototype.sort_data = function () {
-  let data = a_data.slice();
+  let data = this.a_data.slice();
   data.sort((ent0, ent1) => ent0.count - ent1.count);
   if (1) {
     let n = 10;
@@ -151,4 +151,4 @@ eff_ticker.prototype.sort_data = function () {
     }
   }
   return data;
-}
+};

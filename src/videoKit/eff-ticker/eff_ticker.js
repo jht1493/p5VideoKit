@@ -6,28 +6,24 @@ export default class eff_ticker {
   };
   constructor(props) {
     Object.assign(this, props);
-    // this.setup(this.display_copy_right);
+
+    this.width = this.eff_src.urect.width;
+    this.height = this.eff_src.urect.height;
+    this.output = createGraphics(width, height);
+    // console.log('width', this.width);
 
     import('./sub/sketch.js')
       .then((module) => {
         // console.log('eff_ticker module', module);
-        this.setup(this.display_copy_right);
+        this.init();
       })
       .catch((err) => {
         console.log('eff_ticker err', err);
       });
   }
   prepareOutput() {
-    // console.log('eff_ticker prepareOutput');
+    console.log('eff_ticker prepareOutput stub');
   }
 }
 
 window.eff_ticker = eff_ticker;
-
-// import './sub/sketch_draw_dots.js';
-// import './sub/sketch_draw.js';
-// import './sub/sketch_font8.js';
-// import './sub/sketch_let.js';
-// import './sub/sketch_load.js';
-// import './sub/sketch_paused.js';
-// import './sub/sketch.js';

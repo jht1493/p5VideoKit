@@ -1,32 +1,32 @@
-let page_pause_count;
+// let page_pause_count;
 
 eff_ticker.prototype.page_pause_start = function () {
   // page_pause_count = a_fast ? 1 : page_pause_frames;
   // page_pause_count = a_fast ? page_pause_frames / 2 : page_pause_frames;
-  // console.log('page_pause_start day_next', day_next);
-  let n = a_fast ? 0 : page_pause_secs;
-  // if (day_next == 1) n = 0;
-  page_pause_count = n * frameRate();
-  a_state = 'page_pause';
-  set_last();
+  // console.log('page_pause_start day_next', this.day_next);
+  let n = this.a_fast ? 0 : this.page_pause_secs;
+  // if (this.day_next == 1) n = 0;
+  this.page_pause_count = n * frameRate();
+  this.a_state = 'page_pause';
+  this.set_last();
 };
 
 eff_ticker.prototype.page_pause = function () {
-  if (!dot_count_reached()) {
+  if (!this.dot_count_reached()) {
     return;
   }
-  page_pause_count -= 1;
-  if (page_pause_count < 0) {
-    a_state = 'draw_bit';
-    a_paused = 0;
-    dot_next();
+  this.page_pause_count -= 1;
+  if (this.page_pause_count < 0) {
+    this.a_state = 'draw_bit';
+    this.a_paused = 0;
+    this.dot_next();
   }
 };
 
 eff_ticker.prototype.set_paused = function () {
-  a_paused = 1;
+  this.a_paused = 1;
   // console.log('a_paused', a_paused, 'y_pos', y_pos);
-  a_x = 0;
+  this.a_x = 0;
 };
 
 eff_ticker.prototype.draw_paused = function () {
@@ -45,7 +45,7 @@ eff_ticker.prototype.draw_paused = function () {
   //   bit_count++;
   //   return;
   // }
-  if (message_done()) {
-    page_pause_start();
+  if (this.message_done()) {
+    this.page_pause_start();
   }
 };
