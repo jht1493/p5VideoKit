@@ -8,7 +8,7 @@ export let a_mediaDivs = { value: [] };
 // 2: livem device for self
 // 3: livem device for others ...
 
-export function create_mediaDiv(mediaDevice, vis_in) {
+export function create_mediaDiv(mediaDevice, vis_in, addSort) {
   let capture = mediaDevice.capture;
   let id = mediaDevice.deviceId;
   let label = mediaDevice.label;
@@ -49,7 +49,24 @@ export function create_mediaDiv(mediaDevice, vis_in) {
     ready,
     update_info,
   };
-  a_mediaDivs.value.push(ent);
+  let arr = a_mediaDivs.value;
+  if (!addSort) {
+    // No live media yet, Add at end
+    arr.push(ent);
+    a_.lastMediaDivIndex = arr.length;
+    console.log('a_.lastMediaDivIndex', a_.lastMediaDivIndex);
+  } else {
+    // For live media add the new entry in sort order by id
+    //  to keep entries in same order between reloads
+    let index = a_.lastMediaDivIndex || 0;
+    for (; index < arr.length; index++) {
+      if (arr[index].id > id) {
+        break;
+      }
+    }
+    arr.splice(index, 0, ent);
+  }
+  // a_mediaDivs.value.push(ent);
 
   function update_info() {
     let info = ent.info;

@@ -1,8 +1,7 @@
 import { a_ } from '../let/a_ui.js';
-import { create_mediaDiv } from '../core/create_mediaDiv.js';
+import { create_mediaDiv, remove_mediaDiv } from '../core/create_mediaDiv.js';
 import { ui_refresh } from '../core-ui/ui_patch.js';
 import { ui_chat_receive } from '../core-ui/ui_chat.js';
-import { remove_mediaDiv } from '../core/create_mediaDiv.js';
 
 // let a_livem;
 
@@ -61,6 +60,7 @@ let otherVideo;
 // We got a new stream!
 function gotStream(capture, id) {
   console.log('gotStream id', id);
+  console.log('gotStream width', capture.width, 'height', capture.height);
   // This is just like a video/stream from createCapture(VIDEO)
   otherVideo = capture;
   //otherVideo.id and id are the same and unique identifiers
@@ -69,11 +69,9 @@ function gotStream(capture, id) {
   let deviceId = id;
   let mediaDevice = { deviceId, capture, stream };
   let default_vis = !a_.hideui;
-  create_mediaDiv(mediaDevice, default_vis);
+  create_mediaDiv(mediaDevice, default_vis, 1);
   ui_refresh();
-  console.log('gotStream width', capture.width, 'height', capture.height);
-  livem_send('Hello');
-  // tile_notify_media_update({ add: id });
+  // livem_send('Hello');
 }
 
 // loadedmetadata

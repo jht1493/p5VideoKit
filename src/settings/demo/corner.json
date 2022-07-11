@@ -42,7 +42,7 @@
     {
       "eff_src": {
         "ipatch": 0,
-        "imedia": 6,
+        "imedia": 5,
         "eff_label": "slit_scan",
         "urect": {
           "x0": 0,
@@ -61,7 +61,7 @@
     {
       "eff_src": {
         "ipatch": 1,
-        "imedia": 6,
+        "imedia": 5,
         "eff_label": "pose_net",
         "urect": {
           "x0": 480,
@@ -88,7 +88,7 @@
     {
       "eff_src": {
         "ipatch": 2,
-        "imedia": 6,
+        "imedia": 5,
         "eff_label": "slit_scan",
         "urect": {
           "x0": 0,
@@ -107,7 +107,7 @@
     {
       "eff_src": {
         "ipatch": 3,
-        "imedia": 6,
+        "imedia": 5,
         "eff_label": "show",
         "urect": {
           "x0": 480,

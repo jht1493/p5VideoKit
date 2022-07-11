@@ -14,7 +14,7 @@ function create_mediaDevices() {
   let default_vis = 0; // Default new devices to invisible
   for (let mediaDevice of a_mediaDevices) {
     init_device_capture(mediaDevice);
-    create_mediaDiv(mediaDevice, default_vis);
+    create_mediaDiv(mediaDevice, default_vis, 0);
   }
   ui_refresh();
 
