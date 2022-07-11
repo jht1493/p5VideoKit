@@ -1,21 +1,22 @@
-let a_width = 1280;
-let a_height = 720;
+// let a_width = 1280;
+// let a_height = 720;
 // let a_width = 960;
 // let a_height = 540;
-let my_canvas;
+// let my_canvas;
 
-function setup() {
-  my_canvas = createCanvas(a_width, a_height);
+eff_ticker.prototype.setup = function (display_copy_right) {
+  // my_canvas = createCanvas(a_width, a_height);
   // let parent = document.getElementsByTagName('body')[0];
   // parent.insertBefore(my_canvas.elt, title.elt);
-  create_ui();
+  console.log('eff_ticker setup');
+  // create_ui();
   let_init();
   fresh_canvas();
   begin_day();
   load_json();
   setup_period_reload();
-  show_copyright();
-}
+  if (display_copy_right) this.show_copyright();
+};
 
 function show_copyright() {
   let adiv = createDiv();
@@ -36,7 +37,7 @@ function setup_period_reload() {
   // let sec = parse_restart_time('13:26:00');
   // console.log('setup_period_reload sec', sec);
   let per = sec * 1000;
-  setTimeout(function () {
+  setTimeout(() => {
     // let loc = window.location.href;
     // window.location = loc;
     console.log('setup_period_reload setTimeout ');

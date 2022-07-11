@@ -26,7 +26,7 @@ export default class eff_maze {
     this.inw = w;
     this.inh = h;
     if (!this.src) this.src = createImage(w, h);
-    if (!this.output) this.output = createGraphics(w, h);
+    this.output = createGraphics(w, h);
     this.xs = w / this.ncell;
     this.ys = h / this.ncell;
     if (this.xs > this.ys) {

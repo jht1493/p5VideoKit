@@ -27,8 +27,8 @@ export default class eff_delaunay {
     this.period_timer = new PeriodTimer(this.period);
     let w = this.input.width;
     let h = this.input.height;
-    if (!this.img) this.img = createImage(w, h);
-    if (!this.output) this.output = createGraphics(w, h);
+    this.img = createImage(w, h);
+    this.output = createGraphics(w, h);
     this.output.noStroke();
     this.index = 0;
     this.cindex = 2;

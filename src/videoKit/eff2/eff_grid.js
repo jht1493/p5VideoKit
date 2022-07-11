@@ -22,7 +22,7 @@ export default class eff_grid {
     this.inw = w;
     this.inh = h;
     if (!this.src) this.src = createImage(w, h);
-    if (!this.output) this.output = createGraphics(w, h);
+    this.output = createGraphics(w, h);
     if (!this.glayer) this.glayer = createGraphics(w, h);
     this.glayer.background(0, 0, 0, 0);
     this.glayer.noStroke();

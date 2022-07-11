@@ -64,7 +64,7 @@ export default class eff_sketchy {
     let h = this.input.height;
     // console.log('eff_sketchy w', w, 'h', h);
     this.init_phase();
-    if (!this.output) this.output = createGraphics(w, h);
+    this.output = createGraphics(w, h);
     this.output.noStroke();
     if (!this.a_image) this.a_image = createImage(w, h);
     this.a_alpha = 100;

@@ -15,6 +15,9 @@ export function ui_patch_eff_panes() {
     droot.child(div);
 
     let aPatch = a_.ui.patches[ipatch];
+    if (!aPatch.eff_inits) {
+      aPatch.eff_inits = {};
+    }
     // a_.ui.patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
     create_patch_selection();
@@ -134,6 +137,7 @@ export function ui_patch_eff_panes() {
           let oldVal = aPatch.eff_inits[prop];
           if (oldVal === undefined) {
             oldVal = '' + item;
+            aPatch.eff_inits[prop] = oldVal;
           }
           let elm = createInput(oldVal).input(function () {
             let aVal = this.value();
@@ -171,9 +175,6 @@ export function ui_patch_eff_panes() {
         aSel.option(arr[ii]);
       }
       // Get prop value or use first in arr as default if missing
-      if (!aPatch.eff_inits) {
-        aPatch.eff_inits = {};
-      }
       let aVal = aPatch.eff_inits[prop];
       if (aVal === undefined) {
         aVal = arr[0];

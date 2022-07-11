@@ -1,5 +1,8 @@
 // p5VideoKit main class
+//  Must be include in html as
+//    <script src="videoKit/p5VideoKit.js?v=94"></script>
 //
+
 class p5VideoKit {
   //
   // let effects = [
