@@ -39,7 +39,7 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
         let nent = ent.substring(0, pos);
         let npos = nent.indexOf('_');
         let label = nent.substring(npos + 1);
-        let npath = dir + '/' + nent;
+        let npath = dir + '/' + ent;
         // imparts.push(dir + '/' + nent);
         imparts.push({ label, npath });
       }

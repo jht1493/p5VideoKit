@@ -19,8 +19,8 @@ function setup() {
 
   // effects for import, will appear at top of patch effect menu
   let effects = [
-    { label: 'example', import_path: 'import/eff_example' },
-    { label: 'ncell', import_path: 'import/eff_ncell' },
+    { label: 'example', import_path: 'import/eff_example.js' },
+    { label: 'ncell', import_path: 'import/eff_ncell.js' },
   ];
 
   // settings for import, will appear at top of settings menu
