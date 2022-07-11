@@ -3,6 +3,9 @@ export let a_ = {
   store_ver: '2',
   store_name: 'Store-A',
   store_prefix: 'a',
+  canvas_size_lock: 0,
+  hideui: 0, // Default is to hide using with s= settings
+  chat_name: '', // chat name from url param c
   ui: {
     setting: '',
     back_color: 200,
@@ -22,11 +25,9 @@ export let a_ = {
     canvas_data_chk: 0,
     patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
   },
-  patch_instances: [],
-  canvas_size_lock: 0,
-  hideui: 0, // Default is to hide using with s= settings
-  chat_name: '', // chat name from url param c
   settings: [],
+  patch_instances: [],
+  mediaDivs: [],
 };
 // !!@ For debugging
 window.a_ = a_;

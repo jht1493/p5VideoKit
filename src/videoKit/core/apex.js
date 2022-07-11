@@ -1,6 +1,6 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_restore } from './ui_restore.js';
-import { init_mediaDivs, a_mediaDivs } from './create_mediaDiv.js';
+import { init_mediaDivs } from './create_mediaDiv.js';
 import { create_ui } from './create_ui.js';
 import { media_enum } from './create_mediaDevices.js';
 import { effectMeta_find, factory_prop_inits } from './effectMeta.js';
@@ -98,12 +98,12 @@ p5VideoKit.prototype.imageToCanvas = function (eff) {
 
 // let n = videoKit.mediaDivCount()
 p5VideoKit.prototype.mediaDivCount = function () {
-  return a_mediaDivs.value.length;
+  return a_.mediaDivs.length;
 };
 
 // mediaDiv = videoKit.mediaDeviceAt(index)
 p5VideoKit.prototype.mediaDivAt = function (index) {
-  return a_mediaDivs.value[index];
+  return a_.mediaDivs[index];
 };
 
 // {
@@ -130,7 +130,7 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
   let effMeta = effectMeta_find(eff_label);
-  let media = a_mediaDivs.value[imedia];
+  let media = a_.mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
   } else if (!media.ready()) {

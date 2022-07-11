@@ -1,7 +1,8 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_prop_set } from '../core/ui_restore.js';
+import { patch_inst_clear } from '../core/patch_inst.js';
 
-export let a_mediaDivs = { value: [] };
+// a_.mediaDivs = []
 // { imedia, mediaDevice, id, label, div, chk, vis, capture, info, ready, livem }
 // 0: canvas
 // 1: first local device
@@ -13,7 +14,7 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
   let id = mediaDevice.deviceId;
   let label = mediaDevice.label;
   if (!label) label = id;
-  let imedia = a_mediaDivs.value.length;
+  let imedia = a_.mediaDivs.length;
   let vis = ui_media_default_vis(imedia, vis_in);
 
   // Can't re-parent capture, so move div before it
@@ -49,7 +50,7 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
     ready,
     update_info,
   };
-  let arr = a_mediaDivs.value;
+  let arr = a_.mediaDivs;
   if (!addSort) {
     // No live media yet, Add at end
     arr.push(ent);
@@ -65,8 +66,9 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
       }
     }
     arr.splice(index, 0, ent);
+    patch_inst_clear();
   }
-  // a_mediaDivs.value.push(ent);
+  // a_.mediaDivs.push(ent);
 
   function update_info() {
     let info = ent.info;
@@ -93,20 +95,20 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
 
 function find_media_by_id(id) {
   if (!id) return null;
-  return a_mediaDivs.value.find((item) => item.id === id);
+  return a_.mediaDivs.find((item) => item.id === id);
 }
 
 function remove_media_by_id(id) {
-  a_mediaDivs.value = a_mediaDivs.value.filter((item) => item.id !== id);
+  a_.mediaDivs = a_.mediaDivs.filter((item) => item.id !== id);
   console.log('remove_media_by_id id=', id);
-  // console.log('remove_media_by_id id=', id, 'a_mediaDivs.value', a_mediaDivs.value);
+  // console.log('remove_media_by_id id=', id, 'a_.mediaDivs', a_.mediaDivs);
   // tile_notify_media_update({ remove: id });
 }
 
 export function remove_mediaDivs() {
   // Remove all but first
-  for (let index = a_mediaDivs.value.length - 1; index > 0; index--) {
-    let ent = a_mediaDivs.value[index];
+  for (let index = a_.mediaDivs.length - 1; index > 0; index--) {
+    let ent = a_.mediaDivs[index];
     remove_mediaDiv(ent.id);
   }
 }
@@ -124,7 +126,7 @@ export function remove_mediaDiv(id) {
 }
 
 export function attach_media_nlabel(id, nlabel) {
-  let ent = a_mediaDivs.value.find((item) => item.id === id);
+  let ent = a_.mediaDivs.find((item) => item.id === id);
   if (ent) {
     ent.nlabel = nlabel;
     if (ent.update_info) ent.update_info();
@@ -133,7 +135,7 @@ export function attach_media_nlabel(id, nlabel) {
 
 export function init_mediaDivs() {
   // First media pane is canvas
-  a_mediaDivs.value = [
+  a_.mediaDivs = [
     {
       label: 'Canvas',
       capture: a_.my_canvas,

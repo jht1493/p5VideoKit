@@ -10,6 +10,7 @@ import { ui_live_selection } from '../core-ui/ui_live.js';
 import { ui_chat_pane } from '../core-ui/ui_chat.js';
 import { store_restore_from } from '../core/store_url_parse.js';
 import { check_reset_video } from '../core/check_reset_video.js';
+import { patch_inst_clear } from '../core/patch_inst.js';
 
 export function create_ui() {
   ui_top_pane();
@@ -46,9 +47,9 @@ function ui_top_pane() {
   createButton('Reload').mousePressed(function () {
     reload_action();
   });
-  createButton('Clear').mousePressed(function () {
-    ui_reset();
-  });
+  // createButton('Clear').mousePressed(function () {
+  //   patch_inst_clear();
+  // });
   {
     // console.log('a_.store_prefix', a_.store_prefix);
     let u = a_.store_prefix;
@@ -107,7 +108,7 @@ function ui_hide() {
 
 export function ui_window_refresh() {
   pad_layout_update();
-  ui_reset();
+  patch_inst_clear();
 }
 
 function ui_size_pane() {
@@ -115,11 +116,6 @@ function ui_size_pane() {
   ui_canvas_div(div);
   ui_capture_size(div);
   ui_render_size(div);
-}
-
-export function ui_reset() {
-  // All patch instances will be re-created on next draw
-  a_.patch_instances = [];
 }
 
 let a_ifps;

@@ -1,13 +1,14 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_div_empty, ui_backcolor } from '../util/ui_base.js';
-import { ui_patch_eff_panes, patch_add } from '../core-ui/ui_patch_eff.js';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
 import { ui_live_selection } from '../core-ui/ui_live.js';
 import { PadLayout } from '../util/PadLayout.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { store_restore_from } from '../core/store_url_parse.js';
 import { str_to_width_height } from '../core-ui/ui_canvas.js';
 import { store_export_json, store_export_url } from '../core/store_url_parse.js';
-import { ui_reset } from '../core/create_ui.js';
+import { patch_add } from '../core/patch_inst.js';
+import { patch_inst_clear } from '../core/patch_inst.js';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');
@@ -29,7 +30,7 @@ export function ui_patch_layout() {
       // console.log('ui_patch_layout', val);
       ui_prop_set('patch_layout', val);
       pad_layout_update();
-      ui_reset();
+      patch_inst_clear();
     });
   }
   ui_backcolor(div);

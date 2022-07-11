@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js';
-import { a_mediaDivs, create_mediaDiv, remove_mediaDivs } from '../core/create_mediaDiv.js';
+import { create_mediaDiv, remove_mediaDivs } from '../core/create_mediaDiv.js';
 import { get_capture_size } from '../core-ui/ui_capture.js';
 import { livem_restore } from '../core-ui/ui_live.js';
 import { ui_refresh } from '../core-ui/ui_patch.js';
@@ -94,7 +94,7 @@ function save_others(fn) {
 
 function save_other(fn, imedia) {
   console.log('save_other idev', imedia);
-  let vent = a_mediaDivs.value[imedia];
+  let vent = a_.mediaDivs[imedia];
   if (!vent) return;
   let vin = vent.capture;
   if (!vin) return;

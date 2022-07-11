@@ -1,6 +1,5 @@
 import { a_ } from '../let/a_ui.js';
 import { ui_div_empty } from '../util/ui_base.js';
-import { a_mediaDivs } from '../core/create_mediaDiv.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { liveMedia_attach, liveMedia_detach } from '../core/liveMedia_attach.js';
 
@@ -21,8 +20,8 @@ export function ui_live_selection() {
   let aSel = createSelect();
   div.child(aSel);
   // aSel.option('Canvas', 0);
-  for (let index = 0; index < a_mediaDivs.value.length; index++) {
-    let ent = a_mediaDivs.value[index];
+  for (let index = 0; index < a_.mediaDivs.length; index++) {
+    let ent = a_.mediaDivs[index];
     // aSel.option(ent.label, index + 1);
     aSel.option(ent.label, index);
   }
@@ -55,7 +54,7 @@ export function ui_live_selection() {
 }
 
 function media_for_livem_index(index) {
-  return a_mediaDivs.value[index];
+  return a_.mediaDivs[index];
 }
 
 export function livem_restore() {

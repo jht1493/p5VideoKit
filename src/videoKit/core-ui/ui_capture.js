@@ -2,7 +2,7 @@ import { a_ } from '../let/a_ui.js';
 import { init_size_in } from '../core-ui/ui_canvas.js';
 import { ui_prop_set } from '../core/ui_restore.js';
 import { media_reset } from '../core/create_mediaDevices.js';
-import { ui_reset } from '../core/create_ui.js';
+import { patch_inst_clear } from '../core/patch_inst.js';
 
 export function ui_capture_size(div) {
   // console.log('ui_capture_size');
@@ -18,7 +18,7 @@ export function ui_capture_size(div) {
     let se = a_capture_sizes_dict[label];
     ui_prop_set('capture_size', se.label);
     media_reset();
-    ui_reset();
+    patch_inst_clear();
   });
 }
 
