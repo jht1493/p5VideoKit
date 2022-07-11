@@ -17,8 +17,8 @@ export function check_reset_video() {
   console.log('create_video myVideo', myVideo);
   myVideo.muted = true;
   function wait_reload() {
-    // let delay = 5000;
-    let delay = 2000;
+    // let delay = 2000;
+    let delay = 1000;
     function func() {
       let nref = (random() + '').substring(2);
       nref = location_noquery() + '?v=' + nref;
