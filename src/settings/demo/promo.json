@@ -1,0 +1,77 @@
+{
+  "setting": "",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-1",
+  "patch_layout": "Single",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0
+    },
+    {
+      "vis": 0
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 2,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 0,
+  "patches": [
+    {
+      "eff_src": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "image",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_inits": {
+        "group": "screens",
+        "labeled": 0,
+        "label_align": "center",
+        "image_align": "none",
+        "loop": 0,
+        "period": 5,
+        "shuffle": 0,
+        "face": "none",
+        "align": "center",
+        "alpha": 255,
+        "color": "black",
+        "ncell": 32,
+        "shape": "circle",
+        "zoomed": 0,
+        "peg_width": 1,
+        "pan_ease": 0,
+        "export_on": 0,
+        "iimage": 0
+      }
+    },
+    {
+      "eff_src": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "ncell",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_inits": {
+        "ncell": 2
+      }
+    }
+  ]
+}

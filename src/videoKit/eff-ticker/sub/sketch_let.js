@@ -96,10 +96,10 @@ eff_ticker.prototype.let_init = function () {
   this.a_paused = 0;
   this.dot_cindex = 0;
   let nlines = Math.floor(this.panel_height / (this.pix_len * 8));
-  console.log('dot_panel_max', this.dot_panel_max);
-  console.log('panel_height', this.panel_height);
-  console.log('pix_len', this.pix_len);
-  console.log('nlines', nlines);
+  // console.log('dot_panel_max', this.dot_panel_max);
+  // console.log('panel_height', this.panel_height);
+  // console.log('pix_len', this.pix_len);
+  // console.log('nlines', nlines);
   this.day_next = 0;
 };
 

@@ -13,7 +13,7 @@ export function liveMedia_attach(mediaDiv) {
   if (mediaDevice) {
     stream = mediaDevice.stream;
     if (!stream) {
-      console.log('liveMedia_attach NO stream ent=', ent);
+      console.log('liveMedia_attach NO stream mediaDiv=', mediaDiv);
       return;
     }
     type = 'CAPTURE';

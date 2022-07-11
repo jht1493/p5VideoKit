@@ -2,9 +2,9 @@ eff_ticker.prototype.load_json = function () {
   this.json_loaded = 0;
   let url = 'https://epvisual.com/COVID-19-Impact/Dashboard/a0/c_data/world/c_series/United_States.json';
   loadJSON(url, (data) => {
-    console.log('load_json data last', JSON.stringify(data[data.length - 1]));
-    console.log('data.length', data.length);
-    console.log('load_count', this.load_count);
+    // console.log('load_json data last', JSON.stringify(data[data.length - 1]));
+    // console.log('data.length', data.length);
+    // console.log('load_count', this.load_count);
     this.json_loaded = 1;
     this.load_count++;
     this.data_index_start = 0;

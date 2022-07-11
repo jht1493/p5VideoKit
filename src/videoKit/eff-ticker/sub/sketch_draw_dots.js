@@ -35,9 +35,7 @@ eff_ticker.prototype.dot_next = function () {
   this.dot_count = 0;
   this.select_entry();
   if (this.dot_count_total + this.a_count > this.dot_panel_max) {
-    console.log('dot_next dot_panel_max dot_count_total', this.dot_count_total);
-    // !!@ 2-day
-    // fresh_canvas();
+    // console.log('dot_next dot_panel_max dot_count_total', this.dot_count_total);
     this.dot_count_total = 0;
   }
   if (this.cycle_done) {
@@ -55,7 +53,7 @@ eff_ticker.prototype.cycle_start_init = function () {
 };
 
 eff_ticker.prototype.fresh_canvas = function () {
-  console.log('fresh_canvas day_next', this.day_next);
+  // console.log('fresh_canvas day_next', this.day_next);
   this.clear_per_day();
   this.dot_x = 0;
   this.dot_y = 0;

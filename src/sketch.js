@@ -26,6 +26,7 @@ function setup() {
   // settings for import, will appear at top of settings menu
   let settings = [
     // corner
+    { label: 'promo', import_path: 'settings/demo/promo.json' },
     { label: 'ticker', import_path: 'settings/demo/ticker.json' },
     { label: 'corner', import_path: 'settings/demo/corner.json' },
     { label: 'fft-posenet-face', import_path: 'settings/demo/fft-posenet-face.json' },
