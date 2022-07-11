@@ -45,7 +45,7 @@ export function effectMeta_find(label) {
   let effMeta = a_effectMetaDict[label];
   if (!effMeta) {
     console.log('effectMeta_find label not found', label);
-    effMeta = a_effectMeta.values[0];
+    effMeta = a_effectMetas.value[0];
   }
   return effMeta;
 }

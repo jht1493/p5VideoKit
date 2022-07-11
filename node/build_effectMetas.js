@@ -37,17 +37,22 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
       if (ent.endsWith('.js')) {
         let pos = ent.lastIndexOf('.');
         let nent = ent.substring(0, pos);
-        imparts.push(dir + '/' + nent);
+        let npos = nent.indexOf('_');
+        let label = nent.substring(npos + 1);
+        let npath = dir + '/' + nent;
+        // imparts.push(dir + '/' + nent);
+        imparts.push({ label, npath });
       }
     });
   }
+  imparts.sort((item1, item2) => item1.label.localeCompare(item2.label));
   // console.log('imparts', imparts);
   // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix'
   // avoid JSON.stringify to get one per line
   let ents = imparts.map((ent) => {
-    let import_path = mods + '/' + ent;
-    let pos = ent.indexOf('_');
-    let label = ent.substring(pos + 1);
+    let import_path = mods + '/' + ent.npath;
+    // let pos = ent.npath.indexOf('_');
+    let label = ent.label;
     return `{ label: '${label}', import_path: '${import_path}' },`;
   });
   // console.log('ents', ents);

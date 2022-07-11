@@ -1,8 +1,7 @@
-// Example of simple effect show parameter in dashboard
 //
-export default class eff_example {
+export default class eff_ticker {
   static meta_props = {
-    num: [0, 1, 2, 3],
+    fruit: ['apple', 'banana', 'cherry'],
     text: {
       message: 'Hello',
     },
