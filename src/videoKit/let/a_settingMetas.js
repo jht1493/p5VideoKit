@@ -1,5 +1,5 @@
 // !!@ Generated File
-export let a_settingMetas = { value: [
+export let a_settingMetas = [
 { label: '0-club', import_path: 'settings/baked/0-club.json' },
 { label: '0-color-line-1900', import_path: 'settings/baked/0-color-line-1900.json' },
 { label: '0-covid19m', import_path: 'settings/baked/0-covid19m.json' },
@@ -18,4 +18,4 @@ export let a_settingMetas = { value: [
 { label: '0-street-slit', import_path: 'settings/baked/0-street-slit.json' },
 { label: '1-bestill', import_path: 'settings/baked/1-bestill.json' },
 { label: '9-data-slides', import_path: 'settings/baked/9-data-slides.json' },
-] };
+];

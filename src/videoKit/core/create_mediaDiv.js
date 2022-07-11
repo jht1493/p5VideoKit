@@ -54,9 +54,9 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
     // No live media yet, Add at end
     arr.push(ent);
     a_.lastMediaDivIndex = arr.length;
-    console.log('a_.lastMediaDivIndex', a_.lastMediaDivIndex);
+    // console.log('a_.lastMediaDivIndex', a_.lastMediaDivIndex);
   } else {
-    // For live media add the new entry in sort order by id
+    // For live media, add the new entry in sort order by id
     //  to keep entries in same order between reloads
     let index = a_.lastMediaDivIndex || 0;
     for (; index < arr.length; index++) {

@@ -16,8 +16,8 @@ import { canvas_size_default } from '../core-ui/ui_canvas.js';
 export function ui_restore(effects, settings, sizeResult) {
   let start = window.performance.now();
 
-  a_effectMetas.value = effects.concat(a_effectMetas.value);
-  a_settingMetas.value = settings.concat(a_settingMetas.value);
+  a_.effectMetas = effects.concat(a_effectMetas);
+  a_.settingMetas = settings.concat(a_settingMetas);
 
   effectMeta_init(() => {
     settingMetas_init(() => {
@@ -45,7 +45,7 @@ function settingMetas_init(donef) {
   a_.settings = [{ setting: '' }];
   let imports = [];
   let index = 1;
-  for (let sete of a_settingMetas.value) {
+  for (let sete of a_.settingMetas) {
     imports.push(setting_import(sete, index));
     index++;
   }

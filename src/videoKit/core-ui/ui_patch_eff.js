@@ -1,5 +1,4 @@
 import { a_ } from '../let/a_ui.js';
-import { a_effectMetas } from '../let/a_effectMetas.js';
 import { ui_div_empty } from '../util/ui_base.js';
 import { effectMeta_find } from '../core/effectMeta.js';
 import { a_mediaDivs } from '../core/create_mediaDiv.js';
@@ -53,8 +52,8 @@ export function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      for (let ii = 0; ii < a_effectMetas.value.length; ii++) {
-        aSel.option(a_effectMetas.value[ii].label, ii);
+      for (let ii = 0; ii < a_.effectMetas.length; ii++) {
+        aSel.option(a_.effectMetas[ii].label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_src.eff_label).index;
       aSel.selected(effIndex);
@@ -228,7 +227,7 @@ function patch_remove_last() {
 function patch_update_effIndex(aPatch, effIndex) {
   let eff_src = aPatch.eff_src;
   let ipatch = eff_src.ipatch;
-  eff_src.eff_label = a_effectMetas.value[effIndex].label;
+  eff_src.eff_label = a_.effectMetas[effIndex].label;
   a_.ui.patches[ipatch] = { eff_src, eff_inits: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();

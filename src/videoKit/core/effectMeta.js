@@ -1,4 +1,4 @@
-import { a_effectMetas } from '../let/a_effectMetas.js';
+import { a_ } from '../let/a_ui.js';
 
 let a_effectMetaDict;
 let a_import_err;
@@ -7,7 +7,7 @@ export function effectMeta_init(donef) {
   a_effectMetaDict = {};
   let imports = [];
   let index = 0;
-  for (let effMeta of a_effectMetas.value) {
+  for (let effMeta of a_.effectMetas) {
     a_effectMetaDict[effMeta.label] = effMeta;
     effMeta.index = index;
     if (!effMeta.factory) {
@@ -40,12 +40,12 @@ export function effectMeta_import(effMeta) {
 export function effectMeta_find(label) {
   if (!label) {
     console.log('effectMeta_find no label', label);
-    return a_effectMetas.value[0];
+    return a_.effectMetas[0];
   }
   let effMeta = a_effectMetaDict[label];
   if (!effMeta) {
     console.log('effectMeta_find label not found', label);
-    effMeta = a_effectMetas.value[0];
+    effMeta = a_.effectMetas[0];
   }
   return effMeta;
 }

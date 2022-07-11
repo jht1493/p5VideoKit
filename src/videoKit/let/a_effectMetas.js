@@ -1,5 +1,5 @@
 // !!@ Generated File
-export let a_effectMetas = { value: [
+export let a_effectMetas =  [
 { label: 'bestill', import_path: 'videoKit/eff/eff_bestill.js' },
 { label: 'bodypix', import_path: 'videoKit/eff/eff_bodypix.js' },
 { label: 'bright', import_path: 'videoKit/eff/eff_bright.js' },
@@ -27,4 +27,4 @@ export let a_effectMetas = { value: [
 { label: 'tile', import_path: 'videoKit/eff3/eff_tile.js' },
 { label: 'tile_clock', import_path: 'videoKit/eff3/eff_tile_clock.js' },
 { label: 'triangle', import_path: 'videoKit/eff3/eff_triangle.js' },
-] };
+];
