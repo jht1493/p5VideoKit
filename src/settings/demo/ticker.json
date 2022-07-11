@@ -40,7 +40,7 @@
       "eff_src": {
         "ipatch": 0,
         "imedia": 1,
-        "eff_label": "show",
+        "eff_label": "bestill",
         "urect": {
           "width": 960,
           "height": 540,
@@ -49,7 +49,8 @@
         }
       },
       "eff_inits": {
-        "step_patch": 0
+        "factor": 200,
+        "mirror": 0
       }
     },
     {
