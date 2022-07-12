@@ -26,14 +26,14 @@ function setup() {
   // settings for import, will appear at top of settings menu
   let settings = [
     // corner
+    { label: 'effects4', import_path: 'settings/demo/effects4.json' },
+    { label: 'circles4', import_path: 'settings/demo/circles4.json' },
+    { label: 'slant4', import_path: 'settings/demo/slant4.json' },
+    { label: 'live4', import_path: 'settings/demo/live4.json' },
     { label: 'promo', import_path: 'settings/demo/promo.json' },
     { label: 'ticker', import_path: 'settings/demo/ticker.json' },
     { label: 'corner', import_path: 'settings/demo/corner.json' },
     { label: 'fft-posenet-face', import_path: 'settings/demo/fft-posenet-face.json' },
-    { label: 'live4', import_path: 'settings/demo/live4.json' },
-    { label: 'slant-4', import_path: 'settings/demo/slant-4.json' },
-    { label: '2x2.json', import_path: 'settings/demo/2x2.json' },
-    { label: 'ncell-circles', import_path: 'settings/demo/ncell-circles.json' },
   ];
 
   videoKit = new p5VideoKit();
