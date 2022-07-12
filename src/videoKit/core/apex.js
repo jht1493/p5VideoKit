@@ -129,44 +129,10 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_src = uiPatch.eff_src;
   let { eff_label, imedia } = eff_src;
-  let effMeta = effectMeta_find(eff_label);
-  let media = a_.mediaDivs[imedia];
-  if (!media) {
-    // console.log('NO media imedia', imedia);
-  } else if (!media.ready()) {
-    if (!media.notReadyWarningIssued) {
-      console.log('imedia', imedia, 'NOT media.ready');
-      media.notReadyWarningIssued = 1;
-    }
-    let inst = a_.patch_instances[ipatch];
-    // console.log('NOT media.ready inst', inst);
-    if (inst && inst.livem_step) {
-      console.log('livem_step imedia', imedia);
-      inst.livem_step();
-    }
-    return;
-  } else if (media.notReadyWarningIssued) {
-    console.log('imedia', imedia, 'media.ready');
-    media.notReadyWarningIssued = 0;
-  }
-  let inst = a_.patch_instances[ipatch];
-  if (!inst) {
-    if (!media) {
-      // console.log('NO media for init imedia', imedia);
-      return;
-    }
-    let input = media.capture;
-    let videoKit = this;
-    let init = { videoKit, eff_src, input, media };
-    init = Object.assign(init, uiPatch.eff_inits);
-    inst = new effMeta.factory(init);
-    a_.patch_instances[ipatch] = inst;
-    this.mouse_event_check(inst);
-  } else if (media) {
-    // !!@ for tile - seek media up to date for live device connect/disconnect
-    inst.media = media;
-    inst.input = media.capture;
-  }
+
+  let inst = this.patch_inst_create(eff_label, imedia, ipatch, eff_src, uiPatch.eff_inits);
+
+  if (!inst) return;
   if (eff_src.ipipe && prior && prior.output) {
     // players must use the current value of .input
     // for pipe to work
