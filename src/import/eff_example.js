@@ -15,6 +15,7 @@ export default class eff_example {
   };
   constructor(props) {
     Object.assign(this, props);
+    // console.log('eff_example props', props);
     let { width, height } = this.input;
     this.output = createGraphics(width, height);
     console.log('eff_example constructor width, height', width, height);
