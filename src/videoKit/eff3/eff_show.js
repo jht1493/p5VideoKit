@@ -22,7 +22,6 @@ export default class eff_show_pad {
     this.trigger_check();
     if (!this.eff_src.ihide) {
       if (this.input) {
-        // if (this.input && this.input.width > 0 && this.input.height > 0) {
         let img = this.input.get();
         image_scaled_pad(img, this.eff_src.urect);
       }

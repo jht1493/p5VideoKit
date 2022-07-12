@@ -12,7 +12,6 @@ export default class eff_triangle {
   prepareOutput() {
     image_copy(this.img, this.input);
     while (!this.scan_draw_step()) {}
-    // image_scaled_pad(this.output, this.eff_src.urect);
   }
   init() {
     this.iimage = 0; // to sync with eff_tile
