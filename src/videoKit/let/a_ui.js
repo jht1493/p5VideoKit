@@ -1,6 +1,6 @@
 export let a_ = {
   app_ver: 'Present?v=108 ',
-  store_ver: '2',
+  store_ver: '3',
   store_name: 'Store-A',
   store_prefix: 'a',
   canvas_size_lock: 0,

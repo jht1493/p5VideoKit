@@ -46,7 +46,7 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
   return inst;
 };
 
-// p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
+// p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_src }) {
 
 export function patch_add(aPatch) {
   aPatch.eff_src.ipatch = a_.ui.patches.length;
