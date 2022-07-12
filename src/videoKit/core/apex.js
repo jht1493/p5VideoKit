@@ -55,8 +55,8 @@ p5VideoKit.prototype.draw = function () {
 
 // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
 //  imedia is mediaDiv indext or effect.output
-p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
-  let eff_src = { urect };
+p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_src }) {
+  if (!eff_src) eff_src = { eff_label, urect };
   let media;
   let input;
   if (typeof imedia === 'number') {
@@ -66,22 +66,38 @@ p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
   } else {
     input = imedia;
   }
-  let videoKit = this;
-  let init = Object.assign({ videoKit, eff_src, input, media }, props);
   let effMeta = effectMeta_find(eff_label);
+  let defaultProps = factory_prop_inits(effMeta.factory);
+  let videoKit = this;
+  let init = Object.assign(defaultProps, { videoKit, eff_src, input, media }, props);
+  // !!@ From patch_inst_create
+  //     let init = Object.assign({ videoKit, eff_src, input, media }, eff_inits);
   // console.log('createEffect effMeta', effMeta);
   return new effMeta.factory(init);
 };
 
-p5VideoKit.prototype.factoryPropInits = function (eff_label, init_props = {}) {
-  let effMeta = effectMeta_find(eff_label);
-  if (!effMeta) {
-    console.log('factory_prop_inits no effMeta');
-    return init_props;
-  }
-  // console.log('factory_prop_inits effMeta', effMeta);
-  return factory_prop_inits(effMeta.factory, init_props);
-};
+// p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_src, eff_inits) {
+
+// "eff_src": {
+//   "ipatch": 0,
+//   "imedia": 0,
+//   "eff_label": "image",
+//   "urect": {
+//     "width": 960,
+//     "height": 540,
+//     "x0": 0,
+//     "y0": 0
+//   }
+
+// p5VideoKit.prototype.factoryPropInits = function (eff_label, init_props = {}) {
+//   let effMeta = effectMeta_find(eff_label);
+//   if (!effMeta) {
+//     console.log('factory_prop_inits no effMeta');
+//     return init_props;
+//   }
+//   // console.log('factory_prop_inits effMeta', effMeta);
+//   return factory_prop_inits(effMeta.factory, init_props);
+// };
 
 // process input --> output
 // videoKit.prepareOutput(eff)
@@ -89,8 +105,8 @@ p5VideoKit.prototype.prepareOutput = function (eff) {
   eff.prepareOutput();
 };
 
-// videoKit.imageToCanvas( eff  )
-p5VideoKit.prototype.imageToCanvas = function (eff) {
+// videoKit.ouputToCanvas( eff  )
+p5VideoKit.prototype.ouputToCanvas = function (eff) {
   if (eff.output) {
     image_scaled_pad(eff.output, eff.eff_src.urect);
   }

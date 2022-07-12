@@ -50,7 +50,7 @@ export function effectMeta_find(label) {
   return effMeta;
 }
 
-export function factory_prop_inits(factory, init_props) {
+export function factory_prop_inits(factory, init_props = {}) {
   let dict = factory.meta_props;
   // console.log('factory_prop_inits dict', dict);
   let inits = Object.assign({}, init_props);

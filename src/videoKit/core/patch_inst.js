@@ -31,10 +31,10 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
       // console.log('NO media for init imedia', imedia);
       return;
     }
+    // !!@ TODO replace with createEffect
     let input = media.capture;
     let videoKit = this;
-    let init = { videoKit, eff_src, input, media };
-    init = Object.assign(init, eff_inits);
+    let init = Object.assign({ videoKit, eff_src, input, media }, eff_inits);
     inst = new effMeta.factory(init);
     a_.patch_instances[ipatch] = inst;
     this.mouse_event_check(inst);
@@ -45,6 +45,8 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
   }
   return inst;
 };
+
+// p5VideoKit.prototype.createEffect = function (eff_label, imedia, urect, props) {
 
 export function patch_add(aPatch) {
   aPatch.eff_src.ipatch = a_.ui.patches.length;

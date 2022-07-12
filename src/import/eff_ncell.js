@@ -1,5 +1,5 @@
 // Show a ncell by ncell grid of effects
-// eff_names is array of effects to cycle between
+// eff_labels is array of effects to cycle between
 //
 export default class eff_ncell {
   static meta_props = {
@@ -15,15 +15,15 @@ export default class eff_ncell {
       videoKit.prepareOutput(eff);
     }
     for (let eff of this.effs) {
-      videoKit.imageToCanvas(eff);
+      videoKit.ouputToCanvas(eff);
     }
   }
   init() {
     this.effs = [];
-    // let eff_names = ['circle', 'maze', 'bright', 'grid'];
-    let eff_names = ['circle'];
+    // let eff_labels = ['circle', 'maze', 'bright', 'grid'];
+    let eff_labels = ['circle'];
     let videoKit = this.videoKit;
-    let devIndex = 1;
+    let imedia = 1;
     let uout = this.eff_src.urect;
     let x0 = uout.x0;
     let y0 = uout.y0;
@@ -34,9 +34,9 @@ export default class eff_ncell {
     let n = this.ncell * this.ncell;
     for (let index = 0; index < n; index++) {
       let urect = { x0, y0, width: xstep, height: ystep };
-      let eff_name = eff_names[index % eff_names.length];
-      let props = videoKit.factoryPropInits(eff_name);
-      let eff = videoKit.createEffect(eff_name, devIndex, urect, props);
+      let eff_label = eff_labels[index % eff_labels.length];
+      let props = {};
+      let eff = videoKit.createEffect({ eff_label, imedia, urect, props });
       // console.log('eff_nbyn index', index, 'eff', eff);
       this.effs.push(eff);
       x0 += xstep;
@@ -50,3 +50,5 @@ export default class eff_ncell {
     }
   }
 }
+
+// p5VideoKit.prototype.createEffect = function ({eff_label, imedia, urect, props}) {

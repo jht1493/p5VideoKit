@@ -5,7 +5,7 @@ export function image_copy(image, src) {
 
 // Copy the pixels from src to dest.
 // Use when src has alpha that you want to preserve in dest
-function image_move(dest, src) {
+export function image_move(dest, src) {
   dest.loadPixels();
   src.loadPixels();
   let dpixels = dest.pixels;
