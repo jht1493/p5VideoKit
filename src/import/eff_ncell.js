@@ -24,7 +24,7 @@ export default class eff_ncell {
     let eff_labels = ['circle'];
     let videoKit = this.videoKit;
     let imedia = 1;
-    let uout = this.eff_src.urect;
+    let uout = this.eff_spec.urect;
     let x0 = uout.x0;
     let y0 = uout.y0;
     let uw = x0 + uout.width;

@@ -37,7 +37,7 @@
   "canvas_data_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 2,
         "eff_label": "image",
@@ -48,7 +48,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "group": "screens",
         "labeled": 0,
         "label_align": "center",
@@ -70,7 +70,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 2,
         "eff_label": "ncell",
@@ -81,7 +81,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "ncell": 2
       }
     }

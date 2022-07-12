@@ -20,10 +20,10 @@ export default class eff_show_pad {
   }
   prepareOutput() {
     this.trigger_check();
-    if (!this.eff_src.ihide) {
+    if (!this.eff_spec.ihide) {
       if (this.input) {
         let img = this.input.get();
-        image_scaled_pad(img, this.eff_src.urect);
+        image_scaled_pad(img, this.eff_spec.urect);
       }
     } else {
       this.output = this.input;

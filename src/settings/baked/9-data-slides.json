@@ -11,7 +11,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "image",
@@ -23,7 +23,7 @@
         },
         "ihide": 0
       },
-      "eff_inits": {
+      "eff_props": {
         "zoomed": 0,
         "pan_ease": 0,
         "group": "graph",
@@ -46,7 +46,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "image",
@@ -58,7 +58,7 @@
         },
         "ihide": 0
       },
-      "eff_inits": {
+      "eff_props": {
         "zoomed": 0,
         "pan_ease": 0,
         "group": "group",

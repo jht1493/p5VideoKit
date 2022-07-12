@@ -11,7 +11,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "circle",
@@ -22,14 +22,14 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "per_frame": 5,
         "ntry": 50,
         "period": 10
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "maze",
@@ -40,7 +40,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "ncell": 32,
         "weight": 0.5,
         "rate": "frame",
@@ -48,7 +48,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 1,
         "eff_label": "bright",
@@ -59,7 +59,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "scale": 16,
         "back_color": 0,
         "src_color": 255,
@@ -69,7 +69,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 3,
         "imedia": 1,
         "eff_label": "grid",
@@ -80,7 +80,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "ncell": 32,
         "margin": 1,
         "rate": "frame"

@@ -37,7 +37,7 @@
   "canvas_data_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "bestill",
@@ -48,13 +48,13 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "factor": 200,
         "mirror": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 0,
         "eff_label": "ticker",
@@ -65,7 +65,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "display_copy_right": 0
       }
     }

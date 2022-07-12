@@ -7,8 +7,8 @@ export default class eff_ticker {
   constructor(props) {
     Object.assign(this, props);
 
-    this.width = this.eff_src.urect.width;
-    this.height = this.eff_src.urect.height;
+    this.width = this.eff_spec.urect.width;
+    this.height = this.eff_spec.urect.height;
     this.output = createGraphics(width, height);
     // console.log('width', this.width);
 

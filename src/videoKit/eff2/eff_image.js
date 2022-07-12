@@ -106,11 +106,11 @@ export default class eff_image_show {
     this.init();
     this.zoom_init();
     this.align_center = this.image_align === 'center';
-    // console.log('eff_image_show pad', this.eff_src.urect);
+    // console.log('eff_image_show pad', this.eff_spec.urect);
     a_.my_canvas.mousePressed(() => {
       this.mousePressed();
     });
-    this.output = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
+    this.output = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
   }
   prepareOutput() {
     if (!this.img) return;
@@ -130,9 +130,9 @@ export default class eff_image_show {
   }
   show_image() {
     if (!this.zoomed) {
-      layer_image_scaled_pad(this.output, this.img, this.eff_src.urect, this.align_center);
+      layer_image_scaled_pad(this.output, this.img, this.eff_spec.urect, this.align_center);
     } else {
-      this.show_zoomed(this.img, this.eff_src.urect);
+      this.show_zoomed(this.img, this.eff_spec.urect);
     }
     this.draw_image_name();
   }
@@ -265,15 +265,15 @@ export default class eff_image_show {
     saveJSON(this.predictions, ename);
   }
   next_action(aPatch) {
-    if (!aPatch.eff_inits.iimage) aPatch.eff_inits.iimage = 0;
-    aPatch.eff_inits.iimage = (aPatch.eff_inits.iimage + 1) % this.images.length;
-    // if (aPatch.eff_inits.iimage < 0 || aPatch.eff_inits.iimage >= this.images.length - 1) aPatch.eff_inits.iimage = 0;
+    if (!aPatch.eff_props.iimage) aPatch.eff_props.iimage = 0;
+    aPatch.eff_props.iimage = (aPatch.eff_props.iimage + 1) % this.images.length;
+    // if (aPatch.eff_props.iimage < 0 || aPatch.eff_props.iimage >= this.images.length - 1) aPatch.eff_props.iimage = 0;
     ui_patch_update(aPatch);
   }
   previous_action(aPatch) {
-    if (!aPatch.eff_inits.iimage) aPatch.eff_inits.iimage = 0;
-    aPatch.eff_inits.iimage--;
-    // if (aPatch.eff_inits.iimage < 0) aPatch.eff_inits.iimage = this.images.length - 1;
+    if (!aPatch.eff_props.iimage) aPatch.eff_props.iimage = 0;
+    aPatch.eff_props.iimage--;
+    // if (aPatch.eff_props.iimage < 0) aPatch.eff_props.iimage = this.images.length - 1;
     ui_patch_update(aPatch);
   }
   reset_action(aPatch) {
@@ -308,14 +308,14 @@ export default class eff_image_show {
     loadImage(ipath, (img) => {
       console.log('eff_image_show img.width', img.width, 'height', img.height);
       console.log('eff_image_show output width', this.output.width, 'height', this.output.height);
-      console.log('eff_image_show pad width', this.eff_src.urect.width, 'height', this.eff_src.urect.height);
+      console.log('eff_image_show pad width', this.eff_spec.urect.width, 'height', this.eff_spec.urect.height);
 
       if (this.zoomed) {
-        this.zscale = img.width / this.eff_src.urect.width;
+        this.zscale = img.width / this.eff_spec.urect.width;
         this.zscale_org = this.zscale;
         console.log('eff_image_show this.zscale', this.zscale);
       }
-      console.log('ipatch', this.eff_src.ipatch, 'image_name', image_name);
+      console.log('ipatch', this.eff_spec.ipatch, 'image_name', image_name);
       this.imageReady(img, image_name);
     });
   }
@@ -385,7 +385,7 @@ export default class eff_image_show {
         return [255, 255, 255, this.alpha];
       };
     }
-    let urect = this.eff_src.urect;
+    let urect = this.eff_spec.urect;
     let w = urect.width;
     let h = urect.height;
     let ox0 = urect.x0;

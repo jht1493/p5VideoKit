@@ -11,7 +11,7 @@
   "live_chk": 1,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 2,
         "eff_label": "diff",
@@ -22,7 +22,7 @@
           "height": 960
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "threshold": 16,
         "period": 0,
         "back_color": "rgb(0,0,0)",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 1,
@@ -42,12 +42,12 @@
           "height": 480
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 1
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 2,
@@ -58,12 +58,12 @@
           "height": 240
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 1
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 3,
@@ -74,12 +74,12 @@
           "height": 240
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 1
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 4,
@@ -90,12 +90,12 @@
           "height": 240
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 1
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "imedia": 2,
         "eff_label": "show",
         "ipatch": 5,
@@ -106,7 +106,7 @@
           "height": 240
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 1
       }
     }

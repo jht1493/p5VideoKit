@@ -83,7 +83,7 @@ function save_others(fn) {
   // a_.ui.patches.imedia
   let imd = {};
   for (let ent of a_.ui.patches) {
-    let imedia = ent.eff_src.imedia;
+    let imedia = ent.eff_spec.imedia;
     if (imd[imedia]) {
       continue;
     }

@@ -13,7 +13,7 @@ export default class eff_show_none {
       if (src && src.avg_color) {
         noStroke();
         fill(src.avg_color);
-        let urect = this.eff_src.urect;
+        let urect = this.eff_spec.urect;
         rect(urect.x0, urect.y0, urect.width, urect.height);
       }
     }

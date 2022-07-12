@@ -39,7 +39,7 @@ export default class eff_mov_show {
     }
     // console.log('eff_mov_show', this.vid.duration(), this.vid.time());
     // image(this.vid, 0, 0, width, height);
-    image_scaled_pad(this.vid, this.eff_src.urect);
+    image_scaled_pad(this.vid, this.eff_spec.urect);
   }
   init() {
     this.predictions = [];
@@ -87,15 +87,15 @@ export default class eff_mov_show {
     }
   }
   next_action(aPatch) {
-    if (!aPatch.eff_inits.ifile) aPatch.eff_inits.ifile = 0;
-    aPatch.eff_inits.ifile = (aPatch.eff_inits.ifile + 1) % this.files.length;
-    // if (aPatch.eff_inits.ifile < 0 || aPatch.eff_inits.ifile >= this.files.length - 1) aPatch.eff_inits.ifile = 0;
+    if (!aPatch.eff_props.ifile) aPatch.eff_props.ifile = 0;
+    aPatch.eff_props.ifile = (aPatch.eff_props.ifile + 1) % this.files.length;
+    // if (aPatch.eff_props.ifile < 0 || aPatch.eff_props.ifile >= this.files.length - 1) aPatch.eff_props.ifile = 0;
     ui_patch_update(aPatch);
   }
   previous_action(aPatch) {
-    if (!aPatch.eff_inits.ifile) aPatch.eff_inits.ifile = 0;
-    aPatch.eff_inits.ifile--;
-    if (aPatch.eff_inits.ifile < 0) aPatch.eff_inits.ifile = this.files.length - 1;
+    if (!aPatch.eff_props.ifile) aPatch.eff_props.ifile = 0;
+    aPatch.eff_props.ifile--;
+    if (aPatch.eff_props.ifile < 0) aPatch.eff_props.ifile = this.files.length - 1;
     ui_patch_update(aPatch);
   }
 }

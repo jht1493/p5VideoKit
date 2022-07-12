@@ -154,12 +154,12 @@ export function store_restore_from(ent) {
 }
 
 function store_restore_ent(ent) {
-  // store_restore_create_eff_src(ent);
+  // store_restore_create_eff_spec(ent);
   if (a_.canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
     for (let patch of ent.patches) {
-      patch.eff_src.urect_ref = Object.assign({}, patch.eff_src.urect);
+      patch.eff_spec.urect_ref = Object.assign({}, patch.eff_spec.urect);
     }
   }
   // Save settings to local storage
@@ -188,7 +188,7 @@ function store_restore_ent(ent) {
 
 // "patches": [
 //   {
-//     "eff_src": {
+//     "eff_spec": {
 //       "ipatch": 0,
 //       "imedia": 1,
 //       "eff_label": "bestill",
@@ -199,14 +199,14 @@ function store_restore_ent(ent) {
 //         "y0": 0
 //       }
 //     },
-//     "eff_inits": {
+//     "eff_props": {
 //       "factor": 200,
 //       "mirror": 0
 //     }
 //   }
 // ],
 
-// let eff_src_props = {
+// let eff_spec_props = {
 //   ipatch: 1,
 //   imedia: 1,
 //   eff_label: 1,
@@ -216,22 +216,22 @@ function store_restore_ent(ent) {
 //   ipipe: 1,
 // };
 
-// function store_restore_create_eff_src(ent) {
+// function store_restore_create_eff_spec(ent) {
 //   // For prior version of patches recode to { src, eff }
 //   let npatches = [];
 //   for (let patch of ent.patches) {
-//     if (patch.eff_src) continue;
-//     let eff_src = {};
+//     if (patch.eff_spec) continue;
+//     let eff_spec = {};
 //     let eff = {};
 //     for (let prop in patch) {
 //       if (prop === 'ieff') continue;
-//       if (eff_src_props[prop]) {
-//         eff_src[prop] = patch[prop];
+//       if (eff_spec_props[prop]) {
+//         eff_spec[prop] = patch[prop];
 //       } else {
 //         eff[prop] = patch[prop];
 //       }
 //     }
-//     npatches.push({ eff_src, eff });
+//     npatches.push({ eff_spec, eff });
 //   }
 //   if (npatches.length > 0) {
 //     ent.patches = npatches;

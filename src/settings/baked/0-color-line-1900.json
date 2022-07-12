@@ -11,7 +11,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "none",
@@ -22,12 +22,12 @@
           "height": 1080
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "back_color_patch": 5
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "none",
@@ -38,12 +38,12 @@
           "height": 1080
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "back_color_patch": 6
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 1,
         "eff_label": "none",
@@ -54,12 +54,12 @@
           "height": 960
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "back_color_patch": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 3,
         "imedia": 1,
         "eff_label": "image",
@@ -70,7 +70,7 @@
           "height": 960
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "face": "mesh",
         "align": "right",
         "alpha": 255,
@@ -99,7 +99,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 4,
         "imedia": 1,
         "eff_label": "face_mesh",
@@ -110,7 +110,7 @@
           "height": 960
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "align": "left",
         "back_color": 0,
@@ -132,7 +132,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 5,
         "imedia": 1,
         "eff_label": "image_mesh",
@@ -143,7 +143,7 @@
           "height": 960
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "image_patch": 4,
         "align": "left",
         "alpha": 255,

@@ -118,8 +118,8 @@ export default class eff_face_mesh {
     // console.log('eff_face_mesh img w', w, 'h', h);
     this.img = createImage(w, h);
     if (this.hi_rez) {
-      w = this.eff_src.urect.width;
-      h = this.eff_src.urect.height;
+      w = this.eff_spec.urect.width;
+      h = this.eff_spec.urect.height;
     }
     // console.log('eff_face_mesh hi_rez', this.hi_rez, 'w', w, 'h', h);
     this.output = createGraphics(w, h);

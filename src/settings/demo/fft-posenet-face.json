@@ -25,7 +25,7 @@
   "canvas_data_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 2,
         "eff_label": "fft_graph",
@@ -36,12 +36,12 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "max": 5
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "pose_net",
@@ -52,7 +52,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 180,
         "ndetect": 4,
         "points": 0,
@@ -68,7 +68,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 1,
         "eff_label": "face_mesh",
@@ -79,7 +79,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "align": "none",
         "back_color": 0,
@@ -101,7 +101,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 3,
         "imedia": 0,
         "eff_label": "bestill",
@@ -112,7 +112,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "factor": 10,
         "mirror": 0
       }

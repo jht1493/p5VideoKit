@@ -12,7 +12,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "ncell",
@@ -23,7 +23,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "ncell": 2
       }
     }

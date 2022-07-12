@@ -11,7 +11,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "bestill",
@@ -22,13 +22,13 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "factor": 200,
         "mirror": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "pose_net",
@@ -39,7 +39,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "ndetect": 4,
         "points": 0,
@@ -53,7 +53,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 1,
         "eff_label": "face_mesh",
@@ -64,7 +64,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "align": "none",
         "back_color": 0,

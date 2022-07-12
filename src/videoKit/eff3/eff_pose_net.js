@@ -62,7 +62,7 @@ export default class eff_pose_net {
     }
     // noFill();
     strokeWeight(this.stroke_weight);
-    let urect = this.eff_src.urect;
+    let urect = this.eff_spec.urect;
     // let w = urect.width;
     let h = urect.height;
     this.px0 = urect.x0;
@@ -242,7 +242,7 @@ export default class eff_pose_net {
   drawKeypoints(poses) {
     // fill('yellow');
     noStroke();
-    let urect = this.eff_src.urect;
+    let urect = this.eff_spec.urect;
     // let w = urect.width;
     let h = urect.height;
     let px0 = urect.x0;
@@ -274,7 +274,7 @@ export default class eff_pose_net {
   drawSkeleton(poses) {
     strokeWeight(this.skel_weight);
     // stroke('red');
-    let urect = this.eff_src.urect;
+    let urect = this.eff_spec.urect;
     // let w = urect.width;
     let h = urect.height;
     let px0 = urect.x0;

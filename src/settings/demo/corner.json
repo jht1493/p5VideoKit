@@ -40,7 +40,7 @@
   "canvas_data_chk": 1,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 6,
         "eff_label": "slit_scan",
@@ -51,7 +51,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "xdir": 0,
         "step": 1,
         "auto_flip": 0,
@@ -59,7 +59,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 6,
         "eff_label": "pose_net",
@@ -70,7 +70,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "ndetect": 4,
         "figure_color": 0,
@@ -86,7 +86,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 6,
         "eff_label": "slit_scan",
@@ -97,7 +97,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "xdir": 1,
         "step": 1,
         "auto_flip": 0,
@@ -105,7 +105,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 3,
         "imedia": 6,
         "eff_label": "show",
@@ -116,7 +116,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 0
       }
     }

@@ -55,8 +55,8 @@ p5VideoKit.prototype.draw = function () {
 
 // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
 //  imedia is mediaDiv indext or effect.output
-p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_src }) {
-  if (!eff_src) eff_src = { eff_label, urect };
+p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_spec }) {
+  if (!eff_spec) eff_spec = { eff_label, urect };
   let media;
   let input;
   if (typeof imedia === 'number') {
@@ -69,16 +69,16 @@ p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props,
   let effMeta = effectMeta_find(eff_label);
   let defaultProps = factory_prop_inits(effMeta.factory);
   let videoKit = this;
-  let init = Object.assign(defaultProps, { videoKit, eff_src, input, media }, props);
+  let init = Object.assign(defaultProps, { videoKit, eff_spec, input, media }, props);
   // !!@ From patch_inst_create
-  //     let init = Object.assign({ videoKit, eff_src, input, media }, eff_inits);
+  //     let init = Object.assign({ videoKit, eff_spec, input, media }, eff_props);
   // console.log('createEffect effMeta', effMeta);
   return new effMeta.factory(init);
 };
 
-// p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_src, eff_inits) {
+// p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_spec, eff_props) {
 
-// "eff_src": {
+// "eff_spec": {
 //   "ipatch": 0,
 //   "imedia": 0,
 //   "eff_label": "image",
@@ -108,7 +108,7 @@ p5VideoKit.prototype.prepareOutput = function (eff) {
 // videoKit.ouputToCanvas( eff  )
 p5VideoKit.prototype.ouputToCanvas = function (eff) {
   if (eff.output) {
-    image_scaled_pad(eff.output, eff.eff_src.urect);
+    image_scaled_pad(eff.output, eff.eff_spec.urect);
   }
 };
 
@@ -123,7 +123,7 @@ p5VideoKit.prototype.mediaDivAt = function (index) {
 };
 
 // {
-//   "eff_src": {
+//   "eff_spec": {
 //     "ipatch": 2,
 //     "imedia": 0,
 //     "eff_label": "bestill",
@@ -134,7 +134,7 @@ p5VideoKit.prototype.mediaDivAt = function (index) {
 //       "y0": 0
 //     }
 //   },
-//   "eff_inits": {
+//   "eff_props": {
 //     "factor": 20,
 //     "mirror": 0
 //   }
@@ -143,20 +143,20 @@ p5VideoKit.prototype.mediaDivAt = function (index) {
 p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   let uiPatch = a_.ui.patches[ipatch];
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
-  let eff_src = uiPatch.eff_src;
-  let { eff_label, imedia } = eff_src;
+  let eff_spec = uiPatch.eff_spec;
+  let { eff_label, imedia } = eff_spec;
 
-  let inst = this.patch_inst_create(eff_label, imedia, ipatch, eff_src, uiPatch.eff_inits);
+  let inst = this.patch_inst_create(eff_label, imedia, ipatch, eff_spec, uiPatch.eff_props);
 
   if (!inst) return;
-  if (eff_src.ipipe && prior && prior.output) {
+  if (eff_spec.ipipe && prior && prior.output) {
     // players must use the current value of .input
     // for pipe to work
     inst.input = prior.output;
   }
   inst.prepareOutput();
-  if (!eff_src.ihide && inst.output) {
-    image_scaled_pad(inst.output, eff_src.urect);
+  if (!eff_spec.ihide && inst.output) {
+    image_scaled_pad(inst.output, eff_spec.urect);
   }
   return inst;
 };

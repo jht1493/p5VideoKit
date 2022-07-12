@@ -7,7 +7,7 @@ export default class eff_bodypix {
     this.init(this);
   }
   prepareOutput() {
-    if (this.eff_src.ihide) return;
+    if (this.eff_spec.ihide) return;
     this.bodypix.segment(this.video, (error, results) => {
       this.gotResults(error, results);
     });
@@ -24,7 +24,7 @@ export default class eff_bodypix {
     this.bodypix = ml5.bodyPix(options);
   }
   gotResults(error, result) {
-    if (this.eff_src.ihide) return;
+    if (this.eff_spec.ihide) return;
     if (error) {
       console.log('eff_body_pix', error);
       return;

@@ -9,10 +9,10 @@ export default class eff_fft_graph {
   prepareOutput() {
     this.output.clear();
     this.draw_fft();
-    // image_scaled_pad(this.output, this.eff_src.urect);
+    // image_scaled_pad(this.output, this.eff_spec.urect);
   }
   init() {
-    let { width, height } = this.eff_src.urect;
+    let { width, height } = this.eff_spec.urect;
     this.output = createGraphics(width, height);
     this.output.noStroke();
     this.alpha = 20;
@@ -57,7 +57,7 @@ export default class eff_fft_graph {
     this.draw_fft_max();
   }
   draw_fft_max() {
-    let urect = this.eff_src.urect;
+    let urect = this.eff_spec.urect;
     let { width, height } = urect;
     let output = this.output;
     let x = width - this.fft_maxs.length * this.vol_len;

@@ -138,7 +138,7 @@ export default class eff_loop {
     }
   }
   draw_freeze() {
-    image_scaled_pad(this.img_freeze, this.eff_src.urect);
+    image_scaled_pad(this.img_freeze, this.eff_spec.urect);
   }
   advance_check() {
     if (this.freeze_patch) {

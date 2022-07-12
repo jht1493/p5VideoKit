@@ -4,7 +4,7 @@ import { ui_div_empty } from '../util/ui_base.js';
 import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js';
 import { effectMeta_find } from './effectMeta.js';
 
-p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_src, eff_inits) {
+p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_spec, eff_props) {
   let effMeta = effectMeta_find(eff_label);
   let media = a_.mediaDivs[imedia];
   if (!media) {
@@ -34,7 +34,7 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
     // !!@ TODO replace with createEffect
     let input = media.capture;
     let videoKit = this;
-    let init = Object.assign({ videoKit, eff_src, input, media }, eff_inits);
+    let init = Object.assign({ videoKit, eff_spec, input, media }, eff_props);
     inst = new effMeta.factory(init);
     a_.patch_instances[ipatch] = inst;
     this.mouse_event_check(inst);
@@ -46,10 +46,10 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
   return inst;
 };
 
-// p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_src }) {
+// p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_spec }) {
 
 export function patch_add(aPatch) {
-  aPatch.eff_src.ipatch = a_.ui.patches.length;
+  aPatch.eff_spec.ipatch = a_.ui.patches.length;
   a_.ui.patches.push(aPatch);
   ui_patch_update(aPatch);
   ui_refresh();
@@ -81,10 +81,10 @@ function patch_remove_last() {
 }
 
 export function patch_update_effIndex(aPatch, effIndex) {
-  let eff_src = aPatch.eff_src;
-  let ipatch = eff_src.ipatch;
-  eff_src.eff_label = a_.effectMetas[effIndex].label;
-  a_.ui.patches[ipatch] = { eff_src, eff_inits: {} };
+  let eff_spec = aPatch.eff_spec;
+  let ipatch = eff_spec.ipatch;
+  eff_spec.eff_label = a_.effectMetas[effIndex].label;
+  a_.ui.patches[ipatch] = { eff_spec, eff_props: {} };
   ui_patch_update(aPatch);
   ui_patch_eff_panes();
 }

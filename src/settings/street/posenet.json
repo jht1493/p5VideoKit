@@ -11,7 +11,7 @@
   "live_chk": 0,
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 1,
         "eff_label": "bright",
@@ -28,7 +28,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "scale": 16,
         "back_color": 0,
         "src_color": 255,
@@ -37,7 +37,7 @@
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 1,
         "eff_label": "pose_net",
@@ -54,7 +54,7 @@
           "y0": 0
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "alpha": 255,
         "ndetect": 1,
         "points": 0,

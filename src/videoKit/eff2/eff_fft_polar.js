@@ -16,10 +16,10 @@ export default class eff_fft_polar {
       this.period_next();
     });
     this.draw_fft();
-    image_scaled_pad(this.layer, this.eff_src.urect);
+    image_scaled_pad(this.layer, this.eff_spec.urect);
   }
   init() {
-    this.layer = createGraphics(this.eff_src.urect.width, this.eff_src.urect.height);
+    this.layer = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
     let layer = this.layer;
     layer.noStroke();
     this.alpha_line = 10;

@@ -87,7 +87,7 @@ export function ui_patch_layout() {
 
 export function ui_patch_buttons() {
   createButton('Add Patch').mousePressed(function () {
-    let newPatch = { eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } };
+    let newPatch = { eff_spec: { ipatch: 0, imedia: 1, eff_label: 'show' } };
     patch_add(newPatch);
   });
   // createButton('Remove Patch').mousePressed(function () {
@@ -114,7 +114,7 @@ export function ui_patch_update(aPatch) {
   // console.log('ui_patch_update');
   ui_prop_set('patches', a_.ui.patches);
   if (!aPatch) return;
-  let ipatch = aPatch.eff_src.ipatch;
+  let ipatch = aPatch.eff_spec.ipatch;
   // console.log('ui_patch_update ipatch', ipatch);
   let inst = a_.patch_instances[ipatch];
   // console.log('ui_patch_update inst', inst);
@@ -141,23 +141,23 @@ export function pad_layout_update() {
   for (let ipatch = 0; ipatch < a_.ui.patches.length; ipatch++) {
     let uiPatch = a_.ui.patches[ipatch];
     if (uiPatch) {
-      let eff_src = uiPatch.eff_src;
-      if (eff_src.ipatch != ipatch) {
+      let eff_spec = uiPatch.eff_spec;
+      if (eff_spec.ipatch != ipatch) {
         // ipatch change due to deletes
-        console.log('!!@ eff_src.ipatch', eff_src.ipatch, 'ipatch', ipatch);
-        eff_src.ipatch = ipatch;
+        console.log('!!@ eff_spec.ipatch', eff_spec.ipatch, 'ipatch', ipatch);
+        eff_spec.ipatch = ipatch;
       }
       if (layout) {
         urect = layout.next();
-      } else if (eff_src.urect_ref) {
-        urect = Object.assign({}, eff_src.urect_ref);
+      } else if (eff_spec.urect_ref) {
+        urect = Object.assign({}, eff_spec.urect_ref);
         console.log('pad_layout_ assign pad', JSON.stringify(urect));
         pads_resize_pad(urect);
       } else {
         // !!@ Error no urects_ref
         console.log('!!@ pad_layout_update urects_ref missing ipatch', ipatch, 'uiPatch', JSON.stringify(uiPatch));
       }
-      eff_src.urect = urect;
+      eff_spec.urect = urect;
       urects_count++;
     }
     // console.log('pad_layout_update uiPatch', JSON.stringify(uiPatch));

@@ -1,6 +1,6 @@
 export let a_ = {
   app_ver: 'Present?v=108 ',
-  store_ver: '3',
+  store_ver: '5',
   store_name: 'Store-A',
   store_prefix: 'a',
   canvas_size_lock: 0,
@@ -23,7 +23,7 @@ export let a_ = {
     urects_count: 0,
     canvas_resize_ref: '',
     canvas_data_chk: 0,
-    patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
+    patches: [{ eff_spec: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
   },
   settings: [],
   patch_instances: [],

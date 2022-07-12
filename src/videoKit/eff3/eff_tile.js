@@ -63,20 +63,20 @@ export default class eff_tile {
   }
   livem_step() {
     if (!this.livem_cycle) return;
-    let ipatch = this.eff_src.ipatch;
+    let ipatch = this.eff_spec.ipatch;
     // console.log('livem_step ipatch', ipatch);
     let uiPatch = a_.ui.patches[ipatch];
-    let imedia = uiPatch.eff_src.imedia;
+    let imedia = uiPatch.eff_spec.imedia;
     if (imedia >= a_.mediaDivs.length) {
       imedia = this.ifirst;
     }
     imedia = (imedia + 1) % a_.mediaDivs.length;
     if (imedia < this.ifirst) imedia = this.ifirst;
-    if (imedia >= a_.mediaDivs.length) imedia = uiPatch.eff_src.imedia;
-    let change = uiPatch.eff_src.imedia !== imedia;
+    if (imedia >= a_.mediaDivs.length) imedia = uiPatch.eff_spec.imedia;
+    let change = uiPatch.eff_spec.imedia !== imedia;
     if (change) {
-      console.log('livem_step draw_step old imedia', uiPatch.eff_src.imedia, 'new', imedia);
-      uiPatch.eff_src.imedia = imedia;
+      console.log('livem_step draw_step old imedia', uiPatch.eff_spec.imedia, 'new', imedia);
+      uiPatch.eff_spec.imedia = imedia;
       this.draw_step();
     }
     this.check_mediaDivs();
@@ -130,10 +130,10 @@ export default class eff_tile {
   }
   draw_all() {
     this.check_mediaDivs();
-    let ipatch = this.eff_src.ipatch;
+    let ipatch = this.eff_spec.ipatch;
     let uiPatch = a_.ui.patches[ipatch];
-    let imedia = uiPatch.eff_src.imedia % a_.mediaDivs.length;
-    if (imedia != uiPatch.eff_src.imedia) {
+    let imedia = uiPatch.eff_spec.imedia % a_.mediaDivs.length;
+    if (imedia != uiPatch.eff_spec.imedia) {
       return;
     }
     let more = a_.mediaDivs.length - this.ifirst;
@@ -160,7 +160,7 @@ export default class eff_tile {
     // let simg = this.input;
     if (this.advancePending) return;
     if (!this.media.ready()) {
-      console.log('draw_single NOT Ready imedia', this.eff_src.imedia);
+      console.log('draw_single NOT Ready imedia', this.eff_spec.imedia);
       return;
     }
     let sx = 0;

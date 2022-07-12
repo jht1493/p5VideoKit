@@ -15,10 +15,10 @@ export function ui_patch_eff_panes() {
     droot.child(div);
 
     let aPatch = a_.ui.patches[ipatch];
-    if (!aPatch.eff_inits) {
-      aPatch.eff_inits = {};
+    if (!aPatch.eff_props) {
+      aPatch.eff_props = {};
     }
-    // a_.ui.patches: [{ eff_src: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
+    // a_.ui.patches: [{ eff_spec: { ipatch: 0, imedia: 1, eff_label: 'show' } }],
 
     create_patch_selection();
 
@@ -40,12 +40,12 @@ export function ui_patch_eff_panes() {
     }
 
     function create_checkbox(label, prop) {
-      let chk = createCheckbox(label, aPatch.eff_src[prop]);
+      let chk = createCheckbox(label, aPatch.eff_spec[prop]);
       div.child(chk);
       chk.style('display:inline');
       chk.changed(function () {
         let state = this.checked() ? 1 : 0;
-        aPatch.eff_src[prop] = state;
+        aPatch.eff_spec[prop] = state;
         ui_patch_update(aPatch);
       });
     }
@@ -58,7 +58,7 @@ export function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_.effectMetas.length; ii++) {
         aSel.option(a_.effectMetas[ii].label, ii);
       }
-      let effIndex = effectMeta_find(aPatch.eff_src.eff_label).index;
+      let effIndex = effectMeta_find(aPatch.eff_spec.eff_label).index;
       aSel.selected(effIndex);
       aSel.changed(function () {
         let effIndex = parseFloat(this.value());
@@ -75,17 +75,17 @@ export function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_.mediaDivs.length; ii++) {
         aSel.option(a_.mediaDivs[ii].label, ii);
       }
-      aSel.selected(aPatch.eff_src.imedia);
+      aSel.selected(aPatch.eff_spec.imedia);
       aSel.changed(function () {
         let ii = this.value();
-        aPatch.eff_src.imedia = parseFloat(ii);
+        aPatch.eff_spec.imedia = parseFloat(ii);
         ui_patch_update(aPatch);
       });
     }
 
     function create_settings() {
       // console.log('create_settings aPatch', aPatch);
-      let effMeta = effectMeta_find(aPatch.eff_src.eff_label);
+      let effMeta = effectMeta_find(aPatch.eff_spec.eff_label);
       create_selections_for_dict(effMeta.factory.meta_props);
 
       // Get props for imported module via import_factory
@@ -134,15 +134,15 @@ export function ui_patch_eff_panes() {
             btn.style('margin-left', '10px');
           }
         } else if (iprop === 'text_input') {
-          let oldVal = aPatch.eff_inits[prop];
+          let oldVal = aPatch.eff_props[prop];
           if (oldVal === undefined) {
             oldVal = '' + item;
-            aPatch.eff_inits[prop] = oldVal;
+            aPatch.eff_props[prop] = oldVal;
           }
           let elm = createInput(oldVal).input(function () {
             let aVal = this.value();
             console.log('text_input ' + aVal);
-            aPatch.eff_inits[prop] = aVal;
+            aPatch.eff_props[prop] = aVal;
             ui_patch_update(aPatch);
           });
           div.child(elm);
@@ -156,7 +156,7 @@ export function ui_patch_eff_panes() {
     }
 
     function button_action(item, aPatch) {
-      let inst = a_.patch_instances[aPatch.eff_src.ipatch];
+      let inst = a_.patch_instances[aPatch.eff_spec.ipatch];
       item(inst, aPatch);
     }
 
@@ -176,10 +176,10 @@ export function ui_patch_eff_panes() {
         aSel.option(arr[ii]);
       }
       // Get prop value or use first in arr as default if missing
-      let aVal = aPatch.eff_inits[prop];
+      let aVal = aPatch.eff_props[prop];
       if (aVal === undefined) {
         aVal = arr[0];
-        aPatch.eff_inits[prop] = aVal;
+        aPatch.eff_props[prop] = aVal;
       }
       let isNum = typeof aVal === 'number';
       // console.log('create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
@@ -187,7 +187,7 @@ export function ui_patch_eff_panes() {
       aSel.changed(function () {
         let aVal = this.value();
         if (isNum) aVal = parseFloat(aVal);
-        aPatch.eff_inits[prop] = aVal;
+        aPatch.eff_props[prop] = aVal;
         ui_patch_update(aPatch);
       });
     }

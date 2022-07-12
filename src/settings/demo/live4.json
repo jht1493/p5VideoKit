@@ -37,7 +37,7 @@
   ],
   "patches": [
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 0,
         "imedia": 3,
         "eff_label": "show",
@@ -48,12 +48,12 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 1,
         "imedia": 4,
         "eff_label": "show",
@@ -64,12 +64,12 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 2,
         "imedia": 5,
         "eff_label": "show",
@@ -80,12 +80,12 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 0
       }
     },
     {
-      "eff_src": {
+      "eff_spec": {
         "ipatch": 3,
         "imedia": 6,
         "eff_label": "show",
@@ -96,7 +96,7 @@
           "height": 270
         }
       },
-      "eff_inits": {
+      "eff_props": {
         "step_patch": 0
       }
     }
