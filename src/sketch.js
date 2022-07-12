@@ -25,7 +25,8 @@ function setup() {
 
   // settings for import, will appear at top of settings menu
   let settings = [
-    // corner
+    //
+    { label: 'grid1', import_path: 'settings/demo/grid1.json' },
     { label: 'effects4', import_path: 'settings/demo/effects4.json' },
     { label: 'circles4', import_path: 'settings/demo/circles4.json' },
     { label: 'slant4', import_path: 'settings/demo/slant4.json' },

@@ -51,10 +51,17 @@ export function store_url_parse(urlResult) {
     let d_str = params['al'] || params['d'];
     if (d_str) {
       let url = './settings/' + d_str;
-      loadJSON(url, (settings) => {
-        console.log('d_str settings', settings);
-        urlResult({ uiSet, settings });
-      });
+      loadJSON(
+        url,
+        (settings) => {
+          console.log('d_str settings', settings);
+          urlResult({ uiSet, settings });
+        },
+        (err) => {
+          console.log('loadJSON err', err);
+          urlResult({ uiSet });
+        }
+      );
       return;
     }
   }
