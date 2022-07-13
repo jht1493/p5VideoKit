@@ -74,3 +74,5 @@ Built using
 - [p5LiveMedia](https://github.com/vanevery/p5LiveMedia)
 
 ![facet](docs/media/1-show-posenet-facemesh_2021-12-12_28.png)
+
+![creative-energy-2017-11](docs/media/creative-energy-2017-11.jpg)
