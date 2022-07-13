@@ -2,7 +2,7 @@
 const path = require('path');
 
 const { get_build_vers, build_ver_run } = require('./build_ver');
-const build_index = require('./build_index');
+// const build_index = require('./build_index');
 const build_webdb = require('./build_webdb');
 const build_settings = require('./build_settings');
 const build_effectMetas = require('./build_effectMetas');

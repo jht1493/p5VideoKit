@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const { enum_files } = require('./enum_files');
 
-const updateBuild = 0;
+const updateBuild = 1;
 
 function get_build_vers(buildnum_path) {
   const str = fs.readFileSync(buildnum_path, 'utf8');

@@ -1,13 +1,13 @@
-import { a_ } from '../let/a_ui.js?v=112';
-import { ui_restore } from './ui_restore.js?v=112';
-import { init_mediaDivs } from './create_mediaDiv.js?v=112';
-import { create_ui } from './create_ui.js?v=112';
-import { media_enum } from './create_mediaDevices.js?v=112';
-import { effectMeta_find, factory_prop_inits } from './effectMeta.js?v=112';
-import { pad_layout_update } from '../core-ui/ui_patch.js?v=112';
-import { update_ui } from './create_ui.js?v=112';
-import { image_scaled_pad } from '../util/image.js?v=112';
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=112';
+import { a_ } from '../let/a_ui.js?v=113';
+import { ui_restore } from './ui_restore.js?v=113';
+import { init_mediaDivs } from './create_mediaDiv.js?v=113';
+import { create_ui } from './create_ui.js?v=113';
+import { media_enum } from './create_mediaDevices.js?v=113';
+import { effectMeta_find, factory_prop_inits } from './effectMeta.js?v=113';
+import { pad_layout_update } from '../core-ui/ui_patch.js?v=113';
+import { update_ui } from './create_ui.js?v=113';
+import { image_scaled_pad } from '../util/image.js?v=113';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=113';
 
 p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
   a_.my_canvas = this.my_canvas;
