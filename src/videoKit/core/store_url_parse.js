@@ -50,6 +50,9 @@ export function store_url_parse(urlResult) {
     // ?d=settings-sound/face-posenet.json
     let d_str = params['al'] || params['d'];
     if (d_str) {
+      if (d_str.startsWith('settings/')) {
+        d_str = d_str.substring('settings/'.length);
+      }
       let url = './settings/' + d_str;
       loadJSON(
         url,

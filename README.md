@@ -5,7 +5,7 @@ You can apply visual effects
 to live video from a camera or from the internet.
 The visual effects are written in p5js.
 
-The code and this site in development.
+The code and documentation site is in development.
 We welcome your feedback and help to improve the user interface and documentation.
 
 - started as code for interactive installation at NYU-ITP Brooklyn 2021
@@ -29,7 +29,7 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 [Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - a pixelized grid of video. Hit the Reset button if you don't see any video.
 
-[4 effects demo](https://jht1493.net/p5VideoKit/dem1/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Patchn drop down to select an effect.
+[4 effects demo](https://jht1493.net/p5VideoKit/dem1/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Patch drop down to select an effect.
 
 ## The interface
 

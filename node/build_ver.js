@@ -44,5 +44,3 @@ export function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files
   if (updateBuild) writeFileSync(buildnum_path, build_ver.next + '');
   console.log('build_ver.next', build_ver.next);
 }
-
-export default { get_build_vers, build_ver_run };

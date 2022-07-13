@@ -8,7 +8,7 @@ import { join } from 'path';
 // mods=videoKit directory for modules
 //  videoKit/eff*
 //
-function build_effectMetas(effectMetasPath, src_path, mods) {
+export default function build_effectMetas(effectMetasPath, src_path, mods) {
   const effectModPath = join(src_path, mods);
   //
   if (!existsSync(effectModPath)) {
@@ -65,8 +65,6 @@ ${ents.join('\n')}
   writeFileSync(effectMetasPath, str);
   console.log(mods + '/effs*', ents.length);
 }
-
-export default build_effectMetas;
 
 // EffectRef
 // { label, factory, path }
