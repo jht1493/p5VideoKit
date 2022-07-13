@@ -54,7 +54,7 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 ## Live streaming
 
-- Live Device check box
+- Live Device check box enables live stream to all other instances using room.
 
 ## History
 
