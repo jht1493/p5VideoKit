@@ -11,17 +11,34 @@ import { ui_chat_pane } from '../core-ui/ui_chat.js?v=113';
 import { store_restore_from } from '../core/store_url_parse.js?v=113';
 import { check_reset_video } from '../core/check_reset_video.js?v=113';
 import { patch_inst_clear } from '../core/patch_inst.js?v=113';
+import { ui_prop_set } from '../core/ui_restore.js?v=113';
 
 export function create_ui() {
   ui_top_pane();
   ui_size_pane();
   ui_patch_layout();
+  ui_create_comment_field();
+  createElement('br');
   ui_patch_eff_panes();
   ui_patch_buttons();
   createElement('br');
   ui_live_selection();
   ui_chat_pane();
   createElement('br');
+}
+
+function ui_create_comment_field() {
+  let div = ui_div_empty('icomment');
+  let val = a_.ui.comment;
+  if (!val) val = a_.ui.setting;
+  // console.log('ui_create_comment_field val init', val);
+  let elm = createInput(val).input(function () {
+    let val = this.value();
+    ui_prop_set('comment', val);
+    // console.log('ui_create_comment_field val', val);
+  });
+  elm.style('width', '615px');
+  div.child(elm);
 }
 
 function ui_top_pane() {

@@ -82,7 +82,6 @@ export function ui_patch_layout() {
       store_restore_from(ent);
     });
   }
-  createElement('br');
 }
 
 export function ui_patch_buttons() {

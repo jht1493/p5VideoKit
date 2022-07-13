@@ -85,7 +85,7 @@ function store_restore_canvas_lock() {
 }
 
 function store_restore_ui(settings) {
-  console.log('store_restore_ui settings', settings);
+  // console.log('store_restore_ui settings', settings);
   // Force pads to be re-calculated
   a_.ui.urects_count = 0;
   a_.ui.urects_lock = 0;

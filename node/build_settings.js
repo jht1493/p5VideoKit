@@ -8,6 +8,7 @@ import enum_files from './enum_files.js';
 // const settingIndexPath = join(src_path, 'settings.html');
 
 export default function build_settings(src_path, settings, baked, settingMetasPath, settingIndexPath) {
+  //
   // Generate a_settingMetas.js
   gen_a_settingMetas(src_path, settings, baked, settingMetasPath);
 
@@ -15,11 +16,12 @@ export default function build_settings(src_path, settings, baked, settingMetasPa
 }
 
 function gen_settings_index(src_path, settings, settingIndexPath) {
-  //
   let files = enum_files(src_path, [settings]);
   // console.log('gen_settings_index files', files);
   console.log('gen_settings_index files', files.length);
+
   files = files.map((file) => `<a href="./index.html?d=${file}" target="_blank">${file}</><br>`);
+
   let str = `
   <!DOCTYPE html>
 <html lang="en">

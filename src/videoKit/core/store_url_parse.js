@@ -57,7 +57,10 @@ export function store_url_parse(urlResult) {
       loadJSON(
         url,
         (settings) => {
-          console.log('d_str settings', settings);
+          // console.log('d_str settings', settings);
+          if (!settings.setting) {
+            settings.setting = d_str;
+          }
           urlResult({ uiSet, settings });
         },
         (err) => {

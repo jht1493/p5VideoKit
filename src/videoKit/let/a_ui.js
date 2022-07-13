@@ -8,6 +8,7 @@ export let a_ = {
   chat_name: '', // chat name from url param c
   ui: {
     setting: '',
+    comment: '',
     back_color: 200,
     room_name: 'VideoKit-Room-1',
     patch_layout: 'Single',
