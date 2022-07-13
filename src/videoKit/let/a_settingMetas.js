@@ -1,5 +1,6 @@
 // !!@ Generated File
 export let a_settingMetas = [
-{ label: '0-face-live', import_path: 'settings/baked/0-face-live.json' },
-{ label: '0-face-tile', import_path: 'settings/baked/0-face-tile.json' },
+{ label: 'live1', import_path: 'settings/baked/live1.json' },
+{ label: 'live4', import_path: 'settings/baked/live4.json' },
+{ label: 'ticker', import_path: 'settings/baked/ticker.json' },
 ];

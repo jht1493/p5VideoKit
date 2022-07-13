@@ -1,7 +1,8 @@
 {
   "setting": "live4",
+  "comment": "",
   "back_color": 200,
-  "room_name": "Dice-Play-1",
+  "room_name": "VideoKit-Room-4",
   "patch_layout": "2x2",
   "canvas_size": "960x540",
   "capture_size": "480x270",
@@ -10,10 +11,6 @@
   "chat_chk": 0,
   "live_index": 0,
   "live_chk": 1,
-  "urects_lock": 0,
-  "urects_count": 4,
-  "canvas_resize_ref": "",
-  "canvas_data_chk": 1,
   "mediaDiv_states": [
     null,
     {
@@ -35,11 +32,15 @@
       "vis": false
     }
   ],
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
   "patches": [
     {
       "eff_spec": {
         "ipatch": 0,
-        "imedia": 3,
+        "imedia": 2,
         "eff_label": "show",
         "urect": {
           "x0": 0,
@@ -55,7 +56,7 @@
     {
       "eff_spec": {
         "ipatch": 1,
-        "imedia": 4,
+        "imedia": 3,
         "eff_label": "show",
         "urect": {
           "x0": 480,
@@ -71,7 +72,7 @@
     {
       "eff_spec": {
         "ipatch": 2,
-        "imedia": 5,
+        "imedia": 4,
         "eff_label": "show",
         "urect": {
           "x0": 0,
@@ -87,7 +88,7 @@
     {
       "eff_spec": {
         "ipatch": 3,
-        "imedia": 6,
+        "imedia": 5,
         "eff_label": "show",
         "urect": {
           "x0": 480,

@@ -20,7 +20,7 @@ function gen_settings_index(src_path, settings, settingIndexPath) {
   // console.log('gen_settings_index files', files);
   console.log('gen_settings_index files', files.length);
 
-  files = files.map((file) => `<a href="./index.html?d=${file}" target="_blank">${file}</><br>`);
+  files = files.map((file) => `<a href="./index.html?d=${file}" target="settings">${file}</><br>`);
 
   let str = `
   <!DOCTYPE html>
