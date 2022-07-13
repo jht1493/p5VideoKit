@@ -1,4 +1,4 @@
-import { a_ } from '../let/a_ui.js?v=116';
+import { a_ } from '../let/a_ui.js?v=118';
 
 export class PadLayout {
   constructor() {

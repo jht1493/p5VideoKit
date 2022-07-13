@@ -1,5 +1,5 @@
-import { ui_message } from '../core/create_ui.js?v=116';
-import { image_copy } from '../util/image.js?v=116';
+import { ui_message } from '../core/create_ui.js?v=118';
+import { image_copy } from '../util/image.js?v=118';
 
 export default class eff_pose_net {
   static meta_props = {
