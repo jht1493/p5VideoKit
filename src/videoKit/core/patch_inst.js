@@ -1,8 +1,8 @@
-import { a_ } from '../let/a_ui.js?v=115';
-import { pad_layout_update, ui_refresh, ui_patch_update } from '../core-ui/ui_patch.js?v=115';
-import { ui_div_empty } from '../util/ui_base.js?v=115';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=115';
-import { effectMeta_find } from './effectMeta.js?v=115';
+import { a_ } from '../let/a_ui.js?v=116';
+import { pad_layout_update, ui_refresh, ui_patch_update } from '../core-ui/ui_patch.js?v=116';
+import { ui_div_empty } from '../util/ui_base.js?v=116';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=116';
+import { effectMeta_find } from './effectMeta.js?v=116';
 
 p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_spec, eff_props) {
   let effMeta = effectMeta_find(eff_label);

@@ -4,7 +4,16 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-import { get_build_vers, build_ver_run } from './build_ver.js';
+import { get_build_vers, build_ver_run, set_updateBuild } from './build_ver.js';
+
+for (let index = 0; index < process.argv.length; index++) {
+  console.log(index, process.argv[index]);
+  let val = process.argv[index];
+  if (val == '--prod') {
+    set_updateBuild(1);
+  }
+}
+
 // const build_index = require('./build_index');
 import build_webdb from './build_webdb.js';
 import build_settings from './build_settings.js';

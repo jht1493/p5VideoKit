@@ -3,7 +3,11 @@ const { readFileSync, writeFileSync } = pkg;
 import { join } from 'path';
 import enum_files from './enum_files.js';
 
-const updateBuild = 0;
+let updateBuild = 0;
+
+export function set_updateBuild(flag) {
+  updateBuild = flag;
+}
 
 export function get_build_vers(buildnum_path) {
   const str = readFileSync(buildnum_path, 'utf8');
