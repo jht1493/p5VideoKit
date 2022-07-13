@@ -1,7 +1,7 @@
-import { a_ } from '../let/a_ui.js?v=119';
-import { ui_prop_set } from '../core/ui_restore.js?v=119';
-import { store_set } from '../core/ui_restore.js?v=119';
-import { ui_window_refresh } from '../core/create_ui.js?v=119';
+import { a_ } from '../let/a_ui.js?v=120';
+import { ui_prop_set } from '../core/ui_restore.js?v=120';
+import { store_set } from '../core/ui_restore.js?v=120';
+import { ui_window_refresh } from '../core/create_ui.js?v=120';
 
 export function ui_canvas_div(div) {
   // console.log('ui_canvas');

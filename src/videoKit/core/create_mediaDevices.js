@@ -1,8 +1,8 @@
-import { a_ } from '../let/a_ui.js?v=119';
-import { create_mediaDiv, remove_mediaDivs } from '../core/create_mediaDiv.js?v=119';
-import { get_capture_size } from '../core-ui/ui_capture.js?v=119';
-import { livem_restore } from '../core-ui/ui_live.js?v=119';
-import { ui_refresh } from '../core-ui/ui_patch.js?v=119';
+import { a_ } from '../let/a_ui.js?v=120';
+import { create_mediaDiv, remove_mediaDivs } from '../core/create_mediaDiv.js?v=120';
+import { get_capture_size } from '../core-ui/ui_capture.js?v=120';
+import { livem_restore } from '../core-ui/ui_live.js?v=120';
+import { ui_refresh } from '../core-ui/ui_patch.js?v=120';
 
 export let a_mediaDevices = [];
 

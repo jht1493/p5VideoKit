@@ -1,4 +1,4 @@
-import { image_copy } from '../util/image.js?v=119';
+import { image_copy } from '../util/image.js?v=120';
 
 export default class eff_triangle {
   static meta_props = {

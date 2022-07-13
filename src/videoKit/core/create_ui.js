@@ -1,17 +1,17 @@
-import { a_ } from '../let/a_ui.js?v=119';
-import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=119';
-import { ui_capture_size } from '../core-ui/ui_capture.js?v=119';
-import { ui_render_size } from '../core-ui/ui_render.js?v=119';
-import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=119';
-import { ui_div_empty } from '../util/ui_base.js?v=119';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=119';
-import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=119';
-import { ui_live_selection } from '../core-ui/ui_live.js?v=119';
-import { ui_chat_pane } from '../core-ui/ui_chat.js?v=119';
-import { store_restore_from } from '../core/store_url_parse.js?v=119';
-import { check_reset_video } from '../core/check_reset_video.js?v=119';
-import { patch_inst_clear } from '../core/patch_inst.js?v=119';
-import { ui_prop_set } from '../core/ui_restore.js?v=119';
+import { a_ } from '../let/a_ui.js?v=120';
+import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=120';
+import { ui_capture_size } from '../core-ui/ui_capture.js?v=120';
+import { ui_render_size } from '../core-ui/ui_render.js?v=120';
+import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=120';
+import { ui_div_empty } from '../util/ui_base.js?v=120';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=120';
+import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=120';
+import { ui_live_selection } from '../core-ui/ui_live.js?v=120';
+import { ui_chat_pane } from '../core-ui/ui_chat.js?v=120';
+import { store_restore_from } from '../core/store_url_parse.js?v=120';
+import { check_reset_video } from '../core/check_reset_video.js?v=120';
+import { patch_inst_clear } from '../core/patch_inst.js?v=120';
+import { ui_prop_set } from '../core/ui_restore.js?v=120';
 
 export function create_ui() {
   ui_top_pane();
