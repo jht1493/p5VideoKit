@@ -1,6 +1,6 @@
-import { image_scaled_pad, image_copy } from '../util/image.js';
-import { ui_message } from '../core/create_ui.js';
-import { FFT_analyser } from '../util/FFT_analyser.js';
+import { image_scaled_pad, image_copy } from '../util/image.js?v=108';
+import { ui_message } from '../core/create_ui.js?v=108';
+import { FFT_analyser } from '../util/FFT_analyser.js?v=108';
 
 export default class eff_face_band {
   static meta_props = {

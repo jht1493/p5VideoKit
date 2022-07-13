@@ -1,8 +1,8 @@
-import { a_ } from '../let/a_ui.js';
-import { init_size_in } from '../core-ui/ui_canvas.js';
-import { ui_prop_set } from '../core/ui_restore.js';
-import { media_reset } from '../core/create_mediaDevices.js';
-import { patch_inst_clear } from '../core/patch_inst.js';
+import { a_ } from '../let/a_ui.js?v=108';
+import { init_size_in } from '../core-ui/ui_canvas.js?v=108';
+import { ui_prop_set } from '../core/ui_restore.js?v=108';
+import { media_reset } from '../core/create_mediaDevices.js?v=108';
+import { patch_inst_clear } from '../core/patch_inst.js?v=108';
 
 export function ui_capture_size(div) {
   // console.log('ui_capture_size');

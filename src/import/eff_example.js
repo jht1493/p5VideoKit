@@ -1,6 +1,6 @@
 // Example of simple effect show parameter in dashboard
 //
-import { image_copy } from '../videoKit/util/image.js';
+import { image_copy } from '../videoKit/util/image.js?v=108';
 // !!@ Move to this.videoKit.image_copy to avoid import
 
 export default class eff_example {

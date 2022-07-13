@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js';
-import { ui_canvas_div } from '../core-ui/ui_canvas.js';
-import { ui_prop_set } from '../core/ui_restore.js';
+import { a_ } from '../let/a_ui.js?v=108';
+import { ui_canvas_div } from '../core-ui/ui_canvas.js?v=108';
+import { ui_prop_set } from '../core/ui_restore.js?v=108';
 
 function ui_hide() {
   let m = select('main').elt;

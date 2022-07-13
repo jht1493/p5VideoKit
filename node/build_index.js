@@ -14,8 +14,8 @@ const patEnd = ' -->';
 const genStart = '<!-- @generated_start -->\n';
 const genEnd = '<!-- @generated_end -->\n';
 
-function build_index(index_root_path, index_file, nbuild_num) {
-  // console.log('index_root_path', index_root_path, 'nbuild_num', nbuild_num);
+function build_index(index_root_path, index_file, nbuild_ver) {
+  // console.log('index_root_path', index_root_path, 'nbuild_ver', nbuild_ver);
   const fpath = path.join(index_root_path, index_file);
   let str = fs.readFileSync(fpath, 'utf8');
   if (!str) {
@@ -60,7 +60,7 @@ function build_index(index_root_path, index_file, nbuild_num) {
   }
 
   // console.log('incFiles', incFiles);
-  let tagEnd = '?v=' + nbuild_num + '"></script>';
+  let tagEnd = '?v=' + nbuild_ver + '"></script>';
   incFiles = incFiles.map((ent) => {
     return '<script src="' + ent + tagEnd;
   });
