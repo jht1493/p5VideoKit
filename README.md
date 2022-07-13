@@ -8,7 +8,8 @@ The visual effects are written in p5js.
 The code and documentation is in development.
 We welcome your feedback and help to improve the user interface and documentation.
 
-- started as code for interactive installation at NYU-ITP Brooklyn 2021
+- started as code for interactive installation at [NYU-ITP Brooklyn 2021](https://jht1493.github.io/2021-NYU-ITP-Installation)
+
 - built on top of effects using in DICE app and from ICM course
 - contact me
 - TODO: video walk thru
