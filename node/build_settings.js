@@ -5,13 +5,12 @@ const path = require('path');
 // const settingMetasPath = path.join(src_path, 'videoKit/let/a_settingMetas.js');
 
 function build_settings(src_path, settingsPartialPath, baked, settingMetasPath) {
-  const settingsPath = path.join(src_path, settingsPartialPath, baked);
-
   // Generate a_settingMetas.js
-  gen_a_settingMetas(settingsPath, settingsPartialPath, settingMetasPath);
+  gen_a_settingMetas(src_path, settingsPartialPath, baked, settingMetasPath);
 }
 
-function gen_a_settingMetas(settingsPath, settingsPartialPath, settingMetasPath) {
+function gen_a_settingMetas(src_path, settingsPartialPath, baked, settingMetasPath) {
+  const settingsPath = path.join(src_path, settingsPartialPath, baked);
   const files = fs.readdirSync(settingsPath);
   files.sort();
   // console.log('files', files);
@@ -23,7 +22,7 @@ function gen_a_settingMetas(settingsPath, settingsPartialPath, settingMetasPath)
     const fpath = path.join(settingsPath, afile);
     // console.log('afile', afile);
     let label = fparts.name;
-    let import_path = settingsPartialPath + '/' + afile;
+    let import_path = settingsPartialPath + '/' + baked + '/' + afile;
     let mstr = `{ label: '${label}', import_path: '${import_path}' },`;
     settingMetas.push(mstr);
   }
