@@ -1,9 +1,10 @@
-const fs = require('fs-extra');
-const path = require('path');
+import pkg from 'fs-extra';
+const { readdirSync, writeFileSync } = pkg;
+import { join } from 'path';
 
-function build_webdb(webdbPath, imagesOutPath) {
-  let dirs = fs.readdirSync(webdbPath);
-  dirs = dirs.filter((item) => item.substr(0, 1) !== '.');
+export default function build_webdb(webdbPath, imagesOutPath) {
+  let dirs = readdirSync(webdbPath);
+  dirs = dirs.filter((item) => item.substring(0, 1) !== '.');
   dirs.sort();
   // console.log('build_webdb dirs', dirs);
 
@@ -12,9 +13,9 @@ function build_webdb(webdbPath, imagesOutPath) {
   for (let adir of dirs) {
     // if (adir.substr(0, 1) === '.') continue;
     // console.log('adir', adir);
-    const dpath = path.join(webdbPath, adir);
+    const dpath = join(webdbPath, adir);
 
-    let dfiles = fs.readdirSync(dpath);
+    let dfiles = readdirSync(dpath);
     dfiles = dfiles.filter(filter_out_json);
     // (item) => item.substr(0, 1) !== '.' && item.substr(3, 5) !== '.json'
     dfiles.sort();
@@ -32,7 +33,7 @@ function build_webdb(webdbPath, imagesOutPath) {
   let str = 'let a_images = ';
   str += JSON.stringify(files, null, 2);
 
-  fs.writeFileSync(imagesOutPath, str);
+  writeFileSync(imagesOutPath, str);
 }
 
 function filter_out_json(item) {
@@ -55,5 +56,3 @@ function interleave(files, aprop, bprop) {
   }
   return arr;
 }
-
-module.exports = build_webdb;

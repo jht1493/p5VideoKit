@@ -1,11 +1,12 @@
-const fs = require('fs-extra');
-const path = require('path');
-const { enum_files } = require('./enum_files');
+import pkg from 'fs-extra';
+const { readFileSync, writeFileSync } = pkg;
+import { join } from 'path';
+import enum_files from './enum_files.js';
 
 const updateBuild = 0;
 
-function get_build_vers(buildnum_path) {
-  const str = fs.readFileSync(buildnum_path, 'utf8');
+export function get_build_vers(buildnum_path) {
+  const str = readFileSync(buildnum_path, 'utf8');
   if (!str) {
     console.log('read failed buildnum_path', buildnum_path);
     return;
@@ -18,7 +19,7 @@ function get_build_vers(buildnum_path) {
 
 // build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files);
 
-function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
+export function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
   const from_str = '\\?v=' + build_ver.current;
   const to_str = '?v=' + build_ver.next;
   const re = new RegExp(from_str, 'g');
@@ -28,20 +29,20 @@ function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
   for (let afile of nfiles) {
     // skip directory enteries
     if (!afile) continue;
-    const fpath = path.join(skt_path, afile);
+    const fpath = join(skt_path, afile);
     // if (fs.lstatSync(fpath).isDirectory()) {
     //   continue;
     // }
-    const str = fs.readFileSync(fpath, 'utf8');
+    const str = readFileSync(fpath, 'utf8');
     if (!str) {
       console.log('read failed fpath', fpath);
       continue;
     }
     const nstr = str.replace(re, to_str);
-    if (updateBuild) fs.writeFileSync(fpath, nstr);
+    if (updateBuild) writeFileSync(fpath, nstr);
   }
-  if (updateBuild) fs.writeFileSync(buildnum_path, build_ver.next + '');
+  if (updateBuild) writeFileSync(buildnum_path, build_ver.next + '');
   console.log('build_ver.next', build_ver.next);
 }
 
-module.exports = { get_build_vers, build_ver_run };
+export default { get_build_vers, build_ver_run };

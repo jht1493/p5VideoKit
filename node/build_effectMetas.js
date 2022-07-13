@@ -1,5 +1,6 @@
-const fs = require('fs-extra');
-const path = require('path');
+import pkg from 'fs-extra';
+const { existsSync, readdirSync, lstatSync, writeFileSync } = pkg;
+import { join } from 'path';
 
 // create listing for dynanmic import of effect modules
 //  'videoKit/let/a_effectMetas.js'
@@ -8,13 +9,13 @@ const path = require('path');
 //  videoKit/eff*
 //
 function build_effectMetas(effectMetasPath, src_path, mods) {
-  const effectModPath = path.join(src_path, mods);
+  const effectModPath = join(src_path, mods);
   //
-  if (!fs.existsSync(effectModPath)) {
+  if (!existsSync(effectModPath)) {
     console.log('build_effectMetas not effectModPath', effectModPath);
     return;
   }
-  const dirs = fs.readdirSync(effectModPath);
+  const dirs = readdirSync(effectModPath);
   dirs.sort();
   // console.log(dir, files);
   let imparts = [];
@@ -23,12 +24,12 @@ function build_effectMetas(effectMetasPath, src_path, mods) {
     if (dir.substring(0, 1) == '.') continue;
     if (!dir.startsWith('eff')) continue;
 
-    let dpath = path.join(effectModPath, dir);
+    let dpath = join(effectModPath, dir);
     // dpath = mods/eff
-    if (!fs.lstatSync(dpath).isDirectory()) {
+    if (!lstatSync(dpath).isDirectory()) {
       continue;
     }
-    const files = fs.readdirSync(dpath);
+    const files = readdirSync(dpath);
     if (!files) {
       continue;
     }
@@ -61,11 +62,11 @@ export let a_effectMetas =  [
 ${ents.join('\n')}
 ];
 `;
-  fs.writeFileSync(effectMetasPath, str);
+  writeFileSync(effectMetasPath, str);
   console.log(mods + '/effs*', ents.length);
 }
 
-module.exports = build_effectMetas;
+export default build_effectMetas;
 
 // EffectRef
 // { label, factory, path }
