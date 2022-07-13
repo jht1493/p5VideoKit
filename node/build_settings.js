@@ -1,12 +1,17 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-// build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath);
-// function build_settings(settingsPath, settingsOutPath, settingMetasPath) {
-// function build_settings(src_path, settingsPartialPath, settingsOutPath, settingMetasPath) {
+// const settingsPartialPath = 'settings';
+// const settingMetasPath = path.join(src_path, 'videoKit/let/a_settingMetas.js');
 
-function build_settings(src_path, settingsPartialPath, settingMetasPath) {
-  const settingsPath = path.join(src_path, settingsPartialPath);
+function build_settings(src_path, settingsPartialPath, baked, settingMetasPath) {
+  const settingsPath = path.join(src_path, settingsPartialPath, baked);
+
+  // Generate a_settingMetas.js
+  gen_a_settingMetas(settingsPath, settingsPartialPath, settingMetasPath);
+}
+
+function gen_a_settingMetas(settingsPath, settingsPartialPath, settingMetasPath) {
   const files = fs.readdirSync(settingsPath);
   files.sort();
   // console.log('files', files);

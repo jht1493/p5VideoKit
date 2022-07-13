@@ -19,9 +19,9 @@ const webdbPath = path.join(src_path, 'external/media/webdb');
 const imagesOutPath = path.join(src_path, 'videoKit/let/a_images.js');
 // build_webdb(webdbPath, imagesOutPath);
 
-const settingsPartialPath = 'settings/baked';
+const settingsPartialPath = 'settings';
 const settingMetasPath = path.join(src_path, 'videoKit/let/a_settingMetas.js');
-build_settings(src_path, settingsPartialPath, settingMetasPath);
+build_settings(src_path, settingsPartialPath, 'baked', settingMetasPath);
 
 build_ver_run(buildnum_path, build_ver, src_path, buildnum_files);
 
