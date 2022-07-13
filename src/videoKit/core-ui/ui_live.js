@@ -1,7 +1,7 @@
-import { a_ } from '../let/a_ui.js?v=118';
-import { ui_div_empty } from '../util/ui_base.js?v=118';
-import { ui_prop_set } from '../core/ui_restore.js?v=118';
-import { liveMedia_attach, liveMedia_detach } from '../core/liveMedia_attach.js?v=118';
+import { a_ } from '../let/a_ui.js?v=119';
+import { ui_div_empty } from '../util/ui_base.js?v=119';
+import { ui_prop_set } from '../core/ui_restore.js?v=119';
+import { liveMedia_attach, liveMedia_detach } from '../core/liveMedia_attach.js?v=119';
 
 export function ui_live_selection() {
   let div = ui_div_empty('live_selection');
