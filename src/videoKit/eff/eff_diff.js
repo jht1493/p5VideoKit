@@ -1,5 +1,5 @@
-import { PeriodTimer } from '../util/PeriodTimer.js?v=114';
-import { image_copy, image_move } from '../util/image.js?v=114';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=115';
+import { image_copy, image_move } from '../util/image.js?v=115';
 
 export default class eff_diff {
   static meta_props = {

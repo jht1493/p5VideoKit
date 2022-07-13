@@ -1,7 +1,7 @@
-import { ui_message } from '../core/create_ui.js?v=114';
-import { PeriodTimer } from '../util/PeriodTimer.js?v=114';
-import { image_copy } from '../util/image.js?v=114';
-import { face_mesh_draw } from '../core/face_mesh_draw.js?v=114';
+import { ui_message } from '../core/create_ui.js?v=115';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=115';
+import { image_copy } from '../util/image.js?v=115';
+import { face_mesh_draw } from '../core/face_mesh_draw.js?v=115';
 
 export default class eff_face_mesh {
   static meta_props = {

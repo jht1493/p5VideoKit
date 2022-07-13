@@ -30,8 +30,6 @@ function setup() {
     { label: 'effects4', import_path: 'settings/demo/effects4.json' },
     { label: 'circles4', import_path: 'settings/demo/circles4.json' },
     { label: 'slant4', import_path: 'settings/demo/slant4.json' },
-    { label: 'promo', import_path: 'settings/demo/promo.json' },
-    { label: 'corner', import_path: 'settings/demo/corner.json' },
   ];
 
   videoKit = new p5VideoKit();
