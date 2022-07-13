@@ -25,7 +25,7 @@ Screen shots of p5VideoKit in action:
 
 ## Demo
 
-p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google Chrome and some use in Apple Safari on MacOS desktop computers. On mobile devices (iPhone and Android) things are a little flaky.
+p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google Chrome and second on Apple Safari on MacOS desktop computers. On mobile devices (iPhone and Android) things are flaky - landscape mode is best here.
 
 [Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - a pixelized grid of video. Hit the Reset button if you don't see any video.
 
