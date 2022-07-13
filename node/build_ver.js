@@ -20,7 +20,8 @@ function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
   const to_str = '?v=' + build_ver.next;
   const re = new RegExp(from_str, 'g');
   let nfiles = expand_dirs(skt_path, buildnum_files);
-  console.log('nfiles', nfiles);
+  // console.log('nfiles', nfiles);
+  console.log('build_ver_run nfiles', nfiles.length);
   for (let afile of nfiles) {
     if (!afile) continue;
     const fpath = path.join(skt_path, afile);

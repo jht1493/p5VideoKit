@@ -1,5 +1,5 @@
-import { ui_message } from '../core/create_ui.js?v=109';
-import { location_noquery } from '../core/store_url_parse.js?v=109';
+import { ui_message } from '../core/create_ui.js?v=111';
+import { location_noquery } from '../core/store_url_parse.js?v=111';
 
 // On first use in browser sometimes camera permissions
 // are not requested and no video is displayed.
