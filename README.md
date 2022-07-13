@@ -54,15 +54,15 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 ## Live streaming
 
-- Live Device check box enables live stream to all other instances using room.
+- Live Device check box enables live stream to all other instances using the same room name.
 
 ## History
 
-[p5VideoKit is based of the code used to create the interactive installation at NYU-ITP in 2021](https://jht1493.github.io/2021-NYU-ITP-Installation/)
+- p5VideoKit is based of the code used to create the interactive installation at [NYU-ITP in 2021](https://jht1493.github.io/2021-NYU-ITP-Installation/)
 
-[Keeping in the groove of my DICE video art app](http://www.johnhenrythompson.com/3-dice)
+- Keeping in the groove of my [DICE video art app](http://www.johnhenrythompson.com/3-dice)
 
-- **Distributed Instruments for Computed Expression**
+  - **Distributed Instruments for Computed Expression**
 
 ## Components
 
