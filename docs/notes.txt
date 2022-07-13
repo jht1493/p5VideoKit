@@ -4,3 +4,12 @@ notes.txt
 each cell and select eff_label
 
 https://github.com/jht1493/p5VideoKit.git
+
+# --
+
+# update build number
+bin/build.sh --prod
+
+bin/build.sh
+
+# --

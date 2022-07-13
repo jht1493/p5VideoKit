@@ -25,7 +25,7 @@ export function get_build_vers(buildnum_path) {
 // build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files);
 
 export function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
-  console.log('updateBuild', updateBuild);
+  console.log('build_ver_run updateBuild', updateBuild);
   const from_str = '\\?v=' + build_ver.current;
   const to_str = '?v=' + build_ver.next;
   const re = new RegExp(from_str, 'g');
