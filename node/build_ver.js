@@ -33,9 +33,9 @@ function build_ver_run(buildnum_path, build_ver, skt_path, buildnum_files) {
       continue;
     }
     const nstr = str.replace(re, to_str);
-    // fs.writeFileSync(fpath, nstr);
+    fs.writeFileSync(fpath, nstr);
   }
-  // fs.writeFileSync(buildnum_path, build_ver.next + '');
+  fs.writeFileSync(buildnum_path, build_ver.next + '');
   console.log('build_ver.next', build_ver.next);
 }
 

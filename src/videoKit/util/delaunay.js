@@ -96,10 +96,10 @@ An implementation of Guibas & Stolfi's O(nlogn) Delaunay triangulation algorithm
     }
 
     /*
-     Computes | a.x  a.y  a.x²+a.y²  1 |
-              | b.x  b.y  b.x²+b.y²  1 | > 0
-              | c.x  c.y  c.x²+c.y²  1 |
-              | d.x  d.y  d.x²+d.y²  1 |
+     Computes | a.x  a.y  a.xï¿½+a.yï¿½  1 |
+              | b.x  b.y  b.xï¿½+b.yï¿½  1 | > 0
+              | c.x  c.y  c.xï¿½+c.yï¿½  1 |
+              | d.x  d.y  d.xï¿½+d.yï¿½  1 |
 
      * Return true is d is in the circumcircle of a, b, c
      */

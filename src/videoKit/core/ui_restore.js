@@ -1,12 +1,12 @@
-import { a_ } from '../let/a_ui.js?v=108';
-import { a_effectMetas } from '../let/a_effectMetas.js?v=108';
-import { a_settingMetas } from '../let/a_settingMetas.js?v=108';
-import { effectMeta_init } from '../core/effectMeta.js?v=108';
-import { ui_capture_init } from '../core-ui/ui_capture.js?v=108';
-import { ui_canvas_init } from '../core-ui/ui_canvas.js?v=108';
-import { ui_render_size_init } from '../core-ui/ui_render.js?v=108';
-import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v=108';
-import { canvas_size_default } from '../core-ui/ui_canvas.js?v=108';
+import { a_ } from '../let/a_ui.js?v=109';
+import { a_effectMetas } from '../let/a_effectMetas.js?v=109';
+import { a_settingMetas } from '../let/a_settingMetas.js?v=109';
+import { effectMeta_init } from '../core/effectMeta.js?v=109';
+import { ui_capture_init } from '../core-ui/ui_capture.js?v=109';
+import { ui_canvas_init } from '../core-ui/ui_canvas.js?v=109';
+import { ui_render_size_init } from '../core-ui/ui_render.js?v=109';
+import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v=109';
+import { canvas_size_default } from '../core-ui/ui_canvas.js?v=109';
 
 //
 // let effects = [
