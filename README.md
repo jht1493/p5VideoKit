@@ -5,7 +5,7 @@ You can apply visual effects
 to live video from a camera or from the internet.
 The visual effects are written in p5js.
 
-The code and documentation site is in development.
+The code and documentation is in development.
 We welcome your feedback and help to improve the user interface and documentation.
 
 - started as code for interactive installation at NYU-ITP Brooklyn 2021
