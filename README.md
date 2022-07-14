@@ -14,7 +14,7 @@ We welcome your feedback and help to improve the user interface and documentatio
   [DICE mobile app](http://www.johnhenrythompson.com/3-dice) and
   [NYU-ITP ICM course](https://github.com/ITPNYU/ICM-2021-Code)
 - TODO: video walk thru
-- contact me
+- contact me: [create an github issue for this repo](https://github.com/jht1493/p5VideoKit/issues)
 
 ## Screen shots
 
@@ -40,11 +40,12 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 ## The interface
 
-- adding patches
+- TODO: document patches UI
 
 ## The code
 
 - moving beyond the p5js web editor
+- setup a free [github account ](https://github.com/)
 - download this repo with [github disktop app](https://desktop.github.com/)
 - run local server using
   [Visual Studio Code text editor](https://code.visualstudio.com/)
