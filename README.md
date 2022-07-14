@@ -13,8 +13,8 @@ We welcome your feedback and help to improve the user interface and documentatio
 - re-mixing effects code from
   [DICE mobile app](http://www.johnhenrythompson.com/3-dice) and
   [NYU-ITP ICM course](https://github.com/ITPNYU/ICM-2021-Code)
-- contact me
 - TODO: video walk thru
+- contact me
 
 ## Screen shots
 
@@ -76,5 +76,5 @@ Built using
 - [p5LiveMedia](https://github.com/vanevery/p5LiveMedia)
 
 ![facet](docs/media/1-show-posenet-facemesh_2021-12-12_28.png)
-
+![skin-tones](docs/media/skin-tones-1-bb-jht.jpg)
 ![creative-energy-2017-11](docs/media/creative-energy-2017-11.jpg)
