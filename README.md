@@ -12,7 +12,7 @@ We welcome your feedback and help to improve the user interface and documentatio
 
 - re-mixing effects code from
   [DICE mobile app](http://www.johnhenrythompson.com/3-dice) and
-  [ICM NYU ITP course](https://github.com/ITPNYU/ICM-2021-Code)
+  [NYU-ITP ICM course](https://github.com/ITPNYU/ICM-2021-Code)
 - contact me
 - TODO: video walk thru
 
