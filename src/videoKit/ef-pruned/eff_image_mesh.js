@@ -1,5 +1,5 @@
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=122';
-import { face_mesh_draw } from '../core/face_mesh_draw.js?v=122';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=123';
+import { face_mesh_draw } from '../core/face_mesh_draw.js?v=123';
 
 export default class eff_image_mesh {
   static meta_props = {

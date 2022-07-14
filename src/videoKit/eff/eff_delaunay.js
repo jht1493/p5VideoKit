@@ -1,5 +1,5 @@
-import { PeriodTimer } from '../util/PeriodTimer.js?v=122';
-import { image_copy } from '../util/image.js?v=122';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=123';
+import { image_copy } from '../util/image.js?v=123';
 import * as DelaunayStub from '../util/delaunay.js';
 
 export default class eff_delaunay {

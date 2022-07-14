@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=122';
-import { init_size_in } from '../core-ui/ui_canvas.js?v=122';
-import { ui_prop_set } from '../core/ui_restore.js?v=122';
+import { a_ } from '../let/a_ui.js?v=123';
+import { init_size_in } from '../core-ui/ui_canvas.js?v=123';
+import { ui_prop_set } from '../core/ui_restore.js?v=123';
 
 export function ui_render_size(div) {
   // console.log('ui_canvas');
