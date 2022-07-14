@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=121';
-import { PeriodTimer } from '../util/PeriodTimer.js?v=121';
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=121';
+import { a_ } from '../let/a_ui.js?v=122';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=122';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=122';
 
 export default class eff_tile {
   static meta_props = {

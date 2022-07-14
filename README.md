@@ -10,7 +10,9 @@ We welcome your feedback and help to improve the user interface and documentatio
 
 - started as code for interactive installation at [NYU-ITP Brooklyn 2021](https://jht1493.github.io/2021-NYU-ITP-Installation)
 
-- built on top of effects using in DICE app and from ICM course
+- re-mixing effects code from
+  [DICE mobile app](http://www.johnhenrythompson.com/3-dice) and
+  [ICM NYU ITP course](https://github.com/ITPNYU/ICM-2021-Code)
 - contact me
 - TODO: video walk thru
 

@@ -1,17 +1,17 @@
-import { a_ } from '../let/a_ui.js?v=121';
-import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=121';
-import { ui_capture_size } from '../core-ui/ui_capture.js?v=121';
-import { ui_render_size } from '../core-ui/ui_render.js?v=121';
-import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=121';
-import { ui_div_empty } from '../util/ui_base.js?v=121';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=121';
-import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=121';
-import { ui_live_selection } from '../core-ui/ui_live.js?v=121';
-import { ui_chat_pane } from '../core-ui/ui_chat.js?v=121';
-import { store_restore_from } from '../core/store_url_parse.js?v=121';
-import { check_reset_video } from '../core/check_reset_video.js?v=121';
-import { patch_inst_clear } from '../core/patch_inst.js?v=121';
-import { ui_prop_set } from '../core/ui_restore.js?v=121';
+import { a_ } from '../let/a_ui.js?v=122';
+import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=122';
+import { ui_capture_size } from '../core-ui/ui_capture.js?v=122';
+import { ui_render_size } from '../core-ui/ui_render.js?v=122';
+import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=122';
+import { ui_div_empty } from '../util/ui_base.js?v=122';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=122';
+import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=122';
+import { ui_live_selection } from '../core-ui/ui_live.js?v=122';
+import { ui_chat_pane } from '../core-ui/ui_chat.js?v=122';
+import { store_restore_from } from '../core/store_url_parse.js?v=122';
+import { check_reset_video } from '../core/check_reset_video.js?v=122';
+import { patch_inst_clear } from '../core/patch_inst.js?v=122';
+import { ui_prop_set } from '../core/ui_restore.js?v=122';
 
 export function create_ui() {
   ui_top_pane();
@@ -37,7 +37,8 @@ function ui_create_comment_field() {
     ui_prop_set('comment', val);
     // console.log('ui_create_comment_field val', val);
   });
-  elm.style('width', '615px');
+  // elm.style('width', '615px');
+  elm.style('width', '80%');
   div.child(elm);
 }
 
@@ -73,11 +74,18 @@ function ui_top_pane() {
     if (u) u = '(' + u + ')';
     createSpan().id('iu').html(u);
   }
-  createSpan().id('ifps');
-  let imsg = createSpan().id('imsg');
-  imsg.style('fontSize', 'x-large');
-  let gith = createA('https://github.com/jht1493/p5VideoKit/', 'GitHub', '_blank');
-  gith.style('float', 'right'); // float: right
+  {
+    createSpan().id('ifps');
+    let imsg = createSpan().id('imsg');
+    imsg.style('fontSize', 'x-large');
+  }
+  {
+    let gith = createA('https://github.com/jht1493/p5VideoKit/', ' GitHub ', '_blank');
+    gith.style('float', 'right'); // float: right
+    gith.style('margin-right', '5px'); // float: right
+    let span = createSpan(' ');
+    span.child(gith);
+  }
 }
 
 // Can't move window across monitors

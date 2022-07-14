@@ -1,14 +1,14 @@
-import { a_ } from '../let/a_ui.js?v=121';
-import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v=121';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=121';
-import { ui_live_selection } from '../core-ui/ui_live.js?v=121';
-import { PadLayout } from '../util/PadLayout.js?v=121';
-import { ui_prop_set } from '../core/ui_restore.js?v=121';
-import { store_restore_from } from '../core/store_url_parse.js?v=121';
-import { str_to_width_height } from '../core-ui/ui_canvas.js?v=121';
-import { store_export_json, store_export_url } from '../core/store_url_parse.js?v=121';
-import { patch_add } from '../core/patch_inst.js?v=121';
-import { patch_inst_clear } from '../core/patch_inst.js?v=121';
+import { a_ } from '../let/a_ui.js?v=122';
+import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v=122';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=122';
+import { ui_live_selection } from '../core-ui/ui_live.js?v=122';
+import { PadLayout } from '../util/PadLayout.js?v=122';
+import { ui_prop_set } from '../core/ui_restore.js?v=122';
+import { store_restore_from } from '../core/store_url_parse.js?v=122';
+import { str_to_width_height } from '../core-ui/ui_canvas.js?v=122';
+import { store_export_json, store_export_url } from '../core/store_url_parse.js?v=122';
+import { patch_add } from '../core/patch_inst.js?v=122';
+import { patch_inst_clear } from '../core/patch_inst.js?v=122';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');
@@ -92,6 +92,14 @@ export function ui_patch_buttons() {
   // createButton('Remove Patch').mousePressed(function () {
   //   patch_remove_last();
   // });
+  // {
+  //   let gith = createA('https://github.com/jht1493/p5VideoKit/', ' GitHub ', '_blank');
+  //   gith.style('float', 'right'); // float: right
+  //   gith.style('margin-right', '5px'); // float: right
+  //   let span = createSpan(' ');
+  //   span.child(gith);
+  // }
+
   createElement('br');
 }
 
