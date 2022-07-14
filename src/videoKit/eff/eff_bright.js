@@ -1,4 +1,4 @@
-import { image_copy } from '../util/image.js?v=123';
+import { image_copy } from '../util/image.js?v=124';
 
 export default class eff_bright {
   static meta_props = {

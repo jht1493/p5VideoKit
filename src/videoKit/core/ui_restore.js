@@ -1,12 +1,12 @@
-import { a_ } from '../let/a_ui.js?v=123';
-import { a_effectMetas } from '../let/a_effectMetas.js?v=123';
-import { a_settingMetas } from '../let/a_settingMetas.js?v=123';
-import { effectMeta_init } from '../core/effectMeta.js?v=123';
-import { ui_capture_init } from '../core-ui/ui_capture.js?v=123';
-import { ui_canvas_init } from '../core-ui/ui_canvas.js?v=123';
-import { ui_render_size_init } from '../core-ui/ui_render.js?v=123';
-import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v=123';
-import { canvas_size_default } from '../core-ui/ui_canvas.js?v=123';
+import { a_ } from '../let/a_ui.js?v=124';
+import { a_effectMetas } from '../let/a_effectMetas.js?v=124';
+import { a_settingMetas } from '../let/a_settingMetas.js?v=124';
+import { effectMeta_init } from '../core/effectMeta.js?v=124';
+import { ui_capture_init } from '../core-ui/ui_capture.js?v=124';
+import { ui_canvas_init } from '../core-ui/ui_canvas.js?v=124';
+import { ui_render_size_init } from '../core-ui/ui_render.js?v=124';
+import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v=124';
+import { canvas_size_default } from '../core-ui/ui_canvas.js?v=124';
 
 //
 // let effects = [
@@ -58,7 +58,7 @@ function settingMetas_init(donef) {
 // set = { label: '0-club', import_path: 'settings/baked/0-club.json' }
 //
 function setting_import(sete, index) {
-  let url = './' + sete.import_path + '?v=123';
+  let url = './' + sete.import_path + '?v=124';
   // console.log('setting_import url', url);
   return new Promise((resolve, reject) => {
     loadJSON(
