@@ -30,13 +30,15 @@ Screen shots of p5VideoKit in action:
 
 p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google Chrome and second on Apple Safari on MacOS desktop computers. On mobile devices (iPhone and Android) things are flaky - landscape mode is best here.
 
-[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - a pixelized grid of video. Hit the Reset button if you don't see any video.
+[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - Opens a new browser window to a pixelized video effect. Hit the Reset button if you don't see any video.
+
+![grid1](docs/media/grid1.jpg)
 
 [4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Patch drop down to select an effect.
 
 [live1](https://jht1493.net/p5VideoKit/demo/?d=demo/live1.json) - joint the VideoKit-Play-1 live streaming room.
 
-[archive of settings ](https://jht1493.net/p5VideoKit/demo/settings.html) not every settings work
+[archive of settings ](https://jht1493.net/p5VideoKit/demo/settings.html) - not every settings work
 
 ## The interface
 

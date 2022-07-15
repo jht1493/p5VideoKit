@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 import { get_build_vers, build_ver_run, set_updateBuild } from './build_ver.js';
 
 for (let index = 0; index < process.argv.length; index++) {
-  console.log(index, process.argv[index]);
+  // console.log(index, process.argv[index]);
   let val = process.argv[index];
   if (val == '--prod') {
     set_updateBuild(1);

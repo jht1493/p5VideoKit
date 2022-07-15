@@ -1,5 +1,5 @@
-import { ui_message } from '../core/create_ui.js?v=126';
-import { location_noquery } from '../core/store_url_parse.js?v=126';
+import { ui_message } from '../core/create_ui.js?v=128';
+import { location_noquery } from '../core/store_url_parse.js?v=128';
 
 // On first use in browser sometimes camera permissions
 // are not requested and no video is displayed.
@@ -17,8 +17,8 @@ export function check_reset_video() {
   console.log('create_video myVideo', myVideo);
   myVideo.muted = true;
   function wait_reload() {
-    // let delay = 2000;
-    let delay = 1000;
+    let delay = 2000;
+    // let delay = 1000;
     function func() {
       let nref = (random() + '').substring(2);
       nref = location_noquery() + '?v=' + nref;

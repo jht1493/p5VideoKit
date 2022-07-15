@@ -1,5 +1,5 @@
-import { PeriodTimer } from '../util/PeriodTimer.js?v=126';
-import { image_copy } from '../util/image.js?v=126';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=128';
+import { image_copy } from '../util/image.js?v=128';
 
 export default class eff_maze {
   static meta_props = {
