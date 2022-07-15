@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=124';
-import { ui_prop_set } from '../core/ui_restore.js?v=124';
-import { patch_inst_clear } from '../core/patch_inst.js?v=124';
+import { a_ } from '../let/a_ui.js?v=126';
+import { ui_prop_set } from '../core/ui_restore.js?v=126';
+import { patch_inst_clear } from '../core/patch_inst.js?v=126';
 
 // a_.mediaDivs = []
 // { imedia, mediaDevice, id, label, div, chk, vis, capture, info, ready, livem }
@@ -9,13 +9,16 @@ import { patch_inst_clear } from '../core/patch_inst.js?v=124';
 // 2: livem device for self
 // 3: livem device for others ...
 
-export function create_mediaDiv(mediaDevice, vis_in, addSort) {
+export function create_mediaDiv(mediaDevice, options) {
+  // let vis_in = !a_.hideui; // default to visible except if ui hidden
+  let addSort = options.live;
+  let vis_in = 0; // default to not visible, more stable on mobile
   let capture = mediaDevice.capture;
   let id = mediaDevice.deviceId;
   let label = mediaDevice.label;
   if (!label) label = id;
   let imedia = a_.mediaDivs.length;
-  let vis = ui_media_default_vis(imedia, vis_in);
+  let media_state = ui_media_state_default(imedia, vis_in);
 
   // Can't re-parent capture, so move div before it
   let div = createDiv();
@@ -25,17 +28,33 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
     div.hide();
   }
 
-  let chk = createCheckbox('View', vis);
+  let chk = createCheckbox('View', media_state.vis);
   chk.style('display:inline');
   div.child(chk);
+
+  let chk_mute = createCheckbox('Mute', media_state.mute);
+  chk_mute.style('display:inline');
+  div.child(chk_mute);
 
   // !!@ find video event change to update width and height in info element
   let info = createSpan();
   div.child(info);
 
-  function ready() {
+  let ready = function () {
     return capture.loadedmetadata && capture.width > 0 && capture.height > 0;
-  }
+  };
+
+  let update_info = function () {
+    let info = ent.info;
+    let capture = ent.capture;
+    let label = ent.label;
+    if (ent.nlabel) {
+      label = '[' + ent.nlabel + '] ' + ent.label;
+    }
+    info.html(' ' + label + ' width=' + capture.width + ' height=' + capture.height);
+    capture.style(ent.media_state.vis ? 'display:inline' : 'display:none');
+    capture.elt.muted = ent.media_state.mute;
+  };
 
   let ent = {
     imedia,
@@ -44,12 +63,14 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
     label,
     div,
     chk,
-    vis,
+    media_state,
     capture,
     info,
     ready,
     update_info,
   };
+
+  // place new mediaDiv in right order
   let arr = a_.mediaDivs;
   if (!addSort) {
     // No live media yet, Add at end
@@ -70,25 +91,22 @@ export function create_mediaDiv(mediaDevice, vis_in, addSort) {
   }
   // a_.mediaDivs.push(ent);
 
-  function update_info() {
-    let info = ent.info;
-    let capture = ent.capture;
-    let label = ent.label;
-    if (ent.nlabel) {
-      label = '[' + ent.nlabel + '] ' + ent.label;
-    }
-    info.html(' ' + label + ' width=' + capture.width + ' height=' + capture.height);
-    capture.style(ent.vis ? 'display:inline' : 'display:none');
-  }
   update_info();
 
   chk.changed(function () {
-    ent.vis = this.checked();
-    ui_media_update_vis(ent.imedia, ent.vis);
+    ent.media_state.vis = this.checked() ? 1 : 0;
+    ui_media_state_update(ent.imedia);
     update_info();
-    // capture.style(ent.vis ? 'display:inline' : 'display:none');
-    // console.log('capture width', capture.width, 'height', capture.height);
   });
+
+  chk_mute.changed(function () {
+    ent.media_state.mute = this.checked() ? 1 : 0;
+    // console.log(ent.imedia, 'chk_mute.changed ent.capture.elt.muted', ent.capture.elt.muted);
+    ent.capture.elt.muted = ent.media_state.mute;
+    // console.log(ent.imedia, 'chk_mute.changed ent.media_state.mute', ent.media_state.mute);
+    ui_media_state_update(ent.imedia);
+  });
+
   // !!@ causes removeDomElement failure
   // div.child(capture);
 }
@@ -146,18 +164,23 @@ export function init_mediaDivs() {
   ];
 }
 
-function ui_media_default_vis(imedia, vis) {
-  // let vis = default_vis;
+// return a reference to mediaDiv_state entry, ui will modify directly
+function ui_media_state_default(imedia, vis) {
   let ent = a_.ui.mediaDiv_states[imedia];
   if (ent) {
-    return ent.vis;
+    ent.vis = ent.vis ? 1 : 0;
+    if (typeof ent.mute === 'undefined') ent.mute = 1;
+    ent.mute = ent.mute ? 1 : 0;
+    return ent;
   }
-  a_.ui.mediaDiv_states[imedia] = { vis };
+  let mute = 1;
+  ent = { vis, mute };
+  a_.ui.mediaDiv_states[imedia] = ent;
   ui_prop_set('mediaDiv_states', a_.ui.mediaDiv_states);
-  return vis;
+  return ent;
 }
 
-function ui_media_update_vis(imedia, vis) {
-  a_.ui.mediaDiv_states[imedia].vis = vis;
+// imedia is not used. entire mediaDiv_state is updated to local storage
+function ui_media_state_update(imedia) {
   ui_prop_set('mediaDiv_states', a_.ui.mediaDiv_states);
 }

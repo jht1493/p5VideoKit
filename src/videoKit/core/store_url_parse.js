@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=124';
-import { pad_layout_update } from '../core-ui/ui_patch.js?v=124';
-import { ui_prop_set } from '../core/ui_restore.js?v=124';
+import { a_ } from '../let/a_ui.js?v=126';
+import { pad_layout_update } from '../core-ui/ui_patch.js?v=126';
+import { ui_prop_set } from '../core/ui_restore.js?v=126';
 
 // Are we setting up store from our url query?
 // url parm
@@ -144,7 +144,7 @@ export function store_name_restore() {
   if (nstore) a_.store_name = nstore;
 }
 
-function store_name_update(name) {
+export function store_name_update(name) {
   console.log('store_name_update', name);
   localStorage.setItem('a_.store_name', name);
   let loc = location_url();

@@ -1,9 +1,9 @@
 {
-  "setting": "",
+  "setting": "face.json",
   "back_color": 200,
-  "room_name": "Dice-Play-1",
+  "room_name": "VideoKit-Room-1",
   "patch_layout": "Single",
-  "canvas_size": "480x270",
+  "canvas_size": "960x540",
   "capture_size": "480x270",
   "chat_name": "jht",
   "chat_chk": 0,
@@ -16,8 +16,8 @@
         "imedia": 1,
         "eff_label": "face_mesh",
         "urect": {
-          "width": 480,
-          "height": 270,
+          "width": 960,
+          "height": 540,
           "x0": 0,
           "y0": 0
         }
@@ -49,8 +49,8 @@
         "imedia": 0,
         "eff_label": "bestill",
         "urect": {
-          "width": 480,
-          "height": 270,
+          "width": 960,
+          "height": 540,
           "x0": 0,
           "y0": 0
         }
@@ -64,7 +64,8 @@
   "mediaDiv_states": [
     null,
     {
-      "vis": false
+      "vis": 0,
+      "mute": 1
     },
     {
       "vis": false

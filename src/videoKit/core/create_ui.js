@@ -1,17 +1,17 @@
-import { a_ } from '../let/a_ui.js?v=124';
-import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=124';
-import { ui_capture_size } from '../core-ui/ui_capture.js?v=124';
-import { ui_render_size } from '../core-ui/ui_render.js?v=124';
-import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=124';
-import { ui_div_empty } from '../util/ui_base.js?v=124';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=124';
-import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=124';
-import { ui_live_selection } from '../core-ui/ui_live.js?v=124';
-import { ui_chat_pane } from '../core-ui/ui_chat.js?v=124';
-import { store_restore_from } from '../core/store_url_parse.js?v=124';
-import { check_reset_video } from '../core/check_reset_video.js?v=124';
-import { patch_inst_clear } from '../core/patch_inst.js?v=124';
-import { ui_prop_set } from '../core/ui_restore.js?v=124';
+import { a_ } from '../let/a_ui.js?v=126';
+import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v=126';
+import { ui_capture_size } from '../core-ui/ui_capture.js?v=126';
+import { ui_render_size } from '../core-ui/ui_render.js?v=126';
+import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v=126';
+import { ui_div_empty } from '../util/ui_base.js?v=126';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=126';
+import { ui_patch_buttons } from '../core-ui/ui_patch.js?v=126';
+import { ui_live_selection } from '../core-ui/ui_live.js?v=126';
+import { ui_chat_pane } from '../core-ui/ui_chat.js?v=126';
+import { store_restore_from } from '../core/store_url_parse.js?v=126';
+import { check_reset_video } from '../core/check_reset_video.js?v=126';
+import { patch_inst_clear } from '../core/patch_inst.js?v=126';
+import { ui_prop_set } from '../core/ui_restore.js?v=126';
 
 export function create_ui() {
   ui_top_pane();
@@ -80,11 +80,15 @@ function ui_top_pane() {
     imsg.style('fontSize', 'x-large');
   }
   {
-    let gith = createA('https://github.com/jht1493/p5VideoKit/', ' GitHub ', '_blank');
+    let span = createSpan(' ');
+    let gith = createA('https://github.com/jht1493/p5VideoKit/', ' GitHub ', 'github');
     gith.style('float', 'right'); // float: right
     gith.style('margin-right', '5px'); // float: right
-    let span = createSpan(' ');
     span.child(gith);
+    let setn = createA('./settings.html', ' Settings ', '_blank');
+    setn.style('float', 'right'); // float: right
+    setn.style('margin-right', '5px'); // float: right
+    span.child(setn);
   }
 }
 
@@ -103,9 +107,10 @@ function ui_top_pane() {
 function reload_action() {
   let ent = a_.settings.find((ent) => ent.setting === a_.ui.setting);
   console.log('reload_action ent', ent);
+  if (!ent) {
+    ent = a_.ui;
+  }
   store_restore_from(ent);
-  // let loc = location_url();
-  // window.location = loc;
 }
 
 function ui_present_window() {

@@ -1,7 +1,7 @@
-import { a_ } from '../let/a_ui.js?v=124';
-import { create_mediaDiv, remove_mediaDiv } from '../core/create_mediaDiv.js?v=124';
-import { ui_refresh } from '../core-ui/ui_patch.js?v=124';
-import { ui_chat_receive } from '../core-ui/ui_chat.js?v=124';
+import { a_ } from '../let/a_ui.js?v=126';
+import { create_mediaDiv, remove_mediaDiv } from '../core/create_mediaDiv.js?v=126';
+import { ui_refresh } from '../core-ui/ui_patch.js?v=126';
+import { ui_chat_receive } from '../core-ui/ui_chat.js?v=126';
 
 // let a_livem;
 
@@ -68,9 +68,7 @@ function gotStream(capture, id) {
   let stream = capture.elt.srcObject;
   let deviceId = id;
   let mediaDevice = { deviceId, capture, stream };
-  // let default_vis = !a_.hideui;
-  let default_vis = 0;
-  create_mediaDiv(mediaDevice, default_vis, 1);
+  create_mediaDiv(mediaDevice, { live: 1 });
   ui_refresh();
   // livem_send('Hello');
 }

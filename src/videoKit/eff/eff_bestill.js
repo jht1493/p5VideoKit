@@ -1,4 +1,4 @@
-import { image_copy } from '../util/image.js?v=124';
+import { image_copy } from '../util/image.js?v=126';
 
 export default class eff_bestill {
   static meta_props = {

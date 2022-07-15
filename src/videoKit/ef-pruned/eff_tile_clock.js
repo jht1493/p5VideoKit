@@ -1,6 +1,6 @@
-import { PeriodTimer } from '../util/PeriodTimer.js?v=124';
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=124';
-import { face_mesh_draw } from '../core/face_mesh_draw.js?v=124';
+import { PeriodTimer } from '../util/PeriodTimer.js?v=126';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=126';
+import { face_mesh_draw } from '../core/face_mesh_draw.js?v=126';
 
 export default class eff_tile_clock {
   static meta_props = {

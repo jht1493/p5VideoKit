@@ -6,7 +6,7 @@ import enum_files from './enum_files.js';
 let updateBuild = 0;
 
 export function set_updateBuild(flag) {
-  console.log('set_updateBuild flat', flag);
+  console.log('set_updateBuild flag', flag);
   updateBuild = flag;
 }
 
