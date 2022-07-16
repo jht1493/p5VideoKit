@@ -36,7 +36,7 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 [4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Patch drop down to select an effect.
 
-[live1](https://jht1493.net/p5VideoKit/demo/?d=demo/live1.json) - joint the VideoKit-Play-1 live streaming room.
+[live1](https://jht1493.net/p5VideoKit/baked/?d=demo/live1.json) - joint the VideoKit-Play-1 live streaming room.
 
 [archive of settings ](https://jht1493.net/p5VideoKit/demo/settings.html) - not every settings work
 

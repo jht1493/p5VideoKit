@@ -1,0 +1,78 @@
+{
+  "setting": "live4",
+  "comment": "",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-4",
+  "patch_layout": "Single",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 0
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": false
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 2,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 3,
+        "eff_label": "show",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "fft_graph",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "max": 5
+      }
+    }
+  ]
+}
