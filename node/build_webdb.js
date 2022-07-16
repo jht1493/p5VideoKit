@@ -1,8 +1,12 @@
 import pkg from 'fs-extra';
-const { readdirSync, writeFileSync } = pkg;
+const { readdirSync } = pkg;
 import { join } from 'path';
 
-export default function build_webdb(webdbPath, imagesOutPath) {
+import { writeSrcBuildFile } from './enum_files.js';
+
+export default function build_webdb(src_path, webdbPath, imagesOutPath) {
+  webdbPath = join(src_path, webdbPath);
+  // imagesOutPath = join(src_path, imagesOutPath);
   let dirs = readdirSync(webdbPath);
   dirs = dirs.filter((item) => item.substring(0, 1) !== '.');
   dirs.sort();
@@ -33,7 +37,7 @@ export default function build_webdb(webdbPath, imagesOutPath) {
   let str = 'let a_images = ';
   str += JSON.stringify(files, null, 2);
 
-  writeFileSync(imagesOutPath, str);
+  writeSrcBuildFile(src_path, imagesOutPath, str);
 }
 
 function filter_out_json(item) {

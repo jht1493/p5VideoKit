@@ -1,14 +1,14 @@
-import { a_ } from '../let/a_ui.js?v=128';
-import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v=128';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v=128';
-import { ui_live_selection } from '../core-ui/ui_live.js?v=128';
-import { PadLayout } from '../util/PadLayout.js?v=128';
-import { ui_prop_set } from '../core/ui_restore.js?v=128';
-import { store_restore_from } from '../core/store_url_parse.js?v=128';
-import { str_to_width_height } from '../core-ui/ui_canvas.js?v=128';
-import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v=128';
-import { patch_add } from '../core/patch_inst.js?v=128';
-import { patch_inst_clear } from '../core/patch_inst.js?v=128';
+import { a_ } from '../let/a_ui.js?v={{version}}';
+import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v={{version}}';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{version}}';
+import { ui_live_selection } from '../core-ui/ui_live.js?v={{version}}';
+import { PadLayout } from '../util/PadLayout.js?v={{version}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
+import { store_restore_from } from '../core/store_url_parse.js?v={{version}}';
+import { str_to_width_height } from '../core-ui/ui_canvas.js?v={{version}}';
+import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v={{version}}';
+import { patch_add } from '../core/patch_inst.js?v={{version}}';
+import { patch_inst_clear } from '../core/patch_inst.js?v={{version}}';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');

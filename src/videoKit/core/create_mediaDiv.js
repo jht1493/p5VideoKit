@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=128';
-import { ui_prop_set } from '../core/ui_restore.js?v=128';
-import { patch_inst_clear } from '../core/patch_inst.js?v=128';
+import { a_ } from '../let/a_ui.js?v={{version}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
+import { patch_inst_clear } from '../core/patch_inst.js?v={{version}}';
 
 // a_.mediaDivs = []
 // { imedia, mediaDevice, id, label, div, chk, vis, capture, info, ready, livem }

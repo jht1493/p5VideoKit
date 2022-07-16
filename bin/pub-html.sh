@@ -24,7 +24,7 @@ ssh $host mkdir -p $rpath
 # Remove server directory external/media, establish symbolic link later
 ssh $host rm -rf $rpath/external/media
 
-source=../src
+source=../build
 # echo $verbose $delete $test
 echo -razO$verbose $excludes $delete $test
 echo "rsync from $source"
@@ -36,6 +36,7 @@ ssh $host ln -s /home/bitnami/htdocs/a1/skt/assets $rpath/external/media
 
 echo
 echo Lapse $(expr `date +%s` - $start_time) 
+echo build_ver `cat ../build/build_ver.txt`
 echo "open https://jht1493.net/${homepage}"
 
 

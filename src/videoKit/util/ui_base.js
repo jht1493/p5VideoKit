@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v=128';
-import { ui_canvas_div } from '../core-ui/ui_canvas.js?v=128';
-import { ui_prop_set } from '../core/ui_restore.js?v=128';
+import { a_ } from '../let/a_ui.js?v={{version}}';
+import { ui_canvas_div } from '../core-ui/ui_canvas.js?v={{version}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
 
 function ui_hide() {
   let m = select('main').elt;
@@ -19,7 +19,7 @@ function ui_size_pane() {
   ui_canvas_div(div);
 }
 
-let a_back_color_options = [200, 0, 50, 100, 200, 255, -1];
+let a_back_color_options = [200, 0, 1, 50, 100, 200, 255, -1];
 
 export function ui_backcolor(div) {
   div.child(createSpan(' Back: '));

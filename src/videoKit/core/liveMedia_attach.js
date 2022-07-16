@@ -1,7 +1,7 @@
-import { a_ } from '../let/a_ui.js?v=128';
-import { create_mediaDiv, remove_mediaDiv } from '../core/create_mediaDiv.js?v=128';
-import { ui_refresh } from '../core-ui/ui_patch.js?v=128';
-import { ui_chat_receive } from '../core-ui/ui_chat.js?v=128';
+import { a_ } from '../let/a_ui.js?v={{version}}';
+import { create_mediaDiv, remove_mediaDiv } from '../core/create_mediaDiv.js?v={{version}}';
+import { ui_refresh } from '../core-ui/ui_patch.js?v={{version}}';
+import { ui_chat_receive } from '../core-ui/ui_chat.js?v={{version}}';
 
 // let a_livem;
 

@@ -1,5 +1,6 @@
-import { image_scaled_pad } from '../util/image.js?v=128';
-import { PeriodTimer } from '../util/PeriodTimer.js?v=128';
+import { image_scaled_pad } from '../util/image.js?v={{version}}';
+import { PeriodTimer } from '../util/PeriodTimer.js?v={{version}}';
+import { FFT_analyser } from '../util/FFT_analyser.js?v={{version}}';
 
 export default class eff_fft_polar {
   static meta_props = {
@@ -35,21 +36,12 @@ export default class eff_fft_polar {
     this.th_delta = (TWO_PI / 360) * this.delta;
     this.x0 = layer.width / 2;
     this.y0 = layer.height / 2;
-    this.init_analyser();
+    this.fft_anal = new FFT_analyser({ media: this.media });
     this.period_timer = new PeriodTimer(this.period);
   }
-  init_analyser() {
-    let a_audioCtx = getAudioContext();
-    a_audioCtx.resume();
-    let stream = this.media.mediaDevice.stream;
-    this.analyser = a_audioCtx.createAnalyser();
-    let source = a_audioCtx.createMediaStreamSource(stream);
-    source.connect(this.analyser);
-  }
+
   draw_fft() {
-    if (!this.analyser) return;
-    let spectrum = new Uint8Array(this.analyser.frequencyBinCount);
-    this.analyser.getByteFrequencyData(spectrum);
+    let spectrum = this.fft_anal.spectrum();
     let layer = this.layer;
     let i_start = Math.round((spectrum.length * this.start) / 1000);
     let i_end = Math.round((spectrum.length * this.end) / 1000);

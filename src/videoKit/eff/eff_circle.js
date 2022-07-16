@@ -1,5 +1,5 @@
-import { PeriodTimer } from '../util/PeriodTimer.js?v=128';
-import { image_copy } from '../util/image.js?v=128';
+import { PeriodTimer } from '../util/PeriodTimer.js?v={{version}}';
+import { image_copy } from '../util/image.js?v={{version}}';
 
 export default class eff_circle {
   static meta_props = {

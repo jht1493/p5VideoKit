@@ -1,13 +1,15 @@
 import pkg from 'fs-extra';
-const { readdirSync, writeFileSync } = pkg;
+const { readdirSync } = pkg;
 import { join, parse } from 'path';
 
-import enum_files from './enum_files.js';
+import { enum_files, writeSrcBuildFile } from './enum_files.js';
 
 // const settingMetasPath = join(src_path, 'videoKit/let/a_settingMetas.js');
 // const settingIndexPath = join(src_path, 'settings.html');
 
 export default function build_settings(src_path, settings, baked, settingMetasPath, settingIndexPath) {
+  // settingMetasPath = join(src_path, settingMetasPath);
+  // settingIndexPath = join(src_path, settingIndexPath);
   //
   // Generate a_settingMetas.js
   gen_a_settingMetas(src_path, settings, baked, settingMetasPath);
@@ -20,7 +22,10 @@ function gen_settings_index(src_path, settings, settingIndexPath) {
   // console.log('gen_settings_index files', files);
   console.log('gen_settings_index files', files.length);
 
-  files = files.map((file) => `<a href="./index.html?d=${file}" target="settings">${file}</><br>`);
+  files = files.map((file) => {
+    if (!file) return '<br/>';
+    return `<a href="./index.html?d=${file}" target="settings">${file}</><br>`;
+  });
 
   let str = `
   <!DOCTYPE html>
@@ -34,7 +39,7 @@ ${files.join('\n')}
 </html>
 `;
 
-  writeFileSync(settingIndexPath, str);
+  writeSrcBuildFile(src_path, settingIndexPath, str);
 }
 
 function gen_a_settingMetas(src_path, settings, baked, settingMetasPath) {
@@ -62,6 +67,6 @@ export let a_settingMetas = [
 ${settingMetas.join('\n')}
 ];
 `;
-  writeFileSync(settingMetasPath, strm);
+  writeSrcBuildFile(src_path, settingMetasPath, strm);
   console.log('settingMetas.length', settingMetas.length);
 }

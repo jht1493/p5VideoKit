@@ -1,4 +1,4 @@
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v=128';
+import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{version}}';
 
 export default class eff_show_none {
   static meta_props = {

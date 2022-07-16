@@ -21,5 +21,15 @@ if [ ! -e "$dest/node_modules" ]; then
   popd > /dev/null
 fi
 
+excludes="--exclude .DS_Store"
+delete=--delete
+test=
+# test=--dry-run
+verbose=
+verbose=v
+source=../src
+rdest=../build
+rsync -razO$verbose $excludes $delete $test "$source/" "$rdest/"
+
 node ../node/build.js "$@"
 

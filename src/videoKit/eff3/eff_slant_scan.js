@@ -1,4 +1,4 @@
-import { image_copy } from '../util/image.js?v=128';
+import { image_copy } from '../util/image.js?v={{version}}';
 
 export default class eff_slant_scan {
   static meta_props = {

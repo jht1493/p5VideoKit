@@ -1,4 +1,5 @@
-import { image_scaled_pad } from '../util/image.js?v=128';
+import { image_scaled_pad } from '../util/image.js?v={{version}}';
+import { FFT_analyser } from '../util/FFT_analyser.js?v={{version}}';
 
 export default class eff_fft_graph {
   static meta_props = { max: [5, 6, 7, 2, 4, 8, 9, 10] };
@@ -27,17 +28,11 @@ export default class eff_fft_graph {
     // console.log('draw_fft_max r', r);
     this.vol_len = r;
     this.n_vol = int(this.output.width / this.vol_len);
-    let a_audioCtx = getAudioContext();
-    a_audioCtx.resume();
-    this.analyser = a_audioCtx.createAnalyser();
-    let stream = this.media.mediaDevice.stream;
-    let source = a_audioCtx.createMediaStreamSource(stream);
-    source.connect(this.analyser);
+    this.fft_anal = new FFT_analyser({ media: this.media });
   }
   draw_fft() {
     let output = this.output;
-    let spectrum = new Uint8Array(this.analyser.frequencyBinCount);
-    this.analyser.getByteFrequencyData(spectrum);
+    let spectrum = this.fft_anal.spectrum();
     let i_start = Math.round((spectrum.length * this.start) / 1000);
     let i_end = Math.round((spectrum.length * this.end) / 1000);
     let b_len = width / (i_end - i_start);

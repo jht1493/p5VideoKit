@@ -1,8 +1,8 @@
-import { a_ } from '../let/a_ui.js?v=128';
-import { ui_div_empty } from '../util/ui_base.js?v=128';
-import { effectMeta_find } from '../core/effectMeta.js?v=128';
-import { ui_patch_update } from '../core-ui/ui_patch.js?v=128';
-import { patch_remove_ipatch, patch_update_effIndex } from '../core/patch_inst.js?v=128';
+import { a_ } from '../let/a_ui.js?v={{version}}';
+import { ui_div_empty } from '../util/ui_base.js?v={{version}}';
+import { effectMeta_find } from '../core/effectMeta.js?v={{version}}';
+import { ui_patch_update } from '../core-ui/ui_patch.js?v={{version}}';
+import { patch_remove_ipatch, patch_update_effIndex } from '../core/patch_inst.js?v={{version}}';
 
 export function ui_patch_eff_panes() {
   let droot = ui_div_empty('ipatch_eff');

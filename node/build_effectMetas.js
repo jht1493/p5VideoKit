@@ -1,6 +1,8 @@
 import pkg from 'fs-extra';
-const { existsSync, readdirSync, lstatSync, writeFileSync } = pkg;
+const { existsSync, readdirSync, lstatSync } = pkg;
 import { join } from 'path';
+
+import { writeSrcBuildFile } from './enum_files.js';
 
 // create listing for dynanmic import of effect modules
 //  'videoKit/let/a_effectMetas.js'
@@ -8,7 +10,8 @@ import { join } from 'path';
 // mods=videoKit directory for modules
 //  videoKit/eff*
 //
-export default function build_effectMetas(effectMetasPath, src_path, mods) {
+export default function build_effectMetas(src_path, effectMetasPath, mods) {
+  // effectMetasPath = join(src_path, effectMetasPath);
   const effectModPath = join(src_path, mods);
   //
   if (!existsSync(effectModPath)) {
@@ -62,7 +65,7 @@ export let a_effectMetas =  [
 ${ents.join('\n')}
 ];
 `;
-  writeFileSync(effectMetasPath, str);
+  writeSrcBuildFile(src_path, effectMetasPath, str);
   console.log(mods + '/effs*', ents.length);
 }
 
