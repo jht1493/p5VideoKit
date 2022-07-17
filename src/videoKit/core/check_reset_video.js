@@ -1,5 +1,5 @@
-import { ui_message } from '../core/create_ui.js?v={{version}}';
-import { location_noquery } from '../core/store_url_parse.js?v={{version}}';
+import { ui_message } from '../core/create_ui.js?v={{vers}}';
+import { location_noquery } from '../core/store_url_parse.js?v={{vers}}';
 
 // On first use in browser sometimes camera permissions
 // are not requested and no video is displayed.
@@ -22,6 +22,7 @@ export function check_reset_video() {
     function func() {
       let nref = (random() + '').substring(2);
       nref = location_noquery() + '?v=' + nref;
+      // ui_message('');
       window.location = nref;
       // console.log('nref', nref);
     }

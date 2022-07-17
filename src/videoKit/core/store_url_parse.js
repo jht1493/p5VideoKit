@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v={{version}}';
-import { pad_layout_update } from '../core-ui/ui_patch.js?v={{version}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
+import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
 
 // Are we setting up store from our url query?
 // url parm

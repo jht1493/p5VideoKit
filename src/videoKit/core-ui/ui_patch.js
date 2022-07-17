@@ -1,14 +1,14 @@
-import { a_ } from '../let/a_ui.js?v={{version}}';
-import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v={{version}}';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{version}}';
-import { ui_live_selection } from '../core-ui/ui_live.js?v={{version}}';
-import { PadLayout } from '../util/PadLayout.js?v={{version}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
-import { store_restore_from } from '../core/store_url_parse.js?v={{version}}';
-import { str_to_width_height } from '../core-ui/ui_canvas.js?v={{version}}';
-import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v={{version}}';
-import { patch_add } from '../core/patch_inst.js?v={{version}}';
-import { patch_inst_clear } from '../core/patch_inst.js?v={{version}}';
+import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v={{vers}}';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{vers}}';
+import { ui_live_selection } from '../core-ui/ui_live.js?v={{vers}}';
+import { PadLayout } from '../util/PadLayout.js?v={{vers}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
+import { str_to_width_height } from '../core-ui/ui_canvas.js?v={{vers}}';
+import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v={{vers}}';
+import { patch_add } from '../core/patch_inst.js?v={{vers}}';
+import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');

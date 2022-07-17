@@ -1,7 +1,7 @@
 // !!@ Generated File
 export let a_effectMetas =  [
 { label: 'bestill', import_path: 'videoKit/eff/eff_bestill.js' },
-{ label: 'bodypix', import_path: 'videoKit/eff/eff_bodypix.js' },
+{ label: 'bodypix', import_path: 'videoKit/eff4/eff_bodypix.js' },
 { label: 'bright', import_path: 'videoKit/eff/eff_bright.js' },
 { label: 'circle', import_path: 'videoKit/eff/eff_circle.js' },
 { label: 'delaunay', import_path: 'videoKit/eff/eff_delaunay.js' },
@@ -12,10 +12,10 @@ export let a_effectMetas =  [
 { label: 'fft_polar', import_path: 'videoKit/eff2/eff_fft_polar.js' },
 { label: 'grid', import_path: 'videoKit/eff2/eff_grid.js' },
 { label: 'image', import_path: 'videoKit/eff2/eff_image.js' },
-{ label: 'image_mesh', import_path: 'videoKit/eff2/eff_image_mesh.js' },
-{ label: 'loop', import_path: 'videoKit/eff2/eff_loop.js' },
+{ label: 'image_mesh', import_path: 'videoKit/eff4/eff_image_mesh.js' },
+{ label: 'loop', import_path: 'videoKit/eff4/eff_loop.js' },
 { label: 'maze', import_path: 'videoKit/eff2/eff_maze.js' },
-{ label: 'mov', import_path: 'videoKit/eff2/eff_mov.js' },
+{ label: 'mov', import_path: 'videoKit/eff4/eff_mov.js' },
 { label: 'none', import_path: 'videoKit/eff3/eff_none.js' },
 { label: 'pose_net', import_path: 'videoKit/eff3/eff_pose_net.js' },
 { label: 'show', import_path: 'videoKit/eff3/eff_show.js' },
@@ -23,6 +23,6 @@ export let a_effectMetas =  [
 { label: 'slant_scan', import_path: 'videoKit/eff3/eff_slant_scan.js' },
 { label: 'slit_scan', import_path: 'videoKit/eff3/eff_slit_scan.js' },
 { label: 'ticker', import_path: 'videoKit/eff-ticker/eff_ticker.js' },
-{ label: 'tile_clock', import_path: 'videoKit/eff3/eff_tile_clock.js' },
+{ label: 'tile_clock', import_path: 'videoKit/eff4/eff_tile_clock.js' },
 { label: 'triangle', import_path: 'videoKit/eff3/eff_triangle.js' },
 ];

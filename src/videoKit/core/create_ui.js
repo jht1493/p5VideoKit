@@ -1,17 +1,17 @@
-import { a_ } from '../let/a_ui.js?v={{version}}';
-import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v={{version}}';
-import { ui_capture_size } from '../core-ui/ui_capture.js?v={{version}}';
-import { ui_render_size } from '../core-ui/ui_render.js?v={{version}}';
-import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v={{version}}';
-import { ui_div_empty } from '../util/ui_base.js?v={{version}}';
-import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{version}}';
-import { ui_patch_buttons } from '../core-ui/ui_patch.js?v={{version}}';
-import { ui_live_selection } from '../core-ui/ui_live.js?v={{version}}';
-import { ui_chat_pane } from '../core-ui/ui_chat.js?v={{version}}';
-import { store_restore_from } from '../core/store_url_parse.js?v={{version}}';
-import { check_reset_video } from '../core/check_reset_video.js?v={{version}}';
-import { patch_inst_clear } from '../core/patch_inst.js?v={{version}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
+import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v={{vers}}';
+import { ui_capture_size } from '../core-ui/ui_capture.js?v={{vers}}';
+import { ui_render_size } from '../core-ui/ui_render.js?v={{vers}}';
+import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
+import { ui_div_empty } from '../util/ui_base.js?v={{vers}}';
+import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{vers}}';
+import { ui_patch_buttons } from '../core-ui/ui_patch.js?v={{vers}}';
+import { ui_live_selection } from '../core-ui/ui_live.js?v={{vers}}';
+import { ui_chat_pane } from '../core-ui/ui_chat.js?v={{vers}}';
+import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
+import { check_reset_video } from '../core/check_reset_video.js?v={{vers}}';
+import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
 
 export function create_ui() {
   ui_top_pane();
@@ -77,7 +77,9 @@ function ui_top_pane() {
   {
     createSpan().id('ifps');
     let imsg = createSpan().id('imsg');
-    imsg.style('fontSize', 'x-large');
+    // imsg.style('fontSize', 'x-large');
+    imsg.style('fontSize', '5vw');
+    imsg.style('display:none');
   }
   {
     let span = createSpan(' ');
@@ -168,6 +170,7 @@ export function ui_message(msg) {
     msg = ' [ ' + msg + ' ] ';
   }
   imsg.html(msg);
+  imsg.style(msg ? 'display:inline' : 'display:none');
 }
 
 // Return date stamped file name based on first patch name

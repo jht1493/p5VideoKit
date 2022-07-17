@@ -1,6 +1,6 @@
-import { a_ } from '../let/a_ui.js?v={{version}}';
-import { ui_canvas_div } from '../core-ui/ui_canvas.js?v={{version}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{version}}';
+import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { ui_canvas_div } from '../core-ui/ui_canvas.js?v={{vers}}';
+import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
 
 function ui_hide() {
   let m = select('main').elt;
@@ -34,13 +34,6 @@ export function ui_backcolor(div) {
     let valu = parseFloat(this.value());
     ui_prop_set('back_color', valu);
   });
-}
-
-function ui_message(msg) {
-  if (msg) {
-    msg = ' [ ' + msg + ' ] ';
-  }
-  select('#imsg').html(msg);
 }
 
 // Return date stamped file name based on first patch name

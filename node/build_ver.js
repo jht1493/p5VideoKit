@@ -29,7 +29,7 @@ export function get_build_vers(src_path, buildnum_path) {
 export function build_ver_run(src_path, buildnum_path, build_ver, buildnum_files) {
   // buildnum_path = join(src_path, buildnum_path);
   console.log('build_ver_run updateBuild', updateBuild);
-  const from_str = '\\?v={{version}}';
+  const from_str = '\\?v={{vers}}';
   const to_str = '?v=' + build_ver.next;
   const re = new RegExp(from_str, 'g');
   let nfiles = enum_files(src_path, buildnum_files);

@@ -1,4 +1,4 @@
-import { image_copy } from '../util/image.js?v={{version}}';
+import { image_copy } from '../util/image.js?v={{vers}}';
 
 export default class eff_sketchy {
   static meta_props = {
