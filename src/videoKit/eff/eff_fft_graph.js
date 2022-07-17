@@ -23,10 +23,7 @@ export default class eff_fft_graph {
     this.base = 0;
     this.vols = [];
     this.fft_maxs = [];
-    let r = width / 540;
-    r = r * r;
-    // console.log('draw_fft_max r', r);
-    this.vol_len = r;
+    this.vol_len = Math.pow(width / 960, 0.5);
     this.n_vol = int(this.output.width / this.vol_len);
     this.fft_anal = new FFT_analyser({ media: this.media });
   }
@@ -58,12 +55,9 @@ export default class eff_fft_graph {
     let x = width - this.fft_maxs.length * this.vol_len;
     if (x < 0) x = 0;
     let y2 = height;
-    // let r = width / 540;
-    // r = r * r * r;
-    // console.log('draw_fft_max r', r);
     let len = 5 * this.vol_len;
-    for (let v of this.fft_maxs) {
-      let h = v;
+    // let len = this.vol_len;
+    for (let h of this.fft_maxs) {
       let c = map(h, 0, y2, 150, 255);
       output.fill(c, c, 0, this.alpha);
       output.rect(x, y2 - h, len, h);

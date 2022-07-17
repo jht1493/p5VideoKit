@@ -3,7 +3,7 @@
   "back_color": 200,
   "room_name": "Dice-Play-1",
   "patch_layout": "Single",
-  "canvas_size": "960x540",
+  "canvas_size": "1920x1080",
   "capture_size": "40x30",
   "chat_name": "jht",
   "chat_chk": 0,
