@@ -1,0 +1,124 @@
+{
+  "setting": "live4-lobby",
+  "comment": "live4-corner-posenet",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-4",
+  "patch_layout": "Single",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": false
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 2,
+        "eff_label": "show",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 2,
+        "eff_label": "fft_graph",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        },
+        "ihide": 0
+      },
+      "eff_props": {
+        "max": 5
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 2,
+        "eff_label": "pose_net",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        },
+        "ihide": 0
+      },
+      "eff_props": {
+        "alpha": 255,
+        "ndetect": 4,
+        "figure_color": 0,
+        "stroke_weight": 0,
+        "points": 0,
+        "points_size": 10,
+        "points_color_offset": 0,
+        "skel": 0,
+        "skel_weight": 1,
+        "skel_color_offset": 0,
+        "hflip": 0,
+        "show_head": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 3,
+        "imedia": 0,
+        "eff_label": "bestill",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "factor": 10,
+        "mirror": 0
+      }
+    }
+  ]
+}
