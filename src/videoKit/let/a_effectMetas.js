@@ -24,5 +24,6 @@ export let a_effectMetas =  [
 { label: 'slit_scan', import_path: 'videoKit/eff3/eff_slit_scan.js' },
 { label: 'ticker', import_path: 'videoKit/eff-ticker/eff_ticker.js' },
 { label: 'tile_clock', import_path: 'videoKit/eff4/eff_tile_clock.js' },
+{ label: 'tile_live', import_path: 'videoKit/eff4/eff_tile_live.js' },
 { label: 'triangle', import_path: 'videoKit/eff3/eff_triangle.js' },
 ];

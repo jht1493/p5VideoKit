@@ -23,7 +23,7 @@ export function ui_restore(effects, settings, sizeResult) {
     settingMetas_init(() => {
       ui_capture_init();
       ui_canvas_init();
-      ui_render_size_init();
+      // ui_render_size_init();
       store_name_restore();
       store_url_parse((urlResult) => {
         if (!urlResult.uiSet) {

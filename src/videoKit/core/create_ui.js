@@ -78,7 +78,7 @@ function ui_top_pane() {
     createSpan().id('ifps');
     let imsg = createSpan().id('imsg');
     // imsg.style('fontSize', 'x-large');
-    imsg.style('fontSize', '5vw');
+    imsg.style('font-size', '5vw');
     imsg.style('display:none');
   }
   {
@@ -149,7 +149,7 @@ function ui_size_pane() {
   let div = ui_div_empty('size_pane');
   ui_canvas_div(div);
   ui_capture_size(div);
-  ui_render_size(div);
+  // ui_render_size(div);
 }
 
 let a_ifps;

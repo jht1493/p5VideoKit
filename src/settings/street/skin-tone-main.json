@@ -1,0 +1,57 @@
+{
+  "setting": "",
+  "comment": "",
+  "back_color": 200,
+  "room_name": "VideoKit-SkinTone",
+  "patch_layout": "Single",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 1,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 3,
+        "eff_label": "tile_live",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "cells": "2,2",
+        "period": 5,
+        "ifirst": 2,
+        "freeze_patch": 0,
+        "livem_cycle": 1,
+        "show_all": 1,
+        "ncell": 3
+      }
+    }
+  ]
+}

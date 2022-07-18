@@ -1,5 +1,5 @@
 import pkg from 'fs-extra';
-const { readFileSync, writeFileSync } = pkg;
+const { readFileSync } = pkg;
 import { join } from 'path';
 
 import { enum_files, writeBuildFile, writeSrcBuildFile } from './enum_files.js';
@@ -20,7 +20,7 @@ export function get_build_vers(src_path, buildnum_path) {
   }
   let current = parseFloat(str);
   let next = current + 1;
-  // nbuild_ver = 1;
+  // next = 1000;
   return { current, next };
 }
 
