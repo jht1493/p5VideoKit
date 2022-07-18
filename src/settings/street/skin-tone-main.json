@@ -1,5 +1,5 @@
 {
-  "setting": "",
+  "setting": "street/skin-tone-main.json",
   "comment": "",
   "back_color": 200,
   "room_name": "VideoKit-SkinTone",
@@ -24,6 +24,10 @@
     {
       "vis": 0,
       "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
     }
   ],
   "urects_lock": 0,
@@ -34,7 +38,7 @@
     {
       "eff_spec": {
         "ipatch": 0,
-        "imedia": 3,
+        "imedia": 2,
         "eff_label": "tile_live",
         "urect": {
           "width": 960,

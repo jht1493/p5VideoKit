@@ -1,5 +1,5 @@
 {
-  "setting": "",
+  "setting": "street/skin-tone-guest.json",
   "comment": "",
   "back_color": 200,
   "room_name": "VideoKit-SkinTone",
@@ -23,7 +23,7 @@
     }
   ],
   "urects_lock": 0,
-  "urects_count": 2,
+  "urects_count": 1,
   "canvas_resize_ref": "",
   "canvas_data_chk": 0,
   "patches": [
@@ -58,23 +58,6 @@
         "avg_index": 0,
         "pixd_n": 8,
         "detect_max": 1
-      }
-    },
-    {
-      "eff_spec": {
-        "ipatch": 1,
-        "imedia": 0,
-        "eff_label": "bestill",
-        "urect": {
-          "width": 480,
-          "height": 270,
-          "x0": 0,
-          "y0": 0
-        }
-      },
-      "eff_props": {
-        "factor": 10,
-        "mirror": 0
       }
     }
   ]
