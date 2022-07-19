@@ -1,6 +1,6 @@
 # p5VideoKit
 
-p5VideoKit is dashboard for mixing video in the browser.
+[p5VideoKit is dashboard for mixing video in the browser.](https://github.com/jht1493/p5VideoKit)
 You can apply visual effects
 to live video from a camera or from the internet.
 The visual effects are written in p5js.
@@ -13,7 +13,7 @@ We welcome your feedback and help to improve the user interface and documentatio
 - re-mixing effects code from
   [DICE mobile app](http://www.johnhenrythompson.com/3-dice) and
   [NYU-ITP ICM course](https://github.com/ITPNYU/ICM-2021-Code)
-- TODO: video walk thru
+- [video overview](https://youtu.be/6t9aiVLL9OQ)
 - contact me: [create an github issue for this repo](https://github.com/jht1493/p5VideoKit/issues)
 
 ## Screen shots
