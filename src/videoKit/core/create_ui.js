@@ -9,7 +9,7 @@ import { ui_patch_buttons } from '../core-ui/ui_patch.js?v={{vers}}';
 import { ui_live_selection } from '../core-ui/ui_live.js?v={{vers}}';
 import { ui_chat_pane } from '../core-ui/ui_chat.js?v={{vers}}';
 import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
-import { check_reset_video } from '../core/check_reset_video.js?v={{vers}}';
+import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
 import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
 
@@ -51,7 +51,7 @@ function ui_top_pane() {
     ui_hide();
   });
   createButton('Reset').mousePressed(function () {
-    check_reset_video();
+    reset_video_clear_locals(a_.store_name);
   });
   // createButton('Save').mousePressed(function () {
   //   let fn = ui_save_fn();

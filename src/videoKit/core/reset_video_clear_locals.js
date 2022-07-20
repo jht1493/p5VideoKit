@@ -5,9 +5,12 @@ import { location_noquery } from '../core/store_url_parse.js?v={{vers}}';
 // are not requested and no video is displayed.
 // This simple use of createCapture appears to trigger permissions
 let myVideo;
-export function check_reset_video() {
+export function reset_video_clear_locals(storen) {
   ui_message('Resetting Configuration');
   localStorage.clear();
+  if (storen) {
+    localStorage.setItem('a_.store_name', storen);
+  }
   let vconstraints = {
     video: true,
   };

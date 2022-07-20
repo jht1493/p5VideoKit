@@ -7,6 +7,7 @@ import { ui_canvas_init } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { ui_render_size_init } from '../core-ui/ui_render.js?v={{vers}}';
 import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v={{vers}}';
 import { canvas_size_default } from '../core-ui/ui_canvas.js?v={{vers}}';
+import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
 
 //
 // let effects = [
@@ -24,7 +25,13 @@ export function ui_restore(effects, settings, sizeResult) {
       ui_capture_init();
       ui_canvas_init();
       // ui_render_size_init();
-      store_name_restore();
+      if (!store_name_restore()) {
+        // First session init
+        if (!a_.store_name) a_.store_name = 'Store-A';
+        console.log('ui_restore a_.store_name', a_.store_name);
+        reset_video_clear_locals(a_.store_name);
+        return;
+      }
       store_url_parse((urlResult) => {
         if (!urlResult.uiSet) {
           store_restore_ver();

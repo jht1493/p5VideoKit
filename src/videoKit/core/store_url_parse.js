@@ -142,6 +142,7 @@ function store_export(updateUrl) {
 export function store_name_restore() {
   let nstore = localStorage.getItem('a_.store_name');
   if (nstore) a_.store_name = nstore;
+  return nstore;
 }
 
 export function store_name_update(name) {

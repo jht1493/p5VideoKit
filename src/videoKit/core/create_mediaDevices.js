@@ -24,10 +24,12 @@ function create_mediaDevices() {
       },
     };
     let dim = get_capture_size();
-    if (dim) {
+    if (dim && dim.width && dim.height) {
       vcap.video.width = { exact: dim.width };
       vcap.video.height = { exact: dim.height };
     }
+    // console.log('create_mediaDevices dim', dim);
+    console.log('create_mediaDevices vcap', vcap);
     let capture = createCapture(vcap, function (stream) {
       mediaDevice.stream = stream;
       livem_restore();

@@ -22,13 +22,22 @@ export function ui_capture_size(div) {
   });
 }
 
-let a_capture_sizes_dict;
-
 export function ui_capture_init() {
   a_capture_sizes_dict = init_size_in(a_capture_sizes);
 }
 
+export function get_capture_size() {
+  let se = a_capture_sizes_dict[a_.ui.capture_size];
+  // console.log('get_capture_size index', a_.ui.capture_sizei, 'se', se);
+  return se;
+}
+
+let a_capture_sizes_dict;
+
 let a_capture_sizes = [
+  {
+    label: 'default',
+  },
   {
     width: 320,
     height: 240,
@@ -66,9 +75,3 @@ let a_capture_sizes = [
     height: 120,
   },
 ];
-
-export function get_capture_size() {
-  let se = a_capture_sizes_dict[a_.ui.capture_size];
-  // console.log('get_capture_size index', a_.ui.capture_sizei, 'se', se);
-  return se;
-}

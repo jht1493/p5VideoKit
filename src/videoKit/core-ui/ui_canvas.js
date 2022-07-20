@@ -44,83 +44,9 @@ export function ui_canvas_div(div) {
   }
 }
 
-let a_canvas_sizes_dict;
-
 export function ui_canvas_init() {
   a_canvas_sizes_dict = init_size_in(a_canvas_sizes);
 }
-
-let a_canvas_sizes = [
-  {
-    width: 320,
-    height: 240,
-  },
-  {
-    width: 480,
-    height: 270,
-  },
-  {
-    width: 640,
-    height: 480,
-  },
-  {
-    width: 960,
-    height: 540,
-  },
-  {
-    width: 1920,
-    height: 1080,
-  },
-  {
-    width: 540,
-    height: 960,
-  },
-  {
-    width: 1080,
-    height: 1920,
-  },
-  {
-    width: 2160,
-    height: 3840,
-  },
-  // {
-  //   width: 1280,
-  //   height: 480,
-  // },
-  // {
-  //   width: 1280,
-  //   height: 960,
-  // },
-  // {
-  //   width: 1920,
-  //   height: 1440,
-  // },
-  // {
-  //   width: 1080,
-  //   height: 1920,
-  // },
-  // {
-  //   width: 960,
-  //   height: 720,
-  // },
-  // {
-  //   width: 1600,
-  //   height: 1200,
-  // },
-  {
-    label: 'Window',
-    func: function () {
-      resizeCanvas(windowWidth, windowHeight);
-    },
-  },
-  {
-    label: 'Full Screen',
-    func: function () {
-      toggleFullScreen();
-      resizeCanvas(windowWidth, windowHeight);
-    },
-  },
-];
 
 export function canvas_size_default() {
   let sz = a_canvas_sizes_dict[a_.ui.canvas_size];
@@ -161,3 +87,78 @@ export function toggleFullScreen() {
     }
   }
 }
+
+// {
+//   width: 1280,
+//   height: 480,
+// },
+// {
+//   width: 1280,
+//   height: 960,
+// },
+// {
+//   width: 1920,
+//   height: 1440,
+// },
+// {
+//   width: 1080,
+//   height: 1920,
+// },
+// {
+//   width: 960,
+//   height: 720,
+// },
+// {
+//   width: 1600,
+//   height: 1200,
+// },
+
+let a_canvas_sizes_dict;
+
+let a_canvas_sizes = [
+  {
+    width: 320,
+    height: 240,
+  },
+  {
+    width: 480,
+    height: 270,
+  },
+  {
+    width: 640,
+    height: 480,
+  },
+  {
+    width: 960,
+    height: 540,
+  },
+  {
+    width: 1920,
+    height: 1080,
+  },
+  {
+    width: 540,
+    height: 960,
+  },
+  {
+    width: 1080,
+    height: 1920,
+  },
+  {
+    width: 2160,
+    height: 3840,
+  },
+  {
+    label: 'Window',
+    func: function () {
+      resizeCanvas(windowWidth, windowHeight);
+    },
+  },
+  {
+    label: 'Full Screen',
+    func: function () {
+      toggleFullScreen();
+      resizeCanvas(windowWidth, windowHeight);
+    },
+  },
+];
