@@ -1,5 +1,5 @@
-import { image_scaled_pad } from '../util/image.js?v={{vers}}';
-import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
+import { image_scaled_pad } from '../../util/image.js?v={{vers}}';
+import { patch_index1 } from '../../core-ui/ui_patch_eff.js?v={{vers}}';
 
 export default class eff_show_pad {
   static meta_props = {

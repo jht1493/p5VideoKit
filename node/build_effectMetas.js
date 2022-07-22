@@ -7,11 +7,9 @@ import { writeSrcBuildFile } from './enum_files.js';
 // create listing for dynanmic import of effect modules
 //  'videoKit/let/a_effectMetas.js'
 // based on js files in mods directory
-// mods=videoKit directory for modules
-//  videoKit/eff*
+// mods=videoKit/effects directory for modules
 //
 export default function build_effectMetas(src_path, effectMetasPath, mods) {
-  // effectMetasPath = join(src_path, effectMetasPath);
   const effectModPath = join(src_path, mods);
   //
   if (!existsSync(effectModPath)) {
@@ -19,16 +17,16 @@ export default function build_effectMetas(src_path, effectMetasPath, mods) {
     return;
   }
   const dirs = readdirSync(effectModPath);
-  dirs.sort();
+  // dirs.sort();
   // console.log(dir, files);
   let imparts = [];
   for (let dir of dirs) {
-    // dir = eff, eff2
+    // dir = aset
     if (dir.substring(0, 1) == '.') continue;
-    if (!dir.startsWith('eff')) continue;
+    // if (!dir.startsWith('eff')) continue;
 
     let dpath = join(effectModPath, dir);
-    // dpath = mods/eff
+    // dpath = videoKit/effects/aset
     if (!lstatSync(dpath).isDirectory()) {
       continue;
     }
@@ -36,7 +34,7 @@ export default function build_effectMetas(src_path, effectMetasPath, mods) {
     if (!files) {
       continue;
     }
-    files.sort();
+    // files.sort();
     files.map((ent) => {
       if (ent.endsWith('.js')) {
         let pos = ent.lastIndexOf('.');
@@ -44,20 +42,21 @@ export default function build_effectMetas(src_path, effectMetasPath, mods) {
         let npos = nent.indexOf('_');
         let label = nent.substring(npos + 1);
         let npath = dir + '/' + ent;
-        // imparts.push(dir + '/' + nent);
-        imparts.push({ label, npath });
+        let ui_label = dir + '/' + label;
+        // npath=aset/eff_bestill.js
+        imparts.push({ label, npath, ui_label });
       }
     });
   }
-  imparts.sort((item1, item2) => item1.label.localeCompare(item2.label));
+  imparts.sort((item1, item2) => item1.ui_label.localeCompare(item2.ui_label));
   // console.log('imparts', imparts);
   // imparts [ 'eff/eff_bestill',    'eff/eff_bodypix'
   // avoid JSON.stringify to get one per line
   let ents = imparts.map((ent) => {
     let import_path = mods + '/' + ent.npath;
     // let pos = ent.npath.indexOf('_');
-    let label = ent.label;
-    return `{ label: '${label}', import_path: '${import_path}' },`;
+    let { label, ui_label } = ent;
+    return `{ label: '${label}', import_path: '${import_path}', ui_label: '${ui_label}'},`;
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File

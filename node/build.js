@@ -40,4 +40,4 @@ build_ver_run(src_path, buildnum_path, build_ver, buildnum_files);
 // build_index(src_path, 'index.html', build_ver.next);
 
 const effectMetasPath = 'videoKit/let/a_effectMetas.js';
-build_effectMetas(src_path, effectMetasPath, 'videoKit');
+build_effectMetas(src_path, effectMetasPath, 'videoKit/effects');

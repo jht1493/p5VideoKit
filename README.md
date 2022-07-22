@@ -30,7 +30,9 @@ Screen shots of p5VideoKit in action:
 
 p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google Chrome and second on Apple Safari on MacOS desktop computers. On mobile devices (iPhone and Android) things are flaky - landscape mode is best here.
 
-[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - Opens a new browser window to a pixelized video effect. Hit the Reset button if you don't see any video.
+[demo](https://jht1493.net/p5VideoKit/demo/) - Opens a new browser window to with videokit interface that shows local camera.Your browser should ask you for permission to use the camera and microphone. Hit the Reset button if you don't see any video. Use the Patch drop down to select an effect to apply to the camera video.
+
+[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - pixelized video effect.
 
 ![grid1](docs/media/grid1.jpg)
 

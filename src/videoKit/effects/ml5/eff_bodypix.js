@@ -1,4 +1,4 @@
-import { ui_message } from '../core/create_ui.js?v={{vers}}';
+import { ui_message } from '../../core/create_ui.js?v={{vers}}';
 
 export default class eff_bodypix {
   static meta_props = {

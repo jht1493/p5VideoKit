@@ -56,7 +56,7 @@ export function ui_patch_eff_panes() {
       let aSel = createSelect();
       div.child(aSel);
       for (let ii = 0; ii < a_.effectMetas.length; ii++) {
-        aSel.option(a_.effectMetas[ii].label, ii);
+        aSel.option(a_.effectMetas[ii].ui_label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_spec.eff_label).index;
       aSel.selected(effIndex);

@@ -17,6 +17,14 @@ import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v=
 export function ui_restore(effects, settings, sizeResult) {
   let start = window.performance.now();
 
+  if (!store_name_restore()) {
+    // First session init
+    if (!a_.store_name) a_.store_name = 'Store-A';
+    console.log('ui_restore a_.store_name', a_.store_name);
+    reset_video_clear_locals(a_.store_name);
+    return;
+  }
+
   a_.effectMetas = effects.concat(a_effectMetas);
   a_.settingMetas = settings.concat(a_settingMetas);
 
@@ -25,13 +33,6 @@ export function ui_restore(effects, settings, sizeResult) {
       ui_capture_init();
       ui_canvas_init();
       // ui_render_size_init();
-      if (!store_name_restore()) {
-        // First session init
-        if (!a_.store_name) a_.store_name = 'Store-A';
-        console.log('ui_restore a_.store_name', a_.store_name);
-        reset_video_clear_locals(a_.store_name);
-        return;
-      }
       store_url_parse((urlResult) => {
         if (!urlResult.uiSet) {
           store_restore_ver();
