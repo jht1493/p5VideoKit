@@ -14,13 +14,13 @@ import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v=
 //   { label: 'example', import_path: 'module/eff_example', menu: 1 },
 
 // Restore a_.ui settings from local storage
-export function ui_restore(effects, settings, sizeResult) {
+export function ui_restore_store(effects, settings, sizeResult) {
   let start = window.performance.now();
 
   if (!store_name_restore()) {
     // First session init
     if (!a_.store_name) a_.store_name = 'Store-A';
-    console.log('ui_restore a_.store_name', a_.store_name);
+    console.log('ui_restore_store a_.store_name', a_.store_name);
     reset_video_clear_locals(a_.store_name);
     return;
   }
@@ -39,7 +39,6 @@ export function ui_restore(effects, settings, sizeResult) {
           store_restore_canvas_lock();
           store_restore_ui(urlResult.settings);
         }
-        // ui_restore_imports(start, sizeResult);
         sizeResult(canvas_size_default());
 
         let lapse = window.performance.now() - start;

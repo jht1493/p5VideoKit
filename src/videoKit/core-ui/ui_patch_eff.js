@@ -55,14 +55,27 @@ export function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
+      let lastGroup;
       for (let ii = 0; ii < a_.effectMetas.length; ii++) {
-        aSel.option(a_.effectMetas[ii].ui_label, ii);
+        let ent = a_.effectMetas[ii];
+        // console.log('ent', ent);
+        let ui_label = ent.ui_label || 'import/';
+        let label = ent.label;
+        let parts = ui_label.split('/');
+        let newGroup = parts[0];
+        if (lastGroup !== newGroup) {
+          aSel.option('-------- ' + newGroup, -1);
+        }
+        lastGroup = newGroup;
+        aSel.option(label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_spec.eff_label).index;
       aSel.selected(effIndex);
       aSel.changed(function () {
         let effIndex = parseFloat(this.value());
-        patch_update_effIndex(aPatch, effIndex);
+        if (effIndex >= 0) {
+          patch_update_effIndex(aPatch, effIndex);
+        }
       });
     }
 

@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_restore } from './ui_restore.js?v={{vers}}';
+import { ui_restore_store } from './ui_restore.js?v={{vers}}';
 import { init_mediaDivs } from './create_mediaDiv.js?v={{vers}}';
 import { create_ui, update_ui } from './create_ui.js?v={{vers}}';
 import { media_enum } from './create_mediaDevices.js?v={{vers}}';
@@ -10,7 +10,7 @@ import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 
 p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
   a_.my_canvas = this.my_canvas;
-  ui_restore(effects, settings, (sizeResult) => {
+  ui_restore_store(effects, settings, (sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);
     resizeCanvas(sizeResult.width, sizeResult.height);
 

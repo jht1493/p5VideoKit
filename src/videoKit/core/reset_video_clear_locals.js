@@ -15,9 +15,9 @@ export function reset_video_clear_locals(storen) {
     video: true,
   };
   myVideo = createCapture(vconstraints, function (stream) {
-    console.log('create_video stream', stream);
+    console.log('reset_video_clear_locals create_video stream', stream);
   });
-  console.log('create_video myVideo', myVideo);
+  console.log('reset_video_clear_locals create_video myVideo', myVideo);
   myVideo.muted = true;
   function wait_reload() {
     let delay = 2000;
