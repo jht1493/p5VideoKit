@@ -19,7 +19,7 @@ export default class eff_delaunay {
     image_copy(this.img, this.input);
     while (!this.draw_step()) {}
     this.period_timer.check(() => {
-      this.output.clear();
+      // this.output.clear();
       this.init_points();
     });
   }
