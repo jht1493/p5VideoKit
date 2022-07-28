@@ -5,7 +5,7 @@
   "room_name": "VideoKit-SkinTone",
   "patch_layout": "Single",
   "canvas_size": "480x270",
-  "capture_size": "480x270",
+  "capture_size": "default",
   "render_size": "Canvas",
   "chat_name": "jht",
   "chat_chk": 0,
