@@ -5,7 +5,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-const root_index_path = '../src/index.html';
+let root_index_path = '../src/index.html';
 
 function print_process_argv() {
   process.argv.forEach((val, index) => {
@@ -40,6 +40,10 @@ function parse_argv(argv) {
         opt.restart_period = argv[index + 1];
         index++;
         break;
+      case '--d':
+        opt.d = argv[index + 1];
+        index++;
+        break;
       case '--u':
         opt.u = argv[index + 1];
         index++;
@@ -57,6 +61,12 @@ function parse_argv(argv) {
         break;
       case '--screen':
         opt.index = argv[index + 1];
+        index++;
+        break;
+      case '--root':
+        root_index_path = argv[index + 1];
+        root_index_path = decodeURIComponent(root_index_path);
+        console.log('root_index_path', root_index_path);
         index++;
         break;
       default:
@@ -112,13 +122,19 @@ app.whenReady().then(() => {
 
   opt.u = opt.u || '';
   opt.s = opt.s || '';
-  const url_options = { query: { u: opt.u, s: opt.s } };
-  mainWindow.loadFile(root_index_path, url_options);
+  opt.d = opt.d || '';
+  const url_options = { query: { u: opt.u, s: opt.s, d: opt.d } };
+  // win.loadURL('https://github.com')
+  if (root_index_path.startsWith('http')) {
+    mainWindow.loadURL(root_index_path);
+  } else {
+    mainWindow.loadFile(root_index_path, url_options);
+  }
 
   // mainWindow.fullScreen = opt.fullScreen;
   setTimeout(function () {
     mainWindow.fullScreen = opt.fullScreen;
-  }, 10 * 1000);
+  }, 5 * 1000);
 
   setup_download();
 
