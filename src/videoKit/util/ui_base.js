@@ -37,9 +37,9 @@ export function ui_backcolor(div) {
 }
 
 // Return date stamped file name based on first patch name
-function ui_save_fn() {
+export function ui_save_fn() {
   // "2021-04-25T14:44:31.227Z"
-  let saveName = a_.ui.setting || 'dice_face';
+  let saveName = a_.ui.setting || a_.ui.comment || 'videoKit';
   let dt = new Date().toISOString().substring(0, 10);
   let fn = saveName + '_' + dt;
   return fn;

@@ -24,6 +24,7 @@ export function ui_patch_layout() {
     aSel.option('3x3');
     aSel.option('3x1');
     aSel.option('4x4');
+    aSel.option('1x4');
     aSel.selected(a_.ui.patch_layout);
     aSel.changed(function () {
       let val = this.value();

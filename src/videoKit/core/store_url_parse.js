@@ -1,6 +1,7 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
 import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { ui_save_fn } from '../util/ui_base.js?v={{vers}}';
 
 // Are we setting up store from our url query?
 // url parm
@@ -125,7 +126,8 @@ export function store_export_url() {
 
 function store_export(updateUrl) {
   pad_layout_update();
-  let fn = a_.ui.setting || 'setting';
+  // let fn = a_.ui.setting || 'setting';
+  let fn = ui_save_fn();
   saveJSON(a_.ui, fn);
   let str = JSON.stringify(a_.ui);
   // console.log('store_export str');

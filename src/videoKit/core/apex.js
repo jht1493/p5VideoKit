@@ -144,7 +144,9 @@ p5VideoKit.prototype.draw_patch = function (ipatch, prior) {
   // console.log('draw ipatch', ipatch, 'uiPatch', uiPatch);
   let eff_spec = uiPatch.eff_spec;
   let { eff_label, imedia } = eff_spec;
-
+  if (imedia >= a_.mediaDivs.length) {
+    imedia = 0;
+  }
   let inst = this.patch_inst_create(eff_label, imedia, ipatch, eff_spec, uiPatch.eff_props);
 
   if (!inst) return;

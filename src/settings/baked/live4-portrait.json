@@ -1,0 +1,107 @@
+{
+  "setting": "",
+  "comment": "live-4-portrait",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-4",
+  "patch_layout": "1x4",
+  "canvas_size": "540x960",
+  "capture_size": "default",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 1,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    },
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 1,
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 2,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 540,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 3,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 240,
+          "width": 540,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 4,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 480,
+          "width": 540,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 3,
+        "imedia": 5,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 720,
+          "width": 540,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "step_patch": 0
+      }
+    }
+  ]
+}

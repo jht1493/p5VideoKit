@@ -12,6 +12,7 @@ import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
 import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
 import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { ui_save_fn } from '../util/ui_base.js?v={{vers}}';
 
 export function create_ui() {
   ui_top_pane();
@@ -171,13 +172,4 @@ export function ui_message(msg) {
   }
   imsg.html(msg);
   imsg.style(msg ? 'display:inline' : 'display:none');
-}
-
-// Return date stamped file name based on first patch name
-function ui_save_fn() {
-  // "2021-04-25T14:44:31.227Z"
-  let saveName = a_.ui.setting || 'dice_face';
-  let dt = new Date().toISOString().substring(0, 10);
-  let fn = saveName + '_' + dt;
-  return fn;
 }
