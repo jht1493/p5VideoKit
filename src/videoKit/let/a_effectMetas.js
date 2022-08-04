@@ -6,6 +6,7 @@ export let a_effectMetas =  [
 { label: 'delaunay', import_path: 'videoKit/effects/aset/eff_delaunay.js', ui_label: 'aset/delaunay'},
 { label: 'diff', import_path: 'videoKit/effects/aset/eff_diff.js', ui_label: 'aset/diff'},
 { label: 'grid', import_path: 'videoKit/effects/aset/eff_grid.js', ui_label: 'aset/grid'},
+{ label: 'image_url', import_path: 'videoKit/effects/aset/eff_image_url.js', ui_label: 'aset/image_url'},
 { label: 'maze', import_path: 'videoKit/effects/aset/eff_maze.js', ui_label: 'aset/maze'},
 { label: 'phyllotaxis', import_path: 'videoKit/effects/aset/eff_phyllotaxis.js', ui_label: 'aset/phyllotaxis'},
 { label: 'face_mesh', import_path: 'videoKit/effects/bset/eff_face_mesh.js', ui_label: 'bset/face_mesh'},

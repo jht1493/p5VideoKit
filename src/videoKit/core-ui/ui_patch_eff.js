@@ -134,6 +134,7 @@ export function ui_patch_eff_panes() {
       if (first) {
         div_break(div);
       }
+      let defaultStyle;
       for (let iprop in items) {
         let item = items[iprop];
         // console.log('create_other iprop', iprop, 'item', item);
@@ -146,6 +147,8 @@ export function ui_patch_eff_panes() {
           if (first) {
             btn.style('margin-left', '10px');
           }
+        } else if (iprop === 'style') {
+          defaultStyle = item;
         } else if (iprop === 'text_input') {
           let oldVal = aPatch.eff_props[prop];
           if (oldVal === undefined) {
@@ -158,6 +161,12 @@ export function ui_patch_eff_panes() {
             aPatch.eff_props[prop] = aVal;
             ui_patch_update(aPatch);
           });
+          if (defaultStyle) {
+            elm.style(defaultStyle);
+          }
+          if (first) {
+            elm.style('margin-left', '10px');
+          }
           div.child(elm);
         } else if (iprop === 'message') {
           // div.child(createSpan(` ${prop}: ${item}`));

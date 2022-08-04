@@ -5,11 +5,11 @@ import { image_copy } from '../videoKit/util/image.js?v=108';
 
 export default class eff_example {
   static meta_props = {
-    text: {
+    message_prop1: {
       message: 'An example effect',
     },
-    num: [200, 100, 200, 255],
-    some_text: {
+    num_prop: [200, 100, 200, 255],
+    text_prop: {
       text_input: 'Word up!',
     },
   };
@@ -21,16 +21,16 @@ export default class eff_example {
     console.log('eff_example constructor width, height', width, height);
   }
   prepareOutput() {
-    // console.log('eff_example prepareOutput some_text', this.some_text);
+    // console.log('eff_example prepareOutput text_prop', this.text_prop);
     let { width, height } = this.output;
     let x = 0;
     let y = height / 2;
     let txsize = height / 10;
     this.output.textSize(txsize);
-    // this.output.background(this.num);
+    // this.output.background(this.num_prop);
     // image_copy(this.output, this.input);
     // this.output.text('hello', x, y);
-    let txt = this.some_text + ' ' + this.num;
+    let txt = this.text_prop + ' ' + this.num_prop;
     this.output.text(txt, x, y);
   }
 }

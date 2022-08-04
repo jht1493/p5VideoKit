@@ -17,7 +17,7 @@ import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v=
 export function ui_restore_store(effects, settings, sizeResult) {
   let start = window.performance.now();
 
-  if (!store_name_restore()) {
+  if (!store_name_restore() && !window.location.search) {
     // First session init
     if (!a_.store_name) a_.store_name = 'Store-A';
     console.log('ui_restore_store a_.store_name', a_.store_name);

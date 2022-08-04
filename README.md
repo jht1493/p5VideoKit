@@ -3,7 +3,7 @@
 [p5VideoKit is dashboard for mixing video in the browser.](https://github.com/jht1493/p5VideoKit)
 You can apply visual effects
 to live video from connected cameras or streaming from other devices on the internet.
-p5ViewKit is designed to be re-usable and extented
+p5ViewKit is designed to be re-usable and extended
 with your own p5js code for visual effects and interaction.
 
 The code and documentation is in development.
