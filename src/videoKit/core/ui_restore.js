@@ -5,7 +5,7 @@ import { effectMeta_init } from '../core/effectMeta.js?v={{vers}}';
 import { ui_capture_init } from '../core-ui/ui_capture.js?v={{vers}}';
 import { ui_canvas_init } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { ui_render_size_init } from '../core-ui/ui_render.js?v={{vers}}';
-import { store_name_restore, store_url_parse } from '../core/store_url_parse.js?v={{vers}}';
+import { store_name_restore, store_url_parse, store_save_ent } from '../core/store_url_parse.js?v={{vers}}';
 import { canvas_size_default } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
 
@@ -108,6 +108,7 @@ function store_restore_ui(settings) {
 
 function store_restore_settings(settings) {
   a_.ui = settings;
+  store_save_ent(settings);
   if (a_.hideui) {
     let delay = 3000;
     setTimeout(ui_present_window, delay);

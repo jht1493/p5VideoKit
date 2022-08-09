@@ -8,6 +8,10 @@ import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { image_scaled_pad } from '../util/image.js?v={{vers}}';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 
+import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
+
+p5VideoKit.prototype.PeriodTimer = PeriodTimer;
+
 p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
   a_.my_canvas = this.my_canvas;
   ui_restore_store(effects, settings, (sizeResult) => {
@@ -55,16 +59,22 @@ p5VideoKit.prototype.draw = function () {
 // let eff = videoKit.createEffect( 'bestill', 1, urect, {factor: 20} )
 //  imedia is mediaDiv indext or effect.output
 p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props, eff_spec }) {
-  if (!eff_spec) eff_spec = { eff_label, urect };
+  if (!eff_spec) eff_spec = { eff_label, imedia, urect };
   let media;
   let input;
-  if (typeof imedia === 'number') {
-    // select inpu by number
-    media = this.mediaDivAt(imedia);
+  media = this.mediaDivAt(imedia);
+  if (media) {
     input = media.capture;
-  } else {
-    input = imedia;
   }
+  // if (typeof imedia === 'number') {
+  //   // select input by number
+  //   media = this.mediaDivAt(imedia);
+  //   if (media) {
+  //     input = media.capture;
+  //   }
+  // } else {
+  //   input = imedia;
+  // }
   let effMeta = effectMeta_find(eff_label);
   let defaultProps = factory_prop_inits(effMeta.factory);
   let videoKit = this;
@@ -75,7 +85,56 @@ p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props,
   return new effMeta.factory(init);
 };
 
-// p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_spec, eff_props) {
+// videoKit.updateEffect(eff, { imedia, urect });
+// p5VideoKit.prototype.updateEffect = function (eff, { imedia, urect }) {
+//   // console.log('updateEffect eff', eff, 'imedia', imedia, 'urect', urect);
+//   let media = this.mediaDivAt(imedia);
+//   if (media) {
+//     let input = media.capture;
+//     eff.media = media;
+//     eff.input = input;
+//   }
+//   eff.eff_spec.urect = urect;
+// };
+
+// videoKit.layerCopyInput(layer, { imedia, urect })
+p5VideoKit.prototype.layerCopyInput = function (layer, { imedia, urect }) {
+  let media = this.mediaDivAt(imedia);
+  if (!media || !media.ready('layerCopyInput')) {
+    // console.log('layerCopyInput NOT Ready imedia', imedia, 'media', media);
+    // console.log('layerCopyInput NOT Ready imedia', imedia);
+    return;
+  }
+  let input = media.capture;
+  let sx = 0;
+  let sy = 0;
+  let sw = input.width;
+  let sh = input.height;
+  let { x0, y0, width, height } = urect;
+  // Fill background will top right pixel from input
+  layer.copy(input, sx, sy, 1, 1, x0, y0, width, height);
+  let dw = height * (sw / sh);
+  let x1 = Math.floor(x0 + (width - dw) / 2);
+  layer.copy(input, sx, sy, sw, sh, x1, y0, dw, height);
+};
+
+// videoKit.layerCopyEffect( layer, eff  )
+p5VideoKit.prototype.layerCopyEffect = function (layer, eff) {
+  // console.log('layerCopyEffect eff', eff);
+  eff.prepareOutput();
+  if (!eff.output) return;
+  let input = eff.output;
+  let sx = 0;
+  let sy = 0;
+  let sw = input.width;
+  let sh = input.height;
+  let { x0, y0, width, height } = eff.eff_spec.urect;
+  let dw = height * (sw / sh);
+  let x1 = Math.floor(x0 + (width - dw) / 2);
+  layer.copy(input, sx, sy, sw, sh, x1, y0, dw, height);
+};
+
+// p5VideoKit.patch_inst_create(eff_label, imedia, ipatch, eff_spec, eff_props)
 
 // "eff_spec": {
 //   "ipatch": 0,

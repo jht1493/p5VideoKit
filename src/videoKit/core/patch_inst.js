@@ -9,11 +9,11 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
   let media = a_.mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);
-  } else if (!media.ready()) {
-    if (!media.notReadyWarningIssued) {
-      console.log('imedia', imedia, 'NOT media.ready');
-      media.notReadyWarningIssued = 1;
-    }
+  } else if (!media.ready('patch_inst')) {
+    // if (!media.notReadyWarningIssued) {
+    //   console.log('imedia', imedia, 'NOT media.ready');
+    //   media.notReadyWarningIssued = 1;
+    // }
     let inst = a_.patch_instances[ipatch];
     // console.log('NOT media.ready inst', inst);
     if (inst && inst.livem_step) {
@@ -21,10 +21,11 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
       inst.livem_step();
     }
     return;
-  } else if (media.notReadyWarningIssued) {
-    console.log('imedia', imedia, 'media.ready');
-    media.notReadyWarningIssued = 0;
   }
+  // else if (media.notReadyWarningIssued) {
+  //   console.log('imedia', imedia, 'media.ready');
+  //   media.notReadyWarningIssued = 0;
+  // }
   let inst = a_.patch_instances[ipatch];
   if (!inst) {
     if (!media) {

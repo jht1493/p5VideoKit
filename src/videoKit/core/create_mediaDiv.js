@@ -40,8 +40,21 @@ export function create_mediaDiv(mediaDevice, options) {
   let info = createSpan();
   div.child(info);
 
-  let ready = function () {
-    return capture.loadedmetadata && capture.width > 0 && capture.height > 0;
+  let notReadyWarningIssued;
+  let ready = function (note) {
+    let isReady = capture.loadedmetadata && capture.width > 0 && capture.height > 0;
+    if (!isReady) {
+      if (!notReadyWarningIssued) {
+        console.log(note + ' NOT Ready imedia', imedia);
+        notReadyWarningIssued = 1;
+      }
+    } else {
+      if (notReadyWarningIssued) {
+        console.log(note + ' Ready imedia', imedia);
+        notReadyWarningIssued = 0;
+      }
+    }
+    return isReady;
   };
 
   let update_info = function () {

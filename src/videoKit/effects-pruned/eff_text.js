@@ -19,9 +19,9 @@ export default class eff_text {
     this.init();
   }
   prepareOutput() {
-    tint(255, this.alpha);
-    // image_scaled_pad(this.output, this.eff_spec.urect);
-    tint(255);
+    this.output.tint(255, this.alpha);
+    image_scaled_pad(this.output, this.eff_spec.urect);
+    this.output.tint(255);
   }
   init() {
     this.output = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);

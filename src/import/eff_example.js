@@ -28,8 +28,6 @@ export default class eff_example {
     let txsize = height / 10;
     this.output.textSize(txsize);
     // this.output.background(this.num_prop);
-    // image_copy(this.output, this.input);
-    // this.output.text('hello', x, y);
     let txt = this.text_prop + ' ' + this.num_prop;
     this.output.text(txt, x, y);
   }

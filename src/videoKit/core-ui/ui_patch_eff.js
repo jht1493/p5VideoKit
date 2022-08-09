@@ -135,18 +135,19 @@ export function ui_patch_eff_panes() {
         div_break(div);
       }
       let defaultStyle;
+      let elm;
       for (let iprop in items) {
         let item = items[iprop];
         // console.log('create_other iprop', iprop, 'item', item);
         if (iprop === 'button') {
           div.child(createSpan(' '));
-          let btn = createButton(prop).mousePressed(function () {
+          elm = createButton(prop).mousePressed(function () {
             button_action(item, aPatch);
           });
-          div.child(btn);
-          if (first) {
-            btn.style('margin-left', '10px');
-          }
+          div.child(elm);
+          // if (first) {
+          //   elm.style('margin-left', '10px');
+          // }
         } else if (iprop === 'style') {
           defaultStyle = item;
         } else if (iprop === 'text_input') {
@@ -155,24 +156,26 @@ export function ui_patch_eff_panes() {
             oldVal = '' + item;
             aPatch.eff_props[prop] = oldVal;
           }
-          let elm = createInput(oldVal).input(function () {
+          elm = createInput(oldVal).input(function () {
             let aVal = this.value();
             console.log('text_input ' + aVal);
             aPatch.eff_props[prop] = aVal;
             ui_patch_update(aPatch);
           });
-          if (defaultStyle) {
-            elm.style(defaultStyle);
-          }
-          if (first) {
-            elm.style('margin-left', '10px');
-          }
           div.child(elm);
         } else if (iprop === 'message') {
           // div.child(createSpan(` ${prop}: ${item}`));
           div.child(createSpan(` ${item}`));
         } else {
           console.log('create_other !!@ Unkown type=' + iprop);
+        }
+        if (elm) {
+          if (first) {
+            elm.style('margin-left', '10px');
+          }
+          if (defaultStyle) {
+            elm.style(defaultStyle);
+          }
         }
       }
     }

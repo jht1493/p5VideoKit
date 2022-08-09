@@ -22,9 +22,11 @@ function gen_settings_index(src_path, settings, settingIndexPath) {
   // console.log('gen_settings_index files', files);
   console.log('gen_settings_index files', files.length);
 
+  let uindex = 0;
   files = files.map((file) => {
     if (!file) return '<br/>';
-    return `<a href="./index.html?d=${file}" target="settings">${file}</><br>`;
+    uindex++;
+    return `<a href="./index.html?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
   });
 
   let str = `

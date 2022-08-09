@@ -157,14 +157,13 @@ export function store_name_update(name) {
 
 export function store_restore_from(ent) {
   console.log('store_restore_from ent', ent);
-  store_restore_ent(ent);
+  store_save_ent(ent);
   let loc = location_url();
   console.log('store_restore_from loc', loc);
   window.location = loc;
 }
 
-function store_restore_ent(ent) {
-  // store_restore_create_eff_spec(ent);
+export function store_save_ent(ent) {
   if (a_.canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage

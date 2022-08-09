@@ -7,7 +7,7 @@ delete=--delete
 test=
 verbose=
 # test=--dry-runs
-verbose=v
+# verbose=v
 
 excludes="--exclude-from to-public-exclude.txt"
 

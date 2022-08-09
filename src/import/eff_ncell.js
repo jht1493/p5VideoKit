@@ -6,6 +6,7 @@ export default class eff_ncell {
     ncell: [2, 3, 4],
   };
   constructor(props) {
+    console.log('src/import/eff_ncell.js');
     Object.assign(this, props);
     this.init();
   }

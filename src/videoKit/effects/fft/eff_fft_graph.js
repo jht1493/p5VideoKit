@@ -10,7 +10,6 @@ export default class eff_fft_graph {
   prepareOutput() {
     this.output.clear();
     this.draw_fft();
-    // image_scaled_pad(this.output, this.eff_spec.urect);
   }
   init() {
     let { width, height } = this.eff_spec.urect;
