@@ -16,28 +16,17 @@ export default class eff_skin_tone_main {
     let videoKit = this.videoKit;
     let n = videoKit.mediaDivCount();
     let nshow = this.urects.length;
-    // if (this.advancePending) {
-    //   this.advancePending = 0;
-    //   let nstep = n - this.ifirst;
-    //   this.show_index = (this.show_index + nstep) % nshow;
-    //   // console.log('eff_skin_tone_main iperiod', this.iperiod);
-    // }
     let layer = this.output;
     let sindex = this.show_index;
     for (let imedia = this.ifirst; imedia < n; imedia++) {
-      // let sindex = (imedia + this.show_index) % nshow;
       let urect = this.urects[sindex].urect;
-      // videoKit.layerCopyInput(layer, { imedia, urect })
       videoKit.layerCopyInput(layer, { imedia, urect });
       sindex = (sindex + 1) % nshow;
     }
-    // videoKit.layerCopyEffect( layer, eff  )
     videoKit.layerCopyEffect(layer, this.eff_qr);
     if (this.period_timer.check()) {
       let nstep = n - this.ifirst;
       this.show_index = (this.show_index + nstep) % nshow;
-      // this.advancePending = 1;
-      // this.iperiod++;
     }
   }
   init() {
