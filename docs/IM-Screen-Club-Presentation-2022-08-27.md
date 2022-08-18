@@ -1,4 +1,4 @@
-# (Interactive)(Multi-)Screens Club presentation
+# (Interactive)(Multi)Screens Club presentation
 
 ## Saturday August 27, 1pm - 3pm @ NYU-ITP 370 Jay St. Brooklyn 11201
 
@@ -16,6 +16,8 @@ To see early use of the software check out John Henry's 2021 installation at NYU
 
 - [2021-NYU-ITP-Installation](https://jht1493.github.io/2021-NYU-ITP-Installation/)
 
-To join the (Interactive)(Multi-)Screens Club visit:
+To join the (Interactive)(Multi)Screens Club visit:
 
-- [(Interactive)(Multi-)Screens discord](https://discord.gg/4YmCNPQQ)
+- [(Interactive)(Multi)Screens discord](https://discord.gg/4YmCNPQQ)
+
+![IM-Screens-Flyer](./media/IM-Screens-Flyer-1.jpg)
