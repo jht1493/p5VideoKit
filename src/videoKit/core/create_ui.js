@@ -116,7 +116,7 @@ function reload_action() {
   store_restore_from(ent);
 }
 
-function ui_present_window() {
+export function ui_present_window() {
   resizeCanvas(windowWidth, windowHeight);
   ui_hide();
   ui_window_refresh();

@@ -1,5 +1,32 @@
 //
-// Run p5VideoKet as electron process to allow for restart
+// Run p5VideoKet as electron process to allow for restart and other options
+
+// npm run start -- --screen 2 --restart_time 18:09:00
+// --restart_time
+//  restart at given time
+// --restart_period
+//  restart every period
+// --u
+//  store prefix to partition localstorage
+// --s
+//  use given settings
+// --h
+//  hide ui
+// --ddebug
+//  endable debugging
+// --full
+//  enter full screen
+// --screen
+//  select 1 of n monitors. 1 is first monitor
+// --root
+//  url for html to load
+//  default ../src/index.html
+// --download_path
+//  path to download files
+//  default ~/Downloads
+//
+// Ref: src/videoKit/core/store_url_parse.js
+//
 
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
@@ -7,26 +34,25 @@ const fs = require('fs');
 
 let root_index_path = '../src/index.html';
 
+let download_path = path.resolve(process.env.HOME, 'Downloads');
+console.log('download_path', download_path);
+
 function print_process_argv() {
   process.argv.forEach((val, index) => {
     console.log(`${index}: ${val}`);
   });
 }
 // print_process_argv();
-// 0: /Users/jht/Documents/projects/repo/p5-projects/skt/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
+
+// bin/run-gallery.sh
+// npm run start electron-main -- --ddebug --download_path Documents/projects/daily
+// 0: /Users/jht2/Documents/projects/dice_face_aa/p5VideoKit-private/desktop/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
 // 1: electron-main
-// 2: --screen
-// 3: 2
+// 2: --ddebug
+// 3: --download_path
+// 4: Documents/projects/daily
 
-// ./node_modules/.bin/electron electron-main --screen 2 --restart_time 18:09:00
-// --restart_period
-// --u
-// --s
-// --edebug
-// --full
-// --screen
-
-let opt = {};
+let opt = { h: 1 };
 
 function parse_argv(argv) {
   for (let index = 2; index < argv.length; index++) {
@@ -38,6 +64,10 @@ function parse_argv(argv) {
         break;
       case '--restart_period':
         opt.restart_period = argv[index + 1];
+        index++;
+        break;
+      case '--h':
+        opt.h = argv[index + 1];
         index++;
         break;
       case '--d':
@@ -53,8 +83,9 @@ function parse_argv(argv) {
         opt.s = argv[index + 1];
         index++;
         break;
-      case '--edebug':
+      case '--ddebug':
         opt.debug = true;
+        opt.h = 0;
         break;
       case '--full':
         opt.fullScreen = true;
@@ -66,7 +97,16 @@ function parse_argv(argv) {
       case '--root':
         root_index_path = argv[index + 1];
         root_index_path = decodeURIComponent(root_index_path);
-        console.log('root_index_path', root_index_path);
+        console.log('root_index_path:', root_index_path);
+        index++;
+        break;
+      case '--download_path':
+        download_path = argv[index + 1];
+        download_path = decodeURIComponent(download_path);
+        download_path = path.resolve(process.env.HOME, download_path);
+        console.log('download_path: ', download_path);
+        let res = fs.mkdirSync(download_path, { recursive: true });
+        console.log('download_path res', res);
         index++;
         break;
       default:
@@ -80,8 +120,6 @@ parse_argv(process.argv);
 console.log('opt', opt);
 
 let mainWindow;
-let download_path = path.resolve(process.env.HOME, 'Downloads');
-console.log('download_path', download_path);
 
 app.whenReady().then(() => {
   // path.join(__dirname, 'preload.js'),
@@ -120,11 +158,12 @@ app.whenReady().then(() => {
     mainWindow.webContents.openDevTools();
   }
 
-  opt.u = opt.u || '';
-  opt.s = opt.s || '';
-  opt.d = opt.d || '';
-  const url_options = { query: { u: opt.u, s: opt.s, d: opt.d } };
-  // win.loadURL('https://github.com')
+  // opt.u = opt.u || '';
+  // opt.s = opt.s || '';
+  // opt.d = opt.d || '';
+  // opt.h = opt.h || '';
+  // const url_options = { query: { u: opt.u, s: opt.s, d: opt.d, h: opt.h } };
+  const url_options = { query: opt };
   if (root_index_path.startsWith('http')) {
     mainWindow.loadURL(root_index_path);
   } else {
@@ -153,8 +192,7 @@ app.on('window-all-closed', function () {
 
 // --restart_period n
 function setup_restart() {
-  let per;
-
+  let per = 0;
   if (opt.restart_period) {
     per = parse_period(opt.restart_period);
   } else if (opt.restart_time) {
@@ -163,7 +201,7 @@ function setup_restart() {
   // console.log('setup_restart per=' + per);
   // Seconds to milliseconds
   per = per * 1000;
-  if (1) {
+  if (per > 0) {
     setTimeout(function () {
       console.log('setTimeout app.relaunch ');
       app.relaunch();
@@ -249,14 +287,20 @@ function next_download_filename(fn) {
   let dpath;
   let count = 1;
   for (;;) {
-    dpath = path.join(download_path, fn);
+    let nfn = name + '-' + pad(count) + ext;
+    dpath = path.join(download_path, nfn);
     if (fs.existsSync(dpath)) {
-      fn = name + '-' + count + ext;
+      // fn = name + '-' + pad(count) + ext;
       count++;
     } else {
       return dpath;
     }
   }
+}
+
+function pad(n) {
+  n = n + '';
+  return n.padStart(4, '0');
 }
 
 // Retrieve information about screen size, displays, cursor position, etc.

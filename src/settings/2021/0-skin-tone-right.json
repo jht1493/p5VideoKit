@@ -76,7 +76,7 @@
       "vis": false
     }
   ],
-  "urects_lock": 0,
+  "urects_lock": 1,
   "urects_count": 2,
   "canvas_resize_ref": ""
 }

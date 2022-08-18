@@ -14,7 +14,7 @@
       "eff_spec": {
         "ipatch": 0,
         "imedia": 2,
-        "eff_label": "tile",
+        "eff_label": "tile_live",
         "urect": {
           "width": 960,
           "height": 540,

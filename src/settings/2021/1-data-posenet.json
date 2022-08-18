@@ -1,0 +1,132 @@
+{
+  "setting": "1-data-posenet",
+  "back_color": 200,
+  "room_name": "Dice-Play-1",
+  "patch_layout": "2x1",
+  "canvas_size": "1920x1080",
+  "capture_size": "",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "image",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 960,
+          "height": 1080
+        },
+        "ihide": 0
+      },
+      "eff_props": {
+        "zoomed": 0,
+        "pan_ease": 0,
+        "group": "graph",
+        "labeled": 1,
+        "flush": "right",
+        "face": "none",
+        "align": "none",
+        "alpha": 255,
+        "color": "black",
+        "ncell": 32,
+        "shape": "circle",
+        "loop": 1,
+        "period": 20,
+        "shuffle": 1,
+        "peg_width": 1,
+        "export_on": 0,
+        "iimage": 27,
+        "label_align": "left",
+        "image_align": "none"
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "image",
+        "urect": {
+          "x0": 912,
+          "y0": 0,
+          "width": 960,
+          "height": 1080
+        },
+        "ihide": 0
+      },
+      "eff_props": {
+        "zoomed": 0,
+        "pan_ease": 0,
+        "group": "group",
+        "labeled": 1,
+        "flush": "left",
+        "face": "none",
+        "align": "center",
+        "alpha": 255,
+        "color": "black",
+        "ncell": 32,
+        "shape": "circle",
+        "loop": 1,
+        "period": 20,
+        "shuffle": 1,
+        "peg_width": 1,
+        "export_on": 0,
+        "iimage": 37,
+        "label_align": "left",
+        "image_align": "center"
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 1,
+        "eff_label": "pose_net",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 1980,
+          "height": 1080
+        }
+      },
+      "eff_props": {
+        "alpha": 100,
+        "points": 0,
+        "points_size": 10,
+        "points_color_offset": 0,
+        "skel": 0,
+        "skel_weight": 1,
+        "skel_color_offset": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 3,
+        "imedia": 0,
+        "eff_label": "bestill",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 1980,
+          "height": 1080
+        }
+      },
+      "eff_props": {
+        "factor": 10,
+        "mirror": 0
+      }
+    }
+  ],
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": false
+    }
+  ],
+  "urects_lock": 1,
+  "urects_count": 2,
+  "canvas_resize_ref": ""
+}

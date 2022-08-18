@@ -13,8 +13,12 @@ export class FFT_analyser {
     if (!this.media.mediaDevice) return;
     let stream = this.media.mediaDevice.stream;
     this.analyser = a_audioCtx.createAnalyser();
-    let source = a_audioCtx.createMediaStreamSource(stream);
-    source.connect(this.analyser);
+    try {
+      let source = a_audioCtx.createMediaStreamSource(stream);
+      source.connect(this.analyser);
+    } catch (err) {
+      console.log('createMediaStreamSource err', err);
+    }
     this.spectrum_arr = new Uint8Array(this.analyser.frequencyBinCount);
     // console.log('fft_anal this.spectrum_arr.length', this.spectrum_arr.length);
   }

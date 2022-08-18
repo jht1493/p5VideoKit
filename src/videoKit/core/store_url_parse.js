@@ -20,7 +20,7 @@ export function store_url_parse(urlResult) {
     let query = loc.substring(ind + 1);
     // console.log('store_url_parse query', query);
     let params = params_query(query);
-    // console.log('store_url_parse params', params);
+    console.log('store_url_parse params', params);
     // settings encoded as json string, if present return true to avoid other settings init
     let a_str = params['a'];
     if (a_str) {
@@ -51,11 +51,12 @@ export function store_url_parse(urlResult) {
     // ?d=settings-sound/face-posenet.json
     let d_str = params['d'];
     if (d_str) {
-      console.log('store_url_parse d_str', d_str);
-      if (d_str.startsWith('settings/')) {
-        d_str = d_str.substring('settings/'.length);
-      }
-      let url = './settings/' + d_str;
+      // console.log('store_url_parse d_str', d_str);
+      // if (d_str.startsWith('settings/')) {
+      //   d_str = d_str.substring('settings/'.length);
+      // }
+      // let url = './settings/' + d_str;
+      let url = './' + d_str;
       loadJSON(
         url,
         (settings) => {

@@ -4,6 +4,8 @@ import { join } from 'path';
 
 // list all non-directories in a list of files
 export function enum_files(root_path, files) {
+  // Make a copy of the array of files to list
+  // this array will expand with directory contents
   files = files.concat();
   let nfiles = [];
   // console.log('files', files);
@@ -19,14 +21,18 @@ export function enum_files(root_path, files) {
     const fpath = join(root_path, afile);
     // console.log('fpath', fpath);
     if (!lstatSync(fpath).isDirectory()) {
+      // Add simple files to nfiles array
       nfiles.push(afile);
       continue;
     }
+    // Entry is a directory
+    // Add directory contents to files array
     let dfiles = readdirSync(fpath);
     if (!dfiles) {
       console.log('readdirSync no files', fpath);
       continue;
     }
+    // Mark a break between directories
     files.push(null);
     for (let dfile of dfiles) {
       if (dfile.substring(0, 1) == '.') continue;

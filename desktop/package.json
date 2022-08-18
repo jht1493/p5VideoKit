@@ -1,10 +1,10 @@
 {
   "name": "electron",
   "version": "1.0.0",
-  "description": "A minimal DICE Electron application",
+  "description": "A minimal p5VideoKit Electron application",
   "main": "electron-main",
   "scripts": {
-    "start": "electron ."
+    "start": "electron electron-main"
   },
   "devDependencies": {
     "electron": "^19.0.6"

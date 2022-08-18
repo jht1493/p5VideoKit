@@ -17,6 +17,10 @@ We welcome your feedback and help to improve the user interface and documentatio
 - [video overview](https://youtu.be/6t9aiVLL9OQ)
 - contact me: [create an github issue for this repo](https://github.com/jht1493/p5VideoKit/issues)
 
+##
+
+![IM-Screens-Flyer](docs/media/IM-Screens-Flyer-1.jpg)
+
 ## Screen shots
 
 Screen shots of p5VideoKit in action:

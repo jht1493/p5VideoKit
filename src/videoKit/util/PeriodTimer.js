@@ -1,4 +1,8 @@
 export class PeriodTimer {
+  // PeriodTimer(period)
+  //    period = seconds between trigger
+  //      = -1 to trigger
+  //
   constructor(period) {
     this.period = period;
     this.restart();
