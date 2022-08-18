@@ -1,6 +1,8 @@
 # p5VideoKit
 
-[p5VideoKit is dashboard for mixing video in the browser.](https://github.com/jht1493/p5VideoKit)
+<!-- https://github.com/jht1493/p5VideoKit -->
+
+[p5VideoKit is dashboard for mixing video in the browser.](https://jht1493.net/p5VideoKit/demo/)
 You can apply visual effects
 to live video from connected cameras or streaming from other devices on the internet.
 p5ViewKit is designed to be re-usable and extended
@@ -89,6 +91,6 @@ Built using
 
 ![facet](docs/media/1-show-posenet-facemesh_2021-12-12_28.png)
 ![skin-tones](docs/media/skin-tones-1-bb-jht.jpg)
-![creative-energy-2017-11](docs/media/creative-energy-2017-11.jpg)
+[![creative-energy-2017-11](docs/media/creative-energy-2017-11.jpg)](https://en.wikipedia.org/wiki/Neri_Oxman)
 ![Imagine-Create-Play-Share-Reflect](docs/media/Imagine-Create-Play-Share-Reflect.png)
 ![Vision-Explore-Create-Reflect](docs/media/Vision-Explore-Create-Reflect.png)
