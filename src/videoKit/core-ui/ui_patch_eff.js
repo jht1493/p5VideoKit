@@ -102,9 +102,9 @@ export function ui_patch_eff_panes() {
       create_selections_for_dict(effMeta.factory.meta_props);
 
       // Get props for imported module via import_factory
-      if (aPatch.import_factory) {
-        create_selections_for_dict(aPatch.import_factory.meta_props);
-      }
+      // if (aPatch.import_factory) {
+      //   create_selections_for_dict(aPatch.import_factory.meta_props);
+      // }
       div_break(div);
       div_break(div);
     }

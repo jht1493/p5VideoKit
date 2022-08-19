@@ -10,6 +10,9 @@ export default class eff_live_gallery {
     nPerMinute: [0, 1, 2, 5, 10, 15, 20, 30, 60],
     nPerSecond: [0, 1, 2, 5, 10, 15, 20, 30, 60],
     period: [60, -1, 5, 10, 15, 30, 60, 120],
+    _record: [0, 1],
+    fps: [4, 6, 12, 24, 30, 60],
+    duration: [2, 5, 10, 20, 30, 60],
     save_name: {
       text_input: 'live_gallery',
     },
@@ -33,7 +36,11 @@ export default class eff_live_gallery {
     if (this.period_timer.check() || this.firstPeriod) {
       // Save entire canvas. We could save individual images
       console.log('eff_live_gallery period_timer');
-      saveCanvas(this.output, this.save_name, 'jpg');
+      if (this.record) {
+        videoKit.recordVideo({ save_name: this.save_name, fps: this.fps, duration: this.duration });
+      } else {
+        saveCanvas(this.output, this.save_name, 'jpg');
+      }
       this.firstPeriod = 0;
     }
   }

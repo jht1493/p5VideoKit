@@ -79,18 +79,19 @@ function ui_top_pane() {
     createSpan().id('ifps');
     let imsg = createSpan().id('imsg');
     // imsg.style('fontSize', 'x-large');
-    imsg.style('font-size', '5vw');
+    imsg.style('font-size:5vw');
     imsg.style('display:none');
+    imsg.style('float:right');
   }
   {
     let span = createSpan(' ');
     let gith = createA('https://github.com/jht1493/p5VideoKit/', ' GitHub ', 'github');
-    gith.style('float', 'right'); // float: right
-    gith.style('margin-right', '5px'); // float: right
+    gith.style('float', 'right');
+    gith.style('margin-right', '5px');
     span.child(gith);
     let setn = createA('./settings.html', ' Settings ', '_blank');
-    setn.style('float', 'right'); // float: right
-    setn.style('margin-right', '5px'); // float: right
+    setn.style('float', 'right');
+    setn.style('margin-right', '5px');
     span.child(setn);
   }
 }

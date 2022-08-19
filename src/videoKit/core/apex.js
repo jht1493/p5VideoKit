@@ -7,6 +7,7 @@ import { effectMeta_find, factory_prop_inits } from './effectMeta.js?v={{vers}}'
 import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { image_scaled_pad } from '../util/image.js?v={{vers}}';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
+import './video_record.js?v={{vers}}';
 
 import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
 
