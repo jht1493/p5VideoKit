@@ -29,7 +29,7 @@ let build_ver = get_build_vers(src_path, buildnum_path);
 
 const webdbPath = 'external/media/webdb';
 const imagesOutPath = 'videoKit/let/a_images.js';
-// build_webdb(src_path, webdbPath, imagesOutPath);
+build_webdb(src_path, webdbPath, imagesOutPath);
 
 const settingMetasPath = 'videoKit/let/a_settingMetas.js';
 const settingIndexPath = 'settings.html';

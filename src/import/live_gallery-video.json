@@ -14,7 +14,7 @@
   "urects_lock": 0,
   "urects_count": 1,
   "canvas_resize_ref": "",
-  "canvas_data_chk": 0,
+  "canvas_data_chk": 1,
   "mediaDiv_states": [
     null,
     {
@@ -64,7 +64,7 @@
         "period": -1,
         "save_name": "live_gallery",
         "record": 1,
-        "fps": 30,
+        "fps": 15,
         "duration": 10
       }
     }

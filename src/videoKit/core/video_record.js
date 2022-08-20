@@ -30,7 +30,7 @@ class RecordVideo {
       }
     };
     this.recorder.onstop = (evt) => {
-      console.log('recorder.onstop', evt);
+      // console.log('recorder.onstop', evt);
       this.exportVideo();
     };
     this.requestID = window.requestAnimationFrame((timestamp) => this.record_check_done(timestamp));
@@ -69,7 +69,7 @@ class RecordVideo {
   record_stop() {
     // console.log('record_stop recording', this.recording);
     if (this.recording) {
-      console.log('record_stop recorder.stop');
+      // console.log('record_stop recorder.stop');
       this.recorder.stop();
       ui_message('');
     }

@@ -285,12 +285,12 @@ function next_download_filename(fn) {
   let pfile = path.parse(fn);
   let { name, ext } = pfile;
   let dpath;
+  // !!@ consider count_dict[name] to cache last used count
   let count = 1;
   for (;;) {
     let nfn = name + '-' + pad(count) + ext;
     dpath = path.join(download_path, nfn);
     if (fs.existsSync(dpath)) {
-      // fn = name + '-' + pad(count) + ext;
       count++;
     } else {
       return dpath;

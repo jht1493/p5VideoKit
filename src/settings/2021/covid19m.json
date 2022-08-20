@@ -1,10 +1,10 @@
 {
-  "setting": "",
+  "setting": "covid19m",
   "back_color": 200,
   "room_name": "Dice-Play-1",
   "patch_layout": "Single",
-  "canvas_size": "1920x1080",
-  "capture_size": "480x270",
+  "canvas_size": "960x540",
+  "capture_size": "default",
   "chat_name": "jht",
   "chat_chk": 0,
   "live_index": 0,
@@ -16,8 +16,8 @@
         "imedia": 1,
         "eff_label": "image",
         "urect": {
-          "width": 1920,
-          "height": 1080,
+          "width": 960,
+          "height": 540,
           "x0": 0,
           "y0": 0
         }
@@ -47,7 +47,8 @@
   "mediaDiv_states": [
     null,
     {
-      "vis": false
+      "vis": 0,
+      "mute": 1
     }
   ],
   "urects_lock": 0,

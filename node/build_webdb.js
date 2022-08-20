@@ -14,6 +14,7 @@ export default function build_webdb(src_path, webdbPath, imagesOutPath) {
 
   // let files = [];
   let files = {};
+  let n = 0;
   for (let adir of dirs) {
     // if (adir.substr(0, 1) === '.') continue;
     // console.log('adir', adir);
@@ -24,17 +25,18 @@ export default function build_webdb(src_path, webdbPath, imagesOutPath) {
     // (item) => item.substr(0, 1) !== '.' && item.substr(3, 5) !== '.json'
     dfiles.sort();
 
-    console.log('build_webdb adir', adir, 'n', dfiles.length);
+    // console.log('build_webdb adir', adir, 'n', dfiles.length);
 
     // console.log('build_webdb files', files);
     // files.push(dfiles.map((item) => path.join(adir, item)));
     files[adir] = dfiles;
+    n += dfiles.length;
   }
-  // files = files.flat();
+  console.log('build_webdb  n', n);
 
   files.fmfm = interleave(files, 'fema', 'male');
 
-  let str = 'let a_images = ';
+  let str = '// !!@ Generated File\nexport let a_images = ';
   str += JSON.stringify(files, null, 2);
 
   writeSrcBuildFile(src_path, imagesOutPath, str);
@@ -53,7 +55,7 @@ function interleave(files, aprop, bprop) {
   let bitems = files[bprop];
   let arr = [];
   let n = Math.max(aitems.length, bitems.length);
-  for (i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     let a = aitems[i % aitems.length];
     let b = bitems[i % bitems.length];
     arr.push('../' + aprop + '/' + a, '../' + bprop + '/' + b);

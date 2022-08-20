@@ -3,7 +3,11 @@ cd ${0%/*}
 
 # Publish html app to jht1493.net
 
+# external/media
+#   is managed manually
 excludes="--exclude .DS_Store --exclude .git --exclude node_modules --exclude external/media"
+# excludes="--exclude .DS_Store --exclude .git --exclude node_modules "
+
 delete=--delete
 test=
 # test=--dry-run
@@ -22,7 +26,7 @@ rdest=$host:${rpath}
 ssh $host mkdir -p $rpath
 
 # Remove server directory external/media, establish symbolic link later
-ssh $host rm -rf $rpath/external/media
+# ssh $host rm -rf $rpath/external/media
 
 source=../build
 # echo $verbose $delete $test
@@ -32,7 +36,7 @@ echo "        to $rdest"
 rsync -razO$verbose $excludes $delete $test "$source/" "$rdest/"
 
 # Symbolic link external/media to large media files folder
-ssh $host ln -s /home/bitnami/htdocs/a1/skt/assets $rpath/external/media
+# ssh $host ln -s /home/bitnami/htdocs/a1/skt/assets $rpath/external/media
 
 echo
 echo Lapse $(expr `date +%s` - $start_time) 

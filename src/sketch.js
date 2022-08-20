@@ -34,6 +34,7 @@ function setup() {
     { label: 'slant4', import_path: 'settings/demo/slant4.json' },
     { label: 'skin_tone_main-qr', import_path: 'settings/2022-skin-tone/skin-tone-main-qr.json' },
     { label: 'live_gallery', import_path: 'import/live_gallery.json' },
+    { label: 'live_gallery-video', import_path: 'import/live_gallery-video.json' },
   ];
 
   videoKit = new p5VideoKit();

@@ -22,7 +22,7 @@ if [ ! -e "$dest/node_modules" ]; then
 fi
 
 # Copy src files to build
-excludes="--exclude .DS_Store"
+excludes="--exclude .DS_Store  --exclude external/media"
 delete=--delete
 test=
 # test=--dry-run
