@@ -67,6 +67,7 @@ function patch_remove_at(ipatch) {
   // if (ipatch === 0) {
   //   return;
   // }
+  patch_inst_update(ipatch);
   a_.ui.patches.splice(ipatch, 1);
   a_.patch_instances.splice(ipatch, 1);
   ui_div_empty('patch_' + ipatch);
@@ -92,5 +93,25 @@ export function patch_update_effIndex(aPatch, effIndex) {
 
 export function patch_inst_clear() {
   // All patch instances will be re-created on next draw
+  for (let ipatch = 0; ipatch < a_.patch_instances.length; ipatch++) {
+    patch_inst_update(ipatch);
+  }
   a_.patch_instances = [];
+}
+
+export function patch_inst_update(ipatch) {
+  let inst = a_.patch_instances[ipatch];
+  // console.log('ui_patch_update inst', inst);
+  // Clean up old instance before it's zaped
+  patch_inst_deinit(inst);
+}
+
+export function patch_inst_deinit(inst) {
+  if (!inst) return;
+  if (inst.deinit) {
+    inst.deinit();
+  } else if (inst.output && inst.output.remove) {
+    console.log('patch_inst_deinit REMOVING inst.output', inst.output);
+    inst.output.remove();
+  }
 }

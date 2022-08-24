@@ -29,6 +29,10 @@ export default class eff_skin_tone_main {
       this.show_index = (this.show_index + nstep) % nshow;
     }
   }
+  deinit() {
+    this.output.remove();
+    this.videoKit.deinitEffect(this.eff_qr);
+  }
   init() {
     let videoKit = this.videoKit;
     let urmain = this.eff_spec.urect;
@@ -56,8 +60,6 @@ export default class eff_skin_tone_main {
         let eff_label = 'image_url';
         props = { image_url: './import/skintone-guest_jht1493.net.png' };
         this.eff_qr = videoKit.createEffect({ eff_label, imedia, urect, props });
-        // } else {
-        //   this.urects.push({ urect });
       }
       this.urects.push({ urect });
       x0 += xstep;

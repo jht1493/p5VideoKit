@@ -26,6 +26,7 @@ eff_ticker.prototype.init = function () {
   if (this.display_copy_right) this.show_copyright();
 };
 
+// overwrite stub prepareOutput in eff_ticker.js
 eff_ticker.prototype.prepareOutput = function () {
   // console.log('eff_ticker prepareOutput');
   if (!this.json_loaded) return;

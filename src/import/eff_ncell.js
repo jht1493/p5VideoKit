@@ -19,6 +19,11 @@ export default class eff_ncell {
       videoKit.ouputToCanvas(eff);
     }
   }
+  deinit() {
+    for (let eff of this.effs) {
+      videoKit.deinitEffect(eff);
+    }
+  }
   init() {
     this.effs = [];
     // let eff_labels = ['circle', 'maze', 'bright', 'grid'];
@@ -38,7 +43,7 @@ export default class eff_ncell {
       let eff_label = eff_labels[index % eff_labels.length];
       let props = {};
       let eff = videoKit.createEffect({ eff_label, imedia, urect, props });
-      // console.log('eff_nbyn index', index, 'eff', eff);
+      // console.log('eff_ncell index', index, 'eff', eff);
       this.effs.push(eff);
       x0 += xstep;
       if (x0 >= uw) {

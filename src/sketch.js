@@ -26,6 +26,8 @@ function setup() {
     { label: 'ncell', import_path: 'import/eff_ncell.js' },
     { label: 'skin_tone_main', import_path: 'import/eff_skin_tone_main.js' },
     { label: 'live_gallery', import_path: 'import/eff_live_gallery.js' },
+    { label: 'eff_shader_clamp', import_path: 'import/eff_shader_clamp.js' },
+    { label: 'eff_shader_ripple', import_path: 'import/eff_shader_ripple.js' },
   ];
 
   // settings for import, will appear at top of settings menu

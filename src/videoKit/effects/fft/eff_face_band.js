@@ -15,8 +15,8 @@ export default class eff_face_band {
     this.init(this);
   }
   prepareOutput() {
-    this.layer.clear();
-    this.layer.noStroke();
+    this.output.clear();
+    this.output.noStroke();
     if (this.facemesh) {
       this.facemesh.video = this.video;
     }
@@ -25,7 +25,7 @@ export default class eff_face_band {
       fill(this.avg_color);
       rect(this.eff_spec.urect.x0, this.eff_spec.urect.y0, this.eff_spec.urect.width, this.eff_spec.urect.height);
     }
-    image_scaled_pad(this.layer, this.eff_spec.urect);
+    image_scaled_pad(this.output, this.eff_spec.urect);
   }
   init() {
     this.fft_anal = new FFT_analyser({ media: this.media });
@@ -55,10 +55,10 @@ export default class eff_face_band {
     this.img = createImage(w, h);
     this.avg_color = [255, 255, 255, 255];
     this.img = createImage(this.input.width, this.input.height);
-    this.layer = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
+    this.output = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
   }
   drawKeypoints(predictions) {
-    let layer = this.layer;
+    let layer = this.output;
     let img = this.img;
     if (!this.frozen) {
       image_copy(img, this.input);

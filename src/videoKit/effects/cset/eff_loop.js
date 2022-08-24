@@ -129,6 +129,11 @@ export default class eff_loop {
     this.iperiod = 0;
     this.img_freeze = createImage(this.input.width, this.input.height);
   }
+  deinit() {
+    for (let eff of this.eff_inst_arr) {
+      this.videoKit.deinitEffect(eff);
+    }
+  }
   trigger_step() {
     if (!this.step_patch) return;
     let src = patch_index1(this.step_patch);
@@ -189,13 +194,15 @@ export default class eff_loop {
       // Set input on inits for eff_inst.init
       this.prepare_input(inits);
       let eff_inst = this.eff_inst_arr[this.index];
-      if (!eff_inst) {
-        eff_inst = new effMeta.factory(inits);
-        this.eff_inst_arr[this.index] = eff_inst;
-      } else {
-        // console.log('next_eff init eff_inst', eff_inst);
-        eff_inst.init();
+      if (eff_inst) {
+        this.videoKit.deinitEffect(eff_inst);
       }
+      eff_inst = new effMeta.factory(inits);
+      this.eff_inst_arr[this.index] = eff_inst;
+      // } else {
+      //   // console.log('next_eff init eff_inst', eff_inst);
+      //   eff_inst.init();
+      // }
       this.eff_inst = eff_inst;
       this.has_completed_phase = this.eff_inst.completed_phase;
     }

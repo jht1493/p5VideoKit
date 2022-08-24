@@ -9,6 +9,7 @@ import { image_scaled_pad } from '../util/image.js?v={{vers}}';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 import { livem_restore } from '../core-ui/ui_live.js?v={{vers}}';
 import './video_record.js?v={{vers}}';
+import { patch_inst_deinit } from '../core/patch_inst.js?v={{vers}}';
 
 import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
 
@@ -168,6 +169,11 @@ p5VideoKit.prototype.layerCopyEffect = function (layer, eff) {
 // videoKit.prepareOutput(eff)
 p5VideoKit.prototype.prepareOutput = function (eff) {
   eff.prepareOutput();
+};
+
+// videoKit.deinitEffect
+p5VideoKit.prototype.deinitEffect = function (eff) {
+  patch_inst_deinit(eff);
 };
 
 // videoKit.ouputToCanvas( eff  )

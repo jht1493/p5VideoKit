@@ -38,6 +38,10 @@ export default class eff_grid {
     // this.blk = createImage(this.xs, this.ys);
     // this.img1 = createImage(1, 1);
   }
+  deinit() {
+    this.output.remove();
+    this.glayer.remove();
+  }
   draw_one() {
     let layer = this.glayer;
     let x = this.x + this.margin;

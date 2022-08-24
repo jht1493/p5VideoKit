@@ -17,11 +17,11 @@ export default class eff_fft_polar {
       this.period_next();
     });
     this.draw_fft();
-    image_scaled_pad(this.layer, this.eff_spec.urect);
+    image_scaled_pad(this.output, this.eff_spec.urect);
   }
   init() {
-    this.layer = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
-    let layer = this.layer;
+    this.output = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
+    let layer = this.output;
     layer.noStroke();
     this.alpha_line = 10;
     this.alpha_hist = 20;
@@ -42,7 +42,7 @@ export default class eff_fft_polar {
 
   draw_fft() {
     let spectrum = this.fft_anal.spectrum();
-    let layer = this.layer;
+    let layer = this.output;
     let i_start = Math.round((spectrum.length * this.start) / 1000);
     let i_end = Math.round((spectrum.length * this.end) / 1000);
     // let b_len = layer.width / (i_end - i_start);
@@ -79,7 +79,7 @@ export default class eff_fft_polar {
     // draw_fft_max(this);
   }
   draw_fft_max() {
-    let layer = this.layer;
+    let layer = this.output;
     let x = layer.width - this.fft_maxs.length * this.vol_len;
     if (x < 0) x = 0;
     let y2 = layer.height;
@@ -93,7 +93,7 @@ export default class eff_fft_polar {
     }
   }
   period_next() {
-    let layer = this.layer;
+    let layer = this.output;
     this.x0 = random(layer.width / 4, layer.width - layer.width / 4);
     this.y0 = random(layer.height / 4, layer.height - layer.height / 4);
   }

@@ -80,8 +80,8 @@ export default class eff_mov_show {
     // this.vid.size(width, height);
     // this.vid.position(0, 0);
   }
-  remove_eff() {
-    console.log('eff_mov_show remove_eff vid', this.vid);
+  deinit() {
+    console.log('eff_mov_show deinit vid', this.vid);
     if (this.vid) {
       this.vid.remove();
     }

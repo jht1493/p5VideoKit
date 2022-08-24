@@ -200,7 +200,9 @@ export default class eff_tile_live {
   draw_step(dir) {
     // if (this.show_all) return;
     if (!dir) dir = 1;
-    let [xn, yn] = this.cells;
+    // let [xn, yn] = this.cells;
+    let xn = this.ncell;
+    let yn = this.ncell;
     this.x += this.xstep * dir;
     if (this.x + this.xstep / 2 >= this.output.width || this.x < 0) {
       if (this.x < 0) {

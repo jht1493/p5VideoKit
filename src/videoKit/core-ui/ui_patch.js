@@ -8,7 +8,7 @@ import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
 import { str_to_width_height } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v={{vers}}';
 import { patch_add } from '../core/patch_inst.js?v={{vers}}';
-import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
+import { patch_inst_clear, patch_inst_update } from '../core/patch_inst.js?v={{vers}}';
 
 export function ui_patch_layout() {
   let div = ui_div_empty('ipatch_layout');
@@ -124,11 +124,7 @@ export function ui_patch_update(aPatch) {
   if (!aPatch) return;
   let ipatch = aPatch.eff_spec.ipatch;
   // console.log('ui_patch_update ipatch', ipatch);
-  let inst = a_.patch_instances[ipatch];
-  // console.log('ui_patch_update inst', inst);
-  if (inst && inst.remove_eff) {
-    inst.remove_eff();
-  }
+  patch_inst_update(ipatch);
   a_.patch_instances[ipatch] = null;
 }
 

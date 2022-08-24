@@ -107,6 +107,10 @@ export default class eff_tile_clock {
     };
     this.advancePendingTime = 0;
   }
+  deinit() {
+    this.output.remove();
+    this.center_layer.remove();
+  }
   draw_center() {
     let simg = this.center_layer;
     let sx = 0;
