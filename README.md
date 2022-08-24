@@ -39,13 +39,13 @@ Screen shots of p5VideoKit in action:
 
 p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google Chrome and second on Apple Safari on MacOS desktop computers. On mobile devices (iPhone and Android) things are flaky - landscape mode is best here.
 
-[demo](https://jht1493.net/p5VideoKit/demo/) - Opens a new browser window to with videokit interface that shows local camera.Your browser should ask you for permission to use the camera and microphone. Hit the Reset button if you don't see any video. Use the Patch drop down to select an effect to apply to the camera video.
+[demo](https://jht1493.net/p5VideoKit/demo/) - Opens a new browser window to with videokit interface that shows local camera.Your browser should ask you for permission to use the camera and microphone. Hit the Reset button if you don't see any video. Use the Effect drop down to select an effect to apply to the camera video.
 
 [Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - pixelized video effect.
 
 ![grid1](docs/media/grid1.jpg)
 
-[4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Patch drop down to select an effect.
+[4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Effect drop down to select an effect.
 
 [live1](https://jht1493.net/p5VideoKit/demo/?d=baked/live1.json) - joint the VideoKit-Play-1 live streaming room.
 
@@ -53,7 +53,7 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 ## The interface
 
-- TODO: document patches UI
+- TODO: document Effects UI
 
 ## The code
 
@@ -64,10 +64,11 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
   [Visual Studio Code text editor](https://code.visualstudio.com/)
   with extensions:
   [p5.vscode+Live Server](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode)
-
-- running locally setup
-- adding settings - export
-- adding effect
+- local server starting point:
+  - ./src/index.html
+- TODO: running locally setup
+- TODO: adding settings via Export button
+- TODO: adding effects code
 
 ## Live streaming
 
