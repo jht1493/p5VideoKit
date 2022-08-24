@@ -39,9 +39,7 @@ export default class eff_live_gallery {
       if (this.record) {
         videoKit.recordVideo({ save_name: this.save_name, fps: this.fps, duration: this.duration });
       }
-      // } else {
       saveCanvas(this.output, this.save_name, 'jpg');
-      // }
       this.firstPeriod = 0;
     }
   }

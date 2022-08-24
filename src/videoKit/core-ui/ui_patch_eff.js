@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_div_empty } from '../util/ui_base.js?v={{vers}}';
+import { ui_div_empty } from '../core-ui/ui_base.js?v={{vers}}';
 import { effectMeta_find } from '../core/effectMeta.js?v={{vers}}';
 import { ui_patch_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { patch_remove_ipatch, patch_update_effIndex } from '../core/patch_inst.js?v={{vers}}';
@@ -51,7 +51,7 @@ export function ui_patch_eff_panes() {
     }
 
     function create_patch_selection() {
-      let span = createSpan(`Patch${ipatch + 1}: `);
+      let span = createSpan(`Effect${ipatch + 1}: `);
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);

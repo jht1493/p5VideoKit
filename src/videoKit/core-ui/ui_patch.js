@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_div_empty, ui_backcolor } from '../util/ui_base.js?v={{vers}}';
+import { ui_div_empty, ui_backcolor } from '../core-ui/ui_base.js?v={{vers}}';
 import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 import { ui_live_selection } from '../core-ui/ui_live.js?v={{vers}}';
 import { PadLayout } from '../util/PadLayout.js?v={{vers}}';
@@ -86,7 +86,7 @@ export function ui_patch_layout() {
 }
 
 export function ui_patch_buttons() {
-  createButton('Add Patch').mousePressed(function () {
+  createButton('Add Effect').mousePressed(function () {
     let newPatch = { eff_spec: { ipatch: 0, imedia: 1, eff_label: 'show' } };
     patch_add(newPatch);
   });

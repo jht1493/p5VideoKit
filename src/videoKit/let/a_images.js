@@ -410,6 +410,7 @@ export let a_images = {
     "553.jpg"
   ],
   "screens": [
+    "IM-Screens-Flyer-2.jpg",
     "Screens-Club.png"
   ],
   "test": [

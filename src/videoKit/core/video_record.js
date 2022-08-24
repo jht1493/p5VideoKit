@@ -87,5 +87,6 @@ class RecordVideo {
     a_elt.download = this.save_name + '.webm';
     a_elt.click();
     window.URL.revokeObjectURL(url);
+    // !!@ How to safely remove a_elt ??
   }
 }

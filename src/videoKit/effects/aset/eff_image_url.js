@@ -18,6 +18,7 @@ export default class eff_image_url {
     this.show_image();
   }
   init() {
+    // !!@ this.eff_spec.urect undefined
     this.output = createGraphics(this.eff_spec.urect.width, this.eff_spec.urect.height);
     this.load_image();
   }

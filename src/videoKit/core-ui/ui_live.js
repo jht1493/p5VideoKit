@@ -1,5 +1,5 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_div_empty } from '../util/ui_base.js?v={{vers}}';
+import { ui_div_empty } from '../core-ui/ui_base.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
 import { liveMedia_attach, liveMedia_detach } from '../core/liveMedia_attach.js?v={{vers}}';
 
@@ -59,7 +59,9 @@ function media_for_livem_index(index) {
 
 export function livem_restore() {
   if (!a_.livem && a_.ui.live_chk) {
+    console.log('livem_restore a_.ui.live_index', a_.ui.live_index);
     let mediaDiv = media_for_livem_index(a_.ui.live_index);
+    console.log('livem_restore mediaDiv', mediaDiv);
     if (mediaDiv) liveMedia_attach(mediaDiv);
   }
 }

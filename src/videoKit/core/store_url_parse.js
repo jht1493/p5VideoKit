@@ -1,7 +1,7 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
 import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
-import { ui_save_fn } from '../util/ui_base.js?v={{vers}}';
+import { ui_save_fn } from '../core-ui/ui_base.js?v={{vers}}';
 
 // Are we setting up store from our url query?
 // url parm
@@ -168,8 +168,11 @@ export function store_save_ent(ent) {
   if (a_.canvas_size_lock) {
     // Canvas size is locked
     // Save reference pad per patch before we save in local storage
-    for (let patch of ent.patches) {
-      patch.eff_spec.urect_ref = Object.assign({}, patch.eff_spec.urect);
+    console.log('store_save_ent ent', ent);
+    if (ent.patches) {
+      for (let patch of ent.patches) {
+        patch.eff_spec.urect_ref = Object.assign({}, patch.eff_spec.urect);
+      }
     }
   }
   // Save settings to local storage

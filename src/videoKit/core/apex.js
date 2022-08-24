@@ -7,6 +7,7 @@ import { effectMeta_find, factory_prop_inits } from './effectMeta.js?v={{vers}}'
 import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
 import { image_scaled_pad } from '../util/image.js?v={{vers}}';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
+import { livem_restore } from '../core-ui/ui_live.js?v={{vers}}';
 import './video_record.js?v={{vers}}';
 
 import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
@@ -24,6 +25,8 @@ p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
     create_ui();
 
     media_enum();
+
+    livem_restore();
 
     this.a_initDone = 1;
 

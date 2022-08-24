@@ -12,6 +12,8 @@ export default class eff_ticker {
     this.output = createGraphics(width, height);
     // console.log('width', this.width);
 
+    // import dynamically so we don't take a import hit until actually used.
+    //
     import('./sub/sketch.js')
       .then((module) => {
         // console.log('eff_ticker module', module);
@@ -27,3 +29,6 @@ export default class eff_ticker {
 }
 
 window.eff_ticker = eff_ticker;
+// global class eff_ticker becomes the base for other methods, eg.
+//  eff_ticker.prototype.init = function () {
+// example of converting mult-script global to class methods.

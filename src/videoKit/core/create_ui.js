@@ -1,9 +1,8 @@
 import { a_ } from '../let/a_ui.js?v={{vers}}';
 import { ui_canvas_div, toggleFullScreen } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { ui_capture_size } from '../core-ui/ui_capture.js?v={{vers}}';
-import { ui_render_size } from '../core-ui/ui_render.js?v={{vers}}';
 import { ui_patch_layout, pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
-import { ui_div_empty } from '../util/ui_base.js?v={{vers}}';
+import { ui_div_empty, ui_save_fn, ui_hide } from '../core-ui/ui_base.js?v={{vers}}';
 import { ui_patch_eff_panes } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 import { ui_patch_buttons } from '../core-ui/ui_patch.js?v={{vers}}';
 import { ui_live_selection } from '../core-ui/ui_live.js?v={{vers}}';
@@ -12,7 +11,7 @@ import { store_restore_from } from '../core/store_url_parse.js?v={{vers}}';
 import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
 import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
 import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
-import { ui_save_fn } from '../util/ui_base.js?v={{vers}}';
+import { ui_render_size } from '../core-ui/ui_render.js?v={{vers}}';
 
 export function create_ui() {
   ui_top_pane();
@@ -20,12 +19,21 @@ export function create_ui() {
   ui_patch_layout();
   ui_create_comment_field();
   createElement('br');
+
   ui_patch_eff_panes();
   ui_patch_buttons();
   createElement('br');
+
   ui_live_selection();
   ui_chat_pane();
   createElement('br');
+}
+
+function ui_size_pane() {
+  let div = ui_div_empty('size_pane');
+  ui_canvas_div(div);
+  ui_capture_size(div);
+  // ui_render_size(div);
 }
 
 function ui_create_comment_field() {
@@ -54,14 +62,10 @@ function ui_top_pane() {
   createButton('Reset').mousePressed(function () {
     reset_video_clear_locals(a_.store_name);
   });
-  // createButton('Save').mousePressed(function () {
-  //   let fn = ui_save_fn();
-  //   saveCanvas(fn, 'png');
-  //   save_others(fn);
-  // });
   createButton('Save').mousePressed(function () {
     let fn = ui_save_fn();
     saveCanvas(fn, 'png');
+    // save_others(fn);
   });
   createButton('Reload').mousePressed(function () {
     reload_action();
@@ -129,29 +133,9 @@ function present_action() {
   setTimeout(ui_present_window, delay);
 }
 
-function ui_hide() {
-  a_.my_canvas.elt.style.cursor = 'none';
-  let m = select('main').elt;
-  while (m.nextSibling) {
-    // elt.nodeName VIDEO
-    if (m.nextSibling.nodeName === 'VIDEO') {
-      m = m.nextSibling;
-    } else {
-      m.nextSibling.remove();
-    }
-  }
-}
-
 export function ui_window_refresh() {
   pad_layout_update();
   patch_inst_clear();
-}
-
-function ui_size_pane() {
-  let div = ui_div_empty('size_pane');
-  ui_canvas_div(div);
-  ui_capture_size(div);
-  // ui_render_size(div);
 }
 
 let a_ifps;

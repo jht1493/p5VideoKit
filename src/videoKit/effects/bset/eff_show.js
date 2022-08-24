@@ -88,7 +88,7 @@ export default class eff_show_pad {
       }
     };
     this.recorder.onstop = (evt) => {
-      console.log('recorder.onstop', evt);
+      // console.log('recorder.onstop', evt);
       this.exportVideo();
     };
   }

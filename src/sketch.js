@@ -13,9 +13,12 @@ function setup() {
   // pixelDensity does not appear to affect live media
   // pixelDensity(1);
 
+  // createCanvas(100, 100, WEBGL);
+  // Need some starting dimensions for canvas.
+  // Will get adjusted by ui later in startup
   createCanvas(100, 100);
 
-  // p5VideoKit create must follow createCanvas
+  // must call createCanvas before new p5VideoKit
 
   // effects for import, will appear at top of patch effect menu
   let effects = [
@@ -35,6 +38,7 @@ function setup() {
     { label: 'skin_tone_main-qr', import_path: 'settings/2022-skin-tone/skin-tone-main-qr.json' },
     { label: 'live_gallery', import_path: 'import/live_gallery.json' },
     { label: 'live_gallery-video', import_path: 'import/live_gallery-video.json' },
+    { label: 'screen-club', import_path: 'import/screen-club.json' },
   ];
 
   videoKit = new p5VideoKit();
