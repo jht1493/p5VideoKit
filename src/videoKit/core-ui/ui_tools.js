@@ -1,5 +1,4 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
 
 export function ui_div_append(div, str) {
   let ndiv = document.createElement('div');
@@ -44,23 +43,6 @@ export function ui_hide() {
       m.nextSibling.remove();
     }
   }
-}
-
-let a_back_color_options = [200, 0, 1, 50, 100, 200, 255, -1];
-
-export function ui_backcolor(div) {
-  div.child(createSpan(' Back: '));
-  let aSel = createSelect();
-  div.child(aSel);
-  let back_colors = a_back_color_options;
-  for (let index = 0; index < back_colors.length; index++) {
-    aSel.option(back_colors[index]);
-  }
-  aSel.selected(a_.ui.back_color);
-  aSel.changed(function () {
-    let valu = parseFloat(this.value());
-    ui_prop_set('back_color', valu);
-  });
 }
 
 // Return date stamped file name based on first patch name

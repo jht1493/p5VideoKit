@@ -87,8 +87,8 @@ export default class eff_live_gallery {
     }
   }
 }
-/*
 
+/*
 // !!@ Source graphics must be arg to saveCanvas
 
       this.output.saveCanvas(this.save_name, 'jpg');
@@ -101,5 +101,4 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'toBlob')
     at draw (sketch.js?v={{vers}}:47:12)
     at o.default.redraw (p5.min.js:3:487659)
     at _draw (p5.min.js:3:424542)
-
 */

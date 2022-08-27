@@ -1,12 +1,12 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
 import { init_size_in } from '../core-ui/ui_canvas.js?v={{vers}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { ui_prop_set } from '../core-ui/ui_restore.js?v={{vers}}';
 import { media_reset } from '../core/create_mediaDevices.js?v={{vers}}';
 import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
-import { ui_div_append } from '../core-ui/ui_base.js?v={{vers}}';
+import { ui_div_append } from '../core-ui/ui_tools.js?v={{vers}}';
 
 export function ui_capture_size(div) {
-  let str = `
+  let html = `
   <span> Capture Size: </span>
   <select id=icapture_size>
     ${capture_size_options(a_capture_sizes)}
@@ -18,7 +18,7 @@ export function ui_capture_size(div) {
     return arr.join('');
   }
 
-  ui_div_append(div, str);
+  ui_div_append(div, html);
 
   let icapture_size = window.icapture_size;
   let se = get_capture_size();

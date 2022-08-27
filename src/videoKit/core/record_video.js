@@ -1,5 +1,5 @@
 //
-import { ui_message } from './create_ui.js?v={{vers}}';
+import { ui_message } from '../core-ui/a_ui_create.js?v={{vers}}';
 
 // props { save_name, fps, duration }
 p5VideoKit.prototype.recordVideo = function (props) {

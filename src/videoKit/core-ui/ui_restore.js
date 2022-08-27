@@ -1,4 +1,4 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
 import { a_effectMetas } from '../let/a_effectMetas.js?v={{vers}}';
 import { a_settingMetas } from '../let/a_settingMetas.js?v={{vers}}';
 import { effectMeta_init } from '../core/effectMeta.js?v={{vers}}';
@@ -7,8 +7,8 @@ import { ui_canvas_init } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { store_name_restore, store_url_parse, store_save_ent } from '../core/store_url_parse.js?v={{vers}}';
 import { canvas_size_default } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { reset_video_clear_locals } from '../core/reset_video_clear_locals.js?v={{vers}}';
-import { ui_present_window } from '../core/create_ui.js?v={{vers}}';
-import { ui_render_size_init } from '../core-ui/ui_render.js?v={{vers}}';
+import { ui_present_window } from '../core-ui/a_ui_create.js?v={{vers}}';
+// import { ui_render_size_init } from '../core-ui/ui_render.js?v={{vers}}';
 //
 // let effects = [
 //   { label: 'example', import_path: 'module/eff_example', menu: 1 },

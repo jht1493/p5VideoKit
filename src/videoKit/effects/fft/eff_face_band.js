@@ -1,5 +1,5 @@
 import { image_scaled_pad, image_copy } from '../../util/image.js?v={{vers}}';
-import { ui_message } from '../../core/create_ui.js?v={{vers}}';
+import { ui_message } from '../../core-ui/a_ui_create.js?v={{vers}}';
 import { FFT_analyser } from '../../util/FFT_analyser.js?v={{vers}}';
 
 export default class eff_face_band {

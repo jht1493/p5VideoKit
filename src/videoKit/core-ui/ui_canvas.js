@@ -1,12 +1,11 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
-import { store_set } from '../core/ui_restore.js?v={{vers}}';
-import { ui_window_refresh } from '../core/create_ui.js?v={{vers}}';
-import { ui_div_append } from '../core-ui/ui_base.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
+import { ui_prop_set } from '../core-ui/ui_restore.js?v={{vers}}';
+import { store_set } from '../core-ui/ui_restore.js?v={{vers}}';
+import { ui_window_refresh } from '../core-ui/a_ui_create.js?v={{vers}}';
+import { ui_div_append } from '../core-ui/ui_tools.js?v={{vers}}';
 
 export function ui_canvas_div(div) {
-  // console.log('ui_canvas ', div);
-  let str = `
+  let html = `
   <span>[Canvas Size: </span>
   <select id=icanvas_size>
     ${canvas_size_options(a_canvas_sizes)}
@@ -22,10 +21,9 @@ export function ui_canvas_div(div) {
     return arr.join('');
   }
 
-  ui_div_append(div, str);
+  ui_div_append(div, html);
 
   let icanvas_size = window.icanvas_size;
-  // let se = a_canvas_sizes_dict[a_.ui.canvas_size];
   let se = canvas_size_default();
   icanvas_size.selectedIndex = se.index;
   // Can not use arrow funtion here to get this
@@ -87,6 +85,7 @@ export function init_size_in(sizes) {
   let index = 0;
   for (let se of sizes) {
     if (!se.label) {
+      // label eg. 960x540
       se.label = se.width + 'x' + se.height;
     }
     se.index = index;

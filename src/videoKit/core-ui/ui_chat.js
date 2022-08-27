@@ -1,5 +1,5 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_prop_set } from '../core/ui_restore.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
+import { ui_prop_set } from '../core-ui/ui_restore.js?v={{vers}}';
 import { attach_media_nlabel } from '../core/create_mediaDiv.js?v={{vers}}';
 import { livem_send } from '../core/liveMedia_attach.js?v={{vers}}';
 

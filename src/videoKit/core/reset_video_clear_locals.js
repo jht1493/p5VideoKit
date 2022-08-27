@@ -1,4 +1,4 @@
-import { ui_message } from '../core/create_ui.js?v={{vers}}';
+import { ui_message } from '../core-ui/a_ui_create.js?v={{vers}}';
 import { location_noquery } from '../core/store_url_parse.js?v={{vers}}';
 
 // On first use in browser sometimes camera permissions

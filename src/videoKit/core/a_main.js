@@ -1,14 +1,14 @@
-import { a_ } from '../let/a_ui.js?v={{vers}}';
-import { ui_restore_store } from './ui_restore.js?v={{vers}}';
+import { a_ } from '../let/a_state.js?v={{vers}}';
+import { ui_restore_store } from '../core-ui/ui_restore.js?v={{vers}}';
 import { init_mediaDivs } from './create_mediaDiv.js?v={{vers}}';
-import { create_ui, update_ui } from './create_ui.js?v={{vers}}';
+import { ui_create, update_ui } from '../core-ui/a_ui_create.js?v={{vers}}';
 import { media_enum } from './create_mediaDevices.js?v={{vers}}';
 import { effectMeta_find, factory_prop_inits } from './effectMeta.js?v={{vers}}';
-import { pad_layout_update } from '../core-ui/ui_patch.js?v={{vers}}';
+import { pad_layout_update } from '../core-ui/ui_patch_bar.js?v={{vers}}';
 import { image_scaled_pad } from '../util/image.js?v={{vers}}';
 import { patch_index1 } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 import { livem_restore } from '../core-ui/ui_live.js?v={{vers}}';
-import './video_record.js?v={{vers}}';
+import './record_video.js?v={{vers}}';
 import { patch_inst_deinit } from '../core/patch_inst.js?v={{vers}}';
 
 import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
@@ -23,7 +23,7 @@ p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
 
     init_mediaDivs();
 
-    create_ui();
+    ui_create();
 
     media_enum();
 

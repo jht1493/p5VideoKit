@@ -17,7 +17,7 @@ eff_ticker.prototype.init = function () {
   // parent.insertBefore(my_canvas.elt, title.elt);
   console.log('eff_ticker init');
   this.output.noStroke();
-  // create_ui();
+  // ui_create();
   this.let_init();
   this.fresh_canvas();
   this.begin_day();
