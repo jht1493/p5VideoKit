@@ -8,7 +8,7 @@ export default class eff_example {
     },
     num_prop: [200, 100, 200, 255],
     text_prop: {
-      text_input: 'Word up!',
+      text_input: 'Hello world!',
     },
   };
   constructor(props) {

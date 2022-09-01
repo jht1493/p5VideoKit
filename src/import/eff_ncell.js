@@ -26,8 +26,8 @@ export default class eff_ncell {
   }
   init() {
     this.effs = [];
-    // let eff_labels = ['circle', 'maze', 'bright', 'grid'];
-    let eff_labels = ['circle'];
+    let eff_labels = ['circle', 'maze', 'bright', 'grid'];
+    // let eff_labels = ['circle'];
     let videoKit = this.videoKit;
     let imedia = 1;
     let uout = this.eff_spec.urect;

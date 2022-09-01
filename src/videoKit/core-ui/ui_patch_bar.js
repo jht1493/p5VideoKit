@@ -133,7 +133,6 @@ export function pad_layout_update() {
   }
   let urects_count = 0;
   let urect;
-  ``;
   for (let ipatch = 0; ipatch < a_.ui.patches.length; ipatch++) {
     let uiPatch = a_.ui.patches[ipatch];
     if (uiPatch) {
