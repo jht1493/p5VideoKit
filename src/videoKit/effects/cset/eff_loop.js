@@ -20,6 +20,10 @@ export default class eff_loop {
     step_patch: [0, 2, 3],
     _freeze_patch: [0, 1],
     freeze_screen: [0, 1],
+    _effects: {
+      style: 'width:80%',
+      text_input: 'sketchy,slant_scan,slit_scan',
+    },
   };
   static eff_names = [
     // 'show',
@@ -38,38 +42,6 @@ export default class eff_loop {
     'slant_scan',
     // 'show',
     'slit_scan',
-  ];
-  // static eff_names = [
-  //   'show',
-  //   'bright',
-  //   'show',
-  //   'delaunay',
-  //   'show',
-  //   'grid',
-  //   'show',
-  //   'bright',
-  //   'show',
-  //   'maze',
-  //   'show',
-  //   'sketchy',
-  //   'show',
-  //   'slant_scan',
-  //   'show',
-  //   'slit_scan',
-  // ];
-  // static eff_names = ['show', 'sketchy'];
-  // show will trigger patch_stepper in face_mesh
-  static eff_namesXX = [
-    'show',
-    'delaunay',
-    'sketchy',
-    'maze',
-    'grid',
-    // 'bright',
-    // 'diff',
-    // 'triangle',
-    // 'slit_scan',
-    // 'slant_scan',
   ];
   constructor(props) {
     Object.assign(this, props);
@@ -121,6 +93,8 @@ export default class eff_loop {
     return other;
   }
   init() {
+    if (!this.effects) this.effects = 'show';
+    this.eff_names = this.effects.split(',');
     this.index = 0;
     this.eff_inst = null;
     this.eff_inst_arr = [];
@@ -174,14 +148,14 @@ export default class eff_loop {
   prev_action(aPatch) {
     console.log('eff_loop c index', this.index);
     this.index = this.index - 2;
-    let eff_names = this.constructor.eff_names;
+    let eff_names = this.eff_names;
     this.index = (eff_names.length + this.index) % eff_names.length;
     console.log('eff_loop d index', this.index);
     this.next_eff();
   }
   next_eff() {
     // console.log('eff_loop a index', this.index);
-    let eff_names = this.constructor.eff_names;
+    let eff_names = this.eff_names;
     let label = eff_names[this.index];
     this.index = (this.index + 1) % eff_names.length;
     let effMeta = effectMeta_find(label);
@@ -225,3 +199,37 @@ export default class eff_loop {
   //   return inits;
   // }
 }
+
+// static eff_names = [
+//   'show',
+//   'bright',
+//   'show',
+//   'delaunay',
+//   'show',
+//   'grid',
+//   'show',
+//   'bright',
+//   'show',
+//   'maze',
+//   'show',
+//   'sketchy',
+//   'show',
+//   'slant_scan',
+//   'show',
+//   'slit_scan',
+// ];
+// static eff_names = ['show', 'sketchy'];
+// show will trigger patch_stepper in face_mesh
+
+// static eff_namesXX = [
+//   'show',
+//   'delaunay',
+//   'sketchy',
+//   'maze',
+//   'grid',
+//   // 'bright',
+//   // 'diff',
+//   // 'triangle',
+//   // 'slit_scan',
+//   // 'slant_scan',
+// ];

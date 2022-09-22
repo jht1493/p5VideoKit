@@ -112,6 +112,7 @@ export default class eff_show_pad {
     a.download = this.record_save_name + '.webm';
     a.click();
     window.URL.revokeObjectURL(url);
+    a.remove();
   }
 }
 

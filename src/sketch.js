@@ -28,6 +28,7 @@ function setup() {
     { label: 'live_gallery', import_path: 'import/eff_live_gallery.js' },
     { label: 'shader_clamp', import_path: 'import/eff_shader_clamp.js' },
     { label: 'shader_ripple', import_path: 'import/eff_shader_ripple.js' },
+    { label: 'movie_grid', import_path: 'import/eff_movie_grid.js' },
   ];
 
   // settings for import, will appear at top of settings menu

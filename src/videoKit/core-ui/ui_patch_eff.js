@@ -99,7 +99,11 @@ export function ui_patch_eff_panes() {
     function create_settings() {
       // console.log('create_settings aPatch', aPatch);
       let effMeta = effectMeta_find(aPatch.eff_spec.eff_label);
-      create_selections_for_dict(effMeta.factory.meta_props);
+      if (effMeta.factory) {
+        create_selections_for_dict(effMeta.factory.meta_props);
+      } else {
+        console.log('create_settings MISSING factory effMeta', effMeta);
+      }
 
       // Get props for imported module via import_factory
       // if (aPatch.import_factory) {

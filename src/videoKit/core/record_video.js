@@ -6,23 +6,28 @@ p5VideoKit.prototype.recordVideo = function (props) {
   //
   // console.log('recordVideo props', props, 'recVideoInst', this.recVideoInst);
   if (this.recVideoInst) {
-    return;
+    this.recVideoInst.record_flush();
+    // return;
   }
   // console.log('recordVideo props', props, 'recVideoInst', this.recVideoInst);
   this.recVideoInst = new RecordVideo(props);
   this.recVideoInst.videoKit = this;
   this.recVideoInst.record_start();
 };
+// p5VideoKit.prototype.recordVideoStop = function (props) {
+// }
 
 class RecordVideo {
-  // props { save_name, fps, duration }
+  // props { save_name, fps, duration, doneFunc, sourceElt }
   constructor(props) {
     // console.log('RecordVideo props', props);
     Object.assign(this, props);
+    // console.log('RecordVideo sourceElt', this.sourceElt);
     this.chunks = [];
     this.recording = 0;
     this.end_time = Number.MAX_SAFE_INTEGER;
-    let stream = document.querySelector('canvas').captureStream(this.record_fps);
+    let sourceElt = this.sourceElt || document.querySelector('canvas');
+    let stream = sourceElt.captureStream(this.record_fps);
     this.recorder = new MediaRecorder(stream);
     this.recorder.ondataavailable = (e) => {
       if (e.data.size) {
@@ -52,8 +57,21 @@ class RecordVideo {
       this.record_stop();
       window.cancelAnimationFrame(this.requestID);
       this.videoKit.recVideoInst = null;
+      if (this.doneFunc) {
+        this.doneFunc();
+      }
     } else {
       this.requestID = window.requestAnimationFrame((timestamp) => this.record_check_done(timestamp));
+    }
+  }
+
+  record_flush() {
+    console.log('RecordVideo record_flush', this.requestID, this.recording);
+    if (this.requestID) {
+      window.cancelAnimationFrame(this.requestID);
+    }
+    if (this.recording) {
+      this.recorder.stop();
     }
   }
 
@@ -87,6 +105,6 @@ class RecordVideo {
     a_elt.download = this.save_name + '.webm';
     a_elt.click();
     window.URL.revokeObjectURL(url);
-    // !!@ How to safely remove a_elt ??
+    a_elt.remove();
   }
 }

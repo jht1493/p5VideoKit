@@ -103,16 +103,22 @@ p5VideoKit.prototype.createEffect = function ({ eff_label, imedia, urect, props,
 // };
 
 // videoKit.layerCopyInput(layer, { imedia, urect })
+// videoKit.layerCopyInput(layer, { input, urect })
 // return 1 if input ready
 //
-p5VideoKit.prototype.layerCopyInput = function (layer, { imedia, urect }) {
-  let media = this.mediaDivAt(imedia);
-  if (!media || !media.ready('layerCopyInput')) {
-    // console.log('layerCopyInput NOT Ready imedia', imedia, 'media', media);
-    // console.log('layerCopyInput NOT Ready imedia', imedia);
+p5VideoKit.prototype.layerCopyInput = function (layer, { imedia, input, urect }) {
+  if (imedia !== undefined) {
+    let media = this.mediaDivAt(imedia);
+    if (!media || !media.ready('layerCopyInput')) {
+      // console.log('layerCopyInput NOT Ready imedia', imedia, 'media', media);
+      // console.log('layerCopyInput NOT Ready imedia', imedia);
+      return 0;
+    }
+    input = media.capture;
+  } else if (!input) {
+    console.log('layerCopyInput input MISSING', input);
     return 0;
   }
-  let input = media.capture;
   let sx = 0;
   let sy = 0;
   let sw = input.width;

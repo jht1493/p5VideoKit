@@ -1,0 +1,63 @@
+{
+  "setting": "",
+  "comment": "live_gallery-yoyo",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-1",
+  "patch_layout": "Single",
+  "canvas_size1": "960x540",
+  "canvas_size": "960x540",
+  "capture_size": "960x540",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "urects_lock": 0,
+  "urects_count": 1,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 0,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "live_gallery",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "ncell": 3,
+        "ifirst": 1,
+        "nPerHour": 0,
+        "nPerMinute": 0,
+        "nPerSecond": 0,
+        "period": 5,
+        "movie_record": 1,
+        "fps": 4,
+        "duration": 5,
+        "save_image": 0,
+        "save_limit": 8,
+        "save_name": "live_gallery",
+        "first_period_record": 1,
+        "record_canvas": 0,
+        "tile_inputs": 0,
+        "center_input": 1,
+        "movie_play": 1,
+        "movie_url": "./external/media/p5VideoKit-gallery-yoyo/live_gallery",
+        "live_center": 0,
+        "live_top_left": 1
+      }
+    }
+  ]
+}

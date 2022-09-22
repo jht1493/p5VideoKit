@@ -411,7 +411,8 @@ export let a_images = {
   ],
   "screens": [
     "IM-Screens-Flyer-2.jpg",
-    "Screens-Club.png"
+    "Screens-Club.png",
+    "yoga-thursday-IMG_3323.jpeg"
   ],
   "test": [
     "fac.png"

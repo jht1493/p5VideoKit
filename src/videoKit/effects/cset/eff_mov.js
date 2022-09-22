@@ -23,6 +23,11 @@ export default class eff_mov_show {
         ent.reset_action(aPatch);
       },
     },
+    _movie_url: {
+      style: 'width:80%',
+      // text_input: './external/media/webdb/jht/IMG_4491.JPEG',
+      text_input: './external/media/mov/record_log.webm',
+    },
     _loop: [0, 1],
     period: [5, 10, 20, 30, 60],
   };
@@ -47,6 +52,39 @@ export default class eff_mov_show {
     this.load_from_group();
   }
   load_from_group() {
+    let ipath = this.load_movie_options();
+    console.log('eff_mov_show ipath=' + ipath);
+    // console.log('eff_mov_show vid', this.vid);
+    this.vid = createVideo(ipath, () => {
+      // console.log('eff_mov_show loaded');
+      // this.vid.loop();
+      this.vid.volume(0);
+      this.vid.speed(this.speed);
+      this.vid.play();
+    });
+    this.vid.onended(() => {
+      // Chrome fails to play in reverse
+      // this.ispeed = this.ispeed == 1 ? -1 : 1;
+      console.log('eff_mov_show onended');
+      // this.vid.speed(this.speed);
+      this.vid.play();
+    });
+    this.vid.hide();
+    // this.vid.size(width, height);
+    // this.vid.position(0, 0);
+  }
+  deinit() {
+    console.log('eff_mov_show deinit vid', this.vid);
+    if (this.vid) {
+      this.vid.remove();
+    }
+  }
+  load_movie_options() {
+    let ipath = this.movie_url;
+    if (ipath) return ipath;
+    return this.load_movie_from_group();
+  }
+  load_movie_from_group() {
     this.files = a_images[this.group];
     if (this.shuffle) {
       this.files = shuffle(this.files);
@@ -59,32 +97,7 @@ export default class eff_mov_show {
       }
       file_name = this.group + '/' + this.files[this.ifile];
     }
-    let ipath = './external/media/webdb/' + file_name;
-    console.log('eff_mov_show ipath=' + ipath);
-    // console.log('eff_mov_show vid', this.vid);
-    this.vid = createVideo(ipath, () => {
-      console.log('eff_mov_show loaded');
-      this.vid.loop();
-      this.vid.volume(0);
-      this.vid.speed(this.speed);
-      this.vid.play();
-    });
-    this.vid.onended(() => {
-      // Chrome fails to play in reverse
-      // this.ispeed = this.ispeed == 1 ? -1 : 1;
-      console.log('eff_mov_show onended', this.ispeed);
-      this.vid.speed(this.speed);
-      this.vid.play();
-    });
-    this.vid.hide();
-    // this.vid.size(width, height);
-    // this.vid.position(0, 0);
-  }
-  deinit() {
-    console.log('eff_mov_show deinit vid', this.vid);
-    if (this.vid) {
-      this.vid.remove();
-    }
+    return './external/media/webdb/' + file_name;
   }
   next_action(aPatch) {
     if (!aPatch.eff_props.ifile) aPatch.eff_props.ifile = 0;

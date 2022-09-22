@@ -4,17 +4,30 @@
 
 export default class eff_live_gallery {
   static meta_props = {
-    ncell: [2, 2, 3, 4, 5, 6, 7],
-    ifirst: [2, 1],
+    ncell: [3, 1, 2, 3, 4, 5, 6, 7],
+    ifirst: [1, 2],
     nPerHour: [0, 1, 2, 5, 10, 15, 20, 30, 60],
     nPerMinute: [0, 1, 2, 5, 10, 15, 20, 30, 60],
     nPerSecond: [0, 1, 2, 5, 10, 15, 20, 30, 60],
-    period: [60, -1, 5, 10, 15, 30, 60, 120],
-    _record: [0, 1],
+    period: [5, -1, 5, 10, 15, 20, 30, 60, 120],
+    _movie_record: [0, 1],
     fps: [4, 6, 12, 15, 24, 30, 60],
-    duration: [2, 5, 10, 20, 30, 60],
+    duration: [5, 10, 20, 30, 60],
+    save_image: [0, 1],
+    save_limit: [8, 10, 100, 360, 1000],
     save_name: {
       text_input: 'live_gallery',
+    },
+    _first_period_record: [1, 0],
+    record_canvas: [0, 1],
+    tile_inputs: [0, 1],
+    live_center: [0, 0],
+    live_top_left: [1, 0],
+    show_count: [1, 0],
+    _movie_play: [0, 1],
+    movie_url: {
+      style: 'width:40%',
+      text_input: './external/media/p5VideoKit-gallery-yoyo/live_gallery',
     },
   };
   constructor(props) {
@@ -23,34 +36,190 @@ export default class eff_live_gallery {
     this.init();
   }
   prepareOutput() {
-    let videoKit = this.videoKit;
-    let n = videoKit.mediaDivCount();
-    let nshow = this.urects.length;
-    let layer = this.output;
-    let sindex = 0;
-    for (let imedia = this.ifirst; imedia < n; imedia++) {
-      let urect = this.urects[sindex].urect;
-      videoKit.layerCopyInput(layer, { imedia, urect });
-      sindex = (sindex + 1) % nshow;
+    this.render_inputs();
+    this.check_movie_record();
+    this.check_movie_play();
+  }
+  deinit() {
+    console.log('eff_live_gallery deinit', this.mediaElements.length);
+    this.output.remove();
+    for (let ent of this.mediaElements) {
+      if (ent.mediaElement) {
+        // console.log('stage_next_movie remove ent.mindex', ent.mindex);
+        ent.mediaElement.remove();
+      }
+    }
+  }
+  check_movie_record() {
+    if (this.recordingStarted) {
+      return;
     }
     if (this.period_timer.check() || this.firstPeriod) {
-      // Save entire canvas. We could save individual images
-      console.log('eff_live_gallery period_timer');
-      if (this.record) {
-        videoKit.recordVideo({ save_name: this.save_name, fps: this.fps, duration: this.duration });
+      // Save entire canvas or video input
+      // console.log('eff_live_gallery period_timer', this.save_index);
+      if (this.movie_record) {
+        this.recordingStarted = 1;
+        let doneFunc = () => {
+          // console.log('eff_live_gallery doneFunc');
+          this.recordingStarted = 0;
+          this.stage_next_movie(this.saved_index);
+        };
+        this.saved_index = this.save_index;
+        let save_name = this.save_name + '-' + (this.save_index + '').padStart(4, 0);
+        this.save_index = (this.save_index + 1) % this.save_limit;
+        let fps = this.fps;
+        let duration = this.duration;
+        let sourceElt = this.input.elt;
+        if (this.show_count) {
+          sourceElt = this.graphics.elt;
+        }
+        if (this.record_canvas) sourceElt = null;
+        this.videoKit.recordVideo({ save_name, fps, duration, doneFunc, sourceElt });
+        console.log('eff_live_gallery save_name', save_name);
       }
-      saveCanvas(this.output, this.save_name, 'jpg');
+      if (this.save_image) {
+        saveCanvas(this.output, this.save_name, 'jpg');
+      }
       this.firstPeriod = 0;
     }
   }
 
+  stage_next_movie(mindex) {
+    // console.log('stage_next_movie mindex', mindex);
+    // console.log('stage_next_movie n', this.mediaElements.length);
+    let n = this.mediaElements.length;
+    mindex = (mindex - 1 + n) % n;
+    let ent;
+    if (this.live_center) {
+      let ents = this.mediaElements.splice(0, 1);
+      ent = ents[0];
+      this.mediaElements.push(ent);
+    } else {
+      let ents = this.mediaElements.splice(n - 1, 1);
+      ent = ents[0];
+      this.mediaElements.splice(0, 0, ent);
+    }
+    if (!ent) return;
+    if (ent.mediaElement) {
+      // console.log('stage_next_movie remove ent.mindex', ent.mindex);
+      ent.mediaElement.remove();
+    }
+    // console.log('stage_next_movie ent.mindex', ent.mindex, 'mindex', mindex);
+    ent.mediaElement = this.create_mediaElement(mindex);
+    ent.mindex = mindex;
+  }
+
+  render_inputs() {
+    if (this.tile_inputs) {
+      let nshow = this.urects.length;
+      let layer = this.output;
+      let n = videoKit.mediaDivCount();
+      let sindex = 0;
+      for (let imedia = this.ifirst; imedia < n; imedia++) {
+        let urect = this.urects[sindex].urect;
+        this.videoKit.layerCopyInput(layer, { imedia, urect });
+        sindex = (sindex + 1) % nshow;
+      }
+    } else if (this.show_count) {
+      let str = '' + frameCount;
+      let { width, height } = this.input;
+      // let x = width - this.textDropWidth / 2;
+      // let y = height - this.textHi;
+      let dropWidth = this.graphics.textWidth(str) * 1.2;
+      let x = width - dropWidth * 0.9;
+      let y = height - this.textHi;
+      this.graphics.image(this.input, 0, 0);
+      this.graphics.rect(x, y, dropWidth, this.textHi);
+      // this.graphics.text(str, x, y + this.textHi - 10);
+      this.graphics.text(str, x, y + this.textHi - 10);
+      // this.layerCopyInput(this.output, { input: this.graphics, urect });
+      let input = this.graphics;
+      let urect = this.live_urect.urect;
+      this.videoKit.layerCopyInput(this.output, { input, urect });
+    } else {
+      let urect = this.live_urect.urect;
+      let imedia = this.ifirst;
+      this.videoKit.layerCopyInput(this.output, { imedia, urect });
+    }
+  }
+
+  init_graphics() {
+    this.graphics = createGraphics(this.input.width, this.input.height);
+    this.graphics.noStroke();
+    this.textHi = this.input.height / 12;
+    this.graphics.textSize(this.textHi);
+    this.textDropWidth = this.input.width / 4;
+    console.log('textDropWidth', this.textDropWidth, 'textLeading', this.graphics.textLeading());
+  }
+
+  check_movie_play() {
+    if (!this.movie_play) return;
+    for (let index = 0; index < this.urects.length; index++) {
+      let urect = this.urects[index].urect;
+      let mindex = index % this.save_limit;
+      let ent = this.mediaElements[mindex];
+      if (!ent) {
+        ent = {};
+        this.mediaElements[index] = ent;
+      }
+      if (!ent.mediaElement) {
+        ent.mediaElement = this.create_mediaElement(mindex);
+        ent.mindex = mindex;
+      }
+      // if (index == this.urects.length - 1) {
+      //   console.log('check_movie_play index', index, 'mindex', mindex, 'ent.mindex', ent.mindex);
+      // }
+      this.display_mediaElement(ent.mediaElement, urect);
+    }
+  }
+
+  display_mediaElement(mediaElement, urect) {
+    let sx = 0;
+    let sy = 0;
+    let sw = mediaElement.width;
+    let sh = mediaElement.height;
+    let { x0, y0, width, height } = urect;
+    let dw = height * (sw / sh);
+    let x1 = Math.floor(x0 + (width - dw) / 2);
+    this.output.copy(mediaElement, sx, sy, sw, sh, x1, y0, dw, height);
+  }
+
+  create_mediaElement(movieIndex) {
+    let ipath = this.movie_url;
+    // -0010.webm
+    ipath += '-' + (movieIndex + '').padStart(4, 0);
+    ipath += '.webm';
+    ipath += '?v=' + Math.random();
+    // console.log('create_mediaElement ipath=' + ipath);
+    // console.log('eff_mov_show vid', this.vid);
+    // if (mediaElement) {
+    //   mediaElement.remove();
+    // }
+    let mediaElement = createVideo(ipath, () => {
+      // console.log('eff_mov_show loaded');
+      mediaElement.loop();
+      mediaElement.volume(0);
+      // mediaElement.speed(this.speed);
+      mediaElement.play();
+    });
+    mediaElement.onended(() => {
+      console.log('mediaElement onended movieIndex', movieIndex);
+      // this.stage_next_movie();
+    });
+    mediaElement.hide();
+    // mediaElement.size(width, height);
+    // mediaElement.position(0, 0);
+    return mediaElement;
+  }
+
   init() {
-    // this.firstPeriod = 1;
-    this.firstPeriod = 0;
+    this.init_graphics();
+    this.firstPeriod = this.first_period_record;
+    this.save_index = 0;
+    this.recordingStarted = 0;
     let videoKit = this.videoKit;
     let urmain = this.eff_spec.urect;
     this.output = createGraphics(urmain.width, urmain.height);
-    // let period = -1;
     let period = this.period;
     if (this.nPerHour) {
       period = 60 * 60 * (1 / this.nPerHour);
@@ -64,6 +233,7 @@ export default class eff_live_gallery {
     this.period_timer = new videoKit.PeriodTimer(period);
     this.iperiod = 0;
     this.urects = [];
+    this.mediaElements = [];
     let x0 = urmain.x0;
     let y0 = urmain.y0;
     let wedge = x0 + urmain.width;
@@ -71,8 +241,6 @@ export default class eff_live_gallery {
     let xstep = wedge / this.ncell;
     let ystep = hedge / this.ncell;
     let n = this.ncell * this.ncell;
-    let qrIndex = this.qr_image_index;
-    if (qrIndex < 0) qrIndex = n - 1;
     for (let index = 0; index < n; index++) {
       let urect = { x0, y0, width: xstep, height: ystep };
       this.urects.push({ urect });
@@ -84,6 +252,15 @@ export default class eff_live_gallery {
           y0 = urmain.y0;
         }
       }
+    }
+    if (this.live_center) {
+      let index = Math.trunc(n / 2);
+      this.live_urect = this.urects[index];
+      this.urects.splice(index, 1);
+    } else if (this.live_top_left) {
+      let index = 0;
+      this.live_urect = this.urects[index];
+      this.urects.splice(index, 1);
     }
   }
 }

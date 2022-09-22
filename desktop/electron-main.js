@@ -24,6 +24,8 @@
 // --download_path
 //  path to download files
 //  default ~/Downloads
+// --limit-download n
+//  limit download save to n files
 //
 // Ref: src/videoKit/core/store_url_parse.js
 //
@@ -36,6 +38,8 @@ let root_index_path = '../src/index.html';
 
 let download_path = path.resolve(process.env.HOME, 'Downloads');
 console.log('download_path', download_path);
+
+let download_limit = -1;
 
 function print_process_argv() {
   process.argv.forEach((val, index) => {
@@ -107,6 +111,11 @@ function parse_argv(argv) {
         console.log('download_path: ', download_path);
         let res = fs.mkdirSync(download_path, { recursive: true });
         console.log('download_path res', res);
+        index++;
+        break;
+      case '--download-limit':
+        download_limit = parseFloat(argv[index + 1]);
+        console.log('download_limit', download_limit);
         index++;
         break;
       default:
@@ -285,6 +294,13 @@ function next_download_filename(fn) {
   let pfile = path.parse(fn);
   let { name, ext } = pfile;
   let dpath;
+  if (download_limit > 0) {
+    let nfn = name + ext;
+    dpath = path.join(download_path, nfn);
+    // console.log('dpath', dpath);
+    // fs.removeSync(dpath);
+    return dpath;
+  }
   // !!@ consider count_dict[name] to cache last used count
   let count = 1;
   for (;;) {
@@ -295,6 +311,9 @@ function next_download_filename(fn) {
     } else {
       return dpath;
     }
+    // if (download_limit > 0 && count > download_limit) {
+    //   return dpath;
+    // }
   }
 }
 

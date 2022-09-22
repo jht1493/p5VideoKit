@@ -111,7 +111,7 @@ export function patch_inst_deinit(inst) {
   if (inst.deinit) {
     inst.deinit();
   } else if (inst.output && inst.output.remove) {
-    console.log('patch_inst_deinit REMOVING inst.output', inst.output);
+    // console.log('patch_inst_deinit REMOVING inst.output', inst.output);
     inst.output.remove();
   }
 }
