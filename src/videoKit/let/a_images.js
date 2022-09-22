@@ -412,7 +412,9 @@ export let a_images = {
   "screens": [
     "IM-Screens-Flyer-2.jpg",
     "Screens-Club.png",
-    "yoga-thursday-IMG_3323.jpeg"
+    "yoga-thursday-IMG_3323.jpeg",
+    "yoga-thursday-IMG_3355.jpeg",
+    "yoga-thursday-IMG_3355a.jpeg"
   ],
   "test": [
     "fac.png"

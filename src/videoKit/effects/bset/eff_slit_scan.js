@@ -1,7 +1,7 @@
 export default class eff_slit_scan {
   static meta_props = {
     xdir: [0, 1],
-    step: [1, 2, 4, 8, 16, 0.2],
+    step: [6, 1, 2, 4, 8, 16, 0.2],
     auto_flip: [0, 1],
     speed: [0, 1, 2, 5, 10, 20, 100],
     flip: {

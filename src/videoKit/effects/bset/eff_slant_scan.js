@@ -3,10 +3,11 @@ import { image_copy } from '../../util/image.js?v={{vers}}';
 export default class eff_slant_scan {
   static meta_props = {
     ncell: [512, 1024, 2028],
-    step: [1, 2, 4, 0.2],
+    step: [16, 1, 2, 4, 0.2],
     start: [225, 45, 90, 135, 180, 225, 270, 315],
     end: [360, 90, 135, 180, 270, 315],
     delta: [5, 1, 2, 4, 6, 8, 16, 32, 64],
+    r_mult: [4, 16],
     dir_up: [0, 1],
   };
   constructor(props) {
@@ -27,7 +28,7 @@ export default class eff_slant_scan {
     this.from_degrees = TWO_PI / 360;
     let w = this.input.width;
     let h = this.input.height;
-    this.r = max(w, h) * 4;
+    this.r = max(w, h) * this.r_mult;
     this.in_width = w;
     this.in_height = h;
     this.output = createGraphics(w, h);
@@ -112,7 +113,8 @@ export default class eff_slant_scan {
   init_scan() {
     this.scan = {};
     this.scan.xstep = this.in_width / this.ncell;
-    this.scan.ystep = this.scan.xstep;
+    // this.scan.ystep = this.scan.xstep;
+    this.scan.ystep = this.in_height / this.ncell;
     this.scan.xdim = this.in_width;
     this.scan.xstart = 0;
     this.scan.xend = this.scan.xstart + this.scan.xdim;
