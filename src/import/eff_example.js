@@ -11,6 +11,7 @@ export default class eff_example {
       text_input: 'Hello world!',
     },
   };
+  // new eff_example({message_prop1, num_prop, text_prop})
   constructor(props) {
     Object.assign(this, props);
     // console.log('eff_example props', props);

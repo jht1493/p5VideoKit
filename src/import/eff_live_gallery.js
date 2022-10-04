@@ -1,5 +1,5 @@
-// Show live media in grid from room
-//    VideoKit-Room-4
+// Show recorded media in grid from folder
+//    p5VideoKit-gallery-yoyo
 //
 
 export default class eff_live_gallery {
@@ -14,7 +14,8 @@ export default class eff_live_gallery {
     fps: [4, 6, 12, 15, 24, 30, 60],
     duration: [5, 10, 20, 30, 60],
     save_image: [0, 1],
-    save_limit: [8, 10, 100, 360, 1000],
+    save_seen_limit: [8, 4, 10, 100, 360, 1000],
+    save_period_limit: [360, 15, 60, 120],
     save_name: {
       text_input: 'live_gallery',
     },
@@ -36,17 +37,20 @@ export default class eff_live_gallery {
     this.init();
   }
   prepareOutput() {
+    this.frameCount++;
     this.render_inputs();
     this.check_movie_record();
     this.check_movie_play();
   }
   deinit() {
-    console.log('eff_live_gallery deinit', this.mediaElements.length);
+    console.log('eff_live_gallery deinit mediaElements.length', this.mediaElements.length);
     this.output.remove();
     for (let ent of this.mediaElements) {
-      if (ent.mediaElement) {
-        // console.log('stage_next_movie remove ent.mindex', ent.mindex);
+      if (ent && ent.mediaElement) {
+        console.log('stage_next_movie remove ent.saved_index', ent.saved_index);
         ent.mediaElement.remove();
+      } else {
+        console.log('eff_live_gallery deinit ent', ent);
       }
     }
   }
@@ -66,7 +70,7 @@ export default class eff_live_gallery {
         };
         this.saved_index = this.save_index;
         let save_name = this.save_name + '-' + (this.save_index + '').padStart(4, 0);
-        this.save_index = (this.save_index + 1) % this.save_limit;
+        this.save_index = (this.save_index + 1) % this.save_period_limit;
         let fps = this.fps;
         let duration = this.duration;
         let sourceElt = this.input.elt;
@@ -84,29 +88,36 @@ export default class eff_live_gallery {
     }
   }
 
-  stage_next_movie(mindex) {
-    // console.log('stage_next_movie mindex', mindex);
+  stage_next_movie(saved_index) {
     // console.log('stage_next_movie n', this.mediaElements.length);
     let n = this.mediaElements.length;
-    mindex = (mindex - 1 + n) % n;
+    // select the previous index to give recording one cycle to be saved to file system
+    saved_index = (saved_index - 1 + this.save_period_limit) % this.save_period_limit;
+    // mindex = saved_index % n;
     let ent;
     if (this.live_center) {
+      // Take from begining and Put at end
       let ents = this.mediaElements.splice(0, 1);
       ent = ents[0];
-      this.mediaElements.push(ent);
+      if (ent) {
+        this.mediaElements.push(ent);
+      }
     } else {
+      // Take from end and put a begining
       let ents = this.mediaElements.splice(n - 1, 1);
       ent = ents[0];
-      this.mediaElements.splice(0, 0, ent);
+      if (ent) {
+        this.mediaElements.splice(0, 0, ent);
+      }
     }
     if (!ent) return;
     if (ent.mediaElement) {
-      // console.log('stage_next_movie remove ent.mindex', ent.mindex);
+      console.log('stage_next_movie remove ent.saved_index', ent.saved_index);
       ent.mediaElement.remove();
     }
-    // console.log('stage_next_movie ent.mindex', ent.mindex, 'mindex', mindex);
-    ent.mediaElement = this.create_mediaElement(mindex);
-    ent.mindex = mindex;
+    console.log('stage_next_movie ent.saved_index', ent.saved_index, 'saved_index', saved_index);
+    ent.mediaElement = this.create_mediaElement(saved_index);
+    ent.saved_index = saved_index;
   }
 
   render_inputs() {
@@ -121,7 +132,7 @@ export default class eff_live_gallery {
         sindex = (sindex + 1) % nshow;
       }
     } else if (this.show_count) {
-      let str = '' + frameCount;
+      let str = '' + this.frameCount;
       let { width, height } = this.input;
       // let x = width - this.textDropWidth / 2;
       // let y = height - this.textHi;
@@ -156,7 +167,7 @@ export default class eff_live_gallery {
     if (!this.movie_play) return;
     for (let index = 0; index < this.urects.length; index++) {
       let urect = this.urects[index].urect;
-      let mindex = index % this.save_limit;
+      let mindex = index % this.save_seen_limit;
       let ent = this.mediaElements[mindex];
       if (!ent) {
         ent = {};
@@ -164,7 +175,7 @@ export default class eff_live_gallery {
       }
       if (!ent.mediaElement) {
         ent.mediaElement = this.create_mediaElement(mindex);
-        ent.mindex = mindex;
+        ent.saved_index = mindex;
       }
       // if (index == this.urects.length - 1) {
       //   console.log('check_movie_play index', index, 'mindex', mindex, 'ent.mindex', ent.mindex);
@@ -213,6 +224,7 @@ export default class eff_live_gallery {
   }
 
   init() {
+    this.frameCount = 0;
     this.init_graphics();
     this.firstPeriod = this.first_period_record;
     this.save_index = 0;

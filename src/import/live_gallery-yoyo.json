@@ -47,7 +47,7 @@
         "fps": 4,
         "duration": 5,
         "save_image": 0,
-        "save_limit": 8,
+        "save_seen_limit": 8,
         "save_name": "live_gallery",
         "first_period_record": 1,
         "record_canvas": 0,
