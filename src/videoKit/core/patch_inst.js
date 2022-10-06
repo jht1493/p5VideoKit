@@ -29,8 +29,14 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
   let inst = a_.patch_instances[ipatch];
   if (!inst) {
     if (!media) {
-      // console.log('NO media for init imedia', imedia);
-      return;
+      console.log('NO media for init imedia', imedia);
+      if (a_.mediaDivs.length > 1) {
+        // Wait for input to be ready if there are more than 1
+        // possible live inputs
+        return;
+      }
+      // Default to canvase if no other possible inputs
+      media = a_.mediaDivs[0];
     }
     // !!@ TODO replace with createEffect
     let input = media.capture;
