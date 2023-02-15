@@ -94,6 +94,7 @@
       },
       "eff_props": {
         "alpha": 100,
+        "figure_color": 1,
         "points": 0,
         "points_size": 10,
         "points_color_offset": 0,
