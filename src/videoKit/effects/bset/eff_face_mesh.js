@@ -115,13 +115,13 @@ export default class eff_face_mesh {
     this.avg_color = [255, 255, 255, 255];
     let w = this.input.width;
     let h = this.input.height;
-    // console.log('eff_face_mesh img w', w, 'h', h);
+    console.log('eff_face_mesh input w', w, 'h', h);
     this.img = createImage(w, h);
     if (this.hi_rez) {
       w = this.eff_spec.urect.width;
       h = this.eff_spec.urect.height;
     }
-    // console.log('eff_face_mesh hi_rez', this.hi_rez, 'w', w, 'h', h);
+    console.log('eff_face_mesh hi_rez', this.hi_rez, 'w', w, 'h', h);
     this.output = createGraphics(w, h);
     this.draw_index = 0;
     w = this.pixd_n;
