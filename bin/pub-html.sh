@@ -5,8 +5,9 @@ cd ${0%/*}
 
 # external/media
 #   is managed manually
-excludes="--exclude .DS_Store --exclude .git --exclude node_modules --exclude external/media"
+# excludes="--exclude .DS_Store --exclude .git --exclude node_modules --exclude external/media --exclude external/media-1"
 # excludes="--exclude .DS_Store --exclude .git --exclude node_modules "
+excludes="--exclude-from to-public-exclude.txt"
 
 delete=--delete
 test=
