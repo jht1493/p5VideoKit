@@ -72,7 +72,7 @@
         "step_patch": 3,
         "freeze_patch": 1,
         "freeze_screen": 0,
-        "effects": "bright,delaunay,grid,maze,sketchy,slant_scan,slit_scan"
+        "effects": "bright,delaunay,grid,maze,sketchy"
       }
     },
     {
