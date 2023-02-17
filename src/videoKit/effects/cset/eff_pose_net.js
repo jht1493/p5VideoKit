@@ -308,7 +308,7 @@ export default class eff_pose_net {
 
 let a_alpha = 255; // will be overriden by meta_props
 let dot_colors = [
-  [0, 0, 0, a_alpha],
+  // [0, 0, 0, a_alpha],
   [255, 255, 0, a_alpha],
   [255, 0, 0, a_alpha],
   [0, 255, 0, a_alpha],
