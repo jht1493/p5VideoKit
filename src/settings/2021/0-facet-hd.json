@@ -4,7 +4,7 @@
   "room_name": "Dice-Play-1",
   "patch_layout": "Single",
   "canvas_size": "1920x1080",
-  "capture_size": "480x270",
+  "capture_size": "default",
   "chat_name": "jht",
   "chat_chk": 0,
   "live_index": 0,
@@ -37,7 +37,7 @@
         "bbox": 0,
         "mar_h": 5,
         "show": 0,
-        "hi_rez": 0,
+        "hi_rez": 1,
         "box_outter": 0,
         "box_rect": 0,
         "draw": "mesh",
@@ -71,7 +71,8 @@
         "phase_check": 0,
         "step_patch": 3,
         "freeze_patch": 1,
-        "freeze_screen": 0
+        "freeze_screen": 0,
+        "effects": "bright,delaunay,grid,maze,sketchy,slant_scan,slit_scan"
       }
     },
     {
@@ -101,7 +102,8 @@
   "mediaDiv_states": [
     null,
     {
-      "vis": false
+      "vis": 0,
+      "mute": 1
     },
     {
       "vis": false

@@ -22,25 +22,18 @@ export default class eff_loop {
     freeze_screen: [0, 1],
     _effects: {
       style: 'width:80%',
-      text_input: 'sketchy,slant_scan,slit_scan',
+      // text_input: 'sketchy,slant_scan,slit_scan',
+      text_input: 'bright,delaunay,grid,maze,sketchy,slant_scan,slit_scan',
     },
   };
   static eff_names = [
-    // 'show',
     'bright',
-    // 'show',
     'delaunay',
-    // 'show',
     'grid',
-    // 'show',
     'bright',
-    // 'show',
     'maze',
-    // 'show',
     'sketchy',
-    // 'show',
     'slant_scan',
-    // 'show',
     'slit_scan',
   ];
   constructor(props) {
