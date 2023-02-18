@@ -10,3 +10,6 @@ npm run start -- --ddebug --download-limit 8 --download_path Documents/projects/
 # npm run start -- --full --download-limit 8 --download_path Documents/projects/p5VideoKit-gallery-yoyo --d import/live_gallery-yoyo.json
 
 
+# cd ~/Documents/projects/p5VideoKit/src/external/media
+# ln -s ~/Documents/projects/p5VideoKit-gallery-yoyo .
+
