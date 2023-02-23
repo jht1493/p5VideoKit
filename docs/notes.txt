@@ -9,6 +9,9 @@ https://blackfacts.com/kiosk?delay=2000&playlist=today
 https://www.youtube.com/watch?v=ekthcIHDt3I
 FULL HD PM5644 test pattern - 1920 x 1080 60p - 1 Hour with 1Khz sound.
 
+[] https://www.npmjs.com/package/electron
+
+23.1.1
 
 # --
 
