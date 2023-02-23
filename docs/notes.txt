@@ -2,6 +2,7 @@ notes.txt
 
 # --
 
+[] file playlist
 
 https://blackfacts.com/kiosk?delay=2000&playlist=today
 
