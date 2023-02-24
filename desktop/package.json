@@ -1,12 +1,12 @@
 {
   "name": "electron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal p5VideoKit Electron application",
   "main": "electron-main",
   "scripts": {
     "start": "electron electron-main"
   },
   "devDependencies": {
-    "electron": "^19.0.6"
+    "electron": "^23.0.0"
   }
 }
