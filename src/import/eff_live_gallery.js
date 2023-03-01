@@ -15,7 +15,7 @@ export default class eff_live_gallery {
     duration: [5, 10, 20, 30, 60],
     save_image: [0, 1],
     save_seen_limit: [8, 4, 10, 100, 360, 1000],
-    save_period_limit: [360, 15, 60, 120],
+    save_period_limit: [25920, 12960, 360, 15, 60, 120],
     save_name: {
       text_input: 'live_gallery',
     },
