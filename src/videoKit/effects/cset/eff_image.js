@@ -41,6 +41,7 @@ export default class eff_image_show {
     labeled: [0, 1],
     label_align: ['center', 'left', 'right'],
     image_align: ['none', 'center'],
+    flip_h: [0, 1],
     _loop: [0, 1],
     period: [5, 10, 20, 30, 60],
     shuffle: [0, 1, 0],
@@ -130,7 +131,7 @@ export default class eff_image_show {
   }
   show_image() {
     if (!this.zoomed) {
-      layer_image_scaled_pad(this.output, this.img, this.eff_spec.urect, this.align_center);
+      layer_image_scaled_pad(this.output, this.img, this.eff_spec.urect, this.align_center, this.flip_h);
     } else {
       this.show_zoomed(this.img, this.eff_spec.urect);
     }

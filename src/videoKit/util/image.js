@@ -56,7 +56,7 @@ export function image_scaled_pad(img, urect, flush_right) {
   image(img, dx, dy, pw, ph, 0, 0, iw, ih);
 }
 
-export function layer_image_scaled_pad(layer, img, urect, align_center) {
+export function layer_image_scaled_pad(layer, img, urect, align_center, flip_h) {
   if (!img) return;
   if (!urect) urect = { width, height, x0: 0, y0: 0 };
   let pw = urect.width;
@@ -78,8 +78,21 @@ export function layer_image_scaled_pad(layer, img, urect, align_center) {
     }
   }
   // console.log('layer iw', iw, 'ih', ih, 'pw', pw, 'ph', ph);
+  if (flip_h) {
+    layer.push();
+    layer.scale(-1, 1);
+  }
   layer.clear();
+  // layer.image(img, dx, dy, pw, ph, 0, 0, iw, ih);
+  if (flip_h) {
+    dx = -pw;
+  }
   layer.image(img, dx, dy, pw, ph, 0, 0, iw, ih);
+  if (flip_h) {
+    layer.pop();
+  }
+  // scale(-1, 1);
+  // image(img, -width, 0);
 }
 
 function image_scaled_pad_source(img, urect, src) {
