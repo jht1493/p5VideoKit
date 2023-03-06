@@ -15,6 +15,7 @@ eff_ticker.prototype.let_init = function () {
   // this.a_postfix = '"to heal\nwe must\nremember"';
   // this.a_postfix = '\nto heal\nwe remember';
   this.a_postfix = '\nto heal\nwe must\nremember';
+  // this.a_prefix = 'Covid19 Memorial';
   this.n_lines = 6;
   this.cycle_time;
   this.last_count;

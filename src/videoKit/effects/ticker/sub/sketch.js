@@ -43,12 +43,31 @@ eff_ticker.prototype.prepareOutput = function () {
   // this.update_ui();
 };
 
+// jump_action
+eff_ticker.prototype.jump_action = function () {
+  console.log('eff_ticker jump_action');
+  this.data_index_down = 86;
+  this.page_pause_count = -1;
+  this.page_pause_secs = 2;
+};
+
+// 2020-04-16 4607 85
+// 2021-01-20 4442 364
+// 2021-01-12 4389 356
+// 2021-01-08 4189 352
+// 2022-02-04 4154 744 **
+// 2021-01-21 4137 365
+// 2021-01-27 4128 371
+// 2022-01-26 4068 735 **
+// 2021-01-07 4028 351
+// 2021-01-13 4018 357
+
 eff_ticker.prototype.show_copyright = function () {
   let adiv = createDiv();
   adiv.style('font-size:24px');
   let title = createDiv('COVID-19 Memorial Ticker (preview)');
-  let copyr = createDiv('Copyright 2020-2022 John Henry Thompson & Shindy Johnson');
-  let adash = createA('https://epvisual.com/COVID-19-Impact/Dashboard/a0/', 'COVID-19-Impact Dashboard', '_blank');
+  let copyr = createDiv('Copyright 2020-Present John Henry Thompson & Shindy Johnson');
+  let adash = createA('https://jht1493.net/COVID-19-Impact/Dashboard/', 'COVID-19-Impact Dashboard', '_blank');
   // adiv.child([title, copyr, adash]);
   adiv.child(title);
   adiv.child(adash);

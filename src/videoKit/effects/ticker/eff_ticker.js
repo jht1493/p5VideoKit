@@ -3,6 +3,11 @@
 export default class eff_ticker {
   static meta_props = {
     display_copy_right: [0, 1],
+    jump: {
+      button: (inst, aPatch) => {
+        inst.jump_action(aPatch);
+      },
+    },
   };
   constructor(props) {
     Object.assign(this, props);

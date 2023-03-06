@@ -12,6 +12,7 @@ eff_ticker.prototype.load_json = function () {
     this.cycle_done = 0;
     this.a_data = data;
     this.data_index_down = data.length;
+    // this.data_index_down = 745; // !!@
     if (this.data_index_offset) this.data_index_down = this.data_index_offset + 1;
     this.data_index_up = 0;
     this.data_index_mid = Math.floor(this.data_index_down / 2);
@@ -82,17 +83,23 @@ eff_ticker.prototype.select_entry = function () {
   this.a_date = ent1.on;
   let s = this.a_count > 1 ? 's' : '';
   if (this.day_next == 0) {
-    this.a_string = this.a_date + '\n' + this.a_count + '\n';
+    this.a_string = '   COVID-19 Memorial\n\n' + this.a_date + '\n';
+    // this.a_string = this.a_date + '\n' + this.a_count + '\n';
+    this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
     this.day_next++;
   } else {
     if (this.day_next == 1) {
-      this.panel_top = this.panel_top + this.dot_y + this.char_len + this.y_margin * 2;
-      this.y_top = this.char_len * 3;
-      // data_index_down = a_data.length;
-      // a_data = sort_data();
+      this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
+      // this.y_top = this.char_len * 3;
+      this.y_top = this.char_len * 4;
+      // this.sort_data();
     }
+    // else {
+    //   this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
+    // }
     this.day_next++;
-    this.a_string = this.a_date + '\n' + this.a_count + '\n\nUSA Death' + s + '\n' + this.a_postfix;
+    // this.a_string = this.a_date + '\n' + this.a_count + '\n\nUSA Death' + s + '\n' + this.a_postfix;
+    this.a_string = this.a_date + '\n' + '\nUSA Death' + s + '\n' + this.a_postfix;
     // a_string = a_date + '\n' + a_count + '\n\n' + a_postfix;
   }
   this.end_index = this.a_string.length - 1;
@@ -117,8 +124,19 @@ eff_ticker.prototype.select_entry = function () {
 //   console.log("mindex", mindex, "mdate", mdate, "mcount", mcount);
 // }
 
-// 2022-02-08 13:06:51
-//
+// -- 2023-03-05 23:37:09
+// 2020-04-16 4605 85
+// 2021-01-20 4408 364
+// 2021-01-12 4349 356
+// 2021-01-08 4224 352
+// 2021-12-22 4185 700
+// 2022-02-04 4126 744
+// 2022-01-28 4093 737
+// 2021-01-21 4063 365
+// 2021-01-27 4061 371
+// 2021-01-26 4012 370
+
+// -- 2022-02-08 13:06:51
 // 2020-04-16 4607 85
 // 2021-01-20 4442 364
 // 2021-01-12 4389 356
@@ -147,7 +165,7 @@ eff_ticker.prototype.sort_data = function () {
   if (1) {
     let n = 10;
     for (let index = 0; index < n; index++) {
-      let ent = data[a_data.length - 1 - index];
+      let ent = data[data.length - 1 - index];
       console.log(ent.on, ent.count, ent.index);
     }
   }
