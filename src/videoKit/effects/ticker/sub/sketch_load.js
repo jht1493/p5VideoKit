@@ -12,6 +12,7 @@ eff_ticker.prototype.load_json = function () {
     this.cycle_done = 0;
     this.a_data = data;
     this.data_index_down = data.length;
+    // this.data_index_down = 1100; // 2023-01-25 1368
     // this.data_index_down = 745; // !!@
     // this.data_index_down = 1000; // !!@
     if (this.data_index_offset) this.data_index_down = this.data_index_offset + 1;
