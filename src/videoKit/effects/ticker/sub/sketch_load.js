@@ -13,6 +13,7 @@ eff_ticker.prototype.load_json = function () {
     this.a_data = data;
     this.data_index_down = data.length;
     // this.data_index_down = 745; // !!@
+    // this.data_index_down = 1000; // !!@
     if (this.data_index_offset) this.data_index_down = this.data_index_offset + 1;
     this.data_index_up = 0;
     this.data_index_mid = Math.floor(this.data_index_down / 2);
@@ -85,7 +86,8 @@ eff_ticker.prototype.select_entry = function () {
   if (this.day_next == 0) {
     this.a_string = '   COVID-19 Memorial\n\n' + this.a_date + '\n';
     // this.a_string = this.a_date + '\n' + this.a_count + '\n';
-    this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
+    // this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
+    this.panel_top += this.dot_y + this.char_len * 2 + this.y_margin * 2;
     this.day_next++;
   } else {
     if (this.day_next == 1) {

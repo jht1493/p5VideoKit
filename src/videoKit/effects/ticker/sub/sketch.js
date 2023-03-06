@@ -4,12 +4,12 @@
 // let a_height = 540;
 // let my_canvas;
 
-import './sketch_draw_dots.js';
-import './sketch_draw.js';
-import './sketch_font8.js';
-import './sketch_let.js';
-import './sketch_load.js';
-import './sketch_paused.js';
+import './sketch_draw_dots.js?v={{vers}}';
+import './sketch_draw.js?v={{vers}}';
+import './sketch_font8.js?v={{vers}}';
+import './sketch_let.js?v={{vers}}';
+import './sketch_load.js?v={{vers}}';
+import './sketch_paused.js?v={{vers}}';
 
 eff_ticker.prototype.init = function () {
   // my_canvas = createCanvas(a_width, a_height);

@@ -19,7 +19,7 @@ export default class eff_ticker {
 
     // import dynamically so we don't take a import hit until actually used.
     //
-    import('./sub/sketch.js')
+    import('./sub/sketch.js?v={{vers}}')
       .then((module) => {
         // console.log('eff_ticker module', module);
         this.init();
