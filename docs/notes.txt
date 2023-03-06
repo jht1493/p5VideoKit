@@ -2,6 +2,14 @@ notes.txt
 
 # --
 
+bin/build.sh --dev
+# dont update build number
+
+bin/build.sh --prod
+
+
+# --
+
 [] file playlist
 
 https://blackfacts.com/kiosk?delay=2000&playlist=today

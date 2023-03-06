@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import { enum_files, writeBuildFile, writeSrcBuildFile } from './enum_files.js';
 
-let updateBuild = 0;
+let updateBuild = 1;
 
 export function set_updateBuild(flag) {
   console.log('set_updateBuild flag', flag);

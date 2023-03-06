@@ -11,6 +11,8 @@ for (let index = 0; index < process.argv.length; index++) {
   let val = process.argv[index];
   if (val == '--prod') {
     set_updateBuild(1);
+  } else if (val == '--dev') {
+    set_updateBuild(0);
   }
 }
 
