@@ -3,7 +3,7 @@
 export default class eff_ticker {
   static meta_props = {
     display_copy_right: [0, 1],
-    window_mode: [1, 0],
+    window_mode: [0, 1],
     jump: {
       button: (inst, aPatch) => {
         inst.jump_action(aPatch);
