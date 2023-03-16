@@ -108,7 +108,7 @@ eff_ticker.prototype.clear_per_day = function () {
   // console.log('clear_per_day this.day_next', this.day_next);
   let yLeft = 0;
   let yRight = 0;
-  if (this.day_next >= 1) {
+  if (this.day_next >= 1 && !this.window_mode) {
     yLeft = this.y_top;
     yRight = this.panel_top;
     // console.log('clear_per_day yRight', yRight, 'yLeft', yLeft, 'day_next', day_next);

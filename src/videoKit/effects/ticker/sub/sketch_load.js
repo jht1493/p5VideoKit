@@ -84,11 +84,17 @@ eff_ticker.prototype.select_entry = function () {
   }
   this.a_date = ent1.on;
   let s = this.a_count > 1 ? 's' : '';
-  if (this.day_next == 0) {
+  if (this.day_next == 0 || this.window_mode) {
     this.a_string = '   COVID-19 Memorial\n\n' + this.a_date + '\n';
     // this.a_string = this.a_date + '\n' + this.a_count + '\n';
     // this.panel_top += this.dot_y + this.char_len + this.y_margin * 2;
-    this.panel_top += this.dot_y + this.char_len * 2 + this.y_margin * 2;
+    let ydiff = this.dot_y + this.char_len * 2 + this.y_margin * 2;
+    if (this.window_mode) {
+      this.panel_top = ydiff;
+      this.a_string += '\nUSA Death' + s + '\n' + this.a_postfix;
+    } else {
+      this.panel_top += ydiff;
+    }
     this.day_next++;
   } else {
     if (this.day_next == 1) {
