@@ -52,8 +52,10 @@ eff_ticker.prototype.let_init = function () {
   this.dot_count;
   // this.dot_colors = ['gray', 'lightgray'];
   this.dot_colors = [
-    [128, 128, 128, 255],
-    [211, 211, 211, 255],
+    'white',
+    'white',
+    // [128, 128, 128, 255],
+    // [211, 211, 211, 255],
   ];
   this.dot_cindex = 0;
   this.panel_right, this.panel_width, this.panel_top, this.panel_height;
