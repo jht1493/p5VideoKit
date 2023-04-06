@@ -1,0 +1,104 @@
+{
+  "setting": "",
+  "comment": "",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-1",
+  "patch_layout": "Single",
+  "canvas_size": "960x540",
+  "capture_size": "default",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "urects_lock": 0,
+  "urects_count": 3,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 0,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "image_url",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "image_align": "center",
+        "image_url": "./external/media/mov/youtube-test-pattern-1080.png"
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "pose_net",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "alpha": 255,
+        "ndetect": 4,
+        "figure_color": 0,
+        "stroke_weight": 0,
+        "points": 0,
+        "points_size": 10,
+        "points_color_offset": 0,
+        "skel": 0,
+        "skel_weight": 1,
+        "skel_color_offset": 0,
+        "hflip": 0,
+        "show_head": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 1,
+        "eff_label": "face_mesh",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "alpha": 255,
+        "align": "none",
+        "back_color": 0,
+        "period": 0,
+        "hi_rez": 1,
+        "sticky": 1,
+        "reveal": 0,
+        "reveal_full": 1,
+        "box_outter": 0,
+        "box_rect": 0,
+        "mar_h": 0,
+        "draw": "mesh",
+        "draw_mod": 4,
+        "slen": 2,
+        "mask_index": 0,
+        "avg_index": 0,
+        "pixd_n": 8,
+        "detect_max": 1
+      }
+    }
+  ]
+}
