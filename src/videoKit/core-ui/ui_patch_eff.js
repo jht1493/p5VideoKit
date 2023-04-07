@@ -3,6 +3,7 @@ import { ui_div_empty } from '../core-ui/ui_tools.js?v={{vers}}';
 import { effectMeta_find } from '../core/effectMeta.js?v={{vers}}';
 import { ui_patch_update } from '../core-ui/ui_patch_bar.js?v={{vers}}';
 import { patch_remove_ipatch, patch_update_effIndex } from '../core/patch_inst.js?v={{vers}}';
+import { patch_create_other } from '../core-ui/ui_patch_create.js?v={{vers}}';
 
 export function ui_patch_eff_panes() {
   let droot = ui_div_empty('ipatch_eff');
@@ -114,89 +115,33 @@ export function ui_patch_eff_panes() {
     }
 
     function create_selections_for_dict(dict) {
-      let first = 1;
+      let issueBreak = 1;
       for (let prop in dict) {
         // eg. items = factor: [10, 50, 100 ... ]
         let items = dict[prop];
         if (prop.substring(0, 1) === '_') {
           prop = prop.substring(1);
-          first = 1;
+          issueBreak = 1;
+        }
+        if (issueBreak) {
+          div_break(div);
         }
         if (Array.isArray(items)) {
           // eg. items = factor: [10, 50, 100 ... ]
-          create_selection(prop, items, first);
+          create_selection(prop, items, issueBreak);
         } else {
           // eg: _next: { button: next_action }
-          create_other(prop, items, first);
+          patch_create_other(aPatch, div, prop, items, issueBreak);
         }
-        first = 0;
+        issueBreak = 0;
       }
     }
 
-    function create_other(prop, items, first) {
-      // console.log('create_other prop', prop, 'items', items, 'first', first);
-      if (first) {
-        div_break(div);
-      }
-      let defaultStyle;
-      let elm;
-      for (let iprop in items) {
-        let item = items[iprop];
-        // console.log('create_other iprop', iprop, 'item', item);
-        if (iprop === 'button') {
-          div.child(createSpan(' '));
-          elm = createButton(prop).mousePressed(function () {
-            button_action(item, aPatch);
-          });
-          div.child(elm);
-          // if (first) {
-          //   elm.style('margin-left', '10px');
-          // }
-        } else if (iprop === 'style') {
-          defaultStyle = item;
-        } else if (iprop === 'text_input') {
-          let oldVal = aPatch.eff_props[prop];
-          if (oldVal === undefined) {
-            oldVal = '' + item;
-            aPatch.eff_props[prop] = oldVal;
-          }
-          elm = createInput(oldVal).input(function () {
-            let aVal = this.value();
-            console.log('text_input ' + aVal);
-            aPatch.eff_props[prop] = aVal;
-            ui_patch_update(aPatch);
-          });
-          div.child(elm);
-        } else if (iprop === 'message') {
-          // div.child(createSpan(` ${prop}: ${item}`));
-          div.child(createSpan(` ${item}`));
-        } else {
-          console.log('create_other !!@ Unkown type=' + iprop);
-        }
-        if (elm) {
-          if (first) {
-            elm.style('margin-left', '10px');
-          }
-          if (defaultStyle) {
-            elm.style(defaultStyle);
-          }
-        }
-      }
-    }
-
-    function button_action(item, aPatch) {
-      let inst = a_.patch_instances[aPatch.eff_spec.ipatch];
-      item(inst, aPatch);
-    }
-
-    function create_selection(prop, arr, first) {
+    function create_selection(prop, arr, issueBreak) {
       // console.log('create_selection prop', prop, 'arr', arr);
-      if (first) {
-        div_break(div);
-      }
       let span = createSpan(` ${prop}:`);
       div.child(span);
-      if (first) {
+      if (issueBreak) {
         span.style('margin-left', '10px');
       }
       let aSel = createSelect();
@@ -204,7 +149,7 @@ export function ui_patch_eff_panes() {
       for (let ii = 0; ii < arr.length; ii++) {
         aSel.option(arr[ii]);
       }
-      // Get prop value or use first in arr as default if missing
+      // Get prop value or use issueBreak in arr as default if missing
       let aVal = aPatch.eff_props[prop];
       if (aVal === undefined) {
         aVal = arr[0];
@@ -227,6 +172,6 @@ export function patch_index1(ind) {
   return a_.patch_instances[ind - 1];
 }
 
-function div_break(div) {
+export function div_break(div) {
   div.child(createElement('br'));
 }
