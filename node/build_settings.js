@@ -7,17 +7,19 @@ import { enum_files, writeSrcBuildFile } from './enum_files.js';
 // const settingMetasPath = join(src_path, 'videoKit/let/a_settingMetas.js');
 // const settingIndexPath = join(src_path, 'settings.html');
 
-export default function build_settings(src_path, settings, baked, settingMetasPath, settingIndexPath) {
+// export default function build_settings(src_path, settings, baked, settingMetasPath, settingIndexPath) {
+export default function build_settings(src_path, settings, settingIndexPath, indexPrefix, settingMetasPath) {
   // settingMetasPath = join(src_path, settingMetasPath);
   // settingIndexPath = join(src_path, settingIndexPath);
   //
   // Generate a_settingMetas.js
-  gen_a_settingMetas(src_path, settings, baked, settingMetasPath);
+  // gen_a_settingMetas(src_path, settings, baked, settingMetasPath);
+  gen_a_settingMetas(src_path, settings, settingMetasPath);
 
-  gen_settings_index(src_path, settings, settingIndexPath);
+  gen_settings_index(src_path, settings, settingIndexPath, indexPrefix);
 }
 
-function gen_settings_index(src_path, settings, settingIndexPath) {
+function gen_settings_index(src_path, settings, settingIndexPath, indexPrefix) {
   let files = enum_files(src_path, [settings]);
   // console.log('gen_settings_index files', files);
   console.log('gen_settings_index files', files.length);
@@ -26,7 +28,7 @@ function gen_settings_index(src_path, settings, settingIndexPath) {
   files = files.map((file) => {
     if (!file) return '<br/>';
     uindex++;
-    return `<a href="./index.html?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
+    return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
   });
 
   let str = `
@@ -44,8 +46,11 @@ ${files.join('\n')}
   writeSrcBuildFile(src_path, settingIndexPath, str);
 }
 
-function gen_a_settingMetas(src_path, settings, baked, settingMetasPath) {
-  const settingsPath = join(src_path, settings, baked);
+// function gen_a_settingMetas(src_path, settings, baked, settingMetasPath) {
+//   const settingsPath = join(src_path, settings, baked);
+
+function gen_a_settingMetas(src_path, settings, settingMetasPath) {
+  const settingsPath = join(src_path, settings);
   const files = readdirSync(settingsPath);
   files.sort();
   // console.log('files', files);
@@ -58,7 +63,8 @@ function gen_a_settingMetas(src_path, settings, baked, settingMetasPath) {
     // console.log('afile', afile);
     let label = fparts.name;
     // let import_path = settings + '/' + baked + '/' + afile;
-    let import_path = join(settings, baked, afile);
+    // let import_path = join(settings, baked, afile);
+    let import_path = join(settings, afile);
     let mstr = `{ label: '${label}', import_path: '${import_path}' },`;
     settingMetas.push(mstr);
   }

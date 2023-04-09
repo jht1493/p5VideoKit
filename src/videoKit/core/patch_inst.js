@@ -6,6 +6,14 @@ import { effectMeta_find } from './effectMeta.js?v={{vers}}';
 
 p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, eff_spec, eff_props) {
   let effMeta = effectMeta_find(eff_label);
+  if (!effMeta) {
+    console.log('patch_inst_create !!@ No eff_label', eff_label);
+    return;
+  }
+  if (!effMeta.factory) {
+    console.log('patch_inst_create !!@ No factory', effMeta);
+    return;
+  }
   let media = a_.mediaDivs[imedia];
   if (!media) {
     // console.log('NO media imedia', imedia);

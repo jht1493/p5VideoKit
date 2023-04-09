@@ -33,13 +33,27 @@ const webdbPath = 'external/media/webdb';
 const imagesOutPath = 'videoKit/let/a_images.js';
 build_webdb(src_path, webdbPath, imagesOutPath);
 
-const settingMetasPath = 'videoKit/let/a_settingMetas.js';
-const settingIndexPath = 'settings.html';
-build_settings(src_path, 'settings', 'baked', settingMetasPath, settingIndexPath);
+{
+  const settingIndexPath = 'videoKit/settings.html';
+  const settingMetasPath = 'videoKit/let/a_settingMetas.js';
+  // build_settings(src_path, 'settings', 'baked', settingMetasPath, settingIndexPath);
+  build_settings(src_path, 'videoKit/settings', settingIndexPath, settingMetasPath, '../index.html');
+}
+
+{
+  const settingIndexPath = 'settings.html';
+  const settingMetasPath = 'settings.js';
+  build_settings(src_path, 'settings', settingIndexPath, settingMetasPath, './index.html');
+}
+
+{
+  const effectMetasPath = 'videoKit/let/a_effectMetas.js';
+  build_effectMetas(src_path, effectMetasPath, 'videoKit/effects');
+}
+
+{
+  const effectMetasPath = 'effect.js';
+  build_effectMetas(src_path, effectMetasPath, 'effects');
+}
 
 build_ver_run(src_path, buildnum_path, build_ver, buildnum_files);
-
-// build_index(src_path, 'index.html', build_ver.next);
-
-const effectMetasPath = 'videoKit/let/a_effectMetas.js';
-build_effectMetas(src_path, effectMetasPath, 'videoKit/effects');

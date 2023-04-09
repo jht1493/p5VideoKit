@@ -22,26 +22,23 @@ function setup() {
 
   // effects for import, will appear at top of patch effect menu
   let effects = [
-    { label: 'eff_props_example', import_path: 'import/eff_props_example.js' },
-    { label: 'ncell', import_path: 'import/eff_ncell.js' },
-    { label: 'skin_tone_main', import_path: 'import/eff_skin_tone_main.js' },
-    { label: 'live_gallery', import_path: 'import/eff_live_gallery.js' },
-    { label: 'shader_clamp', import_path: 'import/eff_shader_clamp.js' },
-    { label: 'shader_ripple', import_path: 'import/eff_shader_ripple.js' },
-    { label: 'movie_grid', import_path: 'import/eff_movie_grid.js' },
+    { label: 'props_example', import_path: 'effects/eff_props_example.js' },
+    { label: 'ncell', import_path: 'effects/eff_ncell.js' },
+    { label: 'skin_tone_main', import_path: 'effects/eff_skin_tone_main.js' },
+    { label: 'live_gallery', import_path: 'effects/eff_live_gallery.js' },
+    { label: 'shader_clamp', import_path: 'effects/eff_shader_clamp.js' },
+    { label: 'shader_ripple', import_path: 'effects/eff_shader_ripple.js' },
+    { label: 'movie_grid', import_path: 'effects/eff_movie_grid.js' },
   ];
 
   // settings for import, will appear at top of settings menu
   let settings = [
-    //
-    { label: 'grid1', import_path: 'settings/demo/grid1.json' },
-    { label: 'effects4', import_path: 'settings/demo/effects4.json' },
-    { label: 'circles4', import_path: 'settings/demo/circles4.json' },
-    { label: 'slant4', import_path: 'settings/demo/slant4.json' },
-    { label: 'skin_tone_main-qr', import_path: 'settings/2022-skin-tone/skin-tone-main-qr.json' },
-    { label: 'live_gallery', import_path: 'import/live_gallery.json' },
-    { label: 'live_gallery-video', import_path: 'import/live_gallery-video.json' },
-    { label: 'screen-club', import_path: 'import/screen-club.json' },
+    { label: 'delaunay-alpha-5', import_path: 'settings/delaunay-alpha-5.json' },
+    { label: 'live_gallery-video', import_path: 'settings/live_gallery-videojson' },
+    { label: 'live_gallery-yoyo', import_path: 'settings/live_gallery-yoyo.json' },
+    { label: 'movie-grid.json', import_path: 'settings/movie-grid.json' },
+    { label: 'screen-club', import_path: 'settings/screen-club.json' },
+    { label: 'videoKit', import_path: 'settings/videoKit.json' },
   ];
 
   videoKit = new p5VideoKit();
