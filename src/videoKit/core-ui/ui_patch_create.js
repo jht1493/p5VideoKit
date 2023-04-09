@@ -30,6 +30,12 @@ import { div_break } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 //   slider: { min: 0, max: 100 },
 // },
 
+// {
+//   prop: 'num_prop2',
+//   label: 'prop2',
+//   selection: ['red', 'green', 'yellow'],
+// };
+
 export function patch_create_other(aPatch, div, prop, items, issueBreak) {
   console.log('create_other prop', prop, 'items', items);
   let ent = { aPatch, div, prop };
@@ -53,22 +59,11 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
         ent.div.child(ent.elm);
         break;
       case 'textInput':
-      case 'text_input':
-        let oldVal = aPatch.eff_props[prop];
-        if (oldVal === undefined) {
-          oldVal = '' + item;
-          aPatch.eff_props[prop] = oldVal;
-        }
-        ent.elm = createInput(oldVal).input(function () {
-          let aVal = this.value();
-          console.log('text_input ' + aVal);
-          aPatch.eff_props[prop] = aVal;
-          ui_patch_update(aPatch);
-        });
-        ent.div.child(ent.elm);
+      case 'text_input': // legacy
+        create_textInput(ent);
         break;
       case 'span':
-      case 'message':
+      case 'message': // legacy
         ent.elm = createSpan(` ${item}`);
         ent.div.child(ent.elm);
         break;
@@ -78,6 +73,8 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
       case 'selection':
         create_selection(ent);
         break;
+      case 'prop':
+        break;
       default:
         console.log('create_other !!@ Unkown type=' + iprop);
         break;
@@ -85,39 +82,66 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
   }
   if (ent.elm) {
     if (issueBreak) {
-      ent.elm.style('margin-left', '10px');
+      let firstElm = ent.labelSpan || ent.elm;
+      firstElm.style('margin-left:10px');
     }
     if (ent.defaultStyle) {
       ent.elm.style(ent.defaultStyle);
     }
+    return 0; // no break
   } else {
-    div_break(div);
+    // div_break(div);
+    return 1; // issueBreak
   }
+}
+
+function create_textInput(ent) {
+  console.log('createTextInput ent', ent);
+  let { item, aPatch, div, prop, defaultLabel } = ent;
+  if (defaultLabel) {
+    let span = createSpan(` ${defaultLabel}:`);
+    div.child(span);
+    ent.labelSpan = span;
+  }
+  let oldVal = aPatch.eff_props[prop];
+  if (oldVal === undefined) {
+    oldVal = '' + item;
+    aPatch.eff_props[prop] = oldVal;
+  }
+  ent.elm = createInput(oldVal).input(function () {
+    let aVal = this.value();
+    console.log('text_input ' + aVal);
+    aPatch.eff_props[prop] = aVal;
+    ui_patch_update(aPatch);
+  });
+  ent.div.child(ent.elm);
 }
 
 function create_selection(ent) {
   console.log('create_selection ent', ent);
-  let { item, aPatch, div, prop } = ent;
+  let { item, aPatch, div, prop, defaultLabel } = ent;
+  if (defaultLabel) {
+    let span = createSpan(` ${defaultLabel}:`);
+    div.child(span);
+    ent.labelSpan = span;
+  }
   let arr = item;
-  // let label = defaultLabel || prop;
-  // let span = createSpan(` ${label}:`);
-  // div.child(span);
-  // if (issueBreak) {
-  //   span.style('margin-left', '10px');
-  // }
   let aSel = createSelect();
   div.child(aSel);
   for (let ii = 0; ii < arr.length; ii++) {
     aSel.option(arr[ii]);
   }
-  // Get prop value or use issueBreak in arr as default if missing
+  // Get prop value or use first in arr as default if missing
   let aVal = aPatch.eff_props[prop];
   if (aVal === undefined) {
     aVal = arr[0];
     aPatch.eff_props[prop] = aVal;
   }
   let isNum = typeof aVal === 'number';
-  // console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
+  console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
+  if (aVal === null) {
+    aVal = '';
+  }
   aSel.selected(aVal);
   aSel.changed(function () {
     let aVal = this.value();
@@ -132,7 +156,12 @@ function create_selection(ent) {
 // item = {min: 0, max: 100}
 function create_slider(ent) {
   console.log('create_slider ent', ent);
-  let { item, aPatch, div, prop } = ent;
+  let { item, aPatch, div, prop, defaultLabel } = ent;
+  if (defaultLabel) {
+    let span = createSpan(` ${defaultLabel}:`);
+    div.child(span);
+    ent.labelSpan = span;
+  }
   let min = item.min || 0;
   let max = item.max || 1.0;
   let step = item.step || 0; // could be undefined
@@ -142,7 +171,7 @@ function create_slider(ent) {
     oldVal = min + (max - min) / 2;
     aPatch.eff_props[prop] = oldVal + '';
   }
-  let valSpan = createSpan(oldVal);
+  let valSpan = createSpan(formatNumber(oldVal));
   // console.log('create_slider valSpan', valSpan);
   // createSlider(min, max, [value], [step])
   ent.elm = createSlider(min, max, oldVal, step).input(function () {
@@ -156,10 +185,15 @@ function create_slider(ent) {
     aPatch.eff_props[prop] = aVal;
     ui_patch_update(aPatch);
 
-    valSpan.elt.innerHTML = aVal + '';
+    valSpan.elt.innerHTML = formatNumber(aVal) + '';
   });
   div.child(ent.elm);
   div.child(valSpan);
+}
+
+function formatNumber(num) {
+  let prec = 1000;
+  return int(num * prec) / prec;
 }
 
 function button_action(item, aPatch) {

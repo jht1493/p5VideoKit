@@ -1,25 +1,25 @@
-// example of meta_props for showing effect properties in the dashboard
+// example1 - using meta_props for showing effect properties in the dashboard
 //
 export default class eff_example {
-  static meta_props = {
-    num_prop: [200, 100, 200, 255],
-    num_prop2: { label: 'prop2', selection: [200, 100, 200, 255] },
-    span1: { span: 'span1:' },
-    textInput_prop: { textInput: 'Hello world!', style: 'width:40%' },
-    break1_prop: {}, // create a line break
-    span2: { span: 'span2: ' },
-    slider1_prop: { slider: { min: 0, max: 8 }, style: 'width:20%' },
-    break2_prop: {}, // create a line break
-    slider2_prop: { slider: { min: -5, max: 5 }, style: 'width:20%' },
-    slider3_prop: { slider: { step: 0.01 }, style: 'width:20%' },
-    break3_prop: {}, // create a line break
-    button1_prop: {
+  static meta_props = [
+    // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    { prop: 'str_prop2', label: 'prop2', selection: ['red', 'green', 'yellow'] },
+    { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%' },
+    {}, // create a line break
+    { prop: 'slider1_prop', label: 'slider1', slider: { min: 0, max: 8 }, style: 'width:20%' },
+    {}, // create a line break
+    { prop: 'slider2_prop', label: 'slider2', slider: { min: -5, max: 5 }, style: 'width:20%' },
+    { prop: 'slider3_prop', label: 'slider3', slider: { step: 0.01 }, style: 'width:20%' },
+    {}, // create a line break
+    {
+      prop: 'button1',
       button: (inst, aPatch) => {
         console.log('button1_prop inst', inst, 'aPatch', aPatch);
       },
       style: 'width:40%',
     },
-    button2_prop: {
+    {
       label: 'button2',
       button: (inst, aPatch) => {
         console.log('button2_prop inst', inst, 'aPatch', aPatch);
@@ -27,13 +27,6 @@ export default class eff_example {
       style: 'width:40%',
     },
     // span2: { span: 'span2: ', style: 'width:10%' }, // !!@ style not taken
-  };
-  static meta_props1 = [
-    { span: 'span1 - to the world ' },
-    { prop: 'textInput1', textInput: 'Hello world!', style: 'width:80%' },
-    { span: 'span2 - to the world ' },
-    {}, // break
-    { prop: 'slider1', slider: { min: 0, max: 8 }, style: 'width:20%' },
   ];
 
   // new eff_example({message_prop1, num_prop, text_prop})

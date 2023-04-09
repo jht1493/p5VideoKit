@@ -129,7 +129,7 @@ export function ui_patch_eff_panes() {
           div_break(div);
         }
         let prop = ent.prop;
-        patch_create_other(aPatch, div, prop, ent, issueBreak);
+        issueBreak = patch_create_other(aPatch, div, prop, ent, issueBreak);
       }
     }
 
@@ -148,11 +148,11 @@ export function ui_patch_eff_panes() {
         if (Array.isArray(items)) {
           // eg. items = factor: [10, 50, 100 ... ]
           patch_create_selection(aPatch, div, prop, items, issueBreak);
+          issueBreak = 0;
         } else {
           // eg: _next: { button: next_action }
-          patch_create_other(aPatch, div, prop, items, issueBreak);
+          issueBreak = patch_create_other(aPatch, div, prop, items, issueBreak);
         }
-        issueBreak = 0;
       }
     }
   }
