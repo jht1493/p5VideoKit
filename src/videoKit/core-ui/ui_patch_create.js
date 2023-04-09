@@ -38,16 +38,21 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
     ent.item = item;
     // console.log('create_other iprop', iprop, 'item', item);
     switch (iprop) {
+      case 'style':
+        ent.defaultStyle = item;
+        break;
+      case 'label':
+        ent.defaultLabel = item;
+        break;
       case 'button':
         ent.div.child(createSpan(' '));
-        ent.elm = createButton(prop).mousePressed(function () {
+        let label = ent.defaultLabel || prop;
+        ent.elm = createButton(label).mousePressed(function () {
           button_action(item, aPatch);
         });
         ent.div.child(ent.elm);
         break;
-      case 'style':
-        ent.defaultStyle = item;
-        break;
+      case 'textInput':
       case 'text_input':
         let oldVal = aPatch.eff_props[prop];
         if (oldVal === undefined) {
@@ -62,6 +67,7 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
         });
         ent.div.child(ent.elm);
         break;
+      case 'span':
       case 'message':
         ent.elm = createSpan(` ${item}`);
         ent.div.child(ent.elm);
@@ -69,8 +75,8 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
       case 'slider':
         create_slider(ent);
         break;
-      case '':
-        console.log('create_other blank=' + iprop);
+      case 'selection':
+        create_selection(ent);
         break;
       default:
         console.log('create_other !!@ Unkown type=' + iprop);
@@ -89,14 +95,47 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
   }
 }
 
+function create_selection(ent) {
+  console.log('create_selection ent', ent);
+  let { item, aPatch, div, prop } = ent;
+  let arr = item;
+  // let label = defaultLabel || prop;
+  // let span = createSpan(` ${label}:`);
+  // div.child(span);
+  // if (issueBreak) {
+  //   span.style('margin-left', '10px');
+  // }
+  let aSel = createSelect();
+  div.child(aSel);
+  for (let ii = 0; ii < arr.length; ii++) {
+    aSel.option(arr[ii]);
+  }
+  // Get prop value or use issueBreak in arr as default if missing
+  let aVal = aPatch.eff_props[prop];
+  if (aVal === undefined) {
+    aVal = arr[0];
+    aPatch.eff_props[prop] = aVal;
+  }
+  let isNum = typeof aVal === 'number';
+  // console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
+  aSel.selected(aVal);
+  aSel.changed(function () {
+    let aVal = this.value();
+    if (isNum) aVal = parseFloat(aVal);
+    aPatch.eff_props[prop] = aVal;
+    ui_patch_update(aPatch);
+  });
+  ent.elm = aSel;
+}
+
 // ent = { aPatch, div, prop, item };
 // item = {min: 0, max: 100}
 function create_slider(ent) {
   console.log('create_slider ent', ent);
   let { item, aPatch, div, prop } = ent;
   let min = item.min || 0;
-  let max = item.max || 100;
-  let step = item.step;
+  let max = item.max || 1.0;
+  let step = item.step || 0; // could be undefined
   let oldVal = aPatch.eff_props[prop];
   console.log('create_slider oldVal', oldVal);
   if (oldVal === undefined) {

@@ -1,4 +1,4 @@
-// Show recorded media in grid from folder
+// live_gallery Show recorded media in grid from folder
 //    p5VideoKit-gallery-yoyo
 //
 

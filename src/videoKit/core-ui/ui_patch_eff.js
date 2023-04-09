@@ -101,20 +101,39 @@ export function ui_patch_eff_panes() {
       // console.log('create_settings aPatch', aPatch);
       let effMeta = effectMeta_find(aPatch.eff_spec.eff_label);
       if (effMeta.factory) {
-        create_selections_for_dict(effMeta.factory.meta_props);
+        create_ui_for_meta(effMeta.factory.meta_props);
       } else {
         console.log('create_settings MISSING factory effMeta', effMeta);
       }
 
       // Get props for imported module via import_factory
       // if (aPatch.import_factory) {
-      //   create_selections_for_dict(aPatch.import_factory.meta_props);
+      //   create_ui_for_meta(aPatch.import_factory.meta_props);
       // }
       div_break(div);
       div_break(div);
     }
 
-    function create_selections_for_dict(dict) {
+    function create_ui_for_meta(meta) {
+      if (Array.isArray(meta)) {
+        create_ui_for_meta_arr(meta);
+      } else {
+        create_ui_for_meta_dict(meta);
+      }
+    }
+
+    function create_ui_for_meta_arr(arr) {
+      let issueBreak = 1;
+      for (let ent of arr) {
+        if (issueBreak) {
+          div_break(div);
+        }
+        let prop = ent.prop;
+        patch_create_other(aPatch, div, prop, ent, issueBreak);
+      }
+    }
+
+    function create_ui_for_meta_dict(dict) {
       let issueBreak = 1;
       for (let prop in dict) {
         // eg. items = factor: [10, 50, 100 ... ]
@@ -128,7 +147,7 @@ export function ui_patch_eff_panes() {
         }
         if (Array.isArray(items)) {
           // eg. items = factor: [10, 50, 100 ... ]
-          create_selection(prop, items, issueBreak);
+          patch_create_selection(aPatch, div, prop, items, issueBreak);
         } else {
           // eg: _next: { button: next_action }
           patch_create_other(aPatch, div, prop, items, issueBreak);
@@ -136,36 +155,38 @@ export function ui_patch_eff_panes() {
         issueBreak = 0;
       }
     }
-
-    function create_selection(prop, arr, issueBreak) {
-      // console.log('create_selection prop', prop, 'arr', arr);
-      let span = createSpan(` ${prop}:`);
-      div.child(span);
-      if (issueBreak) {
-        span.style('margin-left', '10px');
-      }
-      let aSel = createSelect();
-      div.child(aSel);
-      for (let ii = 0; ii < arr.length; ii++) {
-        aSel.option(arr[ii]);
-      }
-      // Get prop value or use issueBreak in arr as default if missing
-      let aVal = aPatch.eff_props[prop];
-      if (aVal === undefined) {
-        aVal = arr[0];
-        aPatch.eff_props[prop] = aVal;
-      }
-      let isNum = typeof aVal === 'number';
-      // console.log('create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
-      aSel.selected(aVal);
-      aSel.changed(function () {
-        let aVal = this.value();
-        if (isNum) aVal = parseFloat(aVal);
-        aPatch.eff_props[prop] = aVal;
-        ui_patch_update(aPatch);
-      });
-    }
   }
+}
+
+function patch_create_selection(aPatch, div, prop, arr, issueBreak, defaultLabel) {
+  // console.log('patch_create_selection prop', prop, 'arr', arr);
+  let label = defaultLabel || prop;
+  let span = createSpan(` ${label}:`);
+  div.child(span);
+  if (issueBreak) {
+    span.style('margin-left', '10px');
+  }
+  let aSel = createSelect();
+  div.child(aSel);
+  for (let ii = 0; ii < arr.length; ii++) {
+    aSel.option(arr[ii]);
+  }
+  // Get prop value or use issueBreak in arr as default if missing
+  let aVal = aPatch.eff_props[prop];
+  if (aVal === undefined) {
+    aVal = arr[0];
+    aPatch.eff_props[prop] = aVal;
+  }
+  let isNum = typeof aVal === 'number';
+  // console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
+  aSel.selected(aVal);
+  aSel.changed(function () {
+    let aVal = this.value();
+    if (isNum) aVal = parseFloat(aVal);
+    aPatch.eff_props[prop] = aVal;
+    ui_patch_update(aPatch);
+  });
+  return aSel;
 }
 
 export function patch_index1(ind) {
