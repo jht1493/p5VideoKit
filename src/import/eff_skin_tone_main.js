@@ -1,12 +1,21 @@
 // Show live media in grid with qr code
 //
 export default class eff_skin_tone_main {
-  static meta_props = {
-    ncell: [3, 2, 3, 4, 5, 6, 7],
-    qr_image_index: [-1, 8, 4, 15],
-    ifirst: [2, 1],
-    period: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60],
-  };
+  static meta_props = [
+    { prop: 'ncell', selection: [3, 2, 3, 4, 5, 6, 7] },
+    { prop: 'qr_image_index', selection: [-1, 8, 4, 15] },
+    { prop: 'ifirst', selection: [2, 1] },
+    { prop: 'period', selection: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60] },
+    { prop: 'showQRCode', selection: [1, 0, 1] },
+    {
+      prop: 'toggleQRCode',
+      button: (inst, aPatch) => {
+        console.log('toggleQRCode inst', inst);
+        inst.showQRCode = inst.showQRCode ? 0 : 1;
+        console.log('toggleQRCode inst.showQRCode', inst.showQRCode);
+      },
+    },
+  ];
   constructor(props) {
     // console.log('src/import/eff_skin_tone_main.js');
     Object.assign(this, props);
@@ -23,10 +32,15 @@ export default class eff_skin_tone_main {
       videoKit.layerCopyInput(layer, { imedia, urect });
       sindex = (sindex + 1) % nshow;
     }
-    videoKit.layerCopyEffect(layer, this.eff_qr);
+    if (this.showQRCode) {
+      videoKit.layerCopyEffect(layer, this.eff_qr);
+    }
     if (this.period_timer.check()) {
       let nstep = n - this.ifirst;
       this.show_index = (this.show_index + nstep) % nshow;
+      if (this.show_index == this.qr_image_index) {
+        this.showQRCode = 0;
+      }
     }
   }
   deinit() {

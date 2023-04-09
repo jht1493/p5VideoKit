@@ -41,10 +41,19 @@ function ui_top_pane() {
   <span id="ifps"></span>
   <span id="imsg" style="font-size: 5vw; display: none; float: right"></span>
   <span>
-    <a href="https://github.com/jht1493/p5VideoKit/" target="github" style="float: right; margin-right: 5px">
+    <a href="https://github.com/jht1493/p5VideoKit/" target="github" >
       GitHub
     </a>
-    <a href="./settings.html" target="_blank" style="float: right; margin-right: 5px"> Settings </a>
+    <span style="float: right; margin-right: 5px">
+    [videoKit
+      <a href="./videoKit/effects.html" target="_blank" > Effects </a>
+      <a href="./videoKit/settings.html" target="_blank"> Settings </a>
+    ]
+    </span>
+    <span style="float: right; margin-right: 5px">
+      <a href="./effects.html" target="_blank" > Effects </a>
+      <a href="./settings.html" target="_blank" > Settings </a>
+    </span>
   </span>
   `;
   ui_div_append(div, html);

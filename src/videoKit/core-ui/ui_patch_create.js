@@ -95,14 +95,20 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
   }
 }
 
-function create_textInput(ent) {
-  console.log('createTextInput ent', ent);
-  let { item, aPatch, div, prop, defaultLabel } = ent;
+function create_default_label(ent) {
+  let { div, prop, defaultLabel } = ent;
+  defaultLabel = defaultLabel || prop;
   if (defaultLabel) {
     let span = createSpan(` ${defaultLabel}:`);
     div.child(span);
     ent.labelSpan = span;
   }
+}
+
+function create_textInput(ent) {
+  console.log('createTextInput ent', ent);
+  let { item, aPatch, div, prop } = ent;
+  create_default_label(ent);
   let oldVal = aPatch.eff_props[prop];
   if (oldVal === undefined) {
     oldVal = '' + item;
@@ -119,12 +125,8 @@ function create_textInput(ent) {
 
 function create_selection(ent) {
   console.log('create_selection ent', ent);
-  let { item, aPatch, div, prop, defaultLabel } = ent;
-  if (defaultLabel) {
-    let span = createSpan(` ${defaultLabel}:`);
-    div.child(span);
-    ent.labelSpan = span;
-  }
+  let { item, aPatch, div, prop } = ent;
+  create_default_label(ent);
   let arr = item;
   let aSel = createSelect();
   div.child(aSel);
@@ -156,12 +158,8 @@ function create_selection(ent) {
 // item = {min: 0, max: 100}
 function create_slider(ent) {
   console.log('create_slider ent', ent);
-  let { item, aPatch, div, prop, defaultLabel } = ent;
-  if (defaultLabel) {
-    let span = createSpan(` ${defaultLabel}:`);
-    div.child(span);
-    ent.labelSpan = span;
-  }
+  let { item, aPatch, div, prop } = ent;
+  create_default_label(ent);
   let min = item.min || 0;
   let max = item.max || 1.0;
   let step = item.step || 0; // could be undefined

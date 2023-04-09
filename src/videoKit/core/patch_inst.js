@@ -35,8 +35,13 @@ p5VideoKit.prototype.patch_inst_create = function (eff_label, imedia, ipatch, ef
         // possible live inputs
         return;
       }
-      // Default to canvase if no other possible inputs
-      media = a_.mediaDivs[0];
+      // !!@ Bug - will allow inst before input ready
+      // Default to canvas if no other possible inputs
+      // media = a_.mediaDivs[0];
+
+      // Exit until media ready
+      console.log('Exit until media ready', imedia);
+      return;
     }
     // !!@ TODO replace with createEffect
     let input = media.capture;
