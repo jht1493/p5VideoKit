@@ -8,7 +8,7 @@ import { enum_files, writeSrcBuildFile } from './enum_files.js';
 // const settingIndexPath = join(src_path, 'settings.html');
 
 // export default function build_settings(src_path, settings, baked, settingMetasPath, settingIndexPath) {
-export default function build_settings(src_path, settings, settingIndexPath, indexPrefix, settingMetasPath) {
+export default function build_settings(src_path, settings, settingIndexPath, settingMetasPath, indexPrefix) {
   // settingMetasPath = join(src_path, settingMetasPath);
   // settingIndexPath = join(src_path, settingIndexPath);
   //
@@ -50,22 +50,29 @@ ${files.join('\n')}
 //   const settingsPath = join(src_path, settings, baked);
 
 function gen_a_settingMetas(src_path, settings, settingMetasPath) {
-  const settingsPath = join(src_path, settings);
-  const files = readdirSync(settingsPath);
+  let files = enum_files(src_path, [settings]);
+
+  // const settingsPath = join(src_path, settings);
+  // const files = readdirSync(settingsPath);
+
   files.sort();
+
   // console.log('files', files);
   let settingMetas = [];
   for (let afile of files) {
+    if (!afile) continue;
+
     const fparts = parse(afile);
     // console.log('fparts', fparts);
     if (fparts.ext !== '.json') continue;
-    const fpath = join(settingsPath, afile);
+
+    // const fpath = join(settingsPath, afile);
     // console.log('afile', afile);
+
     let label = fparts.name;
-    // let import_path = settings + '/' + baked + '/' + afile;
-    // let import_path = join(settings, baked, afile);
-    let import_path = join(settings, afile);
+    let import_path = afile;
     let mstr = `{ label: '${label}', import_path: '${import_path}' },`;
+
     settingMetas.push(mstr);
   }
 

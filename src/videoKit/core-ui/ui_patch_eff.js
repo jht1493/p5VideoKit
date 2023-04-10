@@ -60,14 +60,15 @@ export function ui_patch_eff_panes() {
       for (let ii = 0; ii < a_.effectMetas.length; ii++) {
         let ent = a_.effectMetas[ii];
         // console.log('ent', ent);
-        let ui_label = ent.ui_label || 'import/';
-        let label = ent.label;
-        let parts = ui_label.split('/');
-        let newGroup = parts[0];
-        if (lastGroup !== newGroup) {
-          aSel.option('-------- ' + newGroup, -1);
-        }
-        lastGroup = newGroup;
+        // let ui_label = ent.ui_label || 'import/';
+        // let label = ent.label;
+        // let parts = ui_label.split('/');
+        // let newGroup = parts[0];
+        // if (lastGroup !== newGroup) {
+        //   aSel.option('-------- ' + newGroup, -1);
+        // }
+        // lastGroup = newGroup;
+        let label = ent.ui_label;
         aSel.option(label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_spec.eff_label).index;

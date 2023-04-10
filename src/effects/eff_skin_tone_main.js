@@ -72,7 +72,7 @@ export default class eff_skin_tone_main {
       let props = {};
       if (index == qrIndex) {
         let eff_label = 'image_url';
-        props = { image_url: './import/skintone-guest_jht1493.net.png' };
+        props = { image_url: './effects/skintone-guest_jht1493.net.png' };
         this.eff_qr = videoKit.createEffect({ eff_label, imedia, urect, props });
       }
       this.urects.push({ urect });

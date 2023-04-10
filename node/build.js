@@ -36,7 +36,6 @@ build_webdb(src_path, webdbPath, imagesOutPath);
 {
   const settingIndexPath = 'videoKit/settings.html';
   const settingMetasPath = 'videoKit/let/a_settingMetas.js';
-  // build_settings(src_path, 'settings', 'baked', settingMetasPath, settingIndexPath);
   build_settings(src_path, 'videoKit/settings', settingIndexPath, settingMetasPath, '../index.html');
 }
 
