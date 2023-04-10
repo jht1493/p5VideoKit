@@ -28,6 +28,7 @@ export default class eff_face_band {
     image_scaled_pad(this.output, this.eff_spec.urect);
   }
   init() {
+    console.log('eff_face_band init', this);
     this.fft_anal = new FFT_analyser({ media: this.media });
     this.video = this.input.elt;
     this.predictions = [];

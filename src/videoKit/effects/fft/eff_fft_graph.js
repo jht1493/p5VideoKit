@@ -12,6 +12,7 @@ export default class eff_fft_graph {
     this.draw_fft();
   }
   init() {
+    console.log('eff_fft_graph init', this);
     let { width, height } = this.eff_spec.urect;
     this.output = createGraphics(width, height);
     this.output.noStroke();

@@ -7,7 +7,7 @@ export class FFT_analyser {
   }
 
   init_analyser() {
-    // console.log('FFT_analyser media', this.media);
+    console.log('FFT_analyser media', this.media);
     let a_audioCtx = getAudioContext();
     a_audioCtx.resume();
     if (!this.media.mediaDevice) return;
