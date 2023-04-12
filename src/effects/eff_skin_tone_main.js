@@ -6,7 +6,8 @@ export default class eff_skin_tone_main {
     { prop: 'qr_image_index', selection: [-1, 8, 4, 15] },
     { prop: 'ifirst', selection: [2, 1] },
     { prop: 'period', selection: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60] },
-    { prop: 'showQRCode', selection: [1, 0, 1] },
+    { prop: 'showQRCode', selection: [1, 0] },
+    { prop: 'autoHideQRCode', selection: [0, 1] },
     {
       prop: 'toggleQRCode',
       button: (inst, aPatch) => {
@@ -38,7 +39,7 @@ export default class eff_skin_tone_main {
     if (this.period_timer.check()) {
       let nstep = n - this.ifirst;
       this.show_index = (this.show_index + nstep) % nshow;
-      if (this.show_index == this.qr_image_index) {
+      if (this.autoHideQRCode && this.show_index == this.qr_image_index) {
         this.showQRCode = 0;
       }
     }

@@ -1,6 +1,6 @@
 // example1 - using meta_props for showing effect properties in the dashboard
 //
-export default class eff_example {
+export default class eff_a_example_props {
   static meta_props = [
     // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
@@ -32,7 +32,7 @@ export default class eff_example {
   // new eff_example({message_prop1, num_prop, text_prop})
   constructor(props) {
     Object.assign(this, props);
-    // console.log('eff_example props', props);
+    // console.log('eff_a_example_props props', props);
     let { width, height } = this.input;
     this.output = createGraphics(width, height);
     console.log('eff_example constructor width, height', width, height);
