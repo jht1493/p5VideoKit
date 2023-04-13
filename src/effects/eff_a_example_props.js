@@ -16,6 +16,7 @@ export default class eff_a_example_props {
       prop: 'button1',
       button: (inst, aPatch) => {
         console.log('button1_prop inst', inst, 'aPatch', aPatch);
+        inst.xspeed = 1;
       },
       style: 'width:40%',
     },
@@ -23,6 +24,7 @@ export default class eff_a_example_props {
       label: 'button2',
       button: (inst, aPatch) => {
         console.log('button2_prop inst', inst, 'aPatch', aPatch);
+        inst.xspeed = 0;
       },
       style: 'width:40%',
     },
@@ -35,17 +37,28 @@ export default class eff_a_example_props {
     // console.log('eff_a_example_props props', props);
     let { width, height } = this.input;
     this.output = createGraphics(width, height);
-    console.log('eff_example constructor width, height', width, height);
+    console.log('eff_a_example_props constructor width, height', width, height);
+
+    this.xpos = width / 2;
+    this.ypos = height / 2;
+    this.xspeed = 0;
+    this.yspeed = 0;
   }
+
   prepareOutput() {
     // console.log('eff_example prepareOutput text_prop', this.text_prop);
+
     let { width, height } = this.output;
+
     let x = 0;
-    let y = height / 2;
+    let y = height / 10;
     let txsize = height / 10;
     this.output.textSize(txsize);
-    // this.output.background(this.num_prop);
     let txt = this.textInput_prop + ' ' + this.num_prop + ' ' + this.slider1_prop;
     this.output.text(txt, x, y);
+
+    this.xpos = (this.xpos + this.xspeed) % width;
+    this.ypos = (this.ypos + this.yspeed) % height;
+    this.output.circle(this.xpos, this.ypos, this.num_prop);
   }
 }

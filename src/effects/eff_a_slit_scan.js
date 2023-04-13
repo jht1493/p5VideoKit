@@ -1,4 +1,4 @@
-// example1 - using meta_props for showing effect properties in the dashboard
+// converting video slit scan to a effect pluging example
 //
 export default class eff_a_slit_scan {
   static meta_props = [

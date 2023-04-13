@@ -2,11 +2,12 @@
 // eff_labels is array of effects to cycle between
 //
 export default class eff_ncell {
-  static meta_props = {
-    ncell: [2, 3, 4],
-  };
+  static meta_props = [
+    { prop: 'ncell', selection: [2, 3, 4] },
+    { prop: 'effect_labels', textInput: 'circle,maze,bright,grid', style: 'width:40%;font-size:24px' },
+  ];
   constructor(props) {
-    console.log('src/import/eff_ncell.js');
+    console.log('eff_ncell');
     Object.assign(this, props);
     this.init();
   }
@@ -26,7 +27,8 @@ export default class eff_ncell {
   }
   init() {
     this.effs = [];
-    let eff_labels = ['circle', 'maze', 'bright', 'grid'];
+    // let eff_labels = ['circle', 'maze', 'bright', 'grid'];
+    let eff_labels = this.effect_labels.split(',');
     // let eff_labels = ['circle'];
     let videoKit = this.videoKit;
     let imedia = 1;
