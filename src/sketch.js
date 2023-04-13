@@ -22,6 +22,7 @@ function setup() {
 
   // effects for import, will appear at top of the effect menu
   let effects = [
+    { label: 'a_my_example', import_path: 'effects/eff_a_my_example.js', ui_label: 'a_my_example' },
     { label: 'a_example_props', import_path: 'effects/eff_a_example_props.js', ui_label: 'a_example_props' },
     { label: 'a_slit_scan', import_path: 'effects/eff_a_slit_scan.js', ui_label: 'a_slit_scan' },
     { label: 'ncell', import_path: 'effects/eff_ncell.js', ui_label: 'ncell' },
