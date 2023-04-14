@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--     
+    <!--   
+      normally these libs are taken from internet,
+      but now you can work locally  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js"></script>
     <script src="https://p5livemedia.itp.io/simplepeer.min.js"></script>
@@ -11,9 +13,11 @@
     -->
     <script src="./external/lib/p5.min.js"></script>
     <script src="./external/lib/p5.sound.min.js"></script>
+ <!-- next 3 libs are for p5livemedia -->
     <script src="./external/lib/simplepeer.min.js?v={{vers}}"></script>
     <script src="./external/lib/socket.io.js"></script>
     <script src="./external/lib/p5livemedia.js"></script>
+ <!-- machine learning lib, will reach out to internet -->
     <script src="./external/lib/ml5.min.js"></script>
 
     <script>
@@ -21,7 +25,9 @@
       let a_start_now = window.performance.now();
     </script>
 
-    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> 
+    jht doesn't want clutter of external css file
+    -->
     <style>
       html,
       body {
@@ -36,6 +42,8 @@
   </head>
 
   <body>
+    <!-- include for the VideoKit "library in progress"
+    for the moment only exists locally -->
     <script src="videoKit/p5VideoKit.js?v={{vers}}"></script>
     <script src="sketch.js?v={{vers}}"></script>
   </body>

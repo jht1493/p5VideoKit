@@ -7,7 +7,7 @@
 // you just have to select the drop-downs
 // save a json with your selections
 
-export default class eff_a_slit_scan {
+export default class eff_bbtest {
   static meta_props = [
     // { prop: 'num_prop', label: 'prop1', selection: [0, 1] },
     { prop: 'expand', selection: [1, 2, 3] },
@@ -18,12 +18,12 @@ export default class eff_a_slit_scan {
   constructor(props) {
     //
     Object.assign(this, props);
-    console.log('eff_a_slit_scan props.expand', props.expand);
-    // console.log('eff_a_slit_scan constructor width, height', width, height);
+    console.log('eff_bbtest props.expand', props.expand);
+    // console.log('eff_bbtest constructor width, height', width, height);
 
     this.vw = this.input.width;
     this.vh = this.input.height;
-    console.log('eff_a_slit_scan constructor input vw vh', this.vw, this.vh);
+    console.log('eff_bbtest constructor input vw vh', this.vw, this.vh);
 
     this.output = createGraphics(this.vw * this.expand, this.vh);
     // this.output.background(255);
@@ -42,6 +42,8 @@ export default class eff_a_slit_scan {
     if (this.period_timer.check()) {
       this.output.clear();
     }
+    this.output.fill(240,0,0);
+    this.output.circle(width/2, height/2, 100);
   }
 }
 
@@ -58,12 +60,6 @@ export default class eff_a_slit_scan {
 // analogous to setup only called once
 // 3. prepareOutput() analogous to draw
 // repeatedly called for every frame
-// This approach allows you to explore and compare
-// the same effect with different settings
-// side by side
-// The dropdown menus make each effect modular 
-// allowing you to define your own settings
-// and create you own version of the effect
 
 
 // let video;
