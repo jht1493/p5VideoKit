@@ -8,9 +8,9 @@ class p5VideoKit {
   // let effects = [
   //   { label: 'example', import_path: 'module/eff_example', menu: 1 },
 
-  constructor(p5_instance = p5.instance) {
+  constructor(config, p5_instance = p5.instance) {
     // console.log('p5VideoKit p5_instance', p5_instance);
-    // To work in p5 instance mode we need to use this.p0 on all p5 globals
+    // To work in p5 instance mode we need to use this.p5_instance on all p5 globals
     //
     if (!p5_instance) {
       console.log('p5VideoKit !!@ no p5_instance');
@@ -20,6 +20,9 @@ class p5VideoKit {
     if (!this.my_canvas) {
       console.log('p5VideoKit !!@ no my_canvas');
     }
+    this.init(config).then(() => {
+      console.log('videoKit.init done');
+    });
   }
 
   init({ effects, settings }) {

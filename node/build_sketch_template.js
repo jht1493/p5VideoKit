@@ -1,4 +1,6 @@
 // build_sketch_template.js
+
+let str = `
 // p5LiveVideo example dashboard
 // https://github.com/jht1493/p5VideoKit
 //
@@ -57,3 +59,4 @@ function draw() {
 // https://editor.p5js.org/shawn/sketches/jZQ64AMJc
 // p5LiveMedia Test Video
 // https://github.com/vanevery/p5LiveMedia
+`;

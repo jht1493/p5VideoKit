@@ -20,6 +20,7 @@ for (let index = 0; index < process.argv.length; index++) {
 import build_webdb from './build_webdb.js';
 import build_settings from './build_settings.js';
 import build_effectMetas from './build_effectMetas.js';
+import build_sketch from './build_sketch.js';
 
 // source files that will have ?v=<buildnumber> updated
 const buildnum_files = ['./index.html', './videoKit/'];
@@ -91,3 +92,16 @@ build_ver_run(src_path, buildnum_path, build_ver, buildnum_files);
 
 // console.log('settingMetas', settingMetas);
 // console.log('effectsMetas', effectsMetas);
+
+{
+  let sketchPath = 'sketch.js';
+  let sketchSavedPath = 'gen/sketch-save.js';
+  let args = {
+    src_path,
+    sketchPath,
+    sketchSavedPath,
+    effectsMetas,
+    settingMetas,
+  };
+  build_sketch(args);
+}
