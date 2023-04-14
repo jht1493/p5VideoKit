@@ -95,7 +95,7 @@ build_ver_run(src_path, buildnum_path, build_ver, buildnum_files);
 
 {
   let sketchPath = 'sketch.js';
-  let sketchSavedPath = 'gen/sketch-save.js';
+  let sketchSavedPath = 'gen/sketch.js';
   let args = {
     src_path,
     sketchPath,

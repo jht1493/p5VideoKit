@@ -15,13 +15,11 @@ export default function build_sketch(args) {
     console.log('read failed fpath', fpath);
     return;
   }
-  const ppath = join(src_path, sketchSavedPath);
-  writeFileSync(ppath, str);
-
   str = str_replace(str, 'effects: [\n', ']', effectsMetas);
   str = str_replace(str, 'settings: [\n', ']', settingMetas);
 
-  writeFileSync(fpath, str);
+  const ppath = join(src_path, sketchSavedPath);
+  writeFileSync(ppath, str);
 }
 
 //   effects: [
@@ -33,6 +31,9 @@ export default function build_sketch(args) {
 function str_replace(str, prefix, suffix, ents) {
   let ipos = str.indexOf(prefix);
   let iend = str.indexOf(suffix, ipos);
+  if (ipos < 0 || iend < 0) {
+    console.log('build_sketch MISSING prefix', prefix, 'suffix', suffix);
+  }
   // console.log('str_replace prefix|', prefix, '| ipos', ipos, 'iend', iend);
   ipos += prefix.length;
   str = str.substring(0, ipos) + ents.join('\n') + '\n' + str.substring(iend);
