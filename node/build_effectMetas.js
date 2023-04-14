@@ -1,7 +1,6 @@
 import pkg from 'fs-extra';
-const { existsSync, readdirSync, lstatSync } = pkg;
+const { existsSync } = pkg;
 import { join, parse } from 'path';
-
 import { enum_files, writeSrcBuildFile } from './enum_files.js';
 
 // create listing for dynanmic import of effect modules
@@ -9,7 +8,8 @@ import { enum_files, writeSrcBuildFile } from './enum_files.js';
 // based on js files in mods directory
 // mods=videoKit/effects directory for modules
 //
-export default function build_effectMetas(src_path, effectMetasPath, mods) {
+export default function build_effectMetas(args) {
+  let { src_path, effectMetasPath, mods } = args;
   const effectModPath = join(src_path, mods);
   //
   if (!existsSync(effectModPath)) {
@@ -17,10 +17,6 @@ export default function build_effectMetas(src_path, effectMetasPath, mods) {
     return;
   }
   let files = enum_files(src_path, [mods]);
-
-  // const dirs = readdirSync(effectModPath);
-  // dirs.sort();
-  // console.log(dir, files);
 
   let imports = [];
 
@@ -37,7 +33,6 @@ export default function build_effectMetas(src_path, effectMetasPath, mods) {
     label = label.substring(npos + 1);
 
     let ui_label = label;
-    // let import_path = join(mods, ent);
     let import_path = ent;
 
     imports.push({ label, import_path, ui_label });
@@ -62,6 +57,8 @@ ${ents.join('\n')}
 `;
   writeSrcBuildFile(src_path, effectMetasPath, str);
   console.log(mods + '/effs*', ents.length);
+
+  args.metas = ents;
 }
 
 // EffectRef

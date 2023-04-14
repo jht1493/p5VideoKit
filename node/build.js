@@ -33,26 +33,61 @@ const webdbPath = 'external/media/webdb';
 const imagesOutPath = 'videoKit/let/a_images.js';
 build_webdb(src_path, webdbPath, imagesOutPath);
 
+let settingMetas;
+let effectsMetas;
+
 {
-  const settingIndexPath = 'videoKit/settings.html';
-  const settingMetasPath = 'videoKit/let/a_settingMetas.js';
-  build_settings(src_path, 'videoKit/settings', settingIndexPath, settingMetasPath, '../index.html');
+  // src_path, settings, settingIndexPath, settingMetasPath, indexPrefix
+  let args = {
+    src_path,
+    settings: 'videoKit/settings',
+    settingIndexPath: 'videoKit/settings.html',
+    settingMetasPath: 'videoKit/let/a_settingMetas.js',
+    indexPrefix: '../index.html',
+  };
+  // build_settings(src_path, 'videoKit/settings', settingIndexPath, settingMetasPath, '../index.html');
+  build_settings(args);
 }
 
 {
-  const settingIndexPath = './gen/settings.html';
-  const settingMetasPath = './gen/settings.js';
-  build_settings(src_path, 'settings', settingIndexPath, settingMetasPath, '../index.html');
+  // const settingIndexPath = './gen/settings.html';
+  // const settingMetasPath = './gen/settings.js';
+  // build_settings(src_path, 'settings', settingIndexPath, settingMetasPath, '../index.html');
+  let args = {
+    src_path,
+    settings: 'settings',
+    settingIndexPath: 'gen/settings.html',
+    settingMetasPath: 'gen/settings.js',
+    indexPrefix: '../index.html',
+  };
+  build_settings(args);
+  settingMetas = args.metas;
 }
 
 {
-  const effectMetasPath = 'videoKit/let/a_effectMetas.js';
-  build_effectMetas(src_path, effectMetasPath, 'videoKit/effects');
+  let args = {
+    src_path,
+    effectMetasPath: 'videoKit/let/a_effectMetas.js',
+    mods: 'videoKit/effects',
+  };
+  // const effectMetasPath = 'videoKit/let/a_effectMetas.js';
+  // build_effectMetas(src_path, effectMetasPath, 'videoKit/effects');
+  build_effectMetas(args);
 }
 
 {
-  const effectMetasPath = './gen/effects.js';
-  build_effectMetas(src_path, effectMetasPath, 'effects');
+  let args = {
+    src_path,
+    effectMetasPath: 'gen/effects.js',
+    mods: 'effects',
+  };
+  // const effectMetasPath = './gen/effects.js';
+  // build_effectMetas(src_path, effectMetasPath, 'effects');
+  build_effectMetas(args);
+  effectsMetas = args.metas;
 }
 
 build_ver_run(src_path, buildnum_path, build_ver, buildnum_files);
+
+// console.log('settingMetas', settingMetas);
+// console.log('effectsMetas', effectsMetas);
