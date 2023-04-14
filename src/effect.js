@@ -1,6 +1,7 @@
 // !!@ Generated File
 export let a_effectMetas =  [
 { label: 'a_example_props', import_path: 'effects/eff_a_example_props.js', ui_label: 'a_example_props'},
+{ label: 'a_my_example', import_path: 'effects/eff_a_my_example.js', ui_label: 'a_my_example'},
 { label: 'a_slit_scan', import_path: 'effects/eff_a_slit_scan.js', ui_label: 'a_slit_scan'},
 { label: 'live_gallery', import_path: 'effects/eff_live_gallery.js', ui_label: 'live_gallery'},
 { label: 'movie_grid', import_path: 'effects/eff_movie_grid.js', ui_label: 'movie_grid'},

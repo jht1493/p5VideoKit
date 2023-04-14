@@ -56,7 +56,7 @@ export function ui_patch_eff_panes() {
       div.child(span);
       let aSel = createSelect();
       div.child(aSel);
-      let lastGroup;
+      // let lastGroup;
       for (let ii = 0; ii < a_.effectMetas.length; ii++) {
         let ent = a_.effectMetas[ii];
         // console.log('ent', ent);
@@ -68,7 +68,15 @@ export function ui_patch_eff_panes() {
         //   aSel.option('-------- ' + newGroup, -1);
         // }
         // lastGroup = newGroup;
-        let label = ent.ui_label;
+        let label = ent.ui_label || ent.label;
+        let isel = ii;
+        if (ent.ui_label) {
+          isel = ii;
+          label = ent.ui_label;
+        } else {
+          isel = -1;
+          label = ent.label;
+        }
         aSel.option(label, ii);
       }
       let effIndex = effectMeta_find(aPatch.eff_spec.eff_label).index;

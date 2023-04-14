@@ -13,6 +13,7 @@ export let a_settingMetas = [
 { label: 'skin-tone-main-qr', import_path: 'videoKit/settings/2022-skin-tone/skin-tone-main-qr.json' },
 { label: 'skin-tone-main', import_path: 'videoKit/settings/2022-skin-tone/skin-tone-main.json' },
 { label: 'effects4-circle', import_path: 'videoKit/settings/2022/effects4-circle.json' },
+{ label: 'covid-ticker', import_path: 'videoKit/settings/2023/covid-ticker.json' },
 { label: 'test-pattern-1', import_path: 'videoKit/settings/2023/test-pattern-1.json' },
 { label: 'test-pattern-2', import_path: 'videoKit/settings/2023/test-pattern-2.json' },
 { label: 'test-pattern-3', import_path: 'videoKit/settings/2023/test-pattern-3.json' },

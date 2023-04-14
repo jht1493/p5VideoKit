@@ -25,8 +25,11 @@ export function ui_restore_store(effects, settings, sizeResult) {
     return;
   }
 
-  a_.effectMetas = effects.concat(a_effectMetas);
-  a_.settingMetas = settings.concat(a_settingMetas);
+  // a_.effectMetas = effects.concat(a_effectMetas);
+  a_.effectMetas = effects.concat([{ label: '----' }], a_effectMetas);
+
+  // a_.settingMetas = settings.concat(a_settingMetas);
+  a_.settingMetas = settings;
 
   effectMeta_init(() => {
     settingMetas_init(() => {

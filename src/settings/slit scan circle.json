@@ -1,7 +1,7 @@
 {
-  "setting": "covid-ticker",
-  "comment": "",
-  "back_color": 1,
+  "setting": "",
+  "comment": "slit scan circle",
+  "back_color": 200,
   "room_name": "VideoKit-Room-1",
   "patch_layout": "Single",
   "canvas_size": "960x540",
@@ -12,7 +12,7 @@
   "live_index": 0,
   "live_chk": 0,
   "urects_lock": 0,
-  "urects_count": 1,
+  "urects_count": 2,
   "canvas_resize_ref": "",
   "canvas_data_chk": 0,
   "mediaDiv_states": [
@@ -26,8 +26,8 @@
     {
       "eff_spec": {
         "ipatch": 0,
-        "imedia": 0,
-        "eff_label": "ticker",
+        "imedia": 1,
+        "eff_label": "a_slit_scan",
         "urect": {
           "width": 960,
           "height": 540,
@@ -36,7 +36,27 @@
         }
       },
       "eff_props": {
-        "display_copy_right": 0
+        "expand": 1,
+        "step": 1,
+        "period": -1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "circle",
+        "urect": {
+          "width": 960,
+          "height": 540,
+          "x0": 0,
+          "y0": 0
+        }
+      },
+      "eff_props": {
+        "per_frame": 5,
+        "ntry": 50,
+        "period": 0
       }
     }
   ]

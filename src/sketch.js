@@ -35,6 +35,8 @@ function setup() {
 
   // settings for import, will appear at top of settings menu
   let settings = [
+    // slit scan circle.json
+    { label: 'slit scan circle', import_path: 'settings/slit scan circle.json' },
     { label: 'delaunay-alpha-5', import_path: 'settings/delaunay-alpha-5.json' },
     { label: 'live_gallery-video', import_path: 'settings/live_gallery-video.json' },
     { label: 'live_gallery-yoyo', import_path: 'settings/live_gallery-yoyo.json' },

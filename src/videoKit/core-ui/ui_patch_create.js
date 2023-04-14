@@ -37,7 +37,7 @@ import { div_break } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 // };
 
 export function patch_create_other(aPatch, div, prop, items, issueBreak) {
-  console.log('create_other prop', prop, 'items', items);
+  // console.log('create_other prop', prop, 'items', items);
   let ent = { aPatch, div, prop };
   for (let iprop in items) {
     let item = items[iprop];
@@ -106,7 +106,7 @@ function create_default_label(ent) {
 }
 
 function create_textInput(ent) {
-  console.log('createTextInput ent', ent);
+  // console.log('createTextInput ent', ent);
   let { item, aPatch, div, prop } = ent;
   create_default_label(ent);
   let oldVal = aPatch.eff_props[prop];
@@ -124,7 +124,7 @@ function create_textInput(ent) {
 }
 
 function create_selection(ent) {
-  console.log('create_selection ent', ent);
+  // console.log('create_selection ent', ent);
   let { item, aPatch, div, prop } = ent;
   create_default_label(ent);
   let arr = item;
@@ -157,14 +157,14 @@ function create_selection(ent) {
 // ent = { aPatch, div, prop, item };
 // item = {min: 0, max: 100}
 function create_slider(ent) {
-  console.log('create_slider ent', ent);
+  // console.log('create_slider ent', ent);
   let { item, aPatch, div, prop } = ent;
   create_default_label(ent);
   let min = item.min || 0;
   let max = item.max || 1.0;
   let step = item.step || 0; // could be undefined
   let oldVal = aPatch.eff_props[prop];
-  console.log('create_slider oldVal', oldVal);
+  // console.log('create_slider oldVal', oldVal);
   if (oldVal === undefined) {
     oldVal = min + (max - min) / 2;
     aPatch.eff_props[prop] = oldVal + '';

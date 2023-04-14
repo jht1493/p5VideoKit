@@ -19,6 +19,10 @@ export function effectMeta_init(donef) {
 }
 
 export function effectMeta_import(effMeta) {
+  if (!effMeta.import_path) {
+    console.log('effectMeta_import no import_path', effMeta);
+    return null;
+  }
   let inpath = '../../' + effMeta.import_path;
   // console.log('effectMeta_import', inpath);
   return new Promise((resolve, reject) => {

@@ -2,10 +2,11 @@
 //
 export default class eff_a_example_props {
   static meta_props = [
-    // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    {}, // create a line break
     // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     // { prop: 'str_prop2', label: 'prop2', selection: ['red', 'green', 'yellow'] },
-    { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%' },
+    // { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%' },
     { prop: 'slider1_prop', label: 'slider1', slider: { min: 0, max: 255 }, style: 'width:20%' },
     { prop: 'slider2_prop', label: 'slider2', slider: { min: 0, max: 255 }, style: 'width:20%' },
     { prop: 'slider3_prop', label: 'slider3', slider: { min: 0, max: 255 }, style: 'width:20%' },
@@ -48,16 +49,16 @@ export default class eff_a_example_props {
 
     let { width, height } = this.output;
 
-    let x = 0;
-    let y = height / 10;
-    let txsize = height / 10;
-    this.output.textSize(txsize);
-    let txt = this.textInput_prop + ' ' + this.num_prop + ' ' + this.slider1_prop;
-    this.output.text(txt, x, y);
+    // let x = 0;
+    // let y = height / 10;
+    // let txsize = height / 10;
+    // this.output.textSize(txsize);
+    // let txt = this.textInput_prop + ' ' + this.num_prop + ' ' + this.slider1_prop;
+    // this.output.text(txt, x, y);
 
-    this.output.fill([this.slider1_prop, this.slider2_prop, this.slider3_prop]);
     this.xpos = (this.xpos + this.xspeed) % width;
     this.ypos = (this.ypos + this.yspeed) % height;
+    this.output.fill([this.slider1_prop, this.slider2_prop, this.slider3_prop]);
     this.output.circle(this.xpos, this.ypos, this.num_prop);
   }
 }

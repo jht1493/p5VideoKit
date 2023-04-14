@@ -6,5 +6,6 @@ export let a_settingMetas = [
 { label: 'live_gallery', import_path: 'settings/live_gallery.json' },
 { label: 'movie-grid', import_path: 'settings/movie-grid.json' },
 { label: 'screen-club', import_path: 'settings/screen-club.json' },
+{ label: 'slit scan circle', import_path: 'settings/slit scan circle.json' },
 { label: 'videoKit', import_path: 'settings/videoKit.json' },
 ];
