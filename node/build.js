@@ -26,7 +26,7 @@ const buildnum_files = ['./index.html', './videoKit/'];
 
 const root_path = join(__dirname, '..');
 const src_path = join(root_path, 'src');
-const buildnum_path = 'build_ver.txt';
+const buildnum_path = 'gen/build_ver.txt';
 let build_ver = get_build_vers(src_path, buildnum_path);
 
 const webdbPath = 'external/media/webdb';
@@ -40,9 +40,9 @@ build_webdb(src_path, webdbPath, imagesOutPath);
 }
 
 {
-  const settingIndexPath = 'settings.html';
-  const settingMetasPath = 'settings.js';
-  build_settings(src_path, 'settings', settingIndexPath, settingMetasPath, './index.html');
+  const settingIndexPath = './gen/settings.html';
+  const settingMetasPath = './gen/settings.js';
+  build_settings(src_path, 'settings', settingIndexPath, settingMetasPath, '../index.html');
 }
 
 {
@@ -51,7 +51,7 @@ build_webdb(src_path, webdbPath, imagesOutPath);
 }
 
 {
-  const effectMetasPath = 'effect.js';
+  const effectMetasPath = './gen/effects.js';
   build_effectMetas(src_path, effectMetasPath, 'effects');
 }
 

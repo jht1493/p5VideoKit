@@ -52,7 +52,7 @@ function ui_top_pane() {
       ]
     </span>
     <span style="float: right; margin-right: 5px">
-      <a href="./settings.html" target="_blank" > Settings </a>
+      <a href="./gen/settings.html" target="_blank" > Settings </a>
     </span>
   </span>
   `;
