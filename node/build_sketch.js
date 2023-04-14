@@ -2,6 +2,9 @@ import { join, parse } from 'path';
 import pkg from 'fs-extra';
 const { readFileSync, writeFileSync } = pkg;
 
+// Insert effects and settings into sketch.js
+// write sketch.js to gen folder
+//
 // { sketchPath, sketchSavedPath, effectsMetas, settingMetas };
 export default function build_sketch(args) {
   console.log('build_sketch ');
