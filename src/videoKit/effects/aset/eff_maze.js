@@ -23,7 +23,6 @@ export default class eff_maze {
     if (!this.period_timer) this.period_timer = new PeriodTimer(this.period);
     let w = this.input.width;
     let h = this.input.height;
-
     this.inw = w;
     this.inh = h;
     if (!this.src) this.src = createImage(w, h);
