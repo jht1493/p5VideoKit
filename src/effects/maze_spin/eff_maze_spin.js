@@ -38,6 +38,7 @@ export default class eff_maze_spin {
       // do_spiral: this.do_spiral,
       // do_random: this.do_random,
       // do_report: this.do_report,
+      // video_color:
     };
     for (const ent of eff_maze_spin.meta_props) {
       my[ent.prop] = this[ent.prop];
