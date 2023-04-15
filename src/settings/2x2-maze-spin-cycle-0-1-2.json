@@ -1,11 +1,11 @@
 {
-  "setting": "2x2-maze-spin-random-0-1-2",
+  "setting": "2x2-maze-spin-cycle-0-1-2",
   "comment": "2x2-maze-spin-cycle-0-1-2",
   "back_color": 200,
   "room_name": "VideoKit-Room-1",
   "patch_layout": "2x2",
-  "canvas_size": "640x480",
-  "capture_size": "default",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
   "render_size": "Canvas",
   "chat_name": "jht",
   "chat_chk": 0,
@@ -31,8 +31,8 @@
         "urect": {
           "x0": 0,
           "y0": 0,
-          "width": 320,
-          "height": 240
+          "width": 480,
+          "height": 270
         }
       },
       "eff_props": {
@@ -54,10 +54,10 @@
         "imedia": 1,
         "eff_label": "maze_spin",
         "urect": {
-          "x0": 320,
+          "x0": 480,
           "y0": 0,
-          "width": 320,
-          "height": 240
+          "width": 480,
+          "height": 270
         }
       },
       "eff_props": {
@@ -80,9 +80,9 @@
         "eff_label": "maze_spin",
         "urect": {
           "x0": 0,
-          "y0": 240,
-          "width": 320,
-          "height": 240
+          "y0": 270,
+          "width": 480,
+          "height": 270
         }
       },
       "eff_props": {
@@ -104,10 +104,10 @@
         "imedia": 1,
         "eff_label": "maze_spin",
         "urect": {
-          "x0": 320,
-          "y0": 240,
-          "width": 320,
-          "height": 240
+          "x0": 480,
+          "y0": 270,
+          "width": 480,
+          "height": 270
         }
       },
       "eff_props": {
