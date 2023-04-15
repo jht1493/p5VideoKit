@@ -131,12 +131,12 @@ export default class MazeSpin {
   draw_maze_pause2() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
-      this.timer.setPeriod(this.step_period);
       let oldNow = this.now;
       this.now = this.next;
       this.next = oldNow;
       this.target = this.next;
       array_random(this.target);
+      this.timer.setPeriod(this.step_period);
       this.draw_step = 'draw_maze_random2';
     }
   }
