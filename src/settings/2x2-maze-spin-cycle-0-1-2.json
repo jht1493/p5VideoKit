@@ -63,7 +63,7 @@
       "eff_props": {
         "ncells": 31,
         "strokeWeight": 0.5,
-        "delta": 1,
+        "delta": -1,
         "do_spiral": 1,
         "do_random": 0,
         "do_report": 0,
