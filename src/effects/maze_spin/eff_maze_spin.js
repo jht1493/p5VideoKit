@@ -4,7 +4,6 @@ import MazeSpin from './MazeSpin.js?v={{vers}}';
 
 export default class eff_maze_spin {
   static meta_props = [
-    // { prop: 'num_prop', label: 'prop1', selection: [0, 1] },
     { prop: 'ncells', selection: [9, 13, 15, 31, 63] },
     { prop: 'strokeWeight', selection: [0.5, 0.25, 0.33, 0.66, 0.75] },
     { prop: 'delta', selection: [1, -1] },
@@ -13,11 +12,10 @@ export default class eff_maze_spin {
     // do_cycle=0 cycle sequential mazes
     // do_cycle=1 cycle random maze to random maze
     // do_cycle=2 cycle sequential to random to sequential
-    { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8] },
-    {},
+    { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8], br: 1 },
     { prop: 'step_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
     { prop: 'pause_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
-    { prop: 'video_color', selection: [0, 1] },
+    { prop: 'video_color', selection: [1, 0] },
   ];
 
   constructor(props) {

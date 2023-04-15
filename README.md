@@ -41,15 +41,15 @@ p5VideoKit runs best in modern desktop browsers. I've tested primarily in Google
 
 [demo](https://jht1493.net/p5VideoKit/demo/) - Opens a new browser window to with videokit interface that shows local camera.Your browser should ask you for permission to use the camera and microphone. Hit the Reset button if you don't see any video. Use the Effect drop down to select an effect to apply to the camera video.
 
-[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=demo/grid1.json) - pixelized video effect.
+[Grid demo](https://jht1493.net/p5VideoKit/demo/?d=videoKit/settings/demo/grid1.json) - pixelized video effect.
 
 ![grid1](docs/media/grid1.jpg)
 
-[4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Effect drop down to select an effect.
+[4 effects demo](https://jht1493.net/p5VideoKit/demo/?d=videoKit/settings/demo/effects4.json) - four effects and be seen in a 2 by 2 layout. Use the Effect drop down to select an effect.
 
-[live1](https://jht1493.net/p5VideoKit/demo/?d=baked/live1.json) - joint the VideoKit-Play-1 live streaming room.
+[live1](https://jht1493.net/p5VideoKit/demo/?d=videoKit/settings/baked/live1.json) - joint the VideoKit-Play-1 live streaming room.
 
-[archive of settings ](https://jht1493.net/p5VideoKit/demo/settings.html) - not every settings work
+[archive of settings ](https://jht1493.net/p5VideoKit/demo/videoKit/settings.html) - not every settings work
 
 ## The interface
 
