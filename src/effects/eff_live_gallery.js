@@ -45,6 +45,7 @@ export default class eff_live_gallery {
   deinit() {
     console.log('eff_live_gallery deinit mediaElements.length', this.mediaElements.length);
     this.output.remove();
+    this.graphics.remove();
     for (let ent of this.mediaElements) {
       if (ent && ent.mediaElement) {
         console.log('stage_next_movie remove ent.saved_index', ent.saved_index);
@@ -155,7 +156,7 @@ export default class eff_live_gallery {
   }
 
   init_graphics() {
-    this.graphics = createGraphics(this.input.width, this.input.height);
+    this.graphics = createGraphics(this.input.width, this.input.height); // eff_live_gallery
     this.graphics.noStroke();
     this.textHi = this.input.height / 12;
     this.graphics.textSize(this.textHi);
