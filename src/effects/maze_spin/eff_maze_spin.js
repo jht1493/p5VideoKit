@@ -11,8 +11,8 @@ export default class eff_maze_spin {
     { prop: 'do_spiral', selection: [1, 0] },
     { prop: 'do_random', selection: [1, 0, 2] },
     // do_random=0 cycle sequential mazes
-    // do_random=1 cycle sequential to random maze
-    // do_random=2 cycle random maze to random maze
+    // do_random=1 cycle random maze to random maze
+    // do_random=2 cycle sequential to random to sequential
     { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8] },
     {},
     { prop: 'step_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },

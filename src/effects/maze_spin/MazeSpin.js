@@ -49,13 +49,13 @@ export default class MazeSpin {
 
     this.timer = new SecondsTimer();
     this.timer.setPeriod(this.step_period);
-    if (this.do_random == 2) {
-      array_random(this.next);
-      this.draw_step = 'draw_maze_random2';
+    if (this.do_random == 0) {
+      this.draw_step = 'draw_maze0_step';
     } else if (this.do_random == 1) {
-      this.draw_step = 'draw_maze_random1';
+      array_random(this.next);
+      this.draw_step = 'draw_maze1_step';
     } else {
-      this.draw_step = 'draw_maze_step0';
+      this.draw_step = 'draw_maze2_step0';
     }
 
     report_1ofn(this);
@@ -102,35 +102,35 @@ export default class MazeSpin {
   }
 
   // sequential
-  draw_maze_step0() {
+  draw_maze0_step() {
     this.draw_maze_progress();
     if (this.timer.arrived()) {
       this.timer.setPeriod(this.pause_period);
-      this.draw_step = 'draw_maze_pause0';
+      this.draw_step = 'draw_maze0_pause';
     }
   }
 
-  draw_maze_pause0() {
+  draw_maze0_pause() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
       array_add(this.now, this.delta);
       array_add(this.next, this.delta);
-      //   div_report(this, this.target, 'draw_maze_step0');
+      //   div_report(this, this.target, 'draw_maze0_step');
       this.timer.setPeriod(this.step_period);
-      this.draw_step = 'draw_maze_step0';
+      this.draw_step = 'draw_maze0_step';
     }
   }
 
   // random to random
-  draw_maze_random2() {
+  draw_maze1_step() {
     this.draw_maze_progress();
     if (this.timer.arrived()) {
       this.timer.setPeriod(this.pause_period);
-      this.draw_step = 'draw_maze_pause2';
+      this.draw_step = 'draw_maze1_pause';
     }
   }
 
-  draw_maze_pause2() {
+  draw_maze1_pause() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
       let oldNow = this.now;
@@ -139,69 +139,69 @@ export default class MazeSpin {
       this.target = this.next;
       array_random(this.target);
       this.timer.setPeriod(this.step_period);
-      this.draw_step = 'draw_maze_random2';
+      this.draw_step = 'draw_maze1_step';
     }
   }
 
   // --
   // sequencail - random - sequential
-  draw_maze_random1() {
+  draw_maze2_step0() {
     this.draw_maze_progress();
     if (this.timer.arrived()) {
       this.timer.setPeriod(this.pause_period);
-      this.draw_step = 'draw_maze_pause1';
+      this.draw_step = 'draw_maze2_pause0';
     }
   }
 
-  draw_maze_pause1() {
+  draw_maze2_pause0() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
       array_add(this.now, this.delta);
       array_add(this.next, this.delta);
       array_random(this.random);
       this.target = this.random;
-      div_report(this, this.target, 'draw_maze_pause1');
+      div_report(this, this.target, 'draw_maze2_step1');
       this.timer.setPeriod(this.step_period);
-      this.draw_step = 'draw_maze_random1_step1';
+      this.draw_step = 'draw_maze2_step1';
     }
   }
 
-  draw_maze_random1_step1() {
+  draw_maze2_step1() {
     this.draw_maze_progress();
     if (this.timer.arrived()) {
       this.timer.setPeriod(this.pause_period);
-      this.draw_step = 'draw_maze_random1_pause1';
+      this.draw_step = 'draw_maze2_pause2';
     }
   }
 
-  draw_maze_random1_pause1() {
+  draw_maze2_pause2() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
       let now_save = this.now;
       this.now = this.target;
       this.target = now_save;
-      div_report(this, this.target, 'draw_maze_random1_pause1');
+      div_report(this, this.target, 'draw_maze2_step2');
       this.timer.setPeriod(this.step_period);
-      this.draw_step = 'draw_maze_random1_step2';
+      this.draw_step = 'draw_maze2_step2';
     }
   }
 
-  draw_maze_random1_step2() {
+  draw_maze2_step2() {
     this.draw_maze_progress();
     if (this.timer.arrived()) {
       this.timer.setPeriod(this.pause_period);
-      this.draw_step = 'draw_maze_random1_pause2';
+      this.draw_step = 'draw_maze2_pause3';
     }
   }
 
-  draw_maze_random1_pause2() {
+  draw_maze2_pause3() {
     this.draw_maze_still();
     if (this.timer.arrived()) {
       this.now = this.target;
       this.target = this.next;
-      div_report(this, this.target, 'draw_maze_random1_pause2');
+      div_report(this, this.target, 'draw_maze2_step0');
       this.timer.setPeriod(this.step_period);
-      this.draw_step = 'draw_maze_random1';
+      this.draw_step = 'draw_maze2_step0';
     }
   }
 
