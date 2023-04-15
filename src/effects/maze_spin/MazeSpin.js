@@ -15,7 +15,7 @@ export default class MazeSpin {
   // this.delta = 1;
   // this.step_period = 1.0;
   // this.pause_period = 1.0; // 0.5;
-  // this.do_random = 0;
+  // this.do_cycle = 0;
   // this.do_spiral
   constructor(props) {
     // console.log('MazeSpin props', props);
@@ -49,9 +49,9 @@ export default class MazeSpin {
 
     this.timer = new SecondsTimer();
     this.timer.setPeriod(this.step_period);
-    if (this.do_random == 0) {
+    if (this.do_cycle == 0) {
       this.draw_step = 'draw_maze0_step';
-    } else if (this.do_random == 1) {
+    } else if (this.do_cycle == 1) {
       array_random(this.next);
       this.draw_step = 'draw_maze1_step';
     } else {
