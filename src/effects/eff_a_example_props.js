@@ -17,7 +17,7 @@ export default class eff_a_example_props {
     // br: 1 creates a line break
     { prop: 'slider1_prop', label: 'slider1', slider: { min: 0, max: 8 }, style: 'width:20%', br: 1 },
     // line break
-    { prop: 'slider2_prop', label: 'slider2', slider: { min: -5, max: 5 }, style: 'width:20%' },
+    { prop: 'slider2_prop', label: 'slider2', slider: { min: -5, max: 5 }, style: 'width:20%', default: 5 },
     { prop: 'slider3_prop', label: 'slider3', slider: { step: 0.01 }, style: 'width:20%', br: 1 },
     // line break
     {

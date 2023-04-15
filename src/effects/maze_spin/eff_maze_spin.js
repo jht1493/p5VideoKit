@@ -4,18 +4,21 @@ import MazeSpin from './MazeSpin.js?v={{vers}}';
 
 export default class eff_maze_spin {
   static meta_props = [
-    { prop: 'ncells', selection: [9, 13, 15, 31, 63] },
+    { prop: 'ncells', selection: [9, 13, 15, 31, 63, 127, 8, 16, 32, 64, 128] },
     { prop: 'strokeWeight', selection: [0.5, 0.25, 0.33, 0.66, 0.75] },
     { prop: 'delta', selection: [1, -1] },
     { prop: 'do_spiral', selection: [1, 0] },
-    { prop: 'do_cycle', selection: [0, 1, 2] },
+    { prop: 'do_cycle', selection: [0, 1, 2], br: 1 },
     // do_cycle=0 cycle sequential mazes
     // do_cycle=1 cycle random maze to random maze
     // do_cycle=2 cycle sequential to random to sequential
-    { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8], br: 1 },
+    // { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8], br: 1 },
     { prop: 'step_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
     { prop: 'pause_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
     { prop: 'video_color', selection: [1, 0] },
+    { prop: 'trails', selection: [0, 1], br: 1 },
+    { prop: 'alpha', slider: { step: 1, min: 0, max: 255 }, default: 255 },
+    { prop: 'alpha', selection: [255, 2, 10, 20, 30, 100, 200] },
   ];
 
   constructor(props) {
@@ -28,6 +31,7 @@ export default class eff_maze_spin {
       input: this.input,
       width: this.input.width,
       height: this.input.height,
+      do_report: 0,
       // ncells: this.ncells,
       // strokeWeight: this.strokeWeight,
       // delta: this.delta,
@@ -41,7 +45,7 @@ export default class eff_maze_spin {
     for (const ent of eff_maze_spin.meta_props) {
       my[ent.prop] = this[ent.prop];
     }
-    console.log('eff_maze_spin my', my);
+    // console.log('eff_maze_spin my', my);
 
     this.mazeSpin = new MazeSpin(my);
 

@@ -17,6 +17,7 @@ export default class MazeSpin {
   // this.pause_period = 1.0; // 0.5;
   // this.do_cycle = 0;
   // this.do_spiral
+  // this.alpha
   constructor(props) {
     // console.log('MazeSpin props', props);
     Object.assign(this, props);
@@ -81,7 +82,9 @@ export default class MazeSpin {
 
   draw_maze_at(at) {
     // this.output.background(220);
-    this.output.clear();
+    if (!this.trails) {
+      this.output.clear();
+    }
     let tangle = HALF_PI * at;
     let half = this.d / 2;
     for (let index = 0; index < this.pts.length; index++) {
@@ -91,6 +94,7 @@ export default class MazeSpin {
       let angle = now == target ? 0 : tangle;
       if (this.video_color) {
         let col = this.input_copy.get(x, y);
+        col[3] = this.alpha;
         this.output.stroke(col);
       }
       if (now) {

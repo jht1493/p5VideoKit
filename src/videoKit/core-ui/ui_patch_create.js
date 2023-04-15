@@ -51,6 +51,26 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
       case 'label':
         ent.defaultLabel = item;
         break;
+      case 'default':
+        ent.defaultValue = item;
+        break;
+    }
+  }
+  for (let iprop in items) {
+    let item = items[iprop];
+    ent.item = item;
+    // console.log('create_other iprop', iprop, 'item', item);
+    switch (iprop) {
+      case 'style':
+      case 'label':
+      case 'default':
+        break;
+      // case 'style':
+      //   ent.defaultStyle = item;
+      //   break;
+      // case 'label':
+      //   ent.defaultLabel = item;
+      //   break;
       case 'button':
         ent.div.child(createSpan(' '));
         let label = ent.defaultLabel || prop;
@@ -170,23 +190,23 @@ function create_slider(ent) {
   let oldVal = aPatch.eff_props[prop];
   // console.log('create_slider oldVal', oldVal);
   if (oldVal === undefined) {
-    oldVal = min + (max - min) / 2;
-    aPatch.eff_props[prop] = oldVal + '';
+    if (ent.defaultValue !== undefined) {
+      oldVal = ent.defaultValue;
+    } else {
+      oldVal = min + (max - min) / 2;
+    }
+    aPatch.eff_props[prop] = oldVal;
   }
+  // console.log('create_slider oldVal ', oldVal, 'type', typeof oldVal);
+
   let valSpan = createSpan(formatNumber(oldVal));
   // console.log('create_slider valSpan', valSpan);
   // createSlider(min, max, [value], [step])
   ent.elm = createSlider(min, max, oldVal, step).input(function () {
     let aVal = this.value();
-    // console.log('create_slider aVal ' + aVal);
-    // let oldVal = aPatch.eff_props[prop];
-    // console.log('create_slider input oldVal', oldVal);
-    // console.log('create_slider input valSpan', valSpan);
-    // console.log('create_slider input valSpan.elt.innerHtml', valSpan.elt.innerHtml);
-
+    // console.log('create_slider aVal ', aVal, 'type', typeof aVal);
     aPatch.eff_props[prop] = aVal;
     ui_patch_update(aPatch);
-
     valSpan.elt.innerHTML = formatNumber(aVal) + '';
   });
   div.child(ent.elm);
