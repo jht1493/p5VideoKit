@@ -20,7 +20,7 @@ export default class eff_maze_spin {
     //
     Object.assign(this, props);
     // console.log('eff_maze_spin props', props);
-    console.log('eff_maze_spin meta_props', eff_maze_spin.meta_props);
+    // console.log('eff_maze_spin meta_props', eff_maze_spin.meta_props);
 
     let my = {
       width: this.input.width,

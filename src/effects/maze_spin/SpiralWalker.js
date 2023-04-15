@@ -17,7 +17,7 @@ export default class SpiralWalker {
     let nw = this.width / this.d;
     let nh = this.height / this.d;
     let n = nw * nh;
-    console.log('SpiralWalker nw', nw, 'mh', nh, 'n', n);
+    // console.log('SpiralWalker nw', nw, 'mh', nh, 'n', n);
 
     this.offset = nw & 1 ? -this.d / 2 : 0;
     this.px = this.L;
@@ -75,7 +75,7 @@ export default class SpiralWalker {
     // first element repeated for length > 1
     if (this.pts.length > 1) this.pts.splice(0, 1);
 
-    console.log('SpiralWalker this.pts.length', this.pts.length);
+    // console.log('SpiralWalker this.pts.length', this.pts.length);
 
     return this.pts;
   }

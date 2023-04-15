@@ -73,8 +73,8 @@ export default class MazeSpin {
     let nw = int(this.width / this.d);
     let nh = int(this.height / this.d);
     let half = int(n / 2);
-    console.log('make_grid_pts n', n, 'half', half);
-    console.log('make_grid_pts nw', nw, 'nh', nh);
+    // console.log('make_grid_pts n', n, 'half', half);
+    // console.log('make_grid_pts nw', nw, 'nh', nh);
 
     // let offset = int(nw / 2) + int(nh / 2) * nw;
     // let npts = [];
