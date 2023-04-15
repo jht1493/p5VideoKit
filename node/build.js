@@ -58,7 +58,7 @@ let effectsMetas;
     src_path,
     settings: 'settings',
     settingIndexPath: 'gen/settings.html',
-    settingMetasPath: 'gen/settings.js',
+    // settingMetasPath: 'gen/settings.js',
     indexPrefix: '../index.html',
   };
   build_settings(args);
@@ -79,7 +79,7 @@ let effectsMetas;
 {
   let args = {
     src_path,
-    effectMetasPath: 'gen/effects.js',
+    // effectMetasPath: 'gen/effects.js',
     mods: 'effects',
   };
   // const effectMetasPath = './gen/effects.js';

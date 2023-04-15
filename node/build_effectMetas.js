@@ -47,7 +47,8 @@ export default function build_effectMetas(args) {
     // let import_path = mods + '/' + ent.npath;
     // let pos = ent.npath.indexOf('_');
     let { label, ui_label, import_path } = ent;
-    return `{ label: '${label}', import_path: '${import_path}', ui_label: '${ui_label}'},`;
+    // return `{ label: '${label}', import_path: '${import_path}', ui_label: '${ui_label}'},`;
+    return `{ label: '${label}', import_path: '${import_path}'},`;
   });
   // console.log('ents', ents);
   let str = `// !!@ Generated File
@@ -55,8 +56,11 @@ export let a_effectMetas =  [
 ${ents.join('\n')}
 ];
 `;
-  writeSrcBuildFile(src_path, effectMetasPath, str);
-  console.log(mods + '/effs*', ents.length);
+
+  if (effectMetasPath) {
+    writeSrcBuildFile(src_path, effectMetasPath, str);
+    console.log(mods + '/effs*', ents.length);
+  }
 
   args.metas = ents;
 }

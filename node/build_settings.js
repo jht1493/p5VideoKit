@@ -38,8 +38,10 @@ export let a_settingMetas = [
 ${settingMetas.join('\n')}
 ];
 `;
-  writeSrcBuildFile(src_path, settingMetasPath, strm);
-  console.log('settingMetas.length', settingMetas.length);
+  if (settingMetasPath) {
+    writeSrcBuildFile(src_path, settingMetasPath, strm);
+    console.log('settingMetas.length', settingMetas.length);
+  }
 
   args.metas = settingMetas;
 }
