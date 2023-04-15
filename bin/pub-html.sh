@@ -41,7 +41,7 @@ rsync -razO$verbose $excludes $delete $test "$source/" "$rdest/"
 
 echo
 echo Lapse $(expr `date +%s` - $start_time) 
-echo build_ver `cat ../build/build_ver.txt`
+echo build_ver `cat ../build/gen/build_ver.txt`
 echo "open https://jht1493.net/${homepage}"
 
 
