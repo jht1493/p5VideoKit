@@ -140,7 +140,7 @@ function create_selection(ent) {
     aPatch.eff_props[prop] = aVal;
   }
   let isNum = typeof aVal === 'number';
-  console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
+  // console.log('patch_create_selection prop', prop, 'aVal', aVal, 'isNum', isNum);
   if (aVal === null) {
     aVal = '';
   }

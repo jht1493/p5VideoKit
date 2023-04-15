@@ -19,9 +19,14 @@ function setup() {
   videoKit = new p5VideoKit(a_config);
 }
 
+function draw() {
+  videoKit.draw();
+}
+
 let a_config = {
   // effects for import, will appear at top of the effect menu
   effects: [
+    { label: 'maze_spin', import_path: 'effects/maze_spin/eff_maze_spin.js', ui_label: 'maze_spin' },
     { label: 'a_example_props', import_path: 'effects/eff_a_example_props.js', ui_label: 'a_example_props' },
     { label: 'a_my_example', import_path: 'effects/eff_a_my_example.js', ui_label: 'a_my_example' },
     { label: 'a_slit_scan', import_path: 'effects/eff_a_slit_scan.js', ui_label: 'a_slit_scan' },
@@ -44,10 +49,6 @@ let a_config = {
     { label: 'videoKit', import_path: 'settings/videoKit.json' },
   ],
 };
-
-function draw() {
-  videoKit.draw();
-}
 
 // https://editor.p5js.org/shawn/sketches/jZQ64AMJc
 // p5LiveMedia Test Video
