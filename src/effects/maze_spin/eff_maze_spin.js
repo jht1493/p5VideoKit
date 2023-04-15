@@ -5,20 +5,27 @@ import MazeSpin from './MazeSpin.js?v={{vers}}';
 export default class eff_maze_spin {
   static meta_props = [
     { prop: 'ncells', selection: [9, 13, 15, 31, 63, 127, 8, 16, 32, 64, 128] },
-    { prop: 'strokeWeight', selection: [0.5, 0.25, 0.33, 0.66, 0.75] },
+    { prop: 'strokeWeight', selection: [0.5, 0.1, 0.25, 0.33, 0.66, 0.75] },
     { prop: 'delta', selection: [1, -1] },
     { prop: 'do_spiral', selection: [1, 0] },
+    { prop: 'do_truchet', selection: [0, 1] },
+    //
+    // do_cycle = 0 -- cycle sequential mazes
+    // do_cycle = 1 -- cycle random maze to random maze
+    // do_cycle = 2 -- cycle sequential to random to sequential
     { prop: 'do_cycle', selection: [0, 1, 2], br: 1 },
-    // do_cycle=0 cycle sequential mazes
-    // do_cycle=1 cycle random maze to random maze
-    // do_cycle=2 cycle sequential to random to sequential
-    // { prop: 'do_report', selection: [0, 1, 2, 3, 4, 6, 8], br: 1 },
-    { prop: 'step_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
-    { prop: 'pause_period', selection: [1.0, 0, 0.25, 0.5, 2.0, 3.0, 4.0] },
-    { prop: 'video_color', selection: [1, 0] },
-    { prop: 'trails', selection: [0, 1], br: 1 },
+
+    { prop: 'step_period', selection: [1, 0, 0.25, 0.5, 2, 3, 4, 5, 10, 20] },
+    { prop: 'pause_period', selection: [1, -1, 0, 0.25, 0.5, 2, 3, 4, 5, 10, 20] },
+    { prop: 'video_color', selection: [1, 0], br: 1 },
+    //
     { prop: 'alpha', slider: { step: 1, min: 0, max: 255 }, default: 255 },
-    { prop: 'alpha', selection: [255, 2, 10, 20, 30, 100, 200] },
+    { prop: 'alpha', selection: [255, 1, 2, 3, 4, 5, 10, 20, 30, 100, 200, 255] },
+    //
+    // clear_period = -1 -- never clear
+    // clear_period =  0 -- clear on every frame
+    // clear_period >  0 -- clear clear_period seconds
+    { prop: 'clear_period', selection: [0, -1, 1, 2, 3, 5, 10, 20, 30] },
   ];
 
   constructor(props) {

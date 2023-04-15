@@ -1,0 +1,132 @@
+{
+  "setting": "",
+  "comment": "2x2-maze-spin-alpha-2-line-truchet",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-1",
+  "patch_layout": "2x2",
+  "canvas_size": "960x540",
+  "capture_size": "480x270",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "urects_lock": 0,
+  "urects_count": 4,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 0,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_props": {
+        "ncells": 15,
+        "strokeWeight": 0.25,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_cycle": 1,
+        "step_period": 1,
+        "pause_period": 1,
+        "video_color": 1,
+        "alpha": 2,
+        "trails": 0,
+        "clear_period": 20,
+        "do_truchet": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 480,
+          "y0": 0,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_props": {
+        "ncells": 9,
+        "strokeWeight": 0.25,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_truchet": 0,
+        "do_cycle": 1,
+        "step_period": 1,
+        "pause_period": 1,
+        "video_color": 1,
+        "alpha": 2,
+        "clear_period": 20
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 0,
+          "y0": 270,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_props": {
+        "ncells": 9,
+        "strokeWeight": 0.1,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_truchet": 0,
+        "do_cycle": 1,
+        "step_period": 1,
+        "pause_period": 1,
+        "video_color": 1,
+        "alpha": 2,
+        "clear_period": 20
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 3,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 480,
+          "y0": 270,
+          "width": 480,
+          "height": 270
+        }
+      },
+      "eff_props": {
+        "ncells": 9,
+        "strokeWeight": 0.33,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_truchet": 1,
+        "do_cycle": 1,
+        "step_period": 1,
+        "pause_period": 1,
+        "video_color": 1,
+        "alpha": 2,
+        "clear_period": 20
+      }
+    }
+  ]
+}
