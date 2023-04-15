@@ -1,6 +1,9 @@
 #!/bin/bash
 cd ${0%/*}
 
+# build without incrementing build number:
+# bin/build.sh --dev
+
 # Large media files access via symbolic link to outter directory
 # !!@ referenced dependency in bin/pub-html.sh
 # !!@ external/media
