@@ -1,9 +1,9 @@
 // maze with rotating transition
 
-import SpiralWalker from './SpiralWalker.js?v={{vers}}';
-import SecondsTimer from './SecondsTimer.js?v={{vers}}';
-import { report_1ofn, div_report } from './report.js?v={{vers}}';
-import { array_zero, array_add, array_random } from './array.js?v={{vers}}';
+import SpiralWalker from './sub/SpiralWalker.js?v={{vers}}';
+import SecondsTimer from './sub/SecondsTimer.js?v={{vers}}';
+import { report_1ofn, div_report } from './sub/report.js?v={{vers}}';
+import { array_zero, array_add, array_random } from './sub/array.js?v={{vers}}';
 
 export default class MazeSpin {
   // this.ncells

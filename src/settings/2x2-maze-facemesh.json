@@ -1,0 +1,149 @@
+{
+  "setting": "",
+  "comment": "2x2 maze facemesh",
+  "back_color": 200,
+  "room_name": "VideoKit-Room-1",
+  "patch_layout": "2x2",
+  "canvas_size": "640x480",
+  "capture_size": "default",
+  "render_size": "Canvas",
+  "chat_name": "jht",
+  "chat_chk": 0,
+  "live_index": 0,
+  "live_chk": 0,
+  "urects_lock": 0,
+  "urects_count": 5,
+  "canvas_resize_ref": "",
+  "canvas_data_chk": 0,
+  "mediaDiv_states": [
+    null,
+    {
+      "vis": 0,
+      "mute": 1
+    }
+  ],
+  "patches": [
+    {
+      "eff_spec": {
+        "ipatch": 0,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "ncells": 31,
+        "strokeWeight": 0.66,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_random": 1,
+        "do_report": 0,
+        "step_period": 2,
+        "pause_period": 2,
+        "video_color": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 1,
+        "imedia": 1,
+        "eff_label": "maze_spin",
+        "urect": {
+          "x0": 320,
+          "y0": 0,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "ncells": 15,
+        "strokeWeight": 0.5,
+        "delta": 1,
+        "do_spiral": 1,
+        "do_random": 1,
+        "do_report": 0,
+        "step_period": 1,
+        "pause_period": 1,
+        "video_color": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 2,
+        "imedia": 1,
+        "eff_label": "delaunay",
+        "urect": {
+          "x0": 0,
+          "y0": 240,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "dcell": 50,
+        "period": 2,
+        "type": "triangle",
+        "alpha": 5,
+        "gray": 0
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 3,
+        "imedia": 1,
+        "eff_label": "face_mesh",
+        "urect": {
+          "x0": 320,
+          "y0": 240,
+          "width": 320,
+          "height": 240
+        }
+      },
+      "eff_props": {
+        "alpha": 255,
+        "align": "center",
+        "back_color": 1,
+        "period": 0,
+        "hi_rez": 1,
+        "sticky": 1,
+        "reveal": 0,
+        "reveal_full": 1,
+        "box_outter": 0,
+        "box_rect": 0,
+        "mar_h": 0,
+        "draw": "mesh",
+        "draw_mod": 4,
+        "slen": 2,
+        "mask_index": 0,
+        "avg_index": 0,
+        "pixd_n": 8,
+        "detect_max": 1
+      }
+    },
+    {
+      "eff_spec": {
+        "ipatch": 4,
+        "imedia": 1,
+        "eff_label": "show",
+        "urect": {
+          "x0": 0,
+          "y0": 0,
+          "width": 320,
+          "height": 240
+        },
+        "ipipe": 0,
+        "ihide": 1
+      },
+      "eff_props": {
+        "record_fps": 4,
+        "record_duration": 5,
+        "record_save_name": "record_log",
+        "record_show": 0
+      }
+    }
+  ]
+}
