@@ -40,7 +40,7 @@ let a_config = {
   // settings for import, will appear in the settings menu
   settings: [
     { label: '2x2-maze-facemesh', import_path: 'settings/2x2-maze-facemesh.json' },
-    { label: '2x2-maze-spin-random-0-1-2', import_path: 'settings/2x2-maze-spin-random-0-1-2.json' },
+    { label: '2x2-maze-spin-cycle-0-1-2', import_path: 'settings/2x2-maze-spin-cycle-0-1-2.json' },
     { label: 'delaunay-alpha-5', import_path: 'settings/delaunay-alpha-5.json' },
     { label: 'live_gallery-video', import_path: 'settings/live_gallery-video.json' },
     { label: 'live_gallery-yoyo', import_path: 'settings/live_gallery-yoyo.json' },

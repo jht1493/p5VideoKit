@@ -1,6 +1,6 @@
 {
-  "setting": "",
-  "comment": "2x2-maze-spin-random-0-1-2",
+  "setting": "2x2-maze-spin-random-0-1-2",
+  "comment": "2x2-maze-spin-cycle-0-1-2",
   "back_color": 200,
   "room_name": "VideoKit-Room-1",
   "patch_layout": "2x2",
