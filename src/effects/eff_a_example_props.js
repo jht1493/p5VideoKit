@@ -2,7 +2,15 @@
 //
 export default class eff_a_example_props {
   static meta_props = [
-    // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    //
+    // meta_props
+    //  array of entries for each effect property that will be appear in the ui panel
+    //  eg: { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
+    //  prop -- property name
+    //  label -- optional label for property
+    //  selection | slider | textInput | button -- type of ui element
+    //  style -- optional style for element
+    //
     { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     { prop: 'str_prop2', label: 'prop2', selection: ['red', 'green', 'yellow'] },
     { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%', br: 1 },
