@@ -15,7 +15,9 @@ export default class eff_skin_tone_main {
         inst.showQRCode = inst.showQRCode ? 0 : 1;
         console.log('toggleQRCode inst.showQRCode', inst.showQRCode);
       },
+      br: 1,
     },
+    { prop: 'image_url', textInput: './effects/skintone-guest_jht1493-v2.png', style: 'width:40%' },
   ];
   constructor(props) {
     // console.log('src/import/eff_skin_tone_main.js');
@@ -73,7 +75,7 @@ export default class eff_skin_tone_main {
       let props = {};
       if (index == qrIndex) {
         let eff_label = 'image_url';
-        props = { image_url: './effects/skintone-guest_jht1493.net.png' };
+        props = { image_url: this.image_url };
         this.eff_qr = videoKit.createEffect({ eff_label, imedia, urect, props });
       }
       this.urects.push({ urect });
