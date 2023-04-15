@@ -1,6 +1,6 @@
-// example1 - using meta_props for showing effect properties in the dashboard
+// eff_a_my_example - copy and customized from eff_a_example_props
 //
-export default class eff_a_example_props {
+export default class eff_a_my_example {
   static meta_props = [
     { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     {}, // create a line break

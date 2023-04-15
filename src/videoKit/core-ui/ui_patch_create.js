@@ -38,6 +38,7 @@ import { div_break } from '../core-ui/ui_patch_eff.js?v={{vers}}';
 
 export function patch_create_other(aPatch, div, prop, items, issueBreak) {
   // console.log('create_other prop', prop, 'items', items);
+  let breakSeen = 0;
   let ent = { aPatch, div, prop };
   for (let iprop in items) {
     let item = items[iprop];
@@ -75,6 +76,9 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
         break;
       case 'prop':
         break;
+      case 'br':
+        breakSeen = 1;
+        break;
       default:
         console.log('create_other !!@ Unkown type=' + iprop);
         break;
@@ -88,9 +92,9 @@ export function patch_create_other(aPatch, div, prop, items, issueBreak) {
     if (ent.defaultStyle) {
       ent.elm.style(ent.defaultStyle);
     }
-    return 0; // no break
+    return breakSeen; // maybe break
   } else {
-    // div_break(div);
+    // items = {} for break on next entry
     return 1; // issueBreak
   }
 }

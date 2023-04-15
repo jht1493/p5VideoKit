@@ -1,17 +1,17 @@
-// example1 - using meta_props for showing effect properties in the dashboard
+// eff_a_example_props - using meta_props for showing effect properties in the dashboard
 //
 export default class eff_a_example_props {
   static meta_props = [
     // { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     { prop: 'num_prop', label: 'prop1', selection: [100, 200, 300, 400] },
     { prop: 'str_prop2', label: 'prop2', selection: ['red', 'green', 'yellow'] },
-    { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%' },
-    {}, // create a line break
-    { prop: 'slider1_prop', label: 'slider1', slider: { min: 0, max: 8 }, style: 'width:20%' },
-    {}, // create a line break
+    { prop: 'textInput_prop', label: 'text1', textInput: 'Hello world!', style: 'width:40%', br: 1 },
+    // br: 1 creates a line break
+    { prop: 'slider1_prop', label: 'slider1', slider: { min: 0, max: 8 }, style: 'width:20%', br: 1 },
+    // line break
     { prop: 'slider2_prop', label: 'slider2', slider: { min: -5, max: 5 }, style: 'width:20%' },
-    { prop: 'slider3_prop', label: 'slider3', slider: { step: 0.01 }, style: 'width:20%' },
-    {}, // create a line break
+    { prop: 'slider3_prop', label: 'slider3', slider: { step: 0.01 }, style: 'width:20%', br: 1 },
+    // line break
     {
       prop: 'button1',
       button: (inst, aPatch) => {
