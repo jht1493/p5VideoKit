@@ -6,7 +6,7 @@ export default class eff_maze_spin {
   static meta_props = [
     // { prop: 'num_prop', label: 'prop1', selection: [0, 1] },
     { prop: 'ncells', selection: [9, 13, 15] },
-    { prop: 'strokeWeight', selection: [0.5, 0.25, 0.33] },
+    { prop: 'strokeWeight', selection: [0.5, 0.25, 0.33, 0.66, 0.75] },
     { prop: 'delta', selection: [1, -1] },
     { prop: 'do_spiral', selection: [1, 0] },
     { prop: 'do_random', selection: [1, 0] },

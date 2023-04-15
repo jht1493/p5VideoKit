@@ -88,7 +88,8 @@ export default class MazeSpin {
   }
 
   draw_maze() {
-    this.output.background(220);
+    // this.output.background(220);
+    this.output.clear();
     let tangle = HALF_PI * this.timer.progress();
     let half = this.d / 2;
     for (let index = 0; index < this.pts.length; index++) {
