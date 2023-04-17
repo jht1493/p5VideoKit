@@ -95,6 +95,12 @@ export default class eff_face_mesh {
     ui_message('loading model...');
     this.facemesh = ml5.facemesh(this.video, function () {
       // console.log('eff_facetrian Model ready!');
+
+      // Report model load time
+      let load_lapse = window.performance.now() - dice.startTime;
+      console.log('eff_face_mesh load_lapse', load_lapse);
+      dice.dapi('load_lapse', { load_lapse });
+
       ui_message('');
     });
     this.facemesh.on('predict', (results) => {

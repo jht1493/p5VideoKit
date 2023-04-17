@@ -24,7 +24,7 @@ class p5VideoKit {
       console.log('videoKit.init done');
 
       // Report startup lapse time
-      let init_lapse = window.performance.now - dice.startTime;
+      let init_lapse = window.performance.now() - dice.startTime;
       dice.dapi('init_done', { init_lapse });
       //
     });
@@ -50,7 +50,7 @@ class p5VideoKit {
   }
 }
 
-var dice = {};
+var dice = { warning: 1 };
 
 dice.dapi = function (arg, arg2, result) {
   if (dice.debug) console.log('dice arg=' + arg + ' arg2=' + JSON.stringify(arg2));
@@ -70,7 +70,9 @@ dice.dapi = function (arg, arg2, result) {
   if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dice) {
     window.webkit.messageHandlers.dice.postMessage(opt);
   } else {
-    if (dice.warning) console.log('dice opt=' + JSON.stringify(opt));
+    if (dice.warning) {
+      console.log('dice opt=' + JSON.stringify(opt));
+    }
   }
 };
 dice.result_funcs = {};
