@@ -1,0 +1,16 @@
+install-log.txt
+
+# --
+2023-04-16 22:08:11
+
+-rw-r--r--@  1 jht2  staff   3 316 006 Apr 16 18:26 ml5.min.js
+-rw-r--r--@  1 jht2  staff  10 002 948 Apr 16 18:26 ml5.min.js.map
+                      /*! p5.js v1.6.0 February 22, 2023 */
+-rw-r--r--   1 jht2  staff   3 984 128 Apr 16 18:26 p5.js
+-rw-r--r--   1 jht2  staff     913 568 Apr 16 22:04 p5.min.js
+-rw-r--r--@  1 jht2  staff     200 064 Apr 16 18:26 p5.sound.min.js
+-rw-r--r--   1 jht2  staff          36 Jul  8  2022 p5.sound.min.js.map
+-rw-r--r--   1 jht2  staff      15 071 Apr 16 18:26 p5livemedia.js
+-rw-r--r--   1 jht2  staff      96 626 Apr 16 18:26 simplepeer.min.js
+-rw-r--r--@  1 jht2  staff      68 686 Apr 16 18:26 socket.io.js
+-rw-r--r--   1 jht2  staff          36 Jul  8  2022 socket.io.js.map
