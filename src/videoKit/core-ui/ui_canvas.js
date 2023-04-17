@@ -188,6 +188,12 @@ let a_canvas_sizes = [
     },
   },
   {
+    label: 'Display',
+    func: function () {
+      resizeCanvas(displayWidth, displayHeight);
+    },
+  },
+  {
     label: 'Full Screen',
     func: function () {
       toggleFullScreen();
