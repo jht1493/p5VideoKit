@@ -25,7 +25,7 @@ class p5VideoKit {
 
       // Report startup lapse time
       let init_lapse = window.performance.now() - dice.startTime;
-      dice.dapi('init_done', { init_lapse });
+      dice.dapi('stats', { init_lapse });
       //
     });
   }

@@ -99,7 +99,7 @@ export default class eff_face_mesh {
       // Report model load time
       let load_lapse = window.performance.now() - dice.startTime;
       console.log('eff_face_mesh load_lapse', load_lapse);
-      dice.dapi('load_lapse', { load_lapse });
+      dice.dapi('stats', { load_lapse });
 
       ui_message('');
     });
