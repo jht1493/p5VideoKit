@@ -54,7 +54,8 @@ function gen_settings_index(src_path, settingIndexPath, indexPrefix, args) {
   files = files.map((file) => {
     if (!file) return '<br/>';
     uindex++;
-    return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
+    // return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
+    return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings-${uindex}">${file}</><br>`;
   });
   let str = `<!DOCTYPE html>
 <html lang="en">
