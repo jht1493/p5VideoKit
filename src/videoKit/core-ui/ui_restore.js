@@ -90,6 +90,8 @@ function setting_import(sete, index) {
       },
       (err) => {
         console.log('setting_import error url', url, 'error', err);
+        console.log('setting_import error index', index);
+        a_.settings[index] = { setting: 'Missing' };
         reject(err);
       }
     );
