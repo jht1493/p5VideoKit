@@ -39,7 +39,7 @@ function ui_top_pane() {
   <button id="ireload">Reload</button>
   <span id="iu"></span>
   <span id="ifps"></span>
-  <span id="imsg" style="font-size: 5vw; display: none; float: right"></span>
+  <!-- <span id="imsg" style="font-size: 5vw; display: none; float: right"></span> -->
   <span>
     <span style="float: right; margin-right: 5px">
       <a href="https://github.com/jht1493/p5VideoKit/" target="github" >
