@@ -51,9 +51,9 @@ function ui_top_pane() {
         <a href="./videoKit/settings.html" target="_blank"> Settings </a> 
       ]
     </span>
-    <span style="float: right; margin-right: 5px">
+    <!-- <span style="float: right; margin-right: 5px">
       <a href="./gen/settings.html" target="_blank" > Settings </a>
-    </span>
+    </span> -->
   </span>
   `;
   ui_div_append(div, html);

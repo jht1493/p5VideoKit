@@ -17,7 +17,7 @@ export default class eff_skin_tone_main {
       },
       br: 1,
     },
-    { prop: 'image_url', textInput: './effects/skintone-guest_jht1493-v2.png', style: 'width:40%' },
+    { prop: 'image_url', textInput: './effects/skin-tone-guest-v3.png', style: 'width:40%' },
   ];
   constructor(props) {
     // console.log('src/import/eff_skin_tone_main.js');

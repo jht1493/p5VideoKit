@@ -10,6 +10,7 @@ export function face_mesh_draw(nthis, img, predictions) {
   let draw_pixd = ddraw == 'pixd';
   let out_w = layer.width;
   let out_h = layer.height;
+  let mar_w = out_w * (nthis.mar_w / 100); // width margin -- not used yet
   let mar_h = out_h * (nthis.mar_h / 100);
   let rr = out_h / img.height;
   let align_none = nthis.align === 'none';

@@ -50,7 +50,7 @@
         "reveal_full": 1,
         "box_outter": 0,
         "box_rect": 0,
-        "mar_h": 10,
+        "mar_h": 15,
         "draw": "mesh",
         "draw_mod": 4,
         "slen": 2,

@@ -16,7 +16,8 @@ export default class eff_face_mesh {
     box_outter: [0, 1],
     box_rect: [0, 1],
     // _src_patch: [0, 1],
-    _mar_h: [0, 0, 2, 5, 10, 20, 30, 40],
+    _mar_h: [0, 0, 2, 5, 10, 15, 20, 30, 40], // height margin
+    mar_w: [0, 0, 2, 5, 10, 15, 20, 30, 40], // width margin
     draw: ['mesh', 'dots', 'rects', 'tris', 'crop', 'pixd', 'cycle'],
     draw_mod: [4], // how many to cycle thru
     slen: [2, 1, 2, 3, 4, 5, 10],
