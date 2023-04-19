@@ -170,6 +170,14 @@ let a_canvas_sizes = [
     height: 1080,
   },
   {
+    width: 270,
+    height: 480,
+  },
+  {
+    width: 480,
+    height: 640,
+  },
+  {
     width: 540,
     height: 960,
   },

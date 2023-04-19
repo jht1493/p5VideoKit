@@ -9,7 +9,7 @@ import { str_to_width_height } from '../core-ui/ui_canvas.js?v={{vers}}';
 import { store_export_json, store_export_url, store_name_update } from '../core/store_url_parse.js?v={{vers}}';
 import { patch_add, patch_inst_clear, patch_inst_update } from '../core/patch_inst.js?v={{vers}}';
 
-let layout_options = ['Single', '2x1', '2x2', '2x3', '3x2', '3x3', '3x1', '4x4', '1x4'];
+let layout_options = ['Single', '1x1', '2x1', '2x2', '2x3', '3x2', '3x3', '3x1', '4x4', '1x4'];
 let back_color_options = [0, 1, 50, 100, 200, 255, -1];
 
 export function ui_patch_bar() {
