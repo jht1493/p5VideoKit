@@ -9,6 +9,7 @@ import { patch_inst_clear } from '../core/patch_inst.js?v={{vers}}';
 // 2: livem device for self
 // 3: livem device for others ...
 
+// { live: 1 }
 export function create_mediaDiv(mediaDevice, options) {
   // let vis_in = !a_.hideui; // default to visible except if ui hidden
   let addSort = options.live;
@@ -101,10 +102,11 @@ export function create_mediaDiv(mediaDevice, options) {
     }
     arr.splice(index, 0, ent);
     // !!@ for eff_skin_tone_main when don't want to clear
-    if (!a_.videoKit.pause_patch_inst_clear) {
+    // if (!a_.videoKit.pause_patch_inst_clear) {
+    if (!a_.ui.hold_create_media_clear) {
       patch_inst_clear();
     } else {
-      console.log('videoKit.pause_patch_inst_clear');
+      console.log('a_.ui.hold_create_media_clear');
     }
   }
   // a_.mediaDivs.push(ent);

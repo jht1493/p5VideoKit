@@ -6,7 +6,7 @@ import { location_noquery } from '../core/store_url_parse.js?v={{vers}}';
 // This simple use of createCapture appears to trigger permissions
 let myVideo;
 export function reset_video_clear_locals(storen) {
-  ui_message('Resetting Configuration');
+  ui_message('Resetting Configuration', { initTimer: 1 });
   localStorage.clear();
   if (storen) {
     localStorage.setItem('a_.store_name', storen);

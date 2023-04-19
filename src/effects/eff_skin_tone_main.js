@@ -4,16 +4,20 @@ export default class eff_skin_tone_main {
   static meta_props = [
     { prop: 'ncell', selection: [3, 2, 3, 4, 5, 6, 7] },
     { prop: 'qr_image_index', selection: [-1, 8, 4, 15] },
-    { prop: 'ifirst', selection: [2, 1] },
-    { prop: 'period', selection: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60] },
+    // { prop: 'ifirst', selection: [2, 1] },
+    { prop: 'period', selection: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60], br: 1 },
     { prop: 'showQRCode', selection: [1, 0] },
     { prop: 'autoHideQRCode', selection: [0, 1] },
     {
-      prop: 'toggleQRCode',
+      prop: 'show QRCode',
       button: (inst, aPatch) => {
-        console.log('toggleQRCode inst', inst);
-        inst.showQRCode = inst.showQRCode ? 0 : 1;
-        console.log('toggleQRCode inst.showQRCode', inst.showQRCode);
+        inst.showQRCode = 1;
+      },
+    },
+    {
+      prop: 'hide QRCode',
+      button: (inst, aPatch) => {
+        inst.showQRCode = 0;
       },
       br: 1,
     },
@@ -57,12 +61,11 @@ export default class eff_skin_tone_main {
   }
   init() {
     let videoKit = this.videoKit;
-    videoKit.pause_patch_inst_clear = 1;
-    // this.nMediaDiv = videoKit.mediaDivCount();
     let urmain = this.eff_spec.urect;
     this.output = createGraphics(urmain.width, urmain.height);
     this.period_timer = new videoKit.PeriodTimer(this.period);
     this.iperiod = 0;
+    this.ifirst = videoKit.mediaDivLiveIndex();
     this.imedia = this.ifirst;
     this.effs_all = [];
     this.urects = [];

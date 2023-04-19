@@ -1,5 +1,6 @@
 {
   "setting": "street/skin-tone-guest.json",
+  "hold_create_media_clear": 1,
   "comment": "skin-tone-guest",
   "back_color": 200,
   "room_name": "VideoKit-SkinTone2",

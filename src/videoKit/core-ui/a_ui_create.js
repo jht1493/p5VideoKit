@@ -150,12 +150,40 @@ export function update_ui() {
   }
 }
 
-export function ui_message(msg) {
+let msgIntervalId = -1;
+let msgIntervalPeriod = 100;
+let msgText;
+
+export function ui_message(msg, opt) {
+  if (opt && opt.initTimer) {
+    dice.startTime = window.performance.now();
+  }
   let imsg = select('#imsg');
   if (!imsg) return;
   if (msg) {
     msg = ' [ ' + msg + ' ] ';
+    msgText = msg;
+    if (msgIntervalId > 0) {
+      clearInterval(msgIntervalId);
+    }
+    msgIntervalId = setInterval(report_message, msgIntervalPeriod);
+  } else {
+    if (msgIntervalId > 0) {
+      clearInterval(msgIntervalId);
+      msgIntervalId = -1;
+    }
   }
+  imsg.html(msg);
+  imsg.style(msg ? 'display:inline' : 'display:none');
+}
+
+// Lapse time as seconds since dice.startTime
+function report_message() {
+  let imsg = select('#imsg');
+  let lapse = window.performance.now() - dice.startTime;
+  lapse = lapse / 1000;
+  lapse = Math.floor(lapse * 100) / 100;
+  let msg = lapse + ' ' + msgText;
   imsg.html(msg);
   imsg.style(msg ? 'display:inline' : 'display:none');
 }
