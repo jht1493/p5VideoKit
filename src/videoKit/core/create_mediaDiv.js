@@ -100,7 +100,12 @@ export function create_mediaDiv(mediaDevice, options) {
       }
     }
     arr.splice(index, 0, ent);
-    patch_inst_clear();
+    // !!@ for eff_skin_tone_main when don't want to clear
+    if (!a_.videoKit.pause_patch_inst_clear) {
+      patch_inst_clear();
+    } else {
+      console.log('videoKit.pause_patch_inst_clear');
+    }
   }
   // a_.mediaDivs.push(ent);
 

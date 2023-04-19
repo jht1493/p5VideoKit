@@ -20,13 +20,18 @@ export default class eff_skin_tone_main {
     { prop: 'image_url', textInput: './effects/skin-tone-guest-v3.png', style: 'width:40%' },
   ];
   constructor(props) {
-    // console.log('src/import/eff_skin_tone_main.js');
+    console.log('eff_skin_tone_main constructor');
     Object.assign(this, props);
     this.init();
   }
   prepareOutput() {
     let videoKit = this.videoKit;
     let n = videoKit.mediaDivCount();
+    // if (n != this.nMediaDiv) {
+    //   console.log('eff_skin_tone_main n', n, 'nMediaDiv', this.nMediaDiv);
+    //   this.show_index = 0;
+    //   this.nMediaDiv = n;
+    // }
     let nshow = this.urects.length;
     let layer = this.output;
     let sindex = this.show_index;
@@ -52,6 +57,8 @@ export default class eff_skin_tone_main {
   }
   init() {
     let videoKit = this.videoKit;
+    videoKit.pause_patch_inst_clear = 1;
+    // this.nMediaDiv = videoKit.mediaDivCount();
     let urmain = this.eff_spec.urect;
     this.output = createGraphics(urmain.width, urmain.height);
     this.period_timer = new videoKit.PeriodTimer(this.period);

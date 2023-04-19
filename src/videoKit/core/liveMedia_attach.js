@@ -35,8 +35,10 @@ export function liveMedia_attach(mediaDiv) {
   // console.log('liveMedia_attach type=' + type + ' a_.ui.room_name=' + a_.ui.room_name);
   // this is nulll in modules
   let nthis = this || window;
-  // console.log('liveMedia_attach this', this, 'nthis', nthis);
-  livem = new p5LiveMedia(nthis, type, stream, a_.ui.room_name);
+  console.log('liveMedia_attach this', this, 'nthis', nthis);
+  let room_name = a_.videoKit.room_name_prefix + a_.ui.room_name;
+  console.log('liveMedia_attach room_name', room_name);
+  livem = new p5LiveMedia(nthis, type, stream, room_name);
   if (!a_.livem) {
     livem.on('stream', gotStream);
     livem.on('data', gotData);

@@ -16,6 +16,7 @@ import { PeriodTimer } from '../util/PeriodTimer.js?v={{vers}}';
 p5VideoKit.prototype.PeriodTimer = PeriodTimer;
 
 p5VideoKit.prototype.vk_setup = function (effects, settings, resolve) {
+  a_.videoKit = this;
   a_.my_canvas = this.my_canvas;
   ui_restore_store(effects, settings, (sizeResult) => {
     console.log('vk_setup sizeResult', sizeResult);

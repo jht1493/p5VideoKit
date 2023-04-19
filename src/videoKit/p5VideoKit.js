@@ -12,6 +12,7 @@ class p5VideoKit {
     // console.log('p5VideoKit p5_instance', p5_instance);
     // To work in p5 instance mode we need to use this.p5_instance on all p5 globals
     //
+    this.room_name_prefix = 'dev-';
     if (!p5_instance) {
       console.log('p5VideoKit !!@ no p5_instance');
     }

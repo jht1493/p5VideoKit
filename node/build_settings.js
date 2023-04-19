@@ -55,12 +55,12 @@ function gen_settings_index(src_path, settingIndexPath, indexPrefix, args) {
     if (!file) return '<br/>';
     uindex++;
     // return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings">${file}</><br>`;
-    return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings-${uindex}">${file}</><br>`;
+    return `<a href="${indexPrefix}?u=${uindex}&d=${file}" target="settings-${uindex}">${file}</><br/><br/>`;
   });
   let str = `<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
 ${files.join('\n')}
