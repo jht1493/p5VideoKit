@@ -4,7 +4,6 @@ export default class eff_skin_tone_main {
   static meta_props = [
     { prop: 'ncell', selection: [3, 2, 3, 4, 5, 6, 7] },
     { prop: 'qr_image_index', selection: [-1, 8, 4, 15] },
-    // { prop: 'ifirst', selection: [2, 1] },
     { prop: 'period', selection: [5, -1, 0, 0.5, 1, 2, 3, 4, 5, 6, 10, 20, 30, 60], br: 1 },
     { prop: 'showQRCode', selection: [1, 0] },
     { prop: 'autoHideQRCode', selection: [0, 1] },
@@ -31,11 +30,6 @@ export default class eff_skin_tone_main {
   prepareOutput() {
     let videoKit = this.videoKit;
     let n = videoKit.mediaDivCount();
-    // if (n != this.nMediaDiv) {
-    //   console.log('eff_skin_tone_main n', n, 'nMediaDiv', this.nMediaDiv);
-    //   this.show_index = 0;
-    //   this.nMediaDiv = n;
-    // }
     let nshow = this.urects.length;
     let layer = this.output;
     let sindex = this.show_index;
