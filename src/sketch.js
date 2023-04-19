@@ -10,6 +10,9 @@ function setup() {
   let lapse = window.performance.now() - a_start_now;
   console.log('setup lapse', lapse);
 
+  // Lowest pixel density for performance
+  pixelDensity(1);
+
   // Need some starting dimensions for canvas.
   // Will get adjusted by ui later in startup
   createCanvas(100, 100);
