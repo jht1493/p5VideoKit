@@ -3,7 +3,8 @@
 //
 let videoKit; // home for library routines
 
-p5.disableFriendlyErrors = true; // disables p5js FES (friendly error system) 
+p5.disableFriendlyErrors = true; 
+// disables p5js FES (friendly error system) 
 // to improve performance
 
 function setup() {
@@ -16,19 +17,22 @@ function setup() {
   // pixelDensity(1);
 
   // Need some starting dimensions for canvas.
-  // Size will get adjusted by ui later in startup
+  // Make it small, size will get adjusted by UI (user interface) later in startup
   createCanvas(100, 100);
   // createCanvas(100, 100, WEBGL);
 
   // must call createCanvas before new p5VideoKit
 
-  // effects for import, will appear at top of the effect menu
-  // examples of effects that have been added to the VideoKit library,
-  // you could add some more !!!!
-  // an EFFECT can have many PROPERTIES specific to the effect eg cell size, color, canvas size
-  // for example you can have the same circle choice in Effect1 and Effect2, but different
-  // properties like number of circles per frame and the video source 
+  // an EFFECT can have many PROPERTIES specific to the effect 
+  // for example canvas size, color, cell size, 
+  // to see this, choose "circle" in Effect1 and Effect2, 
+  // then choose different properties like number of circles per frame 
+  // or the video source 
 
+  // the "effects" array creates a pull-down menu 
+  // which offers a first selection of effects added to the VideoKit library,
+  // you could add some more !!!!
+  
   let effects = [
     { label: 'a_my_example', import_path: 'effects/eff_a_my_example.js', ui_label: 'a_my_example' },
     { label: 'a_example_props', import_path: 'effects/eff_a_example_props.js', ui_label: 'a_example_props' },
@@ -42,8 +46,10 @@ function setup() {
     { label: 'bbtest', import_path: 'effects/eff_bbtest.js', ui_label: 'bbtest' },
   ];
 
-  // settings for import, will appear at top of settings menu
-  // loads a json file with predefined values for all the settings associated with the effect
+  // SETTINGS will load a save .json file with predefined values 
+  // for all the settings associated with the effect
+  // "settings" is an array of 
+
   let settings = [
     // slit scan circle.json
     { label: 'slit scan circle', import_path: 'settings/slit scan circle.json' },
