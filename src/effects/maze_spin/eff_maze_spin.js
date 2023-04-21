@@ -9,6 +9,7 @@ export default class eff_maze_spin {
     { prop: 'delta', selection: [1, -1] },
     { prop: 'do_spiral', selection: [1, 0] },
     { prop: 'do_truchet', selection: [0, 1] },
+    { prop: 'do_report', selection: [0, 1, 4] },
     //
     // do_cycle = 0 -- cycle sequential mazes
     // do_cycle = 1 -- cycle random maze to random maze

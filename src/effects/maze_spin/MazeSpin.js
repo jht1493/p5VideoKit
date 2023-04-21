@@ -122,7 +122,7 @@ export default class MazeSpin {
     if (this.timer.arrived()) {
       array_add(this.now, this.delta);
       array_add(this.next, this.delta);
-      //   div_report(this, this.target, 'draw_maze0_step');
+      div_report(this, this.target, 'draw_maze0_step');
       this.timer.setPeriod(this.step_period);
       this.draw_step = 'draw_maze0_step';
     }
@@ -145,6 +145,7 @@ export default class MazeSpin {
       this.next = oldNow;
       this.target = this.next;
       array_random(this.target);
+      div_report(this, this.target, 'draw_maze1_step');
       this.timer.setPeriod(this.step_period);
       this.draw_step = 'draw_maze1_step';
     }
