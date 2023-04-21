@@ -1,0 +1,8 @@
+# Change notes 
+
+
+0.0.1 First tag created!
+ref: https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags
+2023-04-21 14:09:29
+- MazeSpin do_report added to show big int for maze interation number
+
